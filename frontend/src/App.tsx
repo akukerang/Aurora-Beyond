@@ -17,18 +17,18 @@ import Log from "./components/Log";
 function App() {
   return (
 <div className="flex flex-col md:flex-row text-white bg-black h-screen w-screen">
-    <div className="w-full md:h-full md:w-1/3 xl:w-1/4 flex flex-col bg-gray-800 p-4">
+    <div className="w-full md:h-full md:w-1/3 xl:w-[35%] bg-gray-800 p-4">
         <InfoPanel />
     </div>
 
-    <div className="w-full md:w-2/3 xl:w-5/8 flex flex-col h-full bg-gray-700">
+    <div className="w-full md:w-2/3 xl:w-[45%] flex flex-col h-full bg-gray-700">
         <Navbar />
         <div className="p-4 max-h-full overflow-y-scroll">
             <Outlet />
         </div>
     </div>
 
-    <div className="hidden xl:block xl:w-1/4 bg-gray-600 p-3">
+    <div className="hidden xl:block xl:w-[20%] bg-gray-600 p-3">
         <h1 className="text-2xl border-b border-white pb-1 mb-1">Log</h1>
         <Log />
     </div>
