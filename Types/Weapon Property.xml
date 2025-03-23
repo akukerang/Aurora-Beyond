@@ -1,0 +1,45 @@
+<SourceInfo><element name="Special (Chakram)" type="Weapon Property" id="ID_AW_OOTD_WEAPON_PROPERTY_SPECIAL_CHAKRAM"><description usage="" level="0">
+			<p>The chakram returns to you when thrown, unless you fumble the attack by rolling a natural 1.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Explosive" type="Weapon Property" id="ID_CRIT_WEAPON_PROPERTY_EXPLOSIVE"><description usage="" level="0">
+			<p>Upon a hit, everything within 5 ft of the target must make a Dexterity saving throw (DC equal to 8 + your proficiency bonus + your Dexterity modifier) or suffer 1d8 fire damage. If the weapon misses, the ammunition fails to detonate, or bounces away harmlessly before doing so.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Misfire" type="Weapon Property" id="ID_CRIT_WEAPON_PROPERTY_MISFIRE"><description usage="" level="0">
+			<p>Whenever you make an attack roll with a firearm, and the dice roll is equal to or lower than the weapon's Misfire score, the weapon misfires. The attack misses, and the weapon cannot be used again until you spend an action to try and repair it. To repair your firearm, you must make a successful Tinker's Tools check (DC equal to 8 + misfire score). If your check fails, the weapon is broken and must be repaired out of combat at half the cost of the firearm.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Misfire 1" type="Weapon Property" id="ID_CRIT_WEAPON_PROPERTY_MISFIRE_1"><description usage="" level="0">
+			<p>This misfires on a roll of 1 on the d20.</p>
+			<div element="ID_CRIT_WEAPON_PROPERTY_MISFIRE" />
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Misfire 2" type="Weapon Property" id="ID_CRIT_WEAPON_PROPERTY_MISFIRE_2"><description usage="" level="0">
+			<p>This misfires on a roll of 2 on the d20.</p>
+			<div element="ID_CRIT_WEAPON_PROPERTY_MISFIRE" />
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Misfire 3" type="Weapon Property" id="ID_CRIT_WEAPON_PROPERTY_MISFIRE_3"><description usage="" level="0">
+			<p>This misfires on a roll of 3 on the d20.</p>
+			<div element="ID_CRIT_WEAPON_PROPERTY_MISFIRE" />
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Reload" type="Weapon Property" id="ID_CRIT_WEAPON_PROPERTY_RELOAD"><description usage="" level="0">
+			<p>The weapon can be fired a number of times equal to its Reload score before you must spend 1 attack or 1 action to reload. You must have one free hand to reload a firearm.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Reload 1" type="Weapon Property" id="ID_CRIT_WEAPON_PROPERTY_RELOAD_1"><description usage="" level="0">
+			<p>This weapon needs to be reloaded after 1 shot.</p>
+			<div element="ID_CRIT_WEAPON_PROPERTY_RELOAD" />
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Reload 2" type="Weapon Property" id="ID_CRIT_WEAPON_PROPERTY_RELOAD_2"><description usage="" level="0">
+			<p>This weapon needs to be reloaded after 2 shots.</p>
+			<div element="ID_CRIT_WEAPON_PROPERTY_RELOAD" />
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Reload 4" type="Weapon Property" id="ID_CRIT_WEAPON_PROPERTY_RELOAD_4"><description usage="" level="0">
+			<p>This weapon needs to be reloaded after 4 shots.</p>
+			<div element="ID_CRIT_WEAPON_PROPERTY_RELOAD" />
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Reload 6" type="Weapon Property" id="ID_CRIT_WEAPON_PROPERTY_RELOAD_6"><description usage="" level="0">
+			<p>This weapon needs to be reloaded after 6 shots.</p>
+			<div element="ID_CRIT_WEAPON_PROPERTY_RELOAD" />
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Scatter" type="Weapon Property" id="ID_CRIT_WEAPON_PROPERTY_SCATTER"><description usage="" level="0">
+			<p>An attack is made against each creature within a 30 ft cone. These attacks are simultaneous. If an affected creature is adjacent to you, they suffer double damage on a hit. This attack cannot be affected by any of your shot features.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Special (Lasso)" type="Weapon Property" id="ID_DMSG_MUSG_WEAPON_PROPERTY_SPECIAL_LASSO"><description usage="" level="0">
+			<p>A Large or smaller creature hit by a lasso is Restrained until it is freed. A lasso has no effect on creatures that are formless, or creatures that are Huge or larger. Treat a completely stationary target as having AC 10.</p>
+            <p class="indent">A creature caught by a lasso can use its action to make a DC 10 Dexterity check, freeing itself or another creature within its reach on a success. Dealing 3 slashing damage to the lasso (AC 10) also frees the creature without harming it, ending the effect and turning the lasso into a cut rope.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Ammunition" type="Weapon Property" id="ID_WOTC_DMG_WEAPON_PROPERTY_FIREARM_AMMUNITION"><description usage="" level="0">
+			<p>The ammunition of a firearm is destroyed upon use. Renaissance and modern firearms use bullets. Futuristic firearms are powered by a special type of ammunition called energy cells. An energy cell contains enough power for all the shots its firearm can make.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Burst Fire" type="Weapon Property" id="ID_WOTC_DMG_WEAPON_PROPERTY_FIREARM_BURST_FIRE"><description usage="" level="0">
+			<p>A weapon that has the burst fire property can make a normal single-target attack, or it can spray a 10-foot-cube area within normal range with shots. Each creature in the area must succeed on a DC 15 Dexterity saving throw or take the weapon's normal damage. This action uses ten pieces of ammunition.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Reload" type="Weapon Property" id="ID_WOTC_DMG_WEAPON_PROPERTY_FIREARM_RELOAD"><description usage="" level="0">
+			<p>A limited number of shots can be made with a weapon that has the reload property. A character must then reload it using an action or a bonus action (the character's choice).</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Special (Double-Bladed Scimitar)" type="Weapon Property" id="ID_WOTC_ERLW_INTERNAL_WEAPON_PROPERTY_SPECIAL_DOUBLE_BLADED_SCIMITAR"><description usage="" level="0">
+			<p>If you attack with a double-bladed scimitar as part of the Attack action on your turn, you can use a bonus action immediately after to make a melee attack with it. This attack deals 1d4 slashing damage on a hit, instead of 2d4.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Special (Double-Bladed Scimitar)" type="Weapon Property" id="ID_WOTC_WGTE_INTERNAL_WEAPON_PROPERTY_SPECIAL_DOUBLE_BLADED_SCIMITAR"><description usage="" level="0">
+			<p>When you take the attack action and make a two-handed attack with a double-bladed scimitar, you can use a bonus action to make a melee attack with the blade at the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon’s damage die for this attack is a d4, and it deals slashing damage.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element></SourceInfo>

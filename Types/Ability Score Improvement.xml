@@ -1,0 +1,37 @@
+<SourceInfo><element name="Charisma" type="Ability Score Improvement" id="ID_DMSG_WHAU_ASI_UNDEAD_CHARISMA"><description usage="" level="0">
+            <p>Your Charisma score increases by 2.</p>
+        </description><sheet action="" usage="" display="false"></sheet><rules><stat name="charisma" value="2" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters></setters></element><element name="Constitution" type="Ability Score Improvement" id="ID_DMSG_WHAU_ASI_UNDEAD_CONSTITUTION"><description usage="" level="0">
+            <p>Your Constitution score increases by 2.</p>
+        </description><sheet action="" usage="" display="false"></sheet><rules><stat name="constitution" value="2" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters></setters></element><element name="Dexterity" type="Ability Score Improvement" id="ID_DMSG_WHAU_ASI_UNDEAD_DEXTERITY"><description usage="" level="0">
+            <p>Your Dexterity score increases by 2.</p>
+        </description><sheet action="" usage="" display="false"></sheet><rules><stat name="dexterity" value="2" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters></setters></element><element name="Intelligence" type="Ability Score Improvement" id="ID_DMSG_WHAU_ASI_UNDEAD_INTELLIGENCE"><description usage="" level="0">
+            <p>Your Intelligence score increases by 2.</p>
+        </description><sheet action="" usage="" display="false"></sheet><rules><stat name="intelligence" value="2" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters></setters></element><element name="Strength" type="Ability Score Improvement" id="ID_DMSG_WHAU_ASI_UNDEAD_STRENGTH"><description usage="" level="0">
+            <p>Your Strength score increases by 2.</p>
+        </description><sheet action="" usage="" display="false"></sheet><rules><stat name="strength" value="2" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters></setters></element><element name="Wisdom" type="Ability Score Improvement" id="ID_DMSG_WHAU_ASI_UNDEAD_WISDOM"><description usage="" level="0">
+            <p>Your Wisdom score increases by 2.</p>
+        </description><sheet action="" usage="" display="false"></sheet><rules><stat name="wisdom" value="2" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters></setters></element><element name="Ability Score Increase (Charisma)" type="Ability Score Improvement" id="ID_PHB_FEAT_ASI_CHARISMA"><description usage="" level="0">
+			<p>Your Charisma increases by 1.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules><stat name="charisma" value="1" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters><set name="allow duplicate">true</set></setters></element><element name="Ability Score Increase (Constitution)" type="Ability Score Improvement" id="ID_PHB_FEAT_ASI_CONSTITUTION"><description usage="" level="0">
+			<p>Your Constitution increases by 1.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules><stat name="constitution" value="1" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters><set name="allow duplicate">true</set></setters></element><element name="Ability Score Increase (Dexterity)" type="Ability Score Improvement" id="ID_PHB_FEAT_ASI_DEXTERITY"><description usage="" level="0">
+			<p>Your Dexterity increases by 1.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules><stat name="dexterity" value="1" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters><set name="allow duplicate">true</set></setters></element><element name="Ability Score Increase (Intelligence)" type="Ability Score Improvement" id="ID_PHB_FEAT_ASI_INTELLIGENCE"><description usage="" level="0">
+			<p>Your Intelligence increases by 1.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules><stat name="intelligence" value="1" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters><set name="allow duplicate">true</set></setters></element><element name="Ability Score Increase (Strength)" type="Ability Score Improvement" id="ID_PHB_FEAT_ASI_STRENGTH"><description usage="" level="0">
+			<p>Your Strength increases by 1.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules><stat name="strength" value="1" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters><set name="allow duplicate">true</set></setters></element><element name="Ability Score Increase (Wisdom)" type="Ability Score Improvement" id="ID_PHB_FEAT_ASI_WISDOM"><description usage="" level="0">
+			<p>Your Wisdom increases by 1.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules><stat name="wisdom" value="1" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters><set name="allow duplicate">true</set></setters></element><element name="Charisma" type="Ability Score Improvement" id="ID_WOTC_WGTE_RACIAL_TRAIT_WARFORGED_ENVOY_CHARISMA"><description usage="" level="0">
+			<p>Your Charisma increases by 1.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules><stat name="charisma" value="1" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters></setters></element><element name="Constitution" type="Ability Score Improvement" id="ID_WOTC_WGTE_RACIAL_TRAIT_WARFORGED_ENVOY_CONSTITUTION"><description usage="" level="0">
+			<p>Your Constitution increases by 1.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules><stat name="constitution" value="1" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters></setters></element><element name="Dexterity" type="Ability Score Improvement" id="ID_WOTC_WGTE_RACIAL_TRAIT_WARFORGED_ENVOY_DEXTERITY"><description usage="" level="0">
+			<p>Your Dexterity increases by 1.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules><stat name="dexterity" value="1" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters></setters></element><element name="Intelligence" type="Ability Score Improvement" id="ID_WOTC_WGTE_RACIAL_TRAIT_WARFORGED_ENVOY_INTELLIGENCE"><description usage="" level="0">
+			<p>Your Intelligence increases by 1.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules><stat name="intelligence" value="1" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters></setters></element><element name="Strength" type="Ability Score Improvement" id="ID_WOTC_WGTE_RACIAL_TRAIT_WARFORGED_ENVOY_STRENGTH"><description usage="" level="0">
+			<p>Your Strength increases by 1.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules><stat name="strength" value="1" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters></setters></element><element name="Wisdom" type="Ability Score Improvement" id="ID_WOTC_WGTE_RACIAL_TRAIT_WARFORGED_ENVOY_WISDOM"><description usage="" level="0">
+			<p>Your Wisdom increases by 1.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules><stat name="wisdom" value="1" level="0" bonus="" requirements=""><ParentID></ParentID></stat></rules><setters></setters></element></SourceInfo>
