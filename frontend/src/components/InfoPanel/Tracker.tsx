@@ -1,4 +1,3 @@
-"use client";
 import { useState } from 'react';
 import EditableStat from '../EditableStat';
 import EditableText from '../EditableText';
