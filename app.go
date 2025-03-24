@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Aurora-Beyond/character"
 	"context"
 	"fmt"
 )
@@ -41,4 +42,12 @@ func (a *App) shutdown(ctx context.Context) {
 // Greet returns a greeting for the given name
 func (a *App) Greet(name string) string {
 	return fmt.Sprintf("Hello %s, It's show time!", name)
+}
+
+func (a *App) GetCharacterData(filePath string) (character.Character, error) {
+	characterData, err := character.GetCharacterData(filePath)
+	if err != nil {
+		return character.Character{}, err
+	}
+	return characterData, nil
 }

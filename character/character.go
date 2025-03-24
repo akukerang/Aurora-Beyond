@@ -43,8 +43,8 @@ type characterInfo struct {
 }
 
 type Ability struct {
-	score int
-	mod   int
+	Score int
+	Mod   int
 }
 
 type Character struct { // Goes to Final
@@ -1268,14 +1268,14 @@ func (character *Character) setAC(characterInfo *characterInfo) error {
 	case "Heavy":
 		character.AC = armorClass
 	case "Medium":
-		dexMod := character.AbilityScore["dexterity"].mod
+		dexMod := character.AbilityScore["dexterity"].Mod
 		if dexMod > 2 { // max dex mod is 2 for medium armor
 			dexMod = 2
 		}
 		armorClass += dexMod
 		character.AC = armorClass
 	case "Light":
-		dexMod := character.AbilityScore["dexterity"].mod
+		dexMod := character.AbilityScore["dexterity"].Mod
 		armorClass += dexMod
 		character.AC = armorClass
 	}
@@ -1284,7 +1284,7 @@ func (character *Character) setAC(characterInfo *characterInfo) error {
 }
 
 func (character *Character) setHP(characterInfo *characterInfo) error {
-	mod := character.AbilityScore["constitution"].mod
+	mod := character.AbilityScore["constitution"].Mod
 	character.HP = 0
 	for _, class := range characterInfo.ClassData { // add together class levels
 		character.HP += class.totalHP
@@ -1487,7 +1487,7 @@ func (character *Character) setSkills(characterInfo *characterInfo) error {
 	skillTable["ID_PROFICIENCY_SKILL_STEALTH"] = tempSkill
 
 	for _, value := range skillTable { // set skill modifiers, check for proficiency
-		mod := character.AbilityScore[value.Ability].mod
+		mod := character.AbilityScore[value.Ability].Mod
 		if value.Proficient {
 			mod += characterInfo.ProfBonus // add proficiency bonus
 		}
@@ -1547,7 +1547,7 @@ func (character *Character) setSavingThrows(characterInfo *characterInfo) error 
 	}
 
 	for _, value := range savingThrows { // set skill modifiers, check for proficiency
-		mod := character.AbilityScore[value.Ability].mod
+		mod := character.AbilityScore[value.Ability].Mod
 		if value.Proficient {
 			mod += characterInfo.ProfBonus // add proficiency bonus
 		}
@@ -1560,7 +1560,7 @@ func (character *Character) setSavingThrows(characterInfo *characterInfo) error 
 }
 
 func (character *Character) setInitiative(characterInfo *characterInfo) error {
-	dexMod := character.AbilityScore["dexterity"].mod
+	dexMod := character.AbilityScore["dexterity"].Mod
 	character.Initiative = Skill{
 		Name:      "Initiative",
 		Mod:       dexMod,
@@ -1611,8 +1611,8 @@ func (character *Character) setAbilityScore(characterInfo *characterInfo) error 
 			return fmt.Errorf("error converting %s to int: %w", key, err)
 		}
 		temp := Ability{
-			score: score,
-			mod:   mod,
+			Score: score,
+			Mod:   mod,
 		}
 		character.AbilityScore[key] = temp
 	}

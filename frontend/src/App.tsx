@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "./components/NavBar";
 import InfoPanel from "./components/InfoPanel/InfoPanel";
 import Log from "./components/Log";
+import { CharacterProvider } from "./hooks/CharacterContext";
 
 //* Responsive Layout Ideas
 //* InfoPanel
@@ -17,6 +18,7 @@ function App() {
     return (
       <div className="flex flex-col md:flex-row text-white bg-black h-screen w-screen">
         {/* InfoPanel */}
+        <CharacterProvider>
         <div className="w-full md:h-full md:w-[40%] xl:w-[40%] bg-gray-800 p-4">
           <InfoPanel />
         </div>
@@ -34,6 +36,7 @@ function App() {
           <h1 className="text-2xl border-b border-white pb-1 mb-1">Log</h1>
           <Log />
         </div>
+        </CharacterProvider>
       </div>
     );
   }

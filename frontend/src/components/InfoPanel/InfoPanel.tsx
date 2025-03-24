@@ -3,12 +3,27 @@ import HealthBar from "./HealthBar";
 import Tracker from "./Tracker";
 import portrait from "../../assets/half elf-male-2.png";
 import Stats from "./Stats";
+import { useCharacter } from "../../hooks/CharacterContext";
+import { useEffect } from "react";
 
 const InfoPanel = () => {
+  const { character, loadCharacter } = useCharacter();
+  useEffect(() => {
+    const handleLoad = async () => {
+      const filePath = "F:/Aurora-Beyond/frontend/src/assets/Aldric.dnd5e"; // Replace with actual file path
+      await loadCharacter(filePath);
+    };
+    handleLoad();
+    console.log(character);
+  }, []);
+
+
   return (
-    <div className="flex flex-col">
-      <h1 className="text-3xl">Aldric Shieldbearer</h1>
-      <h2 className="text-xl mb-2">Paladin 8 / Sorcerer 2</h2>
+    <>
+    {character ? 
+    (<div className="flex flex-col">
+      <h1 className="text-3xl">{character.Name}</h1>
+      <h2 className="text-xl mb-2">{character.Class} </h2>
       <div className="flex flex-row xl:mb-2">
         <img
           src={portrait}
@@ -25,7 +40,7 @@ const InfoPanel = () => {
           <AbilityScores />
         </div>
         <div className="order-1 xl:order-2 p-2">
-          <Stats profBonus={3} initiative={1} />
+          <Stats profBonus={character.ProfBonus} initiative={1} ac={character.AC}/>
         </div>
       </div>
       <div className="flex flex-col">
@@ -34,7 +49,8 @@ const InfoPanel = () => {
           <div></div>
         </div>
       </div>
-    </div>
+    </div>) : null}
+    </>
   );
 };
 

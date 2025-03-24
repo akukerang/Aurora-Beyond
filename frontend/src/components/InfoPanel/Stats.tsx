@@ -4,8 +4,9 @@ import RollDice from "../RollDice";
 type Props = {
   profBonus: number;
   initiative: number;
+  ac: number;
 };
-const Stats: FC<Props> = ({ profBonus, initiative }) => {
+const Stats: FC<Props> = ({ profBonus, initiative, ac }) => {
   const bonus = `+${profBonus}`;
   return (
     <>
@@ -14,7 +15,7 @@ const Stats: FC<Props> = ({ profBonus, initiative }) => {
       <div className="flex flex-row gap-2 text-center">
         <div className="flex flex-col items-center justify-center bg-gray-600 rounded-md text-center p-4 h-24 w-full">
           <h1 className="text-xl mb-4">AC</h1>
-          <HoverInfo info="420" />
+          <HoverInfo info={ac.toString()} />
         </div>
         <div className="flex flex-col items-center justify-center bg-gray-600 rounded-md text-center p-4 h-24 w-full">
           <h1 className="text-xl mb-4">Init</h1>

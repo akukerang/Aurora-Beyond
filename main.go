@@ -10,8 +10,8 @@ import (
 //go:embed all:frontend/dist
 var assets embed.FS
 
-//go:embed build/appicon.png
-var icon []byte
+// //go:embed build/appicon.png
+// var icon []byte
 
 func main() {
 	// Create an instance of the app structure
@@ -25,6 +25,8 @@ func main() {
 		Assets:           assets,
 		BackgroundColour: &options.RGBA{R: 27, G: 38, B: 54, A: 1},
 		OnStartup:        app.startup,
+		LogLevel:         5,
+
 		Bind: []interface{}{
 			app,
 		},
