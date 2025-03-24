@@ -31,16 +31,16 @@ const InfoPanel = () => {
           className="hidden xl:block object-cover w-1/3"
         />
         <div className="w-full xl:w-2/3 flex flex-col xl:ml-4">
-          <HealthBar />
+          <HealthBar playerHealth={character.HP}/>
           <Tracker />
         </div>  
       </div>
       <div className="flex flex-col xl:flex-row">
         <div className="order-2 xl:order-1 p-2">
-          <AbilityScores />
+          <AbilityScores abilityScore={character.AbilityScore}/>
         </div>
         <div className="order-1 xl:order-2 p-2">
-          <Stats profBonus={character.ProfBonus} initiative={1} ac={character.AC}/>
+          <Stats profBonus={character.ProfBonus} initiative={character.Initiative} ac={character.AC}/>
         </div>
       </div>
       <div className="flex flex-col">

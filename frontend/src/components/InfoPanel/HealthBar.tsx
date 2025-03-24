@@ -1,11 +1,15 @@
 "use client";
-import React, { useEffect } from 'react'
+import React, { useEffect, FC } from 'react'
 import { useState } from 'react';
 import EditableStat from '../EditableStat';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-const HealthBar = () => {
-  // const {playerHealth} = useAurora();
+type Props = {
+ playerHealth: number;
+};
+
+
+const HealthBar:FC<Props> = ({playerHealth}) => {
   const [health, setHealth] = useState(0);
   const [maxHealth, setMaxHealth] = useState(0);
   const [tempHealth, setTempHealth] = useState(0);
@@ -34,9 +38,9 @@ const HealthBar = () => {
   };
 
   useEffect(() => { // gets player hp from Aurora file
-    setHealth(30);
-    setMaxHealth(30);
-  }, [30]);
+    setHealth(playerHealth);
+    setMaxHealth(playerHealth);
+  }, []);
 
 
   return (
