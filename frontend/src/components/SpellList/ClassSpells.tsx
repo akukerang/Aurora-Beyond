@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { character, source } from "../../../wailsjs/go/models";
 import SpellItem from "./SpellItem";
+import SpellLevelHeader from "./SpellLevelHeader";
 
 type Props = {
   className: character.spells;
@@ -30,9 +31,7 @@ const ClassSpells: FC<Props> = ({ className }) => {
         .sort((a, b) => Number(a) - Number(b)) // Sort
         .map((level) => (
           <>
-            <h2 className="text-xl border-b border-white pb-1 mb-1">
-              {Number(level) === 0 ? "Cantrips" : `Level ${level} Spells`}
-            </h2>
+            <SpellLevelHeader level={Number(level)} slots={4} />
             <div className="flex flex-row">
               <h3 className="font-semibold text-lg w-[40%]">Name</h3>
               <h3 className="font-semibold text-lg w-[20%]">Time</h3>
