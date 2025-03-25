@@ -7,10 +7,6 @@ type Props = {
 }
 
 const AbilityScores:FC<Props> = ({abilityScore}) => {
-
-
-
-
   return (
     <>
       <h1 className="text-lg mb-2">Ability Scores</h1>

@@ -129,6 +129,7 @@ type spellSlots struct {
 }
 
 type Attack struct {
+	Name   string `xml:"name,attr"`
 	Range  string `xml:"range,attr"`
 	Hit    string `xml:"attack,attr"`
 	Damage string `xml:"damage,attr"`

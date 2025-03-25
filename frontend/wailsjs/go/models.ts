@@ -15,6 +15,7 @@ export namespace character {
 	    }
 	}
 	export class Attack {
+	    Name: string;
 	    Range: string;
 	    Hit: string;
 	    Damage: string;
@@ -25,6 +26,7 @@ export namespace character {
 	
 	    constructor(source: any = {}) {
 	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.Name = source["Name"];
 	        this.Range = source["Range"];
 	        this.Hit = source["Hit"];
 	        this.Damage = source["Damage"];
