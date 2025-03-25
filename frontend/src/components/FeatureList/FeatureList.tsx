@@ -1,10 +1,8 @@
-"use client";
 import FeatureItem from "./FeatureItem";
 import { useCharacter } from "../../hooks/CharacterContext";
 const FeatureList = () => {
   const { character } = useCharacter();
   const classFeats = character?.FeatsFinal;
-  console.log("classFeats", classFeats);
   return (
     <div className="flex flex-col justify-between px-4">
       {classFeats

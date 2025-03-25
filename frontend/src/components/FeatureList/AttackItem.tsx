@@ -10,16 +10,16 @@ const AttackItem: FC<Props> = ({ name, range, hitDC, damage }) => {
   const attackContext = `${name} Attack`;
   const damageContext = `${name} Damage`;
   return (
-    <div className="flex flex-row rounded-md">
-      <h2 className="w-1/4">{name}</h2>
-      <h2 className="w-1/8">{range}</h2>
-      <div className="w-1/8">
-        <div className="w-1/2 p-1">
+    <div className="flex flex-row rounded-md mb-2">
+      <h2 className="w-[25%]">{name}</h2>
+      <h2 className="w-[12.5%]">{range}</h2>
+      <div className="w-[12.5%]">
+        <div className="w-[50%]">
           <RollDice mod={hitDC} context={attackContext} />
         </div>
       </div>
-      <div className="w-1/4">
-        <div className="p-1">
+      <div className="w-[50%]">
+        <div className="w-[75%]">
           <RollDice text={damage} context={damageContext} />
         </div>
       </div>

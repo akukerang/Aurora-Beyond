@@ -5,15 +5,17 @@ import portrait from "../../assets/half elf-male-2.png";
 import Stats from "./Stats";
 import { useCharacter } from "../../hooks/CharacterContext";
 import { useEffect } from "react";
-
+// TODO; Figure out how to use local images
 const InfoPanel = () => {
   const { character, loadCharacter } = useCharacter();
   useEffect(() => {
     const handleLoad = async () => {
-      const filePath = "F:/Aurora-Beyond/frontend/src/assets/Aldric.dnd5e"; // Replace with actual file path
+      const filePath =
+        "C:/Users/gabri/OneDrive/Documents/5e Character Builder/Aldric.dnd5e";
       await loadCharacter(filePath);
     };
     handleLoad();
+    console.log(character);
   }, []);
   return (
     <>

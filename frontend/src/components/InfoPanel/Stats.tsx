@@ -7,6 +7,7 @@ type Props = {
   initiative: character.Skill;
   ac: number;
 };
+// TODO: Add Speed here too
 const Stats: FC<Props> = ({ profBonus, initiative, ac }) => {
   const bonus = `+${profBonus}`;
   return (

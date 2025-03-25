@@ -33,13 +33,18 @@ type characterInfo struct {
 	initAdv             bool
 
 	// * GOES TO FINAL CHARACTER CLASS
-	Name       string   `xml:"display-properties>name"`
-	Class      string   `xml:"display-properties>class"`
-	Race       string   `xml:"display-properties>race"`
-	Background string   `xml:"display-properties>background"`
-	Magic      Magic    `xml:"build>magic"`
-	Attacks    []Attack `xml:"build>input>attacks>attack"`
-	ProfBonus  int
+	PortraitFile portraitFile `xml:"display-properties>portrait"`
+	Name         string       `xml:"display-properties>name"`
+	Class        string       `xml:"display-properties>class"`
+	Race         string       `xml:"display-properties>race"`
+	Background   string       `xml:"display-properties>background"`
+	Magic        Magic        `xml:"build>magic"`
+	Attacks      []Attack     `xml:"build>input>attacks>attack"`
+	ProfBonus    int
+}
+
+type portraitFile struct {
+	FileName string `xml:"local"`
 }
 
 type Ability struct {
@@ -48,6 +53,8 @@ type Ability struct {
 }
 
 type Character struct { // Goes to Final
+	Portrait     string
+	AttackNum    int
 	AbilityScore map[string]Ability
 	Name         string
 	Class        string
@@ -66,7 +73,7 @@ type Character struct { // Goes to Final
 	SavingThrows []Skill
 	Initiative   Skill
 	Magic        Magic
-	Attacks      []Attack
+	Attacks      []AttackDetail
 	Inventory    []source.ItemDetail
 	FeatsFinal   []source.Detail
 }
@@ -133,6 +140,13 @@ type Attack struct {
 	Range  string `xml:"range,attr"`
 	Hit    string `xml:"attack,attr"`
 	Damage string `xml:"damage,attr"`
+}
+
+type AttackDetail struct {
+	Name   string
+	Range  string
+	Hit    int
+	Damage string
 }
 
 type item struct {
@@ -1153,6 +1167,9 @@ func (character *Character) setFeatsAndProfs(characterInfo *characterInfo) error
 			if feat.ID == "" {
 				return
 			}
+			if feat.Name == "Extra Attack" {
+				character.AttackNum = 2
+			}
 			details, err := source.GetDetails(feat.Type, feat.ID, feat.Level, characterInfo.Stats)
 			if err != nil {
 				errCh <- err
@@ -1621,6 +1638,28 @@ func (character *Character) setAbilityScore(characterInfo *characterInfo) error 
 
 }
 
+func (character *Character) setAttacks(characterInfo *characterInfo) error {
+	re := regexp.MustCompile(`[-+]?\d+`) // Matches integers, including optional + or -
+	for _, attack := range characterInfo.Attacks {
+
+		match := re.FindString(attack.Hit)
+		if match != "" {
+			num, err := strconv.Atoi(match)
+			if err != nil {
+				return fmt.Errorf("error converting attack hit to int: %w", err)
+			}
+			attackDetail := AttackDetail{
+				Name:   attack.Name,
+				Range:  attack.Range,
+				Hit:    num,
+				Damage: attack.Damage,
+			}
+			character.Attacks = append(character.Attacks, attackDetail)
+		}
+	}
+	return nil
+}
+
 func GetCharacterData(filePath string) (Character, error) {
 	file, err := os.Open(filePath)
 	if err != nil {
@@ -1672,6 +1711,7 @@ func GetCharacterData(filePath string) (Character, error) {
 	var character Character
 
 	//* Features, Proficiency, Proficiency Bonus
+	character.AttackNum = 1
 	err = character.setFeatsAndProfs(&characterInfo)
 	if err != nil {
 		return Character{}, fmt.Errorf("error getting feats and profs: %w", err)
@@ -1699,7 +1739,7 @@ func GetCharacterData(filePath string) (Character, error) {
 		return Character{}, fmt.Errorf("error getting conditions: %w", err)
 	}
 
-	errCh := make(chan error, 7)
+	errCh := make(chan error, 8)
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
@@ -1765,6 +1805,15 @@ func GetCharacterData(filePath string) (Character, error) {
 		}
 	}()
 
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		err = character.setAttacks(&characterInfo)
+		if err != nil {
+			errCh <- fmt.Errorf("error getting attacks: %w", err)
+		}
+	}()
+
 	go func() {
 		wg.Wait()
 		close(errCh)
@@ -1779,8 +1828,7 @@ func GetCharacterData(filePath string) (Character, error) {
 	character.Class = characterInfo.Class
 	character.Race = characterInfo.Race
 	character.Background = characterInfo.Background
-	character.Attacks = characterInfo.Attacks
 	character.ProfBonus = characterInfo.ProfBonus
-
+	character.Portrait = characterInfo.PortraitFile.FileName
 	return character, nil
 }

@@ -14,14 +14,14 @@ export namespace character {
 	        this.Mod = source["Mod"];
 	    }
 	}
-	export class Attack {
+	export class AttackDetail {
 	    Name: string;
 	    Range: string;
-	    Hit: string;
+	    Hit: number;
 	    Damage: string;
 	
 	    static createFrom(source: any = {}) {
-	        return new Attack(source);
+	        return new AttackDetail(source);
 	    }
 	
 	    constructor(source: any = {}) {
@@ -133,6 +133,8 @@ export namespace character {
 	    }
 	}
 	export class Character {
+	    Portrait: string;
+	    AttackNum: number;
 	    AbilityScore: Record<string, Ability>;
 	    Name: string;
 	    Class: string;
@@ -151,7 +153,7 @@ export namespace character {
 	    SavingThrows: Skill[];
 	    Initiative: Skill;
 	    Magic: Magic;
-	    Attacks: Attack[];
+	    Attacks: AttackDetail[];
 	    Inventory: source.ItemDetail[];
 	    FeatsFinal: source.Detail[];
 	
@@ -161,6 +163,8 @@ export namespace character {
 	
 	    constructor(source: any = {}) {
 	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.Portrait = source["Portrait"];
+	        this.AttackNum = source["AttackNum"];
 	        this.AbilityScore = this.convertValues(source["AbilityScore"], Ability, true);
 	        this.Name = source["Name"];
 	        this.Class = source["Class"];
@@ -179,7 +183,7 @@ export namespace character {
 	        this.SavingThrows = this.convertValues(source["SavingThrows"], Skill);
 	        this.Initiative = this.convertValues(source["Initiative"], Skill);
 	        this.Magic = this.convertValues(source["Magic"], Magic);
-	        this.Attacks = this.convertValues(source["Attacks"], Attack);
+	        this.Attacks = this.convertValues(source["Attacks"], AttackDetail);
 	        this.Inventory = this.convertValues(source["Inventory"], source.ItemDetail);
 	        this.FeatsFinal = this.convertValues(source["FeatsFinal"], source.Detail);
 	    }
