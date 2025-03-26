@@ -23,7 +23,9 @@ const Spells = () => {
 
           <div></div>
         </>
-      ) : null}
+      ) : (
+        <p className="text-gray-300 italic mb-2">No Spells found</p>
+      )}
     </div>
   );
 };

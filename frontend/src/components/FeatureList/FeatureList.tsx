@@ -4,17 +4,21 @@ const FeatureList = () => {
   const { character } = useCharacter();
   const classFeats = character?.FeatsFinal;
   return (
-    <div className="flex flex-col justify-between px-4">
-      {classFeats
-        ? classFeats.map((feat: any) => (
+    <>
+      {classFeats ? (
+        <div className="flex flex-col justify-between px-4">
+          {classFeats.map((feat: any) => (
             <FeatureItem
               key={feat.index}
               name={feat.Name}
               description={feat.Description}
             />
-          ))
-        : null}
-    </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-gray-300 italic mb-2">No Features found</p>
+      )}
+    </>
   );
 };
 export default FeatureList;
