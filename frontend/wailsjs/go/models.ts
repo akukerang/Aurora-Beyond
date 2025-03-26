@@ -149,8 +149,8 @@ export namespace character {
 	    AC: number;
 	    Speed: number;
 	    ProfBonus: number;
-	    Skills: Skill[];
-	    SavingThrows: Skill[];
+	    Skills: Record<string, Skill>;
+	    SavingThrows: Record<string, Skill>;
 	    Initiative: Skill;
 	    Magic: Magic;
 	    Attacks: AttackDetail[];
@@ -179,8 +179,8 @@ export namespace character {
 	        this.AC = source["AC"];
 	        this.Speed = source["Speed"];
 	        this.ProfBonus = source["ProfBonus"];
-	        this.Skills = this.convertValues(source["Skills"], Skill);
-	        this.SavingThrows = this.convertValues(source["SavingThrows"], Skill);
+	        this.Skills = this.convertValues(source["Skills"], Skill, true);
+	        this.SavingThrows = this.convertValues(source["SavingThrows"], Skill, true);
 	        this.Initiative = this.convertValues(source["Initiative"], Skill);
 	        this.Magic = this.convertValues(source["Magic"], Magic);
 	        this.Attacks = this.convertValues(source["Attacks"], AttackDetail);

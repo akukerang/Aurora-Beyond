@@ -3,15 +3,17 @@ import HealthBar from "./HealthBar";
 import Tracker from "./Tracker";
 import Stats from "./Stats";
 import { useCharacter } from "../../hooks/CharacterContext";
-import portrait from "../../assets/half elf-male-2.png";
-// TODO; Figure out how to use local images
+import defaultPortrait from "../../assets/half elf-male-2.png";
+import ProficienciesAndSenses from "./ProficienciesAndSenses";
+import SavingThrows from "./SavingThrows";
+import Skills from "./Skills";
 const InfoPanel = () => {
   const { character } = useCharacter();
-
+  console.log(character);
   return (
     <>
       {character ? (
-        <div className="flex flex-col">
+        <div className="flex flex-col h-full px-4">
           <h1 className="text-3xl">{character.Name}</h1>
           <h2 className="text-xl mb-2">{character.Class} </h2>
           <div className="flex flex-row xl:mb-2">
@@ -19,7 +21,7 @@ const InfoPanel = () => {
               src={
                 character.Portrait != ""
                   ? `data:image/png;base64,${character.Portrait}`
-                  : portrait
+                  : defaultPortrait
               }
               className="hidden xl:block object-cover w-1/3"
               alt="Character Portrait"
@@ -42,11 +44,17 @@ const InfoPanel = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col">
-            <div className="flex flex-col">
-              <div></div>
-              <div></div>
+          <div className="flex mt-4 h-1/2 bg-gray-800 overflow-y-scroll">
+            <div className="flex flex-col w-1/2 gap-2 pt-4 px-6">
+              <SavingThrows savingProf={character.SavingThrows} />
+              <ProficienciesAndSenses
+                armorProf={character.ArmorProf}
+                weaponProf={character.WeaponProf}
+                toolProf={character.ToolProf}
+                languages={character.Languages}
+              />
             </div>
+            <Skills skillProf={character.Skills} />
           </div>
         </div>
       ) : (

@@ -14,8 +14,6 @@ const ClassSpells: FC<Props> = ({ className, spellSlots }) => {
     ...(className.Cantrips || []),
   ];
 
-  console.log(allSpells);
-
   const spellsByLevel = allSpells.reduce(
     (acc: Record<number, source.Spell[]>, spell: source.Spell) => {
       if (!acc[spell.Level]) {

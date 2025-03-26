@@ -70,8 +70,8 @@ type Character struct { // Goes to Final
 	AC           int
 	Speed        int
 	ProfBonus    int
-	Skills       []Skill
-	SavingThrows []Skill
+	Skills       map[string]Skill
+	SavingThrows map[string]Skill
 	Initiative   Skill
 	Magic        Magic
 	Attacks      []AttackDetail
@@ -1390,7 +1390,7 @@ func (character *Character) setSkills(characterInfo *characterInfo) error {
 			Proficient: false,
 		},
 		"ID_PROFICIENCY_SKILL_ANIMAL_HANDLING": {
-			Name:       "Animal Handling ",
+			Name:       "Animal Handling",
 			Mod:        0,
 			Ability:    "wisdom",
 			Proficient: false,
@@ -1505,6 +1505,7 @@ func (character *Character) setSkills(characterInfo *characterInfo) error {
 	tempSkill.Disadvantage = characterInfo.stealthDisadvantage
 	skillTable["ID_PROFICIENCY_SKILL_STEALTH"] = tempSkill
 
+	character.Skills = make(map[string]Skill)
 	for _, value := range skillTable { // set skill modifiers, check for proficiency
 		mod := character.AbilityScore[value.Ability].Mod
 		if value.Proficient {
@@ -1512,7 +1513,7 @@ func (character *Character) setSkills(characterInfo *characterInfo) error {
 		}
 		tempSkill := value
 		tempSkill.Mod = mod
-		character.Skills = append(character.Skills, tempSkill)
+		character.Skills[value.Name] = tempSkill
 	}
 	return nil
 }
@@ -1564,6 +1565,7 @@ func (character *Character) setSavingThrows(characterInfo *characterInfo) error 
 		temp.Proficient = true
 		savingThrows[ability] = temp // set skill to true
 	}
+	character.SavingThrows = make(map[string]Skill)
 
 	for _, value := range savingThrows { // set skill modifiers, check for proficiency
 		mod := character.AbilityScore[value.Ability].Mod
@@ -1572,7 +1574,8 @@ func (character *Character) setSavingThrows(characterInfo *characterInfo) error 
 		}
 		temp := value
 		temp.Mod = mod
-		character.SavingThrows = append(character.SavingThrows, temp)
+		character.SavingThrows[value.Name] = temp
+
 	}
 
 	return nil

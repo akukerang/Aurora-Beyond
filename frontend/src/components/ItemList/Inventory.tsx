@@ -3,7 +3,6 @@ import { source } from "../../../wailsjs/go/models";
 import Item from "./Item";
 const Inventory = () => {
   const { character } = useCharacter();
-  console.log(character?.Inventory);
   return (
     <div>
       <div className="flex flex-row mb-2">
