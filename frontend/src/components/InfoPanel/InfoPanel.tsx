@@ -15,7 +15,6 @@ const InfoPanel = () => {
       await loadCharacter(filePath);
     };
     handleLoad();
-    console.log(character);
   }, []);
   return (
     <>

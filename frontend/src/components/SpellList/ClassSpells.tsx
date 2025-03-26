@@ -5,8 +5,9 @@ import SpellLevelHeader from "./SpellLevelHeader";
 
 type Props = {
   className: character.spells;
+  spellSlots: number[];
 };
-const ClassSpells: FC<Props> = ({ className }) => {
+const ClassSpells: FC<Props> = ({ className, spellSlots }) => {
   const allSpells = [
     ...(className.Spells || []),
     ...(className.Cantrips || []),
@@ -14,7 +15,6 @@ const ClassSpells: FC<Props> = ({ className }) => {
 
   const spellsByLevel = allSpells.reduce(
     (acc: Record<number, source.Spell[]>, spell: source.Spell) => {
-      console.log(spell);
       if (!acc[spell.Level]) {
         acc[spell.Level] = [];
       }
@@ -31,7 +31,10 @@ const ClassSpells: FC<Props> = ({ className }) => {
         .sort((a, b) => Number(a) - Number(b)) // Sort
         .map((level) => (
           <>
-            <SpellLevelHeader level={Number(level)} slots={4} />
+            <SpellLevelHeader
+              level={Number(level)}
+              slots={Number(level) == 0 ? 0 : spellSlots[Number(level)]}
+            />
             <div className="flex flex-row">
               <h3 className="font-semibold text-lg w-[40%]">Name</h3>
               <h3 className="font-semibold text-lg w-[20%]">Time</h3>

@@ -8,14 +8,17 @@ import ClassSpells from "./ClassSpells";
 const Spells = () => {
   const { character } = useCharacter();
   const magic = character?.Magic;
-  const spellSlots = magic?.SpellSlots;
   return (
     <div>
       {magic ? (
         <>
           <MagicStats classMagic={magic.ClassSpells} />
           {magic.ClassSpells.map((className: character.spells, index) => (
-            <ClassSpells className={className} key={index} />
+            <ClassSpells
+              className={className}
+              spellSlots={magic.SpellSlots}
+              key={index}
+            />
           ))}
 
           <div></div>
