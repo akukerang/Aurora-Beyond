@@ -8,7 +8,6 @@ import ItemPage from "./pages/ItemPage";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <HashRouter basename={"/"}>
-    {/* The rest of your app goes here */}
     <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<FeaturePage />} />
