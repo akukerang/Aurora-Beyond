@@ -5,6 +5,7 @@ import InfoPanel from "./components/InfoPanel/InfoPanel";
 import Log from "./components/Log/Log";
 import { CharacterProvider } from "./hooks/CharacterContext";
 import { LogProvider } from "./hooks/logContext";
+import LogSmall from "./components/Log/LogSmall";
 //* Responsive Layout Ideas
 //* InfoPanel
 // Image, don't show at small width
@@ -32,6 +33,10 @@ function App() {
 
           <div className="hidden xl:flex xl:flex-col xl:w-[20%] xl:h-full bg-gray-600 p-3 overflow-y-auto">
             <Log />
+          </div>
+
+          <div className="flex xl:hidden fixed right-0 bottom-0 z-100">
+            <LogSmall />
           </div>
         </CharacterProvider>
       </LogProvider>
