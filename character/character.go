@@ -2,6 +2,7 @@ package character
 
 import (
 	"Aurora-Beyond/source"
+	"encoding/base64"
 	"encoding/xml"
 	"fmt"
 	"io"
@@ -1829,6 +1830,14 @@ func GetCharacterData(filePath string) (Character, error) {
 	character.Race = characterInfo.Race
 	character.Background = characterInfo.Background
 	character.ProfBonus = characterInfo.ProfBonus
-	character.Portrait = characterInfo.PortraitFile.FileName
+
+	imgData, err := os.ReadFile(characterInfo.PortraitFile.FileName)
+	if err != nil {
+		// return Character{}, fmt.Errorf("error reading image file: %w", err)
+		character.Portrait = ""
+	} else {
+		image64 := base64.StdEncoding.EncodeToString(imgData)
+		character.Portrait = image64
+	}
 	return character, nil
 }

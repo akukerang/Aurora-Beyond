@@ -1,9 +1,9 @@
 import AbilityScores from "./AbilityScores";
 import HealthBar from "./HealthBar";
 import Tracker from "./Tracker";
-import portrait from "../../assets/half elf-male-2.png";
 import Stats from "./Stats";
 import { useCharacter } from "../../hooks/CharacterContext";
+import portrait from "../../assets/half elf-male-2.png";
 // TODO; Figure out how to use local images
 const InfoPanel = () => {
   const { character } = useCharacter();
@@ -16,9 +16,13 @@ const InfoPanel = () => {
           <h2 className="text-xl mb-2">{character.Class} </h2>
           <div className="flex flex-row xl:mb-2">
             <img
-              src={portrait}
-              alt="Character Image"
+              src={
+                character.Portrait != ""
+                  ? `data:image/png;base64,${character.Portrait}`
+                  : portrait
+              }
               className="hidden xl:block object-cover w-1/3"
+              alt="Character Portrait"
             />
             <div className="w-full xl:w-2/3 flex flex-col xl:ml-4">
               <HealthBar playerHealth={character.HP} />
