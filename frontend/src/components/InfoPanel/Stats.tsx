@@ -6,9 +6,9 @@ type Props = {
   profBonus: number;
   initiative: character.Skill;
   ac: number;
+  speed: number;
 };
-// TODO: Add Speed here too
-const Stats: FC<Props> = ({ profBonus, initiative, ac }) => {
+const Stats: FC<Props> = ({ profBonus, initiative, ac, speed }) => {
   const bonus = `+${profBonus}`;
   return (
     <>
@@ -26,6 +26,10 @@ const Stats: FC<Props> = ({ profBonus, initiative, ac }) => {
         <div className="flex flex-col items-center justify-center bg-gray-600 rounded-md text-center p-4 h-24 w-full">
           <h1 className="text-xl mb-4">Prof</h1>
           <HoverInfo info={bonus} />
+        </div>
+        <div className="flex flex-col items-center justify-center bg-gray-600 rounded-md text-center p-4 h-24 w-full">
+          <h1 className="text-xl mb-4">Speed</h1>
+          <HoverInfo info={speed + " ft"} />
         </div>
       </div>
     </>

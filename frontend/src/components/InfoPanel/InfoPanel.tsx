@@ -33,15 +33,16 @@ const InfoPanel = () => {
               <Tracker />
             </div>
           </div>
-          <div className="flex flex-col xl:flex-row">
-            <div className="order-2 xl:order-1 p-2">
+          <div className="flex flex-col 2xl:flex-row">
+            <div className="order-2 2xl:order-1 p-2">
               <AbilityScores abilityScore={character.AbilityScore} />
             </div>
-            <div className="order-1 xl:order-2 p-2">
+            <div className="order-1 2xl:order-2 p-2">
               <Stats
                 profBonus={character.ProfBonus}
                 initiative={character.Initiative}
                 ac={character.AC}
+                speed={character.Speed}
               />
             </div>
           </div>
