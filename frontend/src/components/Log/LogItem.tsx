@@ -7,6 +7,7 @@ type Props = {
   onClick: () => void;
 };
 
+// TODO : Animation when log item shows up.
 const LogItem: FC<Props> = ({ msg, rolls, onClick }) => {
   return (
     <div className="relative bg-gray-500 rounded-md my-2 mr-3 p-4">

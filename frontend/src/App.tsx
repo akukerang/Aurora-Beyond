@@ -31,7 +31,6 @@ function App() {
           </div>
 
           <div className="hidden xl:flex xl:flex-col xl:w-[20%] xl:h-full bg-gray-600 p-3 overflow-y-auto">
-            <h1 className="text-2xl border-b border-white pb-1 mb-1">Log</h1>
             <Log />
           </div>
         </CharacterProvider>
