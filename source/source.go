@@ -481,6 +481,60 @@ func GetAdornerItemDetails(typeName string, id string, adorner_id string, equipp
 
 }
 
+func formatTime(input string) string {
+	// Regex digit and word
+	re := regexp.MustCompile(`(\d+)\s+(\w+)`)
+	matches := re.FindStringSubmatch(input)
+
+	if len(matches) < 3 {
+		return input
+	}
+
+	number, word := matches[1], matches[2]
+
+	// Define word mappings
+	mappings := map[string]string{
+		"action":   "A",
+		"bonus":    "BA",
+		"minute":   "min",
+		"minutes":  "min",
+		"reaction": "R",
+	}
+
+	// normalize
+	word = strings.ToLower(strings.ReplaceAll(word, " ", ""))
+
+	if short, found := mappings[word]; found {
+		return number + short
+	}
+
+	return number + " " + word
+}
+
+func formatRange(input string) string {
+	re := regexp.MustCompile(`(\d+)\s+(\w+)`)
+	matches := re.FindStringSubmatch(input)
+
+	if len(matches) < 2 {
+		return input
+	}
+
+	number, word := matches[1], matches[2]
+
+	mappings := map[string]string{
+		"feet": "ft",
+	}
+
+	// normalize
+	word = strings.ToLower(strings.ReplaceAll(word, " ", ""))
+
+	if short, found := mappings[word]; found {
+		return number + short
+	}
+
+	return number + " " + word
+}
+
 func GetSpellDetail(spell *Spell) error {
 	element, err := getElement("Spell", spell.ID)
 	if err != nil {
@@ -491,11 +545,11 @@ func GetSpellDetail(spell *Spell) error {
 	for _, setter := range element.Setters {
 		switch setter.Name {
 		case "time":
-			spell.Time = setter.Value
+			spell.Time = formatTime(setter.Value)
 		case "duration":
 			spell.Duration = setter.Value
 		case "range":
-			spell.Range = setter.Value
+			spell.Range = formatRange(setter.Value)
 		case "isRitual":
 			if setter.Value == "true" {
 				spell.Ritual = true

@@ -14,6 +14,8 @@ const ClassSpells: FC<Props> = ({ className, spellSlots }) => {
     ...(className.Cantrips || []),
   ];
 
+  console.log(allSpells);
+
   const spellsByLevel = allSpells.reduce(
     (acc: Record<number, source.Spell[]>, spell: source.Spell) => {
       if (!acc[spell.Level]) {
@@ -44,7 +46,7 @@ const ClassSpells: FC<Props> = ({ className, spellSlots }) => {
               <>
                 <div className="flex flex-row">
                   <h3 className="font-semibold text-lg w-[40%]">Name</h3>
-                  <h3 className="font-semibold text-lg w-[20%]">Time</h3>
+                  <h3 className="font-semibold text-lg w-[12.5%]">Time</h3>
                   <h3 className="font-semibold text-lg w-[12.5%]">Range</h3>
                   <h3 className="font-semibold text-lg w-[25%]">Notes</h3>
                 </div>

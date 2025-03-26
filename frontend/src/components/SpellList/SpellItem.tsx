@@ -5,12 +5,19 @@ type Props = {
   spell: source.Spell;
 };
 const SpellItem: FC<Props> = ({ spell }) => {
+  const note =
+    spell.Ritual || spell.Duration
+      ? `${spell.Ritual ? "Ritual" : ""} ${
+          spell.Duration ? spell.Duration : ""
+        }`
+      : "";
+
   return (
     <div className="flex flex-row mb-2">
       <h1 className="text-lg w-[40%] italic">{spell.Name}</h1>
-      <h1 className="text-lg w-[20%]">{spell.Time}</h1>
+      <h1 className="text-lg w-[12.5%]">{spell.Time}</h1>
       <h1 className="text-lg w-[12.5%]">{spell.Range}</h1>
-      <h1 className="text-lg w-[25%]">{spell.Ritual ? "Ritual" : ""}</h1>
+      <h1 className="text-lg w-[25%] italic">{note}</h1>
     </div>
   );
 };
