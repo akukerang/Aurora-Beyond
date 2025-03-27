@@ -11,9 +11,9 @@ const InfoPanel = () => {
   const { character } = useCharacter();
   console.log(character);
   return (
-    <>
+    <div className="bg-gray-800">
       {character ? (
-        <div className="flex flex-col h-full px-4">
+        <div className="flex flex-col lg:h-full px-2">
           <h1 className="text-3xl">{character.Name}</h1>
           <h2 className="text-xl mb-2">{character.Class} </h2>
           <div className="flex flex-row xl:mb-2">
@@ -23,7 +23,7 @@ const InfoPanel = () => {
                   ? `data:image/png;base64,${character.Portrait}`
                   : defaultPortrait
               }
-              className="hidden xl:block object-cover w-1/3"
+              className="hidden xl:block object-cover w-1/4"
               alt="Character Portrait"
             />
             <div className="w-full xl:w-2/3 flex flex-col xl:ml-4">
@@ -44,7 +44,7 @@ const InfoPanel = () => {
               />
             </div>
           </div>
-          <div className="flex mt-4 h-1/2 bg-gray-800 overflow-y-scroll">
+          <div className="flex mt-4 h-1/2 bg-gray-800 lg:overflow-y-scroll">
             <div className="flex flex-col w-1/2 gap-2 pt-4 px-6">
               <SavingThrows savingProf={character.SavingThrows} />
               <ProficienciesAndSenses
@@ -62,7 +62,7 @@ const InfoPanel = () => {
           No Stats found, make sure file loaded.
         </p>
       )}
-    </>
+    </div>
   );
 };
 

@@ -5,9 +5,10 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useState } from "react";
 const LogSmall = () => {
   const { log, removeLog, setNewLog } = useLog();
-  const [toggled, setToggled] = useState(false);
+  const [toggled, setToggled] = useState(true);
   const clearLog = () => {
     setNewLog([]);
+    setToggled(true);
   };
 
   return (

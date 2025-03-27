@@ -12,7 +12,7 @@ const AttackList = () => {
             <div className="flex flex-row mb-1">
               <h2 className="w-[25%] text-lg font-bold">Name</h2>
               <h2 className="w-[12.5%] text-lg font-bold">Range</h2>
-              <h2 className="w-[12.5%] text-lg font-bold">Hit/DC</h2>
+              <h2 className="w-[12.5%] text-lg font-bold">Hit</h2>
               <h2 className="w-[50%] text-lg font-bold">Damage</h2>
             </div>
             {attacks ? (

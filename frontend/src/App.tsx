@@ -2,21 +2,12 @@ import "./App.css";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/NavBar";
 import InfoPanel from "./components/InfoPanel/InfoPanel";
-import Log from "./components/Log/Log";
 import { useCharacter } from "./hooks/CharacterContext";
 import { LogProvider } from "./hooks/logContext";
 import LogSmall from "./components/Log/LogSmall";
 import { useEffect } from "react";
+import FloatingMenu from "./components/FloatingMenu";
 
-//* Responsive Layout Ideas
-//* InfoPanel
-// Image, don't show at small width
-// Reponsive grid for the ability scores
-// 6x1 -> 3x2
-//* Main Layout
-// XL 3x1 (infoPanel, main, log)
-// Medium (2x1) (infoPanel, main), log toggle
-// Small (1x2) column, log toggle
 function App() {
   const { loadCharacter } = useCharacter();
 
@@ -30,15 +21,16 @@ function App() {
   }, []);
 
   return (
-    <div className="flex flex-col md:flex-row text-white bg-black h-screen w-screen">
+    <div className="flex flex-col lg:flex-row text-white bg-black h-screen w-screen">
+      <FloatingMenu />
       <LogProvider>
-        <div className="w-full md:h-full md:w-[50%] bg-gray-800 p-4">
+        <div className="hidden lg:flex lg:h-full lg:w-[50%] p-4 bg-gray-800">
           <InfoPanel />
         </div>
 
-        <div className="w-full md:h-full md:w-[50%] flex flex-col h-full bg-gray-700">
+        <div className="w-full lg:h-full lg:w-[50%] flex flex-col h-full bg-gray-700">
           <Navbar />
-          <div className="p-4 max-h-full overflow-y-scroll">
+          <div className="p-4 w-full max-h-full overflow-y-scroll">
             <Outlet />
           </div>
         </div>

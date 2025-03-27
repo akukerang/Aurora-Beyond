@@ -11,8 +11,8 @@ const Inventory = () => {
         <h1 className="text-xl font-semibold w-[5%]">QTY</h1>
       </div>
       {character?.Inventory ? (
-        character.Inventory.map((item: source.ItemDetail) => (
-          <Item item={item} />
+        character.Inventory.map((item: source.ItemDetail, index) => (
+          <Item key={index} item={item} />
         ))
       ) : (
         <p className="text-gray-300 italic mb-2">No items found.</p>

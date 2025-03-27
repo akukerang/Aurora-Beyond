@@ -54,7 +54,7 @@ const RollDice: React.FC<RollDiceProps> = ({
 
   return (
     <div
-      className="bg-white text-black rounded-md hover:bg-gray-300 cursor-pointer text-center p-2"
+      className="bg-white text-black rounded-md hover:bg-gray-300 cursor-pointer text-center p-2 min-h-[40px] min-w-[40px]"
       onClick={handleClick}
     >
       {text || (mod >= 0 ? `+${mod}` : mod)}

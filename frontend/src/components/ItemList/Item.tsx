@@ -40,6 +40,7 @@ const Item: FC<Props> = ({ item }) => {
             type="checkbox"
             className="form-checkbox accent-red-500 w-6 h-6"
             checked={item.Equipped}
+            readOnly={true}
           />
         </div>
         <div className="flex flex-col  w-[45%]  pl-2">
