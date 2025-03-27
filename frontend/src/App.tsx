@@ -32,22 +32,17 @@ function App() {
   return (
     <div className="flex flex-col md:flex-row text-white bg-black h-screen w-screen">
       <LogProvider>
-        <div className="w-full md:h-full md:w-[40%] xl:w-[40%] bg-gray-800 p-4">
+        <div className="w-full md:h-full md:w-[50%] bg-gray-800 p-4">
           <InfoPanel />
         </div>
 
-        <div className="w-full md:h-full md:w-[60%] xl:w-[40%] flex flex-col h-full bg-gray-700">
+        <div className="w-full md:h-full md:w-[50%] flex flex-col h-full bg-gray-700">
           <Navbar />
           <div className="p-4 max-h-full overflow-y-scroll">
             <Outlet />
           </div>
         </div>
-
-        <div className="hidden xl:flex xl:flex-col xl:w-[20%] xl:h-full bg-gray-600 p-3 overflow-y-auto">
-          <Log />
-        </div>
-
-        <div className="flex xl:hidden fixed right-0 bottom-0 z-100">
+        <div className="flex fixed right-0 bottom-0 z-100 w-[50%] md:w-[33%] lg:w-[30%] xl:w-[30%] 2xl:w-[20%]">
           <LogSmall />
         </div>
       </LogProvider>

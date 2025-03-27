@@ -34,6 +34,7 @@ const Log = () => {
               <LogItem
                 key={index}
                 msg={logItem.msg}
+                total={logItem.total}
                 rolls={logItem.rolls}
                 onClick={() => removeLog(index)}
               />

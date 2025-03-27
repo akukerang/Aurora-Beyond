@@ -2,6 +2,7 @@ import { FC, useState, useContext, createContext, ReactNode } from "react";
 
 type Log = {
   msg: string;
+  total: number;
   rolls: string;
 };
 

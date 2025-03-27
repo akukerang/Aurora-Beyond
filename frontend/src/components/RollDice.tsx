@@ -44,7 +44,8 @@ const RollDice: React.FC<RollDiceProps> = ({
     const { rolls, total } = rollDice(count, sides, modifier);
     // alert(`${context}: You rolled ${total} (${rolls.join(" + ")} ${modifier !== 0 ? (modifier > 0 ? `+${modifier}` : modifier) : ""})`);
     addLog({
-      msg: `${context}: You rolled ${total}`,
+      msg: context,
+      total: total,
       rolls: `${rolls.join(" + ")} ${
         modifier !== 0 ? (modifier > 0 ? `+${modifier}` : modifier) : ""
       }`,
