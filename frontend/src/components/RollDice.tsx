@@ -7,15 +7,21 @@ type Log = {
 };
 
 interface RollDiceProps {
-  text?: string;
-  mod?: number;
-  context?: string;
+  text?: string; // dice notation (1d6+4)
+  mod?: number; // modifier
+  context: string;
+  type: string;
+  advantage?: boolean;
+  disadvantage?: boolean;
 }
 
 const RollDice: React.FC<RollDiceProps> = ({
   text = "",
   mod = 0,
-  context = "Dice Roll",
+  context = "Dice",
+  type = "Roll",
+  advantage = false,
+  disadvantage = false,
 }) => {
   const { addLog } = useLog();
 
@@ -44,7 +50,8 @@ const RollDice: React.FC<RollDiceProps> = ({
     const { rolls, total } = rollDice(count, sides, modifier);
     // alert(`${context}: You rolled ${total} (${rolls.join(" + ")} ${modifier !== 0 ? (modifier > 0 ? `+${modifier}` : modifier) : ""})`);
     addLog({
-      msg: context,
+      context: context,
+      type: type,
       total: total,
       rolls: `${rolls.join(" + ")} ${
         modifier !== 0 ? (modifier > 0 ? `+${modifier}` : modifier) : ""

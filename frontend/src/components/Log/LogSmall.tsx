@@ -19,7 +19,8 @@ const LogSmall = () => {
             .map((logItem, index) => (
               <LogItem
                 key={index}
-                msg={logItem.msg}
+                context={logItem.context}
+                type={logItem.type}
                 total={logItem.total}
                 rolls={logItem.rolls}
                 onClick={() => removeLog(index)}

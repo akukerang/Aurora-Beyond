@@ -2,11 +2,22 @@ import { FC } from "react";
 import RollDice from "../RollDice";
 type Props = {
   name: string;
+  type: string;
   mod: number;
   prof: boolean;
   context: string;
+  advantage?: boolean;
+  disadvantage?: boolean;
 };
-const SkillItem: FC<Props> = ({ name, mod, prof, context }) => {
+const SkillItem: FC<Props> = ({
+  name,
+  type,
+  mod,
+  prof,
+  context,
+  advantage = false,
+  disadvantage = false,
+}) => {
   return (
     <div className="flex flex-row w-full mb-2 justify-between items-center">
       <div className="flex flex-row gap-2 justify-start items-center">
@@ -20,7 +31,13 @@ const SkillItem: FC<Props> = ({ name, mod, prof, context }) => {
         <h1>{name}</h1>
       </div>
       <div>
-        <RollDice mod={mod} context={context} />
+        <RollDice
+          mod={mod}
+          context={context}
+          type={type}
+          advantage={advantage}
+          disadvantage={disadvantage}
+        />
       </div>
     </div>
   );

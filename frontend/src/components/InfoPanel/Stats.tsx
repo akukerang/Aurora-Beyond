@@ -21,7 +21,12 @@ const Stats: FC<Props> = ({ profBonus, initiative, ac, speed }) => {
         </div>
         <div className="flex flex-col items-center justify-center bg-gray-600 rounded-md text-center p-4 h-24 w-full">
           <h1 className="text-xl mb-4">Init</h1>
-          <RollDice mod={initiative.Mod} context={"Initiative Roll: "} />
+          <RollDice
+            mod={initiative.Mod}
+            context="Initiative"
+            type="Roll"
+            advantage={initiative.Disadvantage}
+          />
         </div>
         <div className="flex flex-col items-center justify-center bg-gray-600 rounded-md text-center p-4 h-24 w-full">
           <h1 className="text-xl mb-4">Prof</h1>

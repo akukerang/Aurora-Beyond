@@ -15,37 +15,43 @@ const SavingThrows: FC<Props> = ({ savingProf }) => {
           name="Strength"
           mod={savingProf["Strength"].Mod}
           prof={savingProf["Strength"].Proficient}
-          context="Strength Saving Throw"
+          context="STR"
+          type="Save"
         />
         <SkillItem
           name="Dexterity"
           mod={savingProf["Dexterity"].Mod}
           prof={savingProf["Dexterity"].Proficient}
-          context="Dexterity Saving Throw"
+          context="DEX"
+          type="Save"
         />
         <SkillItem
           name="Constitution"
           mod={savingProf["Constitution"].Mod}
           prof={savingProf["Constitution"].Proficient}
-          context="Constitution Saving Throw"
+          context="CON"
+          type="Save"
         />
         <SkillItem
           name="Intelligence"
           mod={savingProf["Intelligence"].Mod}
           prof={savingProf["Intelligence"].Proficient}
-          context="Intelligence Saving Throw"
+          context="INT"
+          type="Save"
         />
         <SkillItem
           name="Wisdom"
           mod={savingProf["Wisdom"].Mod}
           prof={savingProf["Wisdom"].Proficient}
-          context="Wisdom Saving Throw"
+          context="WIS"
+          type="Save"
         />
         <SkillItem
           name="Charisma"
           mod={savingProf["Charisma"].Mod}
           prof={savingProf["Charisma"].Proficient}
-          context="Charisma Saving Throw"
+          context="CHA"
+          type="Save"
         />
       </div>
     </div>
