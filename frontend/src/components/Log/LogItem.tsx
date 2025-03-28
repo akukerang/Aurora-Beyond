@@ -6,11 +6,19 @@ type Props = {
   type: string;
   total: number;
   rolls: string;
+  rollNotation: string;
   onClick: () => void;
 };
 
 // TODO : Animation when log item shows up.
-const LogItem: FC<Props> = ({ context, type, total, rolls, onClick }) => {
+const LogItem: FC<Props> = ({
+  context,
+  type,
+  total,
+  rolls,
+  rollNotation,
+  onClick,
+}) => {
   return (
     <div className="relative flex flex-row bg-gray-900 rounded-md my-2 mr-3 px-4 p-2 items-center">
       <CloseIcon
@@ -23,7 +31,7 @@ const LogItem: FC<Props> = ({ context, type, total, rolls, onClick }) => {
           {context} : {type}
         </h1>
         <h2 className="text-xl">{rolls}</h2>
-        <h2 className="text-md">1d20+4</h2>
+        <h2 className="text-md">{rollNotation}</h2>
       </div>
       <div className="w-[2px] bg-gray-700 h-full mx-2"></div>
       <div className="w-[35%] flex items-center justify-center">

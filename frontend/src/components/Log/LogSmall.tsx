@@ -23,6 +23,7 @@ const LogSmall = () => {
                 type={logItem.type}
                 total={logItem.total}
                 rolls={logItem.rolls}
+                rollNotation={logItem.rollNotation}
                 onClick={() => removeLog(index)}
               />
             ))

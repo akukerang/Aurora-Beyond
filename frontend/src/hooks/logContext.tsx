@@ -5,6 +5,7 @@ type Log = {
   type: string;
   total: number;
   rolls: string;
+  rollNotation: string;
 };
 
 type LogContextType = {
