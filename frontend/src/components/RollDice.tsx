@@ -19,31 +19,48 @@ const RollDice: React.FC<RollDiceProps> = ({
   disadvantage = false,
 }) => {
   const { addLog } = useLog();
-
   function parseDiceText(diceText: string) {
-    const diceGroups = diceText.match(/(\d*)d(\d+)|[+-]\d+/g);
+    const diceGroups = diceText.split(/(?=[+-])/); // Split at + or -
     if (!diceGroups || diceText === "")
-      return [
-        { count: 1, sides: 20, modifier: 0 },
-        { count: 0, sides: 0, modifier: mod },
-      ]; // Default to 1d20 if no valid dice notation is found
+      return {
+        rolls: [
+          { count: 1, sides: 20, modifier: 0 },
+          { count: 0, sides: 0, modifier: mod },
+        ], // Default to 1d20 if no valid dice notation is found
+        notation: `1d20${mod > 0 ? `+${mod}` : `${mod}`}`,
+      };
 
-    return diceGroups.map((group) => {
+    let notation = "";
+    const rolls: { count: number; sides: number; modifier: number }[] = [];
+
+    diceGroups.forEach((group) => {
       const diceMatch = group.match(/(\d*)d(\d+)/);
+
+      // Dice Group Case (e.g., 2d20, 5d8)
       if (diceMatch) {
         const count = diceMatch[1] ? parseInt(diceMatch[1], 10) : 1;
         const sides = parseInt(diceMatch[2], 10);
-        return { count, sides, modifier: 0 };
+        if (notation === "") {
+          notation += group;
+        } else {
+          notation += "+" + group;
+        }
+        rolls.push({ count, sides, modifier: 0 });
       }
 
-      // Modifier handle
+      // Modifier Case (e.g., +4, -3)
       const modifierMatch = group.match(/[+-]\d+/);
       if (modifierMatch) {
-        return { count: 0, sides: 0, modifier: parseInt(modifierMatch[0], 10) };
+        notation += modifierMatch[0];
+        rolls.push({
+          count: 0,
+          sides: 0,
+          modifier: parseInt(modifierMatch[0], 10),
+        });
       }
-
-      return { count: 0, sides: 0, modifier: 0 };
     });
+
+    return { rolls, notation };
   }
 
   function rollDice(
@@ -70,42 +87,24 @@ const RollDice: React.FC<RollDiceProps> = ({
     return { rolls, total };
   }
 
-  function getNotation(
-    parsedDice: { count: number; sides: number; modifier: number }[]
-  ) {
-    let notation = "";
-    parsedDice.forEach(({ count, sides, modifier }) => {
-      if (count !== 0 && sides !== 0) {
-        notation += `${count}d${sides}`;
-      }
-      if (modifier !== 0) {
-        notation += modifier > 0 ? `+${modifier}` : `${modifier}`;
+  const handleClick = () => {
+    const { rolls: parsedDice, notation: diceNotation } = parseDiceText(text);
+    const { rolls, total } = rollDice(parsedDice);
+    let rollsText = "";
+    rolls.forEach((roll, index) => {
+      if (index == 0 || index == rolls.length - 1) {
+        rollsText += roll;
+      } else {
+        rollsText += `+${roll}`;
       }
     });
-    return notation;
-  }
-
-  const handleClick = () => {
-    const parsedDice = parseDiceText(text);
-    console.log(parsedDice); // Log the parsed dice for debugging
-    const { rolls, total } = rollDice(parsedDice);
-    const diceNotation = getNotation(parsedDice);
     addLog({
       context: context,
       type: type,
       total: total,
       rollNotation: diceNotation,
-      rolls: rolls.join(" "),
+      rolls: rollsText,
     });
-    // addLog({
-    //   context: context,
-    //   type: type,
-    //   total: total,
-    //   rollNotation: text !== "" ? text : `1d20+${modifier}`,
-    //   rolls: `${rolls.join(" + ")} ${
-    //     modifier !== 0 ? (modifier > 0 ? `+${modifier}` : modifier) : ""
-    //   }`,
-    // });
   };
 
   return (
