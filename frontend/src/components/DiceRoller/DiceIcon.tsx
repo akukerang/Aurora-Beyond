@@ -3,10 +3,16 @@ import "./Dice.css";
 
 type Props = {
   type: string;
+  className?: string;
 };
-const DiceIcon: FC<Props> = ({ type }) => {
+const DiceIcon: FC<Props> = ({
+  type,
+  className = "bg-gray-500 hover:bg-gray-400 text-white",
+}) => {
   return (
-    <div className=" bg-red-700 text-white p-3 hover:bg-red-400 cursor-pointer z-50 shadow-xl rounded-full">
+    <div
+      className={`w-14 h-14 flex items-center justify-center cursor-pointer z-50 shadow-xl rounded-full ${className}`}
+    >
       <div className={`dice-icon-die--${type} dice-icon-die`}></div>
     </div>
   );

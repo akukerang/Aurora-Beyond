@@ -35,7 +35,7 @@
     -webkit-mask-repeat: space no-repeat;
     mask-size: 50%;
     -webkit-mask-size: 50%;
-    /* width: 48px */
+    width: 48px
 }
 
 .dice-icon-die--d8 {
