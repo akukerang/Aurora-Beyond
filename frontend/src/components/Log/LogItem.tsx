@@ -2,6 +2,8 @@ import { FC } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 
 type Props = {
+  index: number;
+  length: number;
   context: string;
   type: string;
   total: number;
@@ -12,6 +14,8 @@ type Props = {
 
 // TODO : Animation when log item shows up.
 const LogItem: FC<Props> = ({
+  index,
+  length,
   context,
   type,
   total,
@@ -20,7 +24,10 @@ const LogItem: FC<Props> = ({
   onClick,
 }) => {
   return (
-    <div className="relative flex flex-row bg-gray-900 rounded-md my-2 mr-3 px-4 p-2 items-center">
+    <div
+      className={`relative flex flex-row bg-gray-900 rounded-md my-2 mr-3 px-4 p-2 items-center
+        animate-slide-in transition-transform duration-300 ease-in-out`}
+    >
       <CloseIcon
         className="absolute top-2 right-2 cursor-pointer"
         fontSize="small"
@@ -28,7 +35,7 @@ const LogItem: FC<Props> = ({
       />
       <div className="flex flex-col w-[75%] justify-center">
         <h1 className="text-md truncate">
-          {context} : {type}
+          {context} : {type} : {index} : {length}
         </h1>
         <h2 className="text-xl truncate">{rolls}</h2>
         <h2 className="text-md truncate">{rollNotation}</h2>

@@ -21,7 +21,7 @@ const FloatingMenu = () => {
   return (
     <>
       <div
-        className="fixed bg-gray-900 p-3 rounded-lg top-4 right-8 lg:hidden hover:bg-gray-700 cursor-pointer z-50 shadow-xl menu-container"
+        className="fixed bg-red-700 p-3 rounded-full top-4 right-8 lg:hidden hover:bg-red-500 cursor-pointer z-50 shadow-xl menu-container"
         onClick={() => setMenuOpen(!menuOpen)}
       >
         <MenuIcon fontSize="large" />

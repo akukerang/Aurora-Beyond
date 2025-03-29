@@ -7,6 +7,7 @@ import { LogProvider } from "./hooks/logContext";
 import LogSmall from "./components/Log/LogSmall";
 import { useEffect } from "react";
 import FloatingMenu from "./components/FloatingMenu";
+import DiceRoller from "./components/DiceRoller/DiceRoller";
 
 function App() {
   const { loadCharacter } = useCharacter();
@@ -27,7 +28,7 @@ function App() {
         <div className="hidden lg:flex lg:h-full lg:w-[50%] bg-gray-800">
           <InfoPanel />
         </div>
-
+        <DiceRoller />
         <div className="w-full lg:h-full lg:w-[50%] flex flex-col h-full bg-gray-700">
           <Navbar />
           <div className="w-full max-h-full overflow-y-scroll">

@@ -7,9 +7,9 @@ const FeatureList = () => {
     <>
       {classFeats ? (
         <div className="flex flex-col justify-between px-4">
-          {classFeats.map((feat: any) => (
+          {classFeats.map((feat: any, index) => (
             <FeatureItem
-              key={feat.index}
+              key={index}
               name={feat.Name}
               description={feat.Description}
             />
