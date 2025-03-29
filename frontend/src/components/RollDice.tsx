@@ -21,6 +21,7 @@ const RollDice: React.FC<RollDiceProps> = ({
   const { addLog } = useLog();
   function parseDiceText(diceText: string) {
     const diceGroups = diceText.split(/(?=[+-])/); // Split at + or -
+
     if (!diceGroups || diceText === "")
       return {
         rolls: [
@@ -32,7 +33,6 @@ const RollDice: React.FC<RollDiceProps> = ({
 
     let notation = "";
     const rolls: { count: number; sides: number; modifier: number }[] = [];
-
     diceGroups.forEach((group) => {
       const diceMatch = group.match(/(\d*)d(\d+)/);
 
@@ -40,24 +40,21 @@ const RollDice: React.FC<RollDiceProps> = ({
       if (diceMatch) {
         const count = diceMatch[1] ? parseInt(diceMatch[1], 10) : 1;
         const sides = parseInt(diceMatch[2], 10);
-        if (notation === "") {
-          notation += group;
-        } else {
-          notation += "+" + group;
-        }
+        notation += group;
         rolls.push({ count, sides, modifier: 0 });
+      } else {
+        const modifierMatch = group.match(/[+-]\d+/);
+        if (modifierMatch) {
+          notation += modifierMatch[0];
+          rolls.push({
+            count: 0,
+            sides: 0,
+            modifier: parseInt(modifierMatch[0], 10),
+          });
+        }
       }
 
       // Modifier Case (e.g., +4, -3)
-      const modifierMatch = group.match(/[+-]\d+/);
-      if (modifierMatch) {
-        notation += modifierMatch[0];
-        rolls.push({
-          count: 0,
-          sides: 0,
-          modifier: parseInt(modifierMatch[0], 10),
-        });
-      }
     });
 
     return { rolls, notation };
@@ -89,6 +86,7 @@ const RollDice: React.FC<RollDiceProps> = ({
 
   const handleClick = () => {
     const { rolls: parsedDice, notation: diceNotation } = parseDiceText(text);
+    console.log(parsedDice);
     const { rolls, total } = rollDice(parsedDice);
     let rollsText = "";
     rolls.forEach((roll, index) => {

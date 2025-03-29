@@ -26,7 +26,7 @@ const LogItem: FC<Props> = ({
         fontSize="small"
         onClick={onClick}
       />
-      <div className="flex flex-col w-[65%] justify-center">
+      <div className="flex flex-col w-[75%] justify-center">
         <h1 className="text-md truncate">
           {context} : {type}
         </h1>
@@ -34,7 +34,7 @@ const LogItem: FC<Props> = ({
         <h2 className="text-md truncate">{rollNotation}</h2>
       </div>
       <div className="w-[2px] bg-gray-700 h-full mx-2"></div>
-      <div className="w-[35%] flex items-center justify-center">
+      <div className="w-[25%] flex items-center justify-center">
         <h1 className="text-2xl">{total}</h1>
       </div>
     </div>

@@ -24,13 +24,13 @@ function App() {
     <div className="flex flex-col lg:flex-row text-white bg-black h-screen w-screen">
       <FloatingMenu />
       <LogProvider>
-        <div className="hidden lg:flex lg:h-full lg:w-[50%] p-4 bg-gray-800">
+        <div className="hidden lg:flex lg:h-full lg:w-[50%] bg-gray-800">
           <InfoPanel />
         </div>
 
         <div className="w-full lg:h-full lg:w-[50%] flex flex-col h-full bg-gray-700">
           <Navbar />
-          <div className="p-4 w-full max-h-full overflow-y-scroll">
+          <div className="w-full max-h-full overflow-y-scroll">
             <Outlet />
           </div>
         </div>

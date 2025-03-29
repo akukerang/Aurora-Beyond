@@ -11,7 +11,7 @@ const InfoPanel = () => {
   const { character } = useCharacter();
   console.log(character);
   return (
-    <div className="bg-gray-800">
+    <div className="bg-gray-800 p-4 xl:p-6">
       {character ? (
         <div className="flex flex-col lg:h-full px-2">
           <h1 className="text-3xl">{character.Name}</h1>
