@@ -1,5 +1,5 @@
 import { FC } from "react";
-import RollDice from "../RollDice";
+import RollDice from "../DiceRoller/RollDice";
 type Props = {
   name: string;
   type: string;

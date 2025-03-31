@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { character } from "../../../wailsjs/go/models"; // Adjust the import path as necessary
 import HoverInfo from "../HoverInfo";
-import RollDice from "../RollDice";
+import RollDice from "../DiceRoller/RollDice";
 type Props = {
   profBonus: number;
   initiative: character.Skill;

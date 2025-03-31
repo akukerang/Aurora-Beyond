@@ -1,5 +1,5 @@
 import React from "react";
-import RollDice from "../RollDice";
+import RollDice from "../DiceRoller/RollDice";
 
 interface AbilityScoreBoxProps {
   name: string;

@@ -1,15 +1,18 @@
 import DiceIcon from "./DiceIcon";
 import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
+import { parseDiceText, rollDice } from "./RollFunc";
+import { useLog } from "../../hooks/logContext";
+
 const DiceMenu = ({
-  rolls,
-  setRolls,
+  rollsArray,
+  setRollsArray,
 }: {
-  rolls: number[];
-  setRolls: React.Dispatch<React.SetStateAction<number[]>>;
+  rollsArray: number[];
+  setRollsArray: React.Dispatch<React.SetStateAction<number[]>>;
 }) => {
   const addIndex = (index: number) => {
-    setRolls((prevRolls) => {
+    setRollsArray((prevRolls) => {
       const newRolls = [...prevRolls];
       newRolls[index] += 1;
       return newRolls;
@@ -17,7 +20,7 @@ const DiceMenu = ({
   };
 
   const removeIndex = (index: number) => {
-    setRolls((prevRolls) => {
+    setRollsArray((prevRolls) => {
       const newRolls = [...prevRolls];
       if (newRolls[index] > 0) {
         newRolls[index] -= 1;
@@ -29,25 +32,25 @@ const DiceMenu = ({
   const addDice = (type: string) => {
     switch (type) {
       case "d4":
-        addIndex(0);
+        addIndex(6);
         break;
       case "d6":
-        addIndex(1);
+        addIndex(5);
         break;
       case "d8":
-        addIndex(2);
+        addIndex(4);
         break;
       case "d10":
         addIndex(3);
         break;
       case "d12":
-        addIndex(4);
+        addIndex(2);
         break;
       case "d20":
-        addIndex(5);
+        addIndex(1);
         break;
       case "d100":
-        addIndex(6);
+        addIndex(0);
         break;
       default:
         break;
@@ -57,25 +60,25 @@ const DiceMenu = ({
   const removeDice = (type: string) => {
     switch (type) {
       case "d4":
-        removeIndex(0);
+        removeIndex(6);
         break;
       case "d6":
-        removeIndex(1);
+        removeIndex(5);
         break;
       case "d8":
-        removeIndex(2);
+        removeIndex(4);
         break;
       case "d10":
         removeIndex(3);
         break;
       case "d12":
-        removeIndex(4);
+        removeIndex(2);
         break;
       case "d20":
-        removeIndex(5);
+        removeIndex(1);
         break;
       case "d100":
-        removeIndex(6);
+        removeIndex(0);
         break;
       default:
         break;
@@ -88,63 +91,129 @@ const DiceMenu = ({
         type="d20"
         onLeftClick={() => addDice("d20")}
         onRightClick={() => removeDice("d20")}
-        value={rolls[5]}
+        value={rollsArray[1]}
       />
       <DiceIcon
         type="d12"
         onLeftClick={() => addDice("d12")}
         onRightClick={() => removeDice("d12")}
-        value={rolls[4]}
+        value={rollsArray[2]}
       />
       <DiceIcon
         type="d10"
         onLeftClick={() => addDice("d10")}
         onRightClick={() => removeDice("d10")}
-        value={rolls[3]}
+        value={rollsArray[3]}
       />
       <DiceIcon
         type="d100"
         onLeftClick={() => addDice("d100")}
         onRightClick={() => removeDice("d100")}
-        value={rolls[6]}
+        value={rollsArray[0]}
       />
       <DiceIcon
         type="d8"
         onLeftClick={() => addDice("d8")}
         onRightClick={() => removeDice("d8")}
-        value={rolls[2]}
+        value={rollsArray[4]}
       />
       <DiceIcon
         type="d6"
         onLeftClick={() => addDice("d6")}
         onRightClick={() => removeDice("d6")}
-        value={rolls[1]}
+        value={rollsArray[5]}
       />
       <DiceIcon
         type="d4"
         onLeftClick={() => addDice("d4")}
         onRightClick={() => removeDice("d4")}
-        value={rolls[0]}
+        value={rollsArray[6]}
       />
     </>
   );
 };
 
 const DiceRoller = () => {
+  const { addLog } = useLog();
   const [isOpen, setIsOpen] = useState(false);
-  const [rolls, setRolls] = useState<number[]>([0, 0, 0, 0, 0, 0, 0]);
+  const [rollsArray, setRollsArray] = useState<number[]>([0, 0, 0, 0, 0, 0, 0]);
   // index == type of roll, d4 - d100
+  const hasRolls = Object.values(rollsArray).some((roll) => roll > 0);
 
   const toggleMenu = () => {
     if (isOpen) {
-      setRolls([0, 0, 0, 0, 0, 0, 0]); //reset rolls
+      setRollsArray([0, 0, 0, 0, 0, 0, 0]); //reset rolls
     }
     setIsOpen(!isOpen);
   };
-  const hasRolls = Object.values(rolls).some((roll) => roll > 0);
+
+  const getDiceNotation = (diceRolls: number[]) => {
+    let notation = "";
+    for (let i = 0; i < diceRolls.length; i++) {
+      if (diceRolls[i] > 0) {
+        let type = "";
+        switch (i) {
+          case 6:
+            type = `d4`;
+            break;
+          case 5:
+            type = `d6`;
+            break;
+          case 4:
+            type = `d8`;
+            break;
+          case 3:
+            type = `d10`;
+            break;
+          case 2:
+            type = `d12`;
+            break;
+          case 1:
+            type = `d20`;
+            break;
+          case 0:
+            type = `d100`;
+            break;
+          default:
+            break;
+        }
+        if (notation.length > 0) {
+          notation += "+";
+        }
+        notation += `${diceRolls[i]}${type}`;
+      }
+    }
+    return notation;
+  };
+  const handleClick = () => {
+    // console.log(rolls);
+    const diceNotation = getDiceNotation(rollsArray);
+    console.log(diceNotation);
+    const { rolls: parsedDice } = parseDiceText(diceNotation, 0);
+    console.log(parsedDice);
+    const { rolls, total } = rollDice(parsedDice, false, false);
+    let rollsText = "";
+    rolls.forEach((roll, index) => {
+      if (index == 0) {
+        rollsText += roll;
+      } else {
+        rollsText += `+${roll}`;
+      }
+    });
+    addLog({
+      context: "Custom",
+      type: "Roll",
+      total: total,
+      rollNotation: diceNotation,
+      rolls: rollsText,
+    });
+  };
+
   return (
     <div className="fixed bottom-4 left-4 flex flex-col gap-2 items-center">
-      {isOpen ? <DiceMenu rolls={rolls} setRolls={setRolls} /> : null}
+      {isOpen ? (
+        <DiceMenu rollsArray={rollsArray} setRollsArray={setRollsArray} />
+      ) : null}
       <div className="relative flex flex-col items-center">
         <div
           className="bg-gray-700 hover:bg-gray-600 w-14 h-14 flex items-center justify-center 
@@ -166,6 +235,7 @@ const DiceRoller = () => {
         items-center justify-center pl-12 translate-x-[-.125rem] translate-y-[.125rem] text-xl
         font-bold
         "
+              onClick={handleClick}
             >
               ROLL
             </div>
