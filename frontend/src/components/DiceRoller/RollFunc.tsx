@@ -49,14 +49,11 @@ function parseDiceText(diceText: string, mod: number = 0) {
   return { rolls, notation };
 }
 
-function rollDice(
-  parsedDice: { count: number; sides: number; modifier: number }[],
-  advantage: boolean = false,
-  disadvantage: boolean = false
+function rollHelper(
+  parsedDice: { count: number; sides: number; modifier: number }[]
 ) {
   let total = 0;
   const rolls: string[] = [];
-
   parsedDice.forEach(({ count, sides, modifier }) => {
     if (sides > 0) {
       const groupRolls = Array.from(
@@ -73,6 +70,38 @@ function rollDice(
   });
 
   return { rolls, total };
+}
+
+function rollDice(
+  parsedDice: { count: number; sides: number; modifier: number }[],
+  advantage: boolean = false,
+  disadvantage: boolean = false
+) {
+  if (advantage && disadvantage) {
+    // treat as normal roll
+    return rollHelper(parsedDice);
+  } else if (advantage) {
+    // Roll twice, take the higher
+    const roll1 = rollHelper(parsedDice); // First roll
+    const roll2 = rollHelper(parsedDice); // Second roll
+    if (roll1.total < roll2.total) {
+      return roll2;
+    } else {
+      return roll1;
+    }
+  } else if (disadvantage) {
+    // Roll twice, take the lower
+    const roll1 = rollHelper(parsedDice); // First roll
+    const roll2 = rollHelper(parsedDice); // Second roll
+    if (roll1.total < roll2.total) {
+      return roll1;
+    } else {
+      return roll2;
+    }
+  } else {
+    // Normal roll
+    return rollHelper(parsedDice);
+  }
 }
 
 export { parseDiceText, rollDice };
