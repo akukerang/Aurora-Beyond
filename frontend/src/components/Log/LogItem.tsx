@@ -34,11 +34,11 @@ const LogItem: FC<Props> = ({
         onClick={onClick}
       />
       <div className="flex flex-col w-[75%] justify-center">
-        <h1 className="text-md truncate">
+        <h1 className="text-base truncate">
           {context} : {type} : {index} : {length}
         </h1>
         <h2 className="text-xl truncate">{rolls}</h2>
-        <h2 className="text-md truncate">{rollNotation}</h2>
+        <h2 className="text-base truncate">{rollNotation}</h2>
       </div>
       <div className="w-[2px] bg-gray-700 h-full mx-2"></div>
       <div className="w-[25%] flex items-center justify-center">

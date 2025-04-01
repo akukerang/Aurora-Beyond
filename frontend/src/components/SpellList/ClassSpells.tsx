@@ -45,7 +45,7 @@ const ClassSpells: FC<Props> = ({ className }) => {
                   <h3 className="font-semibold text-lg w-[40%]">Name</h3>
                   <h3 className="font-semibold text-lg w-[12.5%]">Time</h3>
                   <h3 className="font-semibold text-lg w-[12.5%]">Range</h3>
-                  <h3 className="font-semibold text-lg w-[25%]">Notes</h3>
+                  <h3 className="font-semibold text-lg w-[30%]">Notes</h3>
                 </div>
                 {spellsByLevel[level].map((spell: source.Spell) => (
                   <SpellItem key={spell.ID} spell={spell} />

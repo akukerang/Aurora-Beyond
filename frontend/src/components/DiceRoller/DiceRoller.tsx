@@ -210,7 +210,7 @@ const DiceRoller = () => {
   };
 
   return (
-    <div className="fixed bottom-4 left-4 flex flex-col gap-2 items-center">
+    <div className="fixed bottom-4 left-4 flex flex-col gap-2 items-center z-50">
       {isOpen ? (
         <DiceMenu rollsArray={rollsArray} setRollsArray={setRollsArray} />
       ) : null}

@@ -32,23 +32,23 @@ const ProficienciesAndSenses: FC<Props> = ({
           Proficiencies
         </h1>
         <h2 className="text-lg font-semibold">Armor</h2>
-        <p className="text-md">
+        <p className="text-base">
           {armorProf
             ? armorProf.map((item: string) => item).join(", ")
             : "None"}
         </p>
         <h2 className="text-lg font-semibold">Weapons </h2>
-        <p className="text-md">
+        <p className="text-base">
           {weaponProf
             ? weaponProf.map((item: string) => item).join(", ")
             : "None"}
         </p>
         <h2 className="text-lg font-semibold">Tools </h2>
-        <p className="text-md">
+        <p className="text-base">
           {toolProf ? toolProf.map((item: string) => item).join(", ") : "None"}
         </p>
         <h2 className="text-lg font-semibold">Languages </h2>
-        <p className="text-md">
+        <p className="text-base">
           {languages
             ? languages.map((item: string) => item).join(", ")
             : "None"}

@@ -45,7 +45,7 @@ const Item: FC<Props> = ({ item }) => {
         </div>
         <div className="flex flex-col  w-[45%]  pl-2">
           <h1 className={"text-lg " + itemColor}>{item.Name}</h1>
-          <h1 className="text-md italic">{itemCategory}</h1>
+          <h1 className="text-base italic">{itemCategory}</h1>
         </div>
         <div className="flex w-[5%] items-center justify-center">
           <h1 className=" text-xl">{item.Amount}</h1>
