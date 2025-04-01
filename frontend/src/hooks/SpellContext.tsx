@@ -24,10 +24,12 @@ export const SpellProvider: FC<SpellProviderProps> = ({ children }) => {
     maxSlots: [],
   });
 
-  const useSlot = (index: number) => {
+  const replenishSlot = (index: number) => {
     setSlots((prevSlots) => {
-      const newSlots = { ...prevSlots };
-      // Check if there is a slot available at that level
+      const newSlots = {
+        ...prevSlots,
+        availableSlots: [...prevSlots.availableSlots],
+      };
       if (index < newSlots.maxSlots.length) {
         if (newSlots.availableSlots[index] > 0) {
           newSlots.availableSlots[index] -= 1;
@@ -41,12 +43,13 @@ export const SpellProvider: FC<SpellProviderProps> = ({ children }) => {
     });
   };
 
-  const replenishSlot = (index: number) => {
+  const useSlot = (index: number) => {
     setSlots((prevSlots) => {
-      const newSlots = { ...prevSlots };
-      // Check if there is a slot available at that level
+      const newSlots = {
+        ...prevSlots,
+        availableSlots: [...prevSlots.availableSlots],
+      };
       if (index < newSlots.maxSlots.length) {
-        // Check if within max slots
         if (newSlots.availableSlots[index] < newSlots.maxSlots[index]) {
           newSlots.availableSlots[index] += 1;
         } else {
@@ -69,7 +72,7 @@ export const SpellProvider: FC<SpellProviderProps> = ({ children }) => {
     }
     // Init max and available
     setSlots({
-      maxSlots: spellSlots, // Set max slots from the provided spell slots
+      maxSlots: spellSlots,
       availableSlots: Array(spellSlots.length).fill(0),
     });
   };

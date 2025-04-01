@@ -2,18 +2,17 @@ import { FC } from "react";
 import { character, source } from "../../../wailsjs/go/models";
 import SpellItem from "./SpellItem";
 import SpellLevelHeader from "./SpellLevelHeader";
-
+import { useSpells } from "../../hooks/SpellContext";
 type Props = {
   className: character.spells;
-  spellSlots: number[];
 };
 
-const ClassSpells: FC<Props> = ({ className, spellSlots }) => {
+const ClassSpells: FC<Props> = ({ className }) => {
   const allSpells = [
     ...(className.Spells || []),
     ...(className.Cantrips || []),
   ];
-
+  const { slots } = useSpells();
   const spellsByLevel = allSpells.reduce(
     (acc: Record<number, source.Spell[]>, spell: source.Spell) => {
       if (!acc[spell.Level]) {
@@ -28,9 +27,10 @@ const ClassSpells: FC<Props> = ({ className, spellSlots }) => {
   return (
     <div>
       <h1 className="text-2xl font-semibold mb-2"> {className.ClassName} </h1>
-      {Array.from({ length: spellSlots.length + 1 }).map((_, index) => {
+      {Array.from({ length: slots.maxSlots.length + 1 }).map((_, index) => {
         const level = index;
-        const slots = index > 0 ? spellSlots[index - 1] : 0;
+        const slotNum = index > 0 ? slots.maxSlots[index - 1] : 0;
+        const availNum = index > 0 ? slots.availableSlots[index - 1] : 0;
 
         // Skip cantrips if empty
         if (level === 0 && !spellsByLevel[0]) {
@@ -39,7 +39,7 @@ const ClassSpells: FC<Props> = ({ className, spellSlots }) => {
 
         return (
           <div key={level}>
-            <SpellLevelHeader level={level} slots={slots} />
+            <SpellLevelHeader level={level} />
             {spellsByLevel[level] ? (
               <>
                 <div className="flex flex-row">

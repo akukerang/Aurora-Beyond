@@ -23,14 +23,8 @@ const Spells = () => {
         <>
           <MagicStats classMagic={magic.ClassSpells} />
           {magic.ClassSpells.map((className: character.spells, index) => (
-            <ClassSpells
-              className={className}
-              spellSlots={magic.SpellSlots}
-              key={index}
-            />
+            <ClassSpells className={className} key={index} />
           ))}
-
-          <div></div>
         </>
       ) : (
         <p className="text-gray-300 italic mb-2">No Spells found</p>
