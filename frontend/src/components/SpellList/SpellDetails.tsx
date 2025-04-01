@@ -31,7 +31,7 @@ const SpellDetails: FC<Props> = ({ spell, hidden, onClose }) => {
         Range:
         <span className="text-base font-normal"> {spell.Range}</span>
       </h2>
-      <h2 className="text-lg font-semibold">
+      <h2 className="text-lg font-semibold mb-2">
         Duration:
         <span className="text-base font-normal"> {spell.Duration}</span>
       </h2>

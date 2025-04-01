@@ -1,5 +1,6 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { source } from "../../../wailsjs/go/models";
+import ItemDetails from "./ItemDetails";
 
 type Props = {
   item: source.ItemDetail;
@@ -9,6 +10,7 @@ const Item: FC<Props> = ({ item }) => {
   const itemCategory = item.Rarity
     ? item.Category + " (" + item.Rarity + ")"
     : item.Category;
+  const [hidden, setHidden] = useState(true);
 
   let itemColor = "text-white";
   switch (item.Rarity) {
@@ -33,8 +35,14 @@ const Item: FC<Props> = ({ item }) => {
   }
 
   return (
-    <div className="flex flex-col mb-2">
+    <div className="relative flex flex-col mb-2">
       <div className="flex flex-row items-center pb-2 border-b border-gray-500">
+        <ItemDetails
+          item={item}
+          category={itemCategory}
+          hidden={hidden}
+          onClose={() => setHidden(true)}
+        />
         <div className="flex items-center justify-center w-[10%]">
           <input
             type="checkbox"
@@ -44,7 +52,14 @@ const Item: FC<Props> = ({ item }) => {
           />
         </div>
         <div className="flex flex-col  w-[45%]  pl-2">
-          <h1 className={"text-lg " + itemColor}>{item.Name}</h1>
+          <h1
+            className={"cursor-pointer text-lg " + itemColor}
+            onClick={() => {
+              setHidden(!hidden);
+            }}
+          >
+            {item.Name}
+          </h1>
           <h1 className="text-base italic">{itemCategory}</h1>
         </div>
         <div className="flex w-[5%] items-center justify-center">
