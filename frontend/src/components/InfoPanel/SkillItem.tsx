@@ -1,5 +1,6 @@
 import { FC } from "react";
 import RollDice from "../DiceRoller/RollDice";
+import RollMod from "../RollMod";
 type Props = {
   name: string;
   type: string;
@@ -30,7 +31,11 @@ const SkillItem: FC<Props> = ({
         />
         <h1>{name}</h1>
       </div>
-      <div>
+      <div className="flex flex-row text-center items-center">
+        {advantage || disadvantage ? (
+          <RollMod advantage={advantage} disadvantage={disadvantage} />
+        ) : null}
+
         <RollDice
           mod={mod}
           context={context}
