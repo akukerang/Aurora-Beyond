@@ -34,7 +34,7 @@ const Item: FC<Props> = ({ item }) => {
 
   return (
     <div className="flex flex-col mb-2">
-      <div className="flex flex-row items-center">
+      <div className="flex flex-row items-center pb-2 border-b border-gray-500">
         <div className="flex items-center justify-center w-[10%]">
           <input
             type="checkbox"

@@ -30,7 +30,6 @@ const Stats: FC<Props> = ({ profBonus, initiative, ac, speed }) => {
             {initiative.Advantage ? (
               <RollMod advantage={initiative.Advantage} />
             ) : null}
-            {/* <RollMod advantage={true} /> */}
           </div>
 
           <RollDice

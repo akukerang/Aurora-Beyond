@@ -54,29 +54,30 @@ type Ability struct {
 }
 
 type Character struct { // Goes to Final
-	Portrait     string
-	AttackNum    int
-	AbilityScore map[string]Ability
-	Name         string
-	Class        string
-	Race         string
-	Background   string
-	Languages    []string
-	Conditions   []string
-	ArmorProf    []string
-	WeaponProf   []string
-	ToolProf     []string
-	HP           int
-	AC           int
-	Speed        int
-	ProfBonus    int
-	Skills       map[string]Skill
-	SavingThrows map[string]Skill
-	Initiative   Skill
-	Magic        Magic
-	Attacks      []AttackDetail
-	Inventory    []source.ItemDetail
-	FeatsFinal   []source.Detail
+	Portrait      string
+	AttackNum     int
+	AbilityScore  map[string]Ability
+	Name          string
+	Class         string
+	Race          string
+	Background    string
+	Languages     []string
+	Conditions    []string
+	ArmorProf     []string
+	WeaponProf    []string
+	ToolProf      []string
+	HP            int
+	AC            int
+	Speed         int
+	ProfBonus     int
+	Skills        map[string]Skill
+	SavingThrows  map[string]Skill
+	Initiative    Skill
+	Magic         Magic
+	Attacks       []AttackDetail
+	Inventory     []source.ItemDetail
+	FeatsFinal    []source.Detail
+	PassiveSkills map[string]int
 }
 
 type Skill struct {
@@ -1664,6 +1665,14 @@ func (character *Character) setAttacks(characterInfo *characterInfo) error {
 	return nil
 }
 
+func (character *Character) setPassiveStats() error {
+	character.PassiveSkills = make(map[string]int)
+	character.PassiveSkills["Perception"] = 10 + character.Skills["Perception"].Mod
+	character.PassiveSkills["Insight"] = 10 + character.Skills["Insight"].Mod
+	character.PassiveSkills["Investigation"] = 10 + character.Skills["Investigation"].Mod
+	return nil
+}
+
 func GetCharacterData(filePath string) (Character, error) {
 	file, err := os.Open(filePath)
 	if err != nil {
@@ -1743,7 +1752,7 @@ func GetCharacterData(filePath string) (Character, error) {
 		return Character{}, fmt.Errorf("error getting conditions: %w", err)
 	}
 
-	errCh := make(chan error, 8)
+	errCh := make(chan error, 9)
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
@@ -1815,6 +1824,15 @@ func GetCharacterData(filePath string) (Character, error) {
 		err = character.setAttacks(&characterInfo)
 		if err != nil {
 			errCh <- fmt.Errorf("error getting attacks: %w", err)
+		}
+	}()
+
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		err = character.setPassiveStats()
+		if err != nil {
+			errCh <- fmt.Errorf("error getting passive stats: %w", err)
 		}
 	}()
 

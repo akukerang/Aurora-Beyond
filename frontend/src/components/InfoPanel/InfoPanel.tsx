@@ -52,6 +52,7 @@ const InfoPanel = () => {
                 weaponProf={character.WeaponProf}
                 toolProf={character.ToolProf}
                 languages={character.Languages}
+                passiveSkills={character.PassiveSkills}
               />
             </div>
             <Skills skillProf={character.Skills} />

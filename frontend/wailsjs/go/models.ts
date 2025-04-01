@@ -156,6 +156,7 @@ export namespace character {
 	    Attacks: AttackDetail[];
 	    Inventory: source.ItemDetail[];
 	    FeatsFinal: source.Detail[];
+	    PassiveSkills: Record<string, number>;
 	
 	    static createFrom(source: any = {}) {
 	        return new Character(source);
@@ -186,6 +187,7 @@ export namespace character {
 	        this.Attacks = this.convertValues(source["Attacks"], AttackDetail);
 	        this.Inventory = this.convertValues(source["Inventory"], source.ItemDetail);
 	        this.FeatsFinal = this.convertValues(source["FeatsFinal"], source.Detail);
+	        this.PassiveSkills = source["PassiveSkills"];
 	    }
 	
 		convertValues(a: any, classs: any, asMap: boolean = false): any {

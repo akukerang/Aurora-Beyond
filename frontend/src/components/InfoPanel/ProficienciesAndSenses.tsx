@@ -5,6 +5,7 @@ interface Props {
   weaponProf: string[];
   toolProf: string[];
   languages: string[];
+  passiveSkills: Record<string, number>;
 }
 
 const ProficienciesAndSenses: FC<Props> = ({
@@ -12,14 +13,19 @@ const ProficienciesAndSenses: FC<Props> = ({
   weaponProf,
   toolProf,
   languages,
+  passiveSkills,
 }) => {
   return (
     <>
       <div className="mb-2">
         <h1 className="text-xl border-b border-white pb-1 mb-1">Senses</h1>
-        <h2 className="text-lg">Passive Perception: </h2>
-        <h2 className="text-lg">Passive Investigation: </h2>
-        <h2 className="text-lg">Passive Insight: </h2>
+        <h2 className="text-lg">
+          Passive Perception: {passiveSkills["Perception"]}
+        </h2>
+        <h2 className="text-lg">
+          Passive Investigation: {passiveSkills["Investigation"]}
+        </h2>
+        <h2 className="text-lg">Passive Insight: {passiveSkills["Insight"]}</h2>
       </div>
       <div>
         <h1 className="text-xl border-b border-white pb-1 mb-1">
