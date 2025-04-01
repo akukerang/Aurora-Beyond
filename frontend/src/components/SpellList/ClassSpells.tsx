@@ -29,8 +29,6 @@ const ClassSpells: FC<Props> = ({ className }) => {
       <h1 className="text-2xl font-semibold mb-2"> {className.ClassName} </h1>
       {Array.from({ length: slots.maxSlots.length + 1 }).map((_, index) => {
         const level = index;
-        const slotNum = index > 0 ? slots.maxSlots[index - 1] : 0;
-        const availNum = index > 0 ? slots.availableSlots[index - 1] : 0;
 
         // Skip cantrips if empty
         if (level === 0 && !spellsByLevel[0]) {
@@ -43,6 +41,7 @@ const ClassSpells: FC<Props> = ({ className }) => {
             {spellsByLevel[level] ? (
               <>
                 <div className="flex flex-row">
+                  <div className="w-[5%]"></div>
                   <h3 className="font-semibold text-lg w-[40%]">Name</h3>
                   <h3 className="font-semibold text-lg w-[12.5%]">Time</h3>
                   <h3 className="font-semibold text-lg w-[12.5%]">Range</h3>
