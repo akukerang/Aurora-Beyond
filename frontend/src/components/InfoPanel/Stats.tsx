@@ -2,6 +2,7 @@ import { FC } from "react";
 import { character } from "../../../wailsjs/go/models"; // Adjust the import path as necessary
 import HoverInfo from "../HoverInfo";
 import RollDice from "../DiceRoller/RollDice";
+import RollMod from "../RollMod";
 type Props = {
   profBonus: number;
   initiative: character.Skill;
@@ -20,12 +21,23 @@ const Stats: FC<Props> = ({ profBonus, initiative, ac, speed }) => {
           <HoverInfo info={ac.toString()} />
         </div>
         <div className="flex flex-col items-center justify-center bg-gray-600 rounded-md text-center p-4 h-24 w-full">
-          <h1 className="text-xl mb-4">Init</h1>
+          <div
+            className={`flex flex-row items-center ${
+              initiative.Advantage ? "mb-1.5" : "mb-4"
+            }`}
+          >
+            <h1 className="text-xl">Init</h1>
+            {initiative.Advantage ? (
+              <RollMod advantage={initiative.Advantage} />
+            ) : null}
+            {/* <RollMod advantage={true} /> */}
+          </div>
+
           <RollDice
             mod={initiative.Mod}
             context="Initiative"
             type="Roll"
-            advantage={initiative.Disadvantage}
+            advantage={initiative.Advantage}
           />
         </div>
         <div className="flex flex-col items-center justify-center bg-gray-600 rounded-md text-center p-4 h-24 w-full">
