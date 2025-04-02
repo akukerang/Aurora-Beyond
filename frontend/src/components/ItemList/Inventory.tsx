@@ -3,6 +3,7 @@ import { source } from "../../../wailsjs/go/models";
 import Item from "./Item";
 const Inventory = () => {
   const { character } = useCharacter();
+  // TODO: Maybe add a sorting / filtering option
   return (
     <div>
       <div className="flex flex-row mb-2">

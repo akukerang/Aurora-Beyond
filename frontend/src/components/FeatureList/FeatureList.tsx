@@ -1,6 +1,8 @@
 import FeatureItem from "./FeatureItem";
 import { useCharacter } from "../../hooks/CharacterContext";
 const FeatureList = () => {
+  // TODO: Add actions and stat tracker for certain features.
+  // * When this is added, remove the stat tracker from infoPage.
   const { character } = useCharacter();
   const classFeats = character?.FeatsFinal;
   return (

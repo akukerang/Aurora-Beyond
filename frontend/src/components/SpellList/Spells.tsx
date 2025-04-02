@@ -5,6 +5,7 @@ import ClassSpells from "./ClassSpells";
 import { useSpells } from "../../hooks/SpellContext";
 import { useEffect } from "react";
 const Spells = () => {
+  // TODO: More responsive layout to display spells on smaller screens.
   const { character } = useCharacter();
   const magic = character?.Magic;
   const { slots, loadSlots } = useSpells();

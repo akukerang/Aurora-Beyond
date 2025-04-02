@@ -1845,7 +1845,6 @@ func GetCharacterData(filePath string) (Character, error) {
 
 	imgData, err := os.ReadFile(characterInfo.PortraitFile.FileName)
 	if err != nil {
-		// return Character{}, fmt.Errorf("error reading image file: %w", err)
 		character.Portrait = ""
 	} else {
 		image64 := base64.StdEncoding.EncodeToString(imgData)
