@@ -1827,15 +1827,6 @@ func GetCharacterData(filePath string) (Character, error) {
 		}
 	}()
 
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-		err = character.setPassiveStats()
-		if err != nil {
-			errCh <- fmt.Errorf("error getting passive stats: %w", err)
-		}
-	}()
-
 	go func() {
 		wg.Wait()
 		close(errCh)
@@ -1845,12 +1836,12 @@ func GetCharacterData(filePath string) (Character, error) {
 			return Character{}, err
 		}
 	}
-
 	character.Name = characterInfo.Name
 	character.Class = characterInfo.Class
 	character.Race = characterInfo.Race
 	character.Background = characterInfo.Background
 	character.ProfBonus = characterInfo.ProfBonus
+	character.setPassiveStats()
 
 	imgData, err := os.ReadFile(characterInfo.PortraitFile.FileName)
 	if err != nil {
