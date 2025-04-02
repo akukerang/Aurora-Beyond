@@ -30,15 +30,11 @@ export const SpellProvider: FC<SpellProviderProps> = ({ children }) => {
         ...prevSlots,
         availableSlots: [...prevSlots.availableSlots],
       };
-      if (index < newSlots.maxSlots.length) {
-        if (newSlots.availableSlots[index] > 0) {
-          newSlots.availableSlots[index] -= 1;
-        } else {
-          console.warn("No available slots to use for index:", index);
-        }
-      } else {
-        console.warn("Index out of bounds for max slots:", index);
-      }
+      newSlots.availableSlots[index] = Math.max(
+        0,
+        newSlots.availableSlots[index] - 1
+      );
+
       return newSlots;
     });
   };
@@ -49,15 +45,10 @@ export const SpellProvider: FC<SpellProviderProps> = ({ children }) => {
         ...prevSlots,
         availableSlots: [...prevSlots.availableSlots],
       };
-      if (index < newSlots.maxSlots.length) {
-        if (newSlots.availableSlots[index] < newSlots.maxSlots[index]) {
-          newSlots.availableSlots[index] += 1;
-        } else {
-          console.warn("Cannot replenish beyond max slots for index:", index);
-        }
-      } else {
-        console.warn("Index out of bounds for max slots:", index);
-      }
+      newSlots.availableSlots[index] = Math.min(
+        newSlots.maxSlots[index],
+        newSlots.availableSlots[index] + 1
+      );
       return newSlots;
     });
   };

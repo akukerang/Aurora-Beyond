@@ -1,23 +1,42 @@
 import { FC, useEffect, useState } from "react";
 import CheckboxTracker from "../CheckboxTracker";
 import FullTracker from "../FullTracker";
-
+import { useFeat } from "../../hooks/FeatContext"; // Import the context hook
 type Props = {
+  name: string;
   uses: number;
   per: string;
 };
-const Tracker: FC<Props> = ({ uses, per }) => {
+const Tracker: FC<Props> = ({ name, uses, per }) => {
+  const { Feat, useCharge, replenishCharge, addFeat } = useFeat(); // Destructure the context hook
+  useEffect(() => {
+    if (!name || uses <= 0) return;
+    if (!Feat[name]) {
+      addFeat(name, uses);
+    }
+  }, [Feat]);
+
   if (uses <= 6) {
     const [checkedSlots, setCheckedSlots] = useState<boolean[]>([]);
     useEffect(() => {
-      setCheckedSlots(Array.from({ length: uses }, (_, i) => i > uses));
-    }, [uses]);
+      setCheckedSlots(
+        Array.from(
+          { length: Feat[name]?.maxCharges || 0 },
+          (_, i) => i < (Feat[name]?.usedCharges || 0) // Fill from left to right
+        )
+      );
+    }, [uses, Feat[name]?.usedCharges, Feat[name]?.maxCharges]);
 
     const handleCheck = (index: number) => {
       setCheckedSlots((prevCheckedSlots) => {
         const isChecked = prevCheckedSlots[index];
         const newCheckedSlots = [...prevCheckedSlots];
         newCheckedSlots[index] = !isChecked;
+        if (isChecked) {
+          replenishCharge(name, 1);
+        } else {
+          useCharge(name, 1);
+        }
         return newCheckedSlots;
       });
     };
@@ -25,15 +44,14 @@ const Tracker: FC<Props> = ({ uses, per }) => {
     return (
       <div className="pt-3">
         <CheckboxTracker
-          length={uses}
+          length={Feat[name]?.maxCharges || 0} // Ensure the length matches maxCharges
           title={"/ " + per}
-          onChange={handleCheck}
           checkedSlots={checkedSlots}
+          onChange={handleCheck}
         />
       </div>
     );
   } else {
-    const [numUse, setNumUse] = useState(uses);
     const [change, setChange] = useState(0);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,18 +62,18 @@ const Tracker: FC<Props> = ({ uses, per }) => {
 
     const addUse = () => {
       if (change === 0) {
-        setNumUse((prev) => Math.min(prev + 1, uses)); // Max at uses
+        replenishCharge(name, 1); // Use 1 charge
       } else {
-        setNumUse((prev) => Math.min(prev + change, uses)); // Max at uses
+        replenishCharge(name, change); // Use 'change' charges
       }
       setChange(0);
     };
 
     const removeUse = () => {
       if (change === 0) {
-        setNumUse((prev) => Math.max(prev - 1, 0)); // min 0
+        useCharge(name, 1); // Replenish 1 charge
       } else {
-        setNumUse((prev) => Math.max(prev - change, 0)); // min 0
+        useCharge(name, change); // Replenish 'change' charges
       }
       setChange(0);
     };
@@ -69,7 +87,9 @@ const Tracker: FC<Props> = ({ uses, per }) => {
             onRemove={removeUse}
           />
         </div>
-        <div className="font-bold">{"Current: " + numUse}</div>
+        <div className="font-bold">
+          {"Current: " + (Feat[name]?.maxCharges - Feat[name]?.usedCharges)}
+        </div>
       </div>
     );
   }

@@ -186,11 +186,8 @@ const DiceRoller = () => {
     return notation;
   };
   const handleClick = () => {
-    // console.log(rolls);
     const diceNotation = getDiceNotation(rollsArray);
-    console.log(diceNotation);
     const { rolls: parsedDice } = parseDiceText(diceNotation, 0);
-    console.log(parsedDice);
     const { rolls, total } = rollDice(parsedDice, false, false);
     let rollsText = "";
     rolls.forEach((roll, index) => {

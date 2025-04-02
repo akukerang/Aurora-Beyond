@@ -22,7 +22,7 @@ const FeatureItem: FC<Props> = ({ name, description, usage }) => {
     <div className="mb-2">
       <h2 className="text-lg font-bold">{name}</h2>
       <p className="text-sm">{description}</p>
-      {uses && per ? <Tracker uses={uses} per={per} /> : null}
+      {uses && per ? <Tracker name={name} uses={uses} per={per} /> : null}
     </div>
   );
 };
