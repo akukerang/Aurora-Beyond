@@ -41,7 +41,7 @@ const ClassSpells: FC<Props> = ({ className }) => {
             {spellsByLevel[level] ? (
               <>
                 <div className="flex flex-row">
-                  <div className="w-[5%]"></div>
+                  <div className="w-[8%]"></div>
                   <h3 className="font-semibold text-lg w-[40%]">Name</h3>
                   <h3 className="font-semibold text-lg w-[12.5%]">Time</h3>
                   <h3 className="font-semibold text-lg w-[12.5%]">Range</h3>

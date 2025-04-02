@@ -218,6 +218,7 @@ export namespace source {
 	export class Detail {
 	    Name: string;
 	    Description: string;
+	    Usage: string;
 	
 	    static createFrom(source: any = {}) {
 	        return new Detail(source);
@@ -227,6 +228,7 @@ export namespace source {
 	        if ('string' === typeof source) source = JSON.parse(source);
 	        this.Name = source["Name"];
 	        this.Description = source["Description"];
+	        this.Usage = source["Usage"];
 	    }
 	}
 	export class ItemDetail {

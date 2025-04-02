@@ -12,7 +12,7 @@ const CastButton: FC<Props> = ({ level }) => {
   return (
     <div
       onClick={onClick}
-      className="bg-red-500 hover:bg-red-700 text-white rounded-md cursor-pointer text-sm p-1"
+      className="bg-red-500 hover:bg-red-700 text-white rounded-md cursor-pointer text-sm p-0.5"
     >
       Cast
     </div>

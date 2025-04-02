@@ -14,6 +14,7 @@ const FeatureList = () => {
               key={index}
               name={feat.Name}
               description={feat.Description}
+              usage={feat.Usage}
             />
           ))}
         </div>

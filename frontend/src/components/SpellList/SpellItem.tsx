@@ -22,7 +22,7 @@ const SpellItem: FC<Props> = ({ spell }) => {
         hidden={hidden}
         onClose={() => setHidden(true)}
       />
-      <div className="w-[5%] flex items-center justify-start pb-2">
+      <div className="w-[8%] flex items-center justify-center pb-2">
         {spell.Level !== 0 ? <CastButton level={spell.Level} /> : null}
       </div>
       <h1
@@ -39,7 +39,7 @@ const SpellItem: FC<Props> = ({ spell }) => {
       <h1 className="text-lg w-[12.5%] pb-2 border-b border-gray-500">
         {spell.Range}
       </h1>
-      <h1 className="text-lg w-[30%] pb-2 italic border-b border-gray-500">
+      <h1 className="text-base w-[30%] pb-2 italic border-b border-gray-500">
         {note}
       </h1>
     </div>

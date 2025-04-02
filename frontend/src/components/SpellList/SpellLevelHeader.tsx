@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { useSpells } from "../../hooks/SpellContext";
+import CheckboxTracker from "../CheckboxTracker";
 
 type Props = {
   level: number;
@@ -41,21 +42,12 @@ const SpellLevelHeader: FC<Props> = ({ level }) => {
       ) : (
         <>
           <h2 className="text-xl">{`Level ${level} Spells`}</h2>
-          <div className="flex gap-1 items-center">
-            {Array.from({ length: slots.maxSlots[level - 1] || 0 }).map(
-              (_, index) => (
-                <label key={index} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    className="form-checkbox w-6 h-6 accent-red-500"
-                    checked={checkedSlots[index] || false} // Ensure checked is always a boolean
-                    onChange={() => handleCheck(index)}
-                  />
-                </label>
-              )
-            )}
-            <p className="text-lg font-semibold">SLOTS</p>
-          </div>
+          <CheckboxTracker
+            length={slots.maxSlots[level - 1] || 0}
+            title="SLOTS"
+            checkedSlots={checkedSlots}
+            onChange={handleCheck}
+          />
         </>
       )}
     </div>

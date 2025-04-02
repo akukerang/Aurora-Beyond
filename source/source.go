@@ -47,6 +47,7 @@ func (s *Sheet) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error { // 
 type Detail struct {
 	Name        string
 	Description string
+	Usage       string
 }
 
 type ItemDetail struct {
@@ -250,10 +251,13 @@ func GetDetails(typeName string, id string, level int, stats map[string]string) 
 		usage = replaceStatValue(usage, stats)
 		if action != "" && usage != "" {
 			details.Name = fmt.Sprintf("%s (%s - %s)", element.Name, action, usage)
+			details.Usage = usage
 		} else if action != "" && usage == "" {
 			details.Name = fmt.Sprintf("%s (%s)", element.Name, action)
 		} else if action == "" && usage != "" {
 			details.Name = fmt.Sprintf("%s (%s)", element.Name, usage)
+			details.Usage = usage
+
 		} else {
 			details.Name = element.Name
 		}
