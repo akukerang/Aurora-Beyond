@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Tracker from "./Tracker";
 
 type Props = {
   name: string;
@@ -21,7 +22,7 @@ const FeatureItem: FC<Props> = ({ name, description, usage }) => {
     <div className="mb-2">
       <h2 className="text-lg font-bold">{name}</h2>
       <p className="text-sm">{description}</p>
-      {uses && per ? <p>{uses + " " + per}</p> : null}
+      {uses && per ? <Tracker uses={uses} per={per} /> : null}
     </div>
   );
 };
