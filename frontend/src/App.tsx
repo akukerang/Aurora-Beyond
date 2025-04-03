@@ -9,6 +9,7 @@ import Navbar from "./components/NavBar";
 import { useCharacter } from "./hooks/CharacterContext";
 import { FeatProvider } from "./hooks/FeatContext";
 import { LogProvider } from "./hooks/logContext";
+import { NoteProvider } from "./hooks/NotesContext";
 import { SpellProvider } from "./hooks/SpellContext";
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   useEffect(() => {
     const handleLoad = async () => {
       const filePath =
-        "C:/Users/gabri/OneDrive/Documents/5e Character Builder/AldricTEST.dnd5e";
+        "C:/Users/gabri/OneDrive/Documents/5e Character Builder/Aldric.dnd5e";
       await loadCharacter(filePath);
     };
     handleLoad();
@@ -36,7 +37,9 @@ function App() {
           <div className="pb-14 lg:pb-0 w-full max-h-full overflow-y-scroll">
             <FeatProvider>
               <SpellProvider>
-                <Outlet />
+                <NoteProvider>
+                  <Outlet />
+                </NoteProvider>
               </SpellProvider>
             </FeatProvider>
           </div>

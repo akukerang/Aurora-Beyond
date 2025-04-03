@@ -8,6 +8,7 @@ import "./index.css";
 import FeaturePage from "./pages/FeaturePage";
 import ItemPage from "./pages/ItemPage";
 import MagicPage from "./pages/MagicPage";
+import NotePage from "./pages/NotePage";
 
 function ResponsiveRoutes() {
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
@@ -29,6 +30,7 @@ function ResponsiveRoutes() {
           <Route path="features" element={<FeaturePage />} />
           <Route path="magic" element={<MagicPage />} />
           <Route path="items" element={<ItemPage />} />
+          <Route path="notes" element={<NotePage />} />
         </Route>
       ) : (
         <Route path="/" element={<App />}>
@@ -36,6 +38,7 @@ function ResponsiveRoutes() {
           <Route path="features" element={<FeaturePage />} />
           <Route path="magic" element={<MagicPage />} />
           <Route path="items" element={<ItemPage />} />
+          <Route path="notes" element={<NotePage />} />
         </Route>
       )}
     </Routes>
