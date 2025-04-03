@@ -1,5 +1,5 @@
-import AttackItem from "./AttackItem";
 import { useCharacter } from "../../hooks/CharacterContext";
+import AttackItem from "./AttackItem";
 const AttackList = () => {
   const { character } = useCharacter();
   const attacks = character?.Attacks;

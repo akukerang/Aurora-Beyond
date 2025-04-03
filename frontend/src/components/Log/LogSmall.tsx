@@ -1,8 +1,8 @@
-import LogItem from "./LogItem";
-import { useLog } from "../../hooks/logContext";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useState } from "react";
+import { useLog } from "../../hooks/logContext";
+import LogItem from "./LogItem";
 const LogSmall = () => {
   const { log, removeLog, setNewLog } = useLog();
   const [toggled, setToggled] = useState(true);

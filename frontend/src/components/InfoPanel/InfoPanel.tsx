@@ -1,12 +1,12 @@
-import AbilityScores from "./AbilityScores";
-import HealthBar from "./HealthBar";
-import Stats from "./Stats";
-import { useCharacter } from "../../hooks/CharacterContext";
 import defaultPortrait from "../../assets/half elf-male-2.png";
+import { useCharacter } from "../../hooks/CharacterContext";
+import AbilityScores from "./AbilityScores";
+import Conditions from "./Conditions";
+import HealthBar from "./HealthBar";
 import ProficienciesAndSenses from "./ProficienciesAndSenses";
 import SavingThrows from "./SavingThrows";
 import Skills from "./Skills";
-import Conditions from "./Conditions";
+import Stats from "./Stats";
 const InfoPanel = () => {
   const { character } = useCharacter();
   console.log(character);

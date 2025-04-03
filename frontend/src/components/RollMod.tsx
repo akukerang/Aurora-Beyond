@@ -1,5 +1,5 @@
-import { FC } from "react";
 import HexagonIcon from "@mui/icons-material/Hexagon";
+import { FC } from "react";
 
 type Props = {
   advantage?: boolean;

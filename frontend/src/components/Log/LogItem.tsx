@@ -1,5 +1,5 @@
-import { FC } from "react";
 import CloseIcon from "@mui/icons-material/Close";
+import { FC } from "react";
 
 type Props = {
   index: number;

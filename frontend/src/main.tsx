@@ -1,13 +1,13 @@
+import { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
-import "./index.css";
-import { HashRouter, Routes, Route } from "react-router-dom";
-import FeaturePage from "./pages/FeaturePage";
-import MagicPage from "./pages/MagicPage";
-import ItemPage from "./pages/ItemPage";
 import InfoPanel from "./components/InfoPanel/InfoPanel";
 import { CharacterProvider } from "./hooks/CharacterContext";
-import { useEffect, useState } from "react";
+import "./index.css";
+import FeaturePage from "./pages/FeaturePage";
+import ItemPage from "./pages/ItemPage";
+import MagicPage from "./pages/MagicPage";
 
 function ResponsiveRoutes() {
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);

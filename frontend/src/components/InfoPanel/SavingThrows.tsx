@@ -1,6 +1,6 @@
 import { FC } from "react";
-import SkillItem from "./SkillItem";
 import { character } from "../../../wailsjs/go/models"; // Adjust the import path as necessary
+import SkillItem from "./SkillItem";
 
 type Props = {
   savingProf: Record<string, character.Skill>;

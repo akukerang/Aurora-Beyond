@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
+import { useFeat } from "../../hooks/FeatContext"; // Import the context hook
 import CheckboxTracker from "../CheckboxTracker";
 import FullTracker from "../FullTracker";
-import { useFeat } from "../../hooks/FeatContext"; // Import the context hook
 type Props = {
   name: string;
   uses: number;

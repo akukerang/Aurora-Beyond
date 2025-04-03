@@ -1,6 +1,5 @@
 "use client";
-import React, { useEffect, FC } from "react";
-import { useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import EditableStat from "../EditableStat";
 import FullTracker from "../FullTracker";
 type Props = {

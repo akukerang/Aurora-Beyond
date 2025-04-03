@@ -1,15 +1,15 @@
-import "./App.css";
-import { Outlet } from "react-router-dom";
-import Navbar from "./components/NavBar";
-import InfoPanel from "./components/InfoPanel/InfoPanel";
-import { useCharacter } from "./hooks/CharacterContext";
-import { LogProvider } from "./hooks/logContext";
-import LogSmall from "./components/Log/LogSmall";
 import { useEffect } from "react";
-import FloatingMenu from "./components/FloatingMenu";
+import { Outlet } from "react-router-dom";
+import "./App.css";
 import DiceRoller from "./components/DiceRoller/DiceRoller";
-import { SpellProvider } from "./hooks/SpellContext";
+import FloatingMenu from "./components/FloatingMenu";
+import InfoPanel from "./components/InfoPanel/InfoPanel";
+import LogSmall from "./components/Log/LogSmall";
+import Navbar from "./components/NavBar";
+import { useCharacter } from "./hooks/CharacterContext";
 import { FeatProvider } from "./hooks/FeatContext";
+import { LogProvider } from "./hooks/logContext";
+import { SpellProvider } from "./hooks/SpellContext";
 
 function App() {
   const { loadCharacter } = useCharacter();

@@ -1,4 +1,4 @@
-import { FC, useState, useContext, createContext, ReactNode } from "react";
+import { createContext, FC, ReactNode, useContext, useState } from "react";
 
 type Slots = {
   availableSlots: number[];

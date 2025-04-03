@@ -1,8 +1,8 @@
-import DiceIcon from "./DiceIcon";
-import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import { parseDiceText, rollDice } from "./RollFunc";
+import { useState } from "react";
 import { useLog } from "../../hooks/logContext";
+import DiceIcon from "./DiceIcon";
+import { parseDiceText, rollDice } from "./RollFunc";
 
 const DiceMenu = ({
   rollsArray,

@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Menu as MenuIcon } from "@mui/icons-material";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const FloatingMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
