@@ -7,13 +7,14 @@ import defaultPortrait from "../../assets/half elf-male-2.png";
 import ProficienciesAndSenses from "./ProficienciesAndSenses";
 import SavingThrows from "./SavingThrows";
 import Skills from "./Skills";
+import Conditions from "./Conditions";
 const InfoPanel = () => {
   const { character } = useCharacter();
   console.log(character);
   return (
-    <div className="bg-gray-800 p-4 xl:p-6">
+    <div className="bg-gray-800 p-4 xl:p-6 w-full">
       {character ? (
-        <div className="flex flex-col lg:h-full px-2">
+        <div className="flex flex-col lg:h-full px-2 ">
           <h1 className="text-3xl">{character.Name}</h1>
           <h2 className="text-xl mb-2">{character.Class} </h2>
           <div className="flex flex-row xl:mb-2">
@@ -26,22 +27,24 @@ const InfoPanel = () => {
               className="hidden xl:block object-cover w-1/4"
               alt="Character Portrait"
             />
-            <div className="w-full xl:w-2/3 flex flex-col xl:ml-4">
+            <div className="w-full xl:w-3/4 flex flex-col xl:ml-4">
               <HealthBar playerHealth={character.HP} />
-              <Tracker />
+              <div className="order-2 2xl:order-1 p-2">
+                <AbilityScores abilityScore={character.AbilityScore} />
+              </div>
             </div>
           </div>
-          <div className="flex flex-col 2xl:flex-row">
-            <div className="order-2 2xl:order-1 p-2">
-              <AbilityScores abilityScore={character.AbilityScore} />
-            </div>
-            <div className="order-1 2xl:order-2 p-2">
+          <div className="flex flex-col xl:flex-row ">
+            <div className="w-full xl:w-3/5 p-2">
               <Stats
                 profBonus={character.ProfBonus}
                 initiative={character.Initiative}
                 ac={character.AC}
                 speed={character.Speed}
               />
+            </div>
+            <div className="w-full xl:w-2/5 p-2">
+              <Conditions />
             </div>
           </div>
           <div className="flex mt-4 h-1/2 bg-gray-800 lg:overflow-y-scroll">

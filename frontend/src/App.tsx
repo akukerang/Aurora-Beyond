@@ -17,7 +17,7 @@ function App() {
   useEffect(() => {
     const handleLoad = async () => {
       const filePath =
-        "C:/Users/gabri/OneDrive/Documents/5e Character Builder/Aldric.dnd5e";
+        "C:/Users/gabri/OneDrive/Documents/5e Character Builder/AldricTEST.dnd5e";
       await loadCharacter(filePath);
     };
     handleLoad();
@@ -33,7 +33,7 @@ function App() {
         <DiceRoller />
         <div className="w-full lg:h-full lg:w-[50%] flex flex-col h-full bg-gray-700">
           <Navbar />
-          <div className="w-full max-h-full overflow-y-scroll">
+          <div className="pb-14 lg:pb-0 w-full max-h-full overflow-y-scroll">
             <FeatProvider>
               <SpellProvider>
                 <Outlet />

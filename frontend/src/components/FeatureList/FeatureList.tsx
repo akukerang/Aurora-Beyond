@@ -9,14 +9,16 @@ const FeatureList = () => {
     <>
       {classFeats ? (
         <div className="flex flex-col justify-between px-4">
-          {classFeats.map((feat: any, index) => (
-            <FeatureItem
-              key={index}
-              name={feat.Name}
-              description={feat.Description}
-              usage={feat.Usage}
-            />
-          ))}
+          {classFeats
+            .sort((a, b) => a.Name.localeCompare(b.Name))
+            .map((feat: any, index) => (
+              <FeatureItem
+                key={index}
+                name={feat.Name}
+                description={feat.Description}
+                usage={feat.Usage}
+              />
+            ))}
         </div>
       ) : (
         <p className="text-gray-300 italic mb-2">No Features found</p>

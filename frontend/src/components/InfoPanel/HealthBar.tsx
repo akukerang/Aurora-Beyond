@@ -64,7 +64,7 @@ const HealthBar: FC<Props> = ({ playerHealth }) => {
   }, []);
 
   return (
-    <div className="p-4 h-1/2 bg-gray-700 rounded-lg mb-2 text-center">
+    <div className="p-4  bg-gray-700 rounded-lg mb-2 text-center r">
       <div className="flex justify-between ">
         <div className="w-1/3">
           <h1 className="text-xl">Change</h1>
@@ -76,7 +76,7 @@ const HealthBar: FC<Props> = ({ playerHealth }) => {
           <h1 className="text-xl">Temp</h1>
         </div>
       </div>
-      <div className="flex justify-between text-center">
+      <div className="flex justify-between text-center items-center">
         <div className="w-1/3 p-1">
           <FullTracker
             handleChange={handleChange}
