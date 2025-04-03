@@ -1,6 +1,5 @@
 import AbilityScores from "./AbilityScores";
 import HealthBar from "./HealthBar";
-import Tracker from "./Tracker";
 import Stats from "./Stats";
 import { useCharacter } from "../../hooks/CharacterContext";
 import defaultPortrait from "../../assets/half elf-male-2.png";
@@ -11,12 +10,15 @@ import Conditions from "./Conditions";
 const InfoPanel = () => {
   const { character } = useCharacter();
   console.log(character);
+  const className = character?.Multiclassing
+    ? character?.Class
+    : character?.Class + " (" + character?.Level + ")";
   return (
     <div className="bg-gray-800 p-4 xl:p-6 w-full">
       {character ? (
         <div className="flex flex-col lg:h-full px-2 ">
           <h1 className="text-3xl">{character.Name}</h1>
-          <h2 className="text-xl mb-2">{character.Class} </h2>
+          <h2 className="text-xl mb-2">{character.Race + " " + className}</h2>
           <div className="flex flex-row xl:mb-2">
             <img
               src={

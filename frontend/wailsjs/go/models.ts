@@ -134,6 +134,8 @@ export namespace character {
 	}
 	export class Character {
 	    Portrait: string;
+	    Level: number;
+	    Multiclassing: boolean;
 	    AttackNum: number;
 	    AbilityScore: Record<string, Ability>;
 	    Name: string;
@@ -165,6 +167,8 @@ export namespace character {
 	    constructor(source: any = {}) {
 	        if ('string' === typeof source) source = JSON.parse(source);
 	        this.Portrait = source["Portrait"];
+	        this.Level = source["Level"];
+	        this.Multiclassing = source["Multiclassing"];
 	        this.AttackNum = source["AttackNum"];
 	        this.AbilityScore = this.convertValues(source["AbilityScore"], Ability, true);
 	        this.Name = source["Name"];

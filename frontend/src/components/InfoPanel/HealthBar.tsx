@@ -2,8 +2,6 @@
 import React, { useEffect, FC } from "react";
 import { useState } from "react";
 import EditableStat from "../EditableStat";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import FullTracker from "../FullTracker";
 type Props = {
   playerHealth: number;

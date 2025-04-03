@@ -55,6 +55,8 @@ type Ability struct {
 
 type Character struct { // Goes to Final
 	Portrait      string
+	Level         int
+	Multiclassing bool
 	AttackNum     int
 	AbilityScore  map[string]Ability
 	Name          string
@@ -1836,11 +1838,19 @@ func GetCharacterData(filePath string) (Character, error) {
 			return Character{}, err
 		}
 	}
+
+	if len(characterInfo.ClassData) > 1 {
+		character.Multiclassing = true // if more than one class data, set multiclass to true
+	} else {
+		character.Multiclassing = false // otherwise set to false
+	}
+
 	character.Name = characterInfo.Name
 	character.Class = characterInfo.Class
 	character.Race = characterInfo.Race
 	character.Background = characterInfo.Background
 	character.ProfBonus = characterInfo.ProfBonus
+	character.Level = characterInfo.TotalLevel
 	character.setPassiveStats()
 
 	imgData, err := os.ReadFile(characterInfo.PortraitFile.FileName)
