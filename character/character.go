@@ -32,6 +32,7 @@ type characterInfo struct {
 	Stats               map[string]string
 	stealthDisadvantage bool
 	initAdv             bool
+	Magic               Magic `xml:"build>magic"`
 
 	// * GOES TO FINAL CHARACTER CLASS
 	PortraitFile portraitFile `xml:"display-properties>portrait"`
@@ -39,7 +40,6 @@ type characterInfo struct {
 	Class        string       `xml:"display-properties>class"`
 	Race         string       `xml:"display-properties>race"`
 	Background   string       `xml:"display-properties>background"`
-	Magic        Magic        `xml:"build>magic"`
 	Attacks      []Attack     `xml:"build>input>attacks>attack"`
 	ProfBonus    int
 }
@@ -48,17 +48,12 @@ type portraitFile struct {
 	FileName string `xml:"local"`
 }
 
-type Ability struct {
-	Score int
-	Mod   int
-}
-
 type Character struct { // Goes to Final
 	Portrait      string
 	Level         int
 	Multiclassing bool
 	AttackNum     int
-	AbilityScore  map[string]Ability
+	AbilityScore  map[string]source.Ability
 	Name          string
 	Class         string
 	Race          string
@@ -150,7 +145,7 @@ type AttackDetail struct {
 	Name   string
 	Range  string
 	Hit    int
-	Damage string
+	Damage source.Dice
 }
 
 type item struct {
@@ -1321,49 +1316,69 @@ func (character *Character) setSpells(characterInfo *characterInfo) error {
 	} else { // use normal spell slots
 		characterInfo.Magic.SpellSlots = characterInfo.Magic.ClassSpells[0].SpellSlots
 	}
+
 	var wg sync.WaitGroup
-
-	for _, class := range characterInfo.Magic.ClassSpells {
+	for i, class := range characterInfo.Magic.ClassSpells {
 		errCh := make(chan error, len(class.Cantrips)+len(class.Spells))
-
-		for i := range class.Cantrips {
+		spellCh := make(chan []source.Spell, len(class.Spells))
+		cantripCh := make(chan []source.Spell, len(class.Cantrips))
+		for j := range class.Cantrips {
 			wg.Add(1)
-			go func(cantrip *source.Spell) {
+			go func(cantrip source.Spell) {
 				defer wg.Done()
-				err := source.GetSpellDetail(cantrip)
+				spellList, err := source.GetSpellDetail(cantrip, len(characterInfo.Magic.SpellSlots),
+					class.Attack, class.SaveDC, class.Ability, character.AbilityScore, character.ProfBonus)
 				if err != nil {
 					errCh <- err
 				}
-			}(&class.Cantrips[i])
+				cantripCh <- spellList // send cantrip to channel
+			}(class.Cantrips[j])
 		}
 
-		for i := range class.Spells {
+		for j := range class.Spells {
 			wg.Add(1)
-			go func(spell *source.Spell) {
+			go func(spell source.Spell) {
 				defer wg.Done()
-				err := source.GetSpellDetail(spell)
+				spellList, err := source.GetSpellDetail(spell, len(characterInfo.Magic.SpellSlots),
+					class.Attack, class.SaveDC, class.Ability, character.AbilityScore, character.ProfBonus)
 				if err != nil {
 					errCh <- err
 				}
-			}(&class.Spells[i])
+				spellCh <- spellList // send spell to channel
+			}(class.Spells[j])
 		}
 
 		go func() {
 			wg.Wait()
 			close(errCh)
+			close(spellCh)
+			close(cantripCh)
 		}()
 
 		var errs []error
+		var cantrips []source.Spell
+		var spells []source.Spell
+
 		for err := range errCh {
 			if err != nil {
 				errs = append(errs, err)
 			}
 		}
-
 		if len(errs) > 0 {
 			return fmt.Errorf("error getting spell details: %v", errs)
 		}
 
+		for cantrip := range cantripCh {
+			cantrips = append(cantrips, cantrip...)
+		}
+
+		for spell := range spellCh {
+			spells = append(spells, spell...)
+		}
+
+		class.Cantrips = cantrips
+		class.Spells = spells
+		characterInfo.Magic.ClassSpells[i] = class // update the class spells in characterInfo
 	}
 
 	character.Magic = characterInfo.Magic
@@ -1623,7 +1638,7 @@ func (character *Character) setConditions(characterInfo *characterInfo) error {
 
 func (character *Character) setAbilityScore(characterInfo *characterInfo) error {
 	if character.AbilityScore == nil {
-		character.AbilityScore = make(map[string]Ability)
+		character.AbilityScore = make(map[string]source.Ability)
 	}
 
 	for key := range characterInfo.AbilityTable {
@@ -1635,7 +1650,7 @@ func (character *Character) setAbilityScore(characterInfo *characterInfo) error 
 		if err != nil {
 			return fmt.Errorf("error converting %s to int: %w", key, err)
 		}
-		temp := Ability{
+		temp := source.Ability{
 			Score: score,
 			Mod:   mod,
 		}
@@ -1655,11 +1670,17 @@ func (character *Character) setAttacks(characterInfo *characterInfo) error {
 			if err != nil {
 				return fmt.Errorf("error converting attack hit to int: %w", err)
 			}
+
+			d, err := source.ParseDice(attack.Damage)
+			if err != nil {
+				return fmt.Errorf("error parsing attack damage dice: %w", err)
+			}
+
 			attackDetail := AttackDetail{
 				Name:   attack.Name,
 				Range:  attack.Range,
 				Hit:    num,
-				Damage: attack.Damage,
+				Damage: d,
 			}
 			character.Attacks = append(character.Attacks, attackDetail)
 		}
@@ -1735,11 +1756,6 @@ func GetCharacterData(filePath string) (Character, error) {
 	err = character.setItems(&characterInfo)
 	if err != nil {
 		return Character{}, fmt.Errorf("error getting items: %w", err)
-	}
-	//* Magic
-	err = character.setSpells(&characterInfo)
-	if err != nil {
-		return Character{}, fmt.Errorf("error getting spells: %w", err)
 	}
 
 	//* Ability Score
@@ -1843,6 +1859,12 @@ func GetCharacterData(filePath string) (Character, error) {
 		character.Multiclassing = true // if more than one class data, set multiclass to true
 	} else {
 		character.Multiclassing = false // otherwise set to false
+	}
+
+	//* Magic
+	err = character.setSpells(&characterInfo)
+	if err != nil {
+		return Character{}, fmt.Errorf("error getting spells: %w", err)
 	}
 
 	character.Name = characterInfo.Name

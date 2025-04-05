@@ -1,89 +1,69 @@
-function parseDiceText(diceText: string, mod: number = 0) {
-  const diceGroups = diceText.split(/(?=[+-])/); // Split at + or -
-
-  if (!diceGroups || diceText === "") {
-    let notation = "";
-    if (mod === 0) {
-      notation = "1d20";
-    } else {
-      notation = `1d20${mod > 0 ? `+${mod}` : `${mod}`}`;
-    }
-
-    return {
-      rolls: [
-        { count: 1, sides: 20, modifier: 0 },
-        { count: 0, sides: 0, modifier: mod },
-      ], // Default to 1d20 if no valid dice notation is found
-      notation: notation,
-    };
+function helper(sides: number, count: number): number[] {
+  const rolls: number[] = [];
+  for (let i = 0; i < count; i++) {
+    const roll = Math.floor(Math.random() * sides) + 1; // Random number between 1 and sides
+    rolls.push(roll);
   }
-
-  let notation = "";
-  const rolls: { count: number; sides: number; modifier: number }[] = [];
-  diceGroups.forEach((group) => {
-    const diceMatch = group.match(/(\d*)d(\d+)/);
-
-    // Dice Group Case (e.g., 2d20, 5d8)
-    if (diceMatch) {
-      const count = diceMatch[1] ? parseInt(diceMatch[1], 10) : 1;
-      const sides = parseInt(diceMatch[2], 10);
-      notation += group;
-      rolls.push({ count, sides, modifier: 0 });
-    } else {
-      const modifierMatch = group.match(/[+-]\d+/);
-      if (modifierMatch) {
-        const modInt = parseInt(modifierMatch[0], 10);
-        if (modInt === 0) return; // Ignore zero modifiers
-        notation += modifierMatch[0];
-        rolls.push({
-          count: 0,
-          sides: 0,
-          modifier: parseInt(modifierMatch[0], 10),
-        });
-      }
-    }
-
-    // Modifier Case (e.g., +4, -3)
-  });
-
-  return { rolls, notation };
+  return rolls;
 }
 
-function rollHelper(
-  parsedDice: { count: number; sides: number; modifier: number }[]
-) {
-  let total = 0;
-  const rolls: string[] = [];
-  parsedDice.forEach(({ count, sides, modifier }) => {
-    if (sides > 0) {
-      const groupRolls = Array.from(
-        { length: count },
-        () => Math.floor(Math.random() * sides) + 1
-      );
-      rolls.push(...groupRolls.map((roll) => roll.toString()));
-      total += groupRolls.reduce((sum, roll) => sum + roll, 0);
+function getRollResults(rolls: number[]): string {
+  let results = "";
+
+  for (let i = 0; i < rolls.length; i++) {
+    if (i < rolls.length - 1) {
+      if (rolls[i] < 0 || results === "") {
+        results += rolls[i]; // Negative rolls should not have a "+" sign before them
+      } else {
+        results += "+" + rolls[i]; // Add comma for all but the last roll
+      }
+    } else {
+      if (rolls[i] < 0) {
+        results += rolls[i]; // Negative rolls should not have a "+" sign before them
+      } else {
+        results += "+" + rolls[i]; // Add comma for all but the last roll
+      }
     }
-    total += modifier;
-    if (modifier !== 0) {
-      rolls.push(modifier > 0 ? `+${modifier}` : `${modifier}`);
+  }
+  return results;
+}
+
+function rollBatch(dice: Record<number, number>) {
+  let total = 0;
+  const rolls: number[] = [];
+  let keys = Object.keys(dice).reverse();
+  keys.forEach((key) => {
+    const count = dice[parseInt(key, 10)];
+    const side = parseInt(key, 10);
+    if (side > 0) {
+      // dice case
+      const rollResults = helper(side, count);
+      rolls.push(...rollResults); // Convert each roll to string
+      total += rollResults.reduce((acc, val) => acc + val, 0); // Sum the rolls
+    } else {
+      // 0 case are just numbers
+      rolls.push(count); // Push modifiers
+      total += count;
     }
   });
 
-  return { rolls, total };
+  const results = getRollResults(rolls);
+
+  return { results, total };
 }
 
 function rollDice(
-  parsedDice: { count: number; sides: number; modifier: number }[],
+  dice: Record<number, number>,
   advantage: boolean = false,
   disadvantage: boolean = false
 ) {
   if (advantage && disadvantage) {
     // treat as normal roll
-    return rollHelper(parsedDice);
+    return rollBatch(dice);
   } else if (advantage) {
     // Roll twice, take the higher
-    const roll1 = rollHelper(parsedDice); // First roll
-    const roll2 = rollHelper(parsedDice); // Second roll
+    const roll1 = rollBatch(dice); // First roll
+    const roll2 = rollBatch(dice); // Second roll
     if (roll1.total < roll2.total) {
       return roll2;
     } else {
@@ -91,8 +71,8 @@ function rollDice(
     }
   } else if (disadvantage) {
     // Roll twice, take the lower
-    const roll1 = rollHelper(parsedDice); // First roll
-    const roll2 = rollHelper(parsedDice); // Second roll
+    const roll1 = rollBatch(dice); // First roll
+    const roll2 = rollBatch(dice); // Second roll
     if (roll1.total < roll2.total) {
       return roll1;
     } else {
@@ -100,8 +80,8 @@ function rollDice(
     }
   } else {
     // Normal roll
-    return rollHelper(parsedDice);
+    return rollBatch(dice);
   }
 }
 
-export { parseDiceText, rollDice };
+export { rollDice };

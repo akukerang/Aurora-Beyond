@@ -1,9 +1,9 @@
 import { FC } from "react";
-import { character } from "../../../wailsjs/go/models"; // Adjust the import path as necessary
+import { source } from "../../../wailsjs/go/models"; // Adjust the import path as necessary
 import AbilityScoreBox from "./AbilityScoreBox";
 
 type Props = {
-  abilityScore: Record<string, character.Ability>;
+  abilityScore: Record<string, source.Ability>;
 };
 
 const AbilityScores: FC<Props> = ({ abilityScore }) => {

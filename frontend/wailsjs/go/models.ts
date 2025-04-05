@@ -1,24 +1,10 @@
 export namespace character {
 	
-	export class Ability {
-	    Score: number;
-	    Mod: number;
-	
-	    static createFrom(source: any = {}) {
-	        return new Ability(source);
-	    }
-	
-	    constructor(source: any = {}) {
-	        if ('string' === typeof source) source = JSON.parse(source);
-	        this.Score = source["Score"];
-	        this.Mod = source["Mod"];
-	    }
-	}
 	export class AttackDetail {
 	    Name: string;
 	    Range: string;
 	    Hit: number;
-	    Damage: string;
+	    Damage: source.Dice;
 	
 	    static createFrom(source: any = {}) {
 	        return new AttackDetail(source);
@@ -29,8 +15,26 @@ export namespace character {
 	        this.Name = source["Name"];
 	        this.Range = source["Range"];
 	        this.Hit = source["Hit"];
-	        this.Damage = source["Damage"];
+	        this.Damage = this.convertValues(source["Damage"], source.Dice);
 	    }
+	
+		convertValues(a: any, classs: any, asMap: boolean = false): any {
+		    if (!a) {
+		        return a;
+		    }
+		    if (a.slice && a.map) {
+		        return (a as any[]).map(elem => this.convertValues(elem, classs));
+		    } else if ("object" === typeof a) {
+		        if (asMap) {
+		            for (const key of Object.keys(a)) {
+		                a[key] = new classs(a[key]);
+		            }
+		            return a;
+		        }
+		        return new classs(a);
+		    }
+		    return a;
+		}
 	}
 	export class spells {
 	    ClassName: string;
@@ -137,7 +141,7 @@ export namespace character {
 	    Level: number;
 	    Multiclassing: boolean;
 	    AttackNum: number;
-	    AbilityScore: Record<string, Ability>;
+	    AbilityScore: Record<string, source.Ability>;
 	    Name: string;
 	    Class: string;
 	    Race: string;
@@ -170,7 +174,7 @@ export namespace character {
 	        this.Level = source["Level"];
 	        this.Multiclassing = source["Multiclassing"];
 	        this.AttackNum = source["AttackNum"];
-	        this.AbilityScore = this.convertValues(source["AbilityScore"], Ability, true);
+	        this.AbilityScore = this.convertValues(source["AbilityScore"], source.Ability, true);
 	        this.Name = source["Name"];
 	        this.Class = source["Class"];
 	        this.Race = source["Race"];
@@ -219,6 +223,20 @@ export namespace character {
 
 export namespace source {
 	
+	export class Ability {
+	    Score: number;
+	    Mod: number;
+	
+	    static createFrom(source: any = {}) {
+	        return new Ability(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.Score = source["Score"];
+	        this.Mod = source["Mod"];
+	    }
+	}
 	export class Detail {
 	    Name: string;
 	    Description: string;
@@ -233,6 +251,20 @@ export namespace source {
 	        this.Name = source["Name"];
 	        this.Description = source["Description"];
 	        this.Usage = source["Usage"];
+	    }
+	}
+	export class Dice {
+	    Rolls: Record<number, number>;
+	    Text: string;
+	
+	    static createFrom(source: any = {}) {
+	        return new Dice(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.Rolls = source["Rolls"];
+	        this.Text = source["Text"];
 	    }
 	}
 	export class ItemDetail {
@@ -274,6 +306,9 @@ export namespace source {
 	    Level: number;
 	    Prepared: boolean;
 	    Known: boolean;
+	    Hit: number;
+	    Effect: Dice;
+	    SaveDC: string;
 	    Name: string;
 	    Description: string;
 	    Time: string;
@@ -291,6 +326,9 @@ export namespace source {
 	        this.Level = source["Level"];
 	        this.Prepared = source["Prepared"];
 	        this.Known = source["Known"];
+	        this.Hit = source["Hit"];
+	        this.Effect = this.convertValues(source["Effect"], Dice);
+	        this.SaveDC = source["SaveDC"];
 	        this.Name = source["Name"];
 	        this.Description = source["Description"];
 	        this.Time = source["Time"];
@@ -298,6 +336,24 @@ export namespace source {
 	        this.Duration = source["Duration"];
 	        this.Ritual = source["Ritual"];
 	    }
+	
+		convertValues(a: any, classs: any, asMap: boolean = false): any {
+		    if (!a) {
+		        return a;
+		    }
+		    if (a.slice && a.map) {
+		        return (a as any[]).map(elem => this.convertValues(elem, classs));
+		    } else if ("object" === typeof a) {
+		        if (asMap) {
+		            for (const key of Object.keys(a)) {
+		                a[key] = new classs(a[key]);
+		            }
+		            return a;
+		        }
+		        return new classs(a);
+		    }
+		    return a;
+		}
 	}
 
 }

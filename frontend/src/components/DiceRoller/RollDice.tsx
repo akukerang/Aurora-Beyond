@@ -1,9 +1,10 @@
 import React from "react";
 import { useLog } from "../../hooks/logContext";
-import { parseDiceText, rollDice } from "./RollFunc";
+import { rollDice } from "./RollFunc";
+import { source } from "../../../wailsjs/go/models"; // Adjust the import path as necessary
 
 interface RollDiceProps {
-  text?: string; // dice notation (1d6+4)
+  dice?: source.Dice;
   mod?: number; // modifier
   context: string;
   type: string;
@@ -12,7 +13,7 @@ interface RollDiceProps {
 }
 
 const RollDice: React.FC<RollDiceProps> = ({
-  text = "",
+  dice,
   mod = 0,
   context = "Dice",
   type = "Roll",
@@ -22,26 +23,29 @@ const RollDice: React.FC<RollDiceProps> = ({
   const { addLog } = useLog();
 
   const handleClick = () => {
-    const { rolls: parsedDice, notation: diceNotation } = parseDiceText(
-      text,
-      mod
-    );
-    const { rolls, total } = rollDice(parsedDice, advantage, disadvantage);
-    let rollsText = "";
-    rolls.forEach((roll, index) => {
-      if (index == 0 || index == rolls.length - 1) {
-        rollsText += roll;
-      } else {
-        rollsText += `+${roll}`;
-      }
-    });
-    addLog({
-      context: context,
-      type: type,
-      total: total,
-      rollNotation: diceNotation,
-      rolls: rollsText,
-    });
+    if (dice != null) {
+      const { results, total } = rollDice(dice.Rolls, advantage, disadvantage);
+      addLog({
+        context: context,
+        type: type,
+        total: total,
+        rollNotation: dice.Text,
+        rolls: results,
+      });
+    } else {
+      const { results, total } = rollDice(
+        { 20: 1, 0: mod },
+        advantage,
+        disadvantage
+      ); // Handle the case where only a modifier is present
+      addLog({
+        context: context,
+        type: type,
+        total: total,
+        rollNotation: `1d20${mod > 0 ? `+${mod}` : mod < 0 ? `${mod}` : ""}`, // Display modifier in notation
+        rolls: results,
+      });
+    }
   };
 
   return (
@@ -49,7 +53,7 @@ const RollDice: React.FC<RollDiceProps> = ({
       className="bg-white text-black rounded-md hover:bg-gray-300 cursor-pointer text-center p-2 min-h-[40px] min-w-[40px]"
       onClick={handleClick}
     >
-      {text || (mod >= 0 ? `+${mod}` : mod)}
+      {dice?.Text || (mod >= 0 ? `+${mod}` : mod)}
     </div>
   );
 };

@@ -2,7 +2,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 import { useLog } from "../../hooks/logContext";
 import DiceIcon from "./DiceIcon";
-import { parseDiceText, rollDice } from "./RollFunc";
+import { rollDice } from "./RollFunc";
 
 const DiceMenu = ({
   rollsArray,
@@ -186,24 +186,24 @@ const DiceRoller = () => {
     return notation;
   };
   const handleClick = () => {
-    const diceNotation = getDiceNotation(rollsArray);
-    const { rolls: parsedDice } = parseDiceText(diceNotation, 0);
-    const { rolls, total } = rollDice(parsedDice, false, false);
-    let rollsText = "";
-    rolls.forEach((roll, index) => {
-      if (index == 0) {
-        rollsText += roll;
-      } else {
-        rollsText += `+${roll}`;
-      }
-    });
-    addLog({
-      context: "Custom",
-      type: "Roll",
-      total: total,
-      rollNotation: diceNotation,
-      rolls: rollsText,
-    });
+    // const diceNotation = getDiceNotation(rollsArray);
+    // const { rolls: parsedDice } = parseDiceText(diceNotation, 0);
+    // const { rolls, total } = rollDice(parsedDice, false, false);
+    // let rollsText = "";
+    // rolls.forEach((roll, index) => {
+    //   if (index == 0) {
+    //     rollsText += roll;
+    //   } else {
+    //     rollsText += `+${roll}`;
+    //   }
+    // });
+    // addLog({
+    //   context: "Custom",
+    //   type: "Roll",
+    //   total: total,
+    //   rollNotation: diceNotation,
+    //   rolls: rollsText,
+    // });
   };
 
   return (

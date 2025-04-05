@@ -1,10 +1,12 @@
 import { FC } from "react";
 import RollDice from "../DiceRoller/RollDice";
+import { source } from "../../../wailsjs/go/models";
+
 type Props = {
   name: string;
   range: string;
   hitDC: number;
-  damage: string;
+  damage: source.Dice;
 };
 const AttackItem: FC<Props> = ({ name, range, hitDC, damage }) => {
   return (
@@ -18,7 +20,7 @@ const AttackItem: FC<Props> = ({ name, range, hitDC, damage }) => {
       </div>
       <div className="w-[50%]">
         <div className="w-[75%]">
-          <RollDice text={damage} context={name} type="Damage" />
+          <RollDice dice={damage} context={name} type="Damage" />
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ import (
 	"os"
 	"regexp"
 	"sort"
+	"strconv"
 	"strings"
 	"sync"
 )
@@ -29,6 +30,11 @@ type Description struct {
 	InnerXML string `xml:",innerxml"`
 	Usage    string `xml:"usage,attr"`
 	Level    int    `xml:"level,attr"`
+}
+
+type Ability struct {
+	Score int
+	Mod   int
 }
 
 type Sheet struct {
@@ -118,12 +124,20 @@ type Spell struct {
 	Level       int    `xml:"level,attr"`
 	Prepared    bool   `xml:"prepared,attr"`
 	Known       bool   `xml:"known,attr"`
+	Hit         int
+	Effect      Dice
+	SaveDC      string
 	Name        string
 	Description string
 	Time        string
 	Range       string
 	Duration    string
 	Ritual      bool
+}
+
+type Dice struct {
+	Rolls map[int]int
+	Text  string
 }
 
 func getElement(typeName string, id string) (SourceElement, error) {
@@ -539,30 +553,321 @@ func formatRange(input string) string {
 	return number + " " + word
 }
 
-func GetSpellDetail(spell *Spell) error {
-	element, err := getElement("Spell", spell.ID)
-	if err != nil {
-		return fmt.Errorf("error getting Spell %w", err)
+func getDCAbility(text string) (string, bool) {
+	patterns := []string{
+		`must make a (\w+) saving throw`,
+		`The target must succeed on a (\w+) saving throw`,
 	}
-	spell.Name = element.Name
-	spell.Description = cleanInnerXML(element.Description.InnerXML)
-	for _, setter := range element.Setters {
-		switch setter.Name {
-		case "time":
-			spell.Time = formatTime(setter.Value)
-		case "duration":
-			spell.Duration = setter.Value
-		case "range":
-			spell.Range = formatRange(setter.Value)
-		case "isRitual":
-			if setter.Value == "true" {
-				spell.Ritual = true
+
+	for _, pattern := range patterns { // check if spell saving throw case met
+		re := regexp.MustCompile(pattern)
+		matches := re.FindStringSubmatch(text)
+		if len(matches) > 1 {
+			return matches[1], true // Return ability type of saving throw
+		}
+	}
+	return "", false
+}
+
+func ParseDice(dice string) (Dice, error) {
+	d := Dice{
+		Rolls: make(map[int]int),
+		Text:  dice,
+	}
+	re := regexp.MustCompile(`([+-]?\d+d\d+|[+-]?\d+)`)
+	parts := re.FindAllString(dice, -1) // splits string into dice and modifiers
+
+	reDice := regexp.MustCompile(`([+-]?\d+)d(\d+)`)
+	for _, part := range parts {
+		if reDice.MatchString(part) { // Dice
+			sub := reDice.FindStringSubmatch(part)
+			if len(sub) != 3 {
+				return Dice{}, fmt.Errorf("invalid dice format: %s", part)
+			}
+			// Int conversion and validate
+			numAmount, err := strconv.Atoi(sub[1])
+			numSides, err2 := strconv.Atoi(sub[2])
+			if err != nil || err2 != nil || numAmount < 1 || numSides < 1 {
+				return Dice{}, fmt.Errorf("invalid dice format: %s", part)
+			}
+
+			// Store in map
+			if existing, ok := d.Rolls[numSides]; ok {
+				d.Rolls[numSides] = existing + numAmount // Add amounts for the same sides
 			} else {
-				spell.Ritual = false
+				d.Rolls[numSides] = numAmount // Init if DNE
+			}
+		} else { // Number
+			numAmount, err := strconv.Atoi(part)
+			if err != nil {
+				return Dice{}, fmt.Errorf("invalid number format in dice: %s", part)
+			}
+			if existing, ok := d.Rolls[0]; ok {
+				d.Rolls[0] = existing + numAmount // Add to side 0, for number modifiers
+			} else {
+				d.Rolls[0] = numAmount // Init if DNE
 			}
 		}
 	}
-	return nil
+
+	return d, nil
+}
+func addDice(d1, d2 Dice) Dice {
+	sum := make(map[int]int)
+	for sides, amount := range d1.Rolls {
+		sum[sides] = amount // Start with d1 values
+	}
+	for sides, amount := range d2.Rolls {
+		if existing, ok := sum[sides]; ok {
+			sum[sides] = existing + amount // Add amounts for the same sides
+		} else {
+			sum[sides] = amount // Add new sides from d2
+		}
+	}
+
+	// turn rolls to text
+
+	d := Dice{
+		Rolls: sum,
+		Text:  rollsToText(sum),
+	}
+
+	return d
+}
+
+func rollsToText(rolls map[int]int) string {
+	d := ""
+
+	// Get Keys
+	keys := make([]int, 0, len(rolls))
+	for k := range rolls {
+		keys = append(keys, k)
+	}
+
+	// Sort Descending
+	sort.Slice(keys, func(i, j int) bool {
+		return keys[i] > keys[j]
+	})
+
+	// Add Text
+	for _, sides := range keys {
+		amount := rolls[sides]
+		if amount > 0 {
+			if d != "" {
+				d += "+"
+			}
+			if sides == 0 {
+				d += strconv.Itoa(amount)
+			} else {
+				d += strconv.Itoa(amount) + "d" + strconv.Itoa(sides)
+			}
+		}
+	}
+	return d
+}
+
+func getSpellEffect(input string, ability string, abilityTable map[string]Ability, profBonus int) (diceNotation Dice, ok bool) {
+
+	diceMod := regexp.MustCompile(`(\d+d\d+)\s*\+\s*(.+)`)
+	diceOnly := regexp.MustCompile(`(\d+d\d+)`)
+
+	matches := diceMod.FindStringSubmatch(input)
+	if len(matches) == 3 {
+		modNumber := regexp.MustCompile(`^(\d+)\b.*`)
+		modDice := regexp.MustCompile(`^(\d+d\d+)\b.*`)
+
+		dice := matches[1]
+		parsed, err := ParseDice(dice)
+		if err != nil {
+			fmt.Printf("Error parsing dice: %v\n", err)
+		}
+
+		mod := matches[2]
+		// Mod Cases: Number, Dice, Other Modifier
+		matchesTemp := modNumber.FindStringSubmatch(mod)
+		parsedMod := Dice{
+			Rolls: make(map[int]int),
+			Text:  "",
+		}
+		parsedMod.Text = "" // to get rid of linter error for unused variable
+		if len(matchesTemp) > 0 {
+			parsedMod, err = ParseDice(matchesTemp[1])
+			if err != nil {
+				fmt.Printf("Error parsing modifier number: %v\n", err)
+				return Dice{}, false
+			}
+
+		} else if matchesTemp = modDice.FindStringSubmatch(mod); len(matchesTemp) > 0 {
+			parsedMod, err = ParseDice(matchesTemp[1])
+			if err != nil {
+				fmt.Printf("Error parsing modifier number: %v\n", err)
+				return Dice{}, false
+			}
+		} else if strings.Contains(mod, "modifier") {
+			// Modifier Case
+			if strings.Contains(mod, "your spellcasting ability modifier") {
+				parsedMod, err = ParseDice(strconv.Itoa(abilityTable[strings.ToLower(ability)].Mod))
+				if err != nil {
+					fmt.Printf("Error parsing modifier number: %v\n", err)
+					return Dice{}, false
+				}
+			} else if strings.Contains(mod, "your Constitution modifier") {
+				parsedMod, err = ParseDice(strconv.Itoa(abilityTable["constitution"].Mod))
+				if err != nil {
+					fmt.Printf("Error parsing modifier number: %v\n", err)
+					return Dice{}, false
+				}
+			} else if strings.Contains(mod, "your Strength modifier") {
+				parsedMod, err = ParseDice(strconv.Itoa(abilityTable["strength"].Mod))
+				if err != nil {
+					fmt.Printf("Error parsing modifier number: %v\n", err)
+					return Dice{}, false
+				}
+			} else if strings.Contains(mod, "your Dexterity modifier") {
+				parsedMod, err = ParseDice(strconv.Itoa(abilityTable["dexterity"].Mod))
+				if err != nil {
+					fmt.Printf("Error parsing modifier number: %v\n", err)
+					return Dice{}, false
+				}
+			} else if strings.Contains(mod, "your proficiency modifier") {
+				parsedMod, err = ParseDice(strconv.Itoa(profBonus))
+				if err != nil {
+					fmt.Printf("Error parsing modifier number: %v\n", err)
+					return Dice{}, false
+				}
+			} else { // other case
+				return Dice{}, false
+			}
+		} else {
+			return Dice{}, false
+		}
+		addedDice := addDice(parsed, parsedMod)
+		return addedDice, true
+	}
+
+	// No modifier
+	matches = diceOnly.FindStringSubmatch(input)
+	if len(matches) == 2 {
+		dice := matches[1]
+		parsed, err := ParseDice(dice)
+		if err != nil {
+			fmt.Printf("Error parsing dice: %v\n", err)
+		}
+		return parsed, true
+	}
+
+	return Dice{}, false
+}
+
+func getDiceLevel(text string, level int) string {
+	re := regexp.MustCompile(`(\d+)th level \((\d+d\d+)\)`)
+	matches := re.FindAllStringSubmatch(text, -1)
+	base := ""
+	for _, match := range matches {
+		lvl, _ := strconv.Atoi(match[1])
+		dice := match[2]
+		if level >= lvl {
+			base = dice
+		}
+	}
+
+	return base
+
+}
+
+func GetSpellDetail(
+	spell Spell, maxLevel int, attack int, saveDC int, ability string, abilityTable map[string]Ability, profBonus int) (SpellList []Spell, err error) {
+	element, err := getElement("Spell", spell.ID)
+	if err != nil {
+		return nil, fmt.Errorf("error getting Spell %w", err)
+	}
+
+	SpellDetail := spell // Start with the provided spell details
+	SpellDetail.Name = element.Name
+	SpellDetail.Description = cleanInnerXML(element.Description.InnerXML)
+
+	descriptionArray := strings.Split(SpellDetail.Description, ".")
+	for i, sentence := range descriptionArray {
+		if strings.Contains(sentence, "On a hit") { //* Hit Case
+			SpellDetail.Hit = attack
+			if effectDice, found := getSpellEffect(sentence, ability, abilityTable, profBonus); found {
+				// Effect dice usually within same sentence as "On a hit"
+				SpellDetail.Effect = effectDice
+
+			}
+			break
+		} else if savingThrow, found := getDCAbility(sentence); found { //* DC Case
+			SpellDetail.SaveDC = fmt.Sprintf("%d %s", saveDC, savingThrow)
+			for j := i + 1; j < len(descriptionArray); j++ {
+				if effectDice, found := getSpellEffect(descriptionArray[j], ability, abilityTable, profBonus); found {
+					// From next sentence, after find effect dice. Stop at first found.
+					SpellDetail.Effect = effectDice
+					break
+				}
+			}
+			break
+		} else if effectDice, found := getSpellEffect(sentence, ability, abilityTable, profBonus); found { // * Other case, with effects
+			// From next sentence, after find effect dice. Stop at first found.
+			SpellDetail.Effect = effectDice
+			break // Stop after finding the first effect dice
+		}
+	}
+
+	for _, setter := range element.Setters {
+		switch setter.Name {
+		case "time":
+			SpellDetail.Time = formatTime(setter.Value)
+		case "duration":
+			SpellDetail.Duration = setter.Value
+		case "range":
+			SpellDetail.Range = formatRange(setter.Value)
+		case "isRitual":
+			if setter.Value == "true" {
+				SpellDetail.Ritual = true
+			} else {
+				SpellDetail.Ritual = false
+			}
+		}
+	}
+
+	spellList := []Spell{} // Initialize with the base spell detail
+	// * Upcast Spell Check
+	for i, sentence := range descriptionArray {
+		if strings.Contains(sentence, "At Higher Levels") { // Upcasted separate spells
+			for j := i; j < len(descriptionArray); j++ {
+				if effectDice, found := getSpellEffect(descriptionArray[j], ability, abilityTable, profBonus); found {
+					addEffect := effectDice
+
+					for k := spell.Level + 1; k <= maxLevel; k++ {
+
+						currEffect := SpellDetail.Effect
+						for l := 0; l < k-1; l++ {
+							currEffect = addDice(currEffect, addEffect)
+						}
+						spellUpcast := SpellDetail
+						spellUpcast.Level = k
+						spellUpcast.Effect = currEffect
+						spellList = append(spellList, spellUpcast)
+					}
+					break
+				}
+			}
+			break
+		} else if strings.Contains(sentence, "when you reach 5th level") { // Replaces the spell with the maximum allowed level
+			replaceDiceEffect := getDiceLevel(sentence, 5)
+			if replaceDiceEffect != "" {
+				// replace
+				parsedEffect, err := ParseDice(replaceDiceEffect)
+				if err != nil {
+					fmt.Printf("Error parsing upcast replace dice: %v\n", err)
+				}
+				SpellDetail.Effect = parsedEffect
+			}
+			break
+		}
+	}
+	spellList = append(spellList, SpellDetail)
+	return spellList, nil
 }
 
 func GetLanguage(id string) (string, error) {
