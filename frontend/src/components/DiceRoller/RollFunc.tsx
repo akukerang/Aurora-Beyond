@@ -10,6 +10,10 @@ function helper(sides: number, count: number): number[] {
 function getRollResults(rolls: number[]): string {
   let results = "";
 
+  if (rolls.length === 1) {
+    return rolls[0].toString(); // Return empty string if no rolls
+  }
+
   for (let i = 0; i < rolls.length; i++) {
     if (i < rolls.length - 1) {
       if (rolls[i] < 0 || results === "") {

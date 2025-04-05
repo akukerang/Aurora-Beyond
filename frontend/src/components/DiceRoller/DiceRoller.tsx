@@ -149,30 +149,38 @@ const DiceRoller = () => {
 
   const getDiceNotation = (diceRolls: number[]) => {
     let notation = "";
+    const dice: Record<number, number> = {};
     for (let i = 0; i < diceRolls.length; i++) {
       if (diceRolls[i] > 0) {
         let type = "";
         switch (i) {
           case 6:
             type = `d4`;
+            dice[4] = diceRolls[i]; // Store the count for d4
             break;
           case 5:
             type = `d6`;
+            dice[6] = diceRolls[i]; // Store the count for d6
             break;
           case 4:
             type = `d8`;
+            dice[8] = diceRolls[i]; // Store the count for d8
             break;
           case 3:
             type = `d10`;
+            dice[10] = diceRolls[i]; // Store the count for d10
             break;
           case 2:
             type = `d12`;
+            dice[12] = diceRolls[i]; // Store the count for d12
             break;
           case 1:
             type = `d20`;
+            dice[20] = diceRolls[i]; // Store the count for d20
             break;
           case 0:
             type = `d100`;
+            dice[100] = diceRolls[i]; // Store the count for d100
             break;
           default:
             break;
@@ -183,27 +191,22 @@ const DiceRoller = () => {
         notation += `${diceRolls[i]}${type}`;
       }
     }
-    return notation;
+    return { dice, notation };
   };
   const handleClick = () => {
-    // const diceNotation = getDiceNotation(rollsArray);
-    // const { rolls: parsedDice } = parseDiceText(diceNotation, 0);
-    // const { rolls, total } = rollDice(parsedDice, false, false);
-    // let rollsText = "";
-    // rolls.forEach((roll, index) => {
-    //   if (index == 0) {
-    //     rollsText += roll;
-    //   } else {
-    //     rollsText += `+${roll}`;
-    //   }
-    // });
-    // addLog({
-    //   context: "Custom",
-    //   type: "Roll",
-    //   total: total,
-    //   rollNotation: diceNotation,
-    //   rolls: rollsText,
-    // });
+    const { dice, notation } = getDiceNotation(rollsArray);
+    if (Object.keys(dice).length === 0) {
+      return;
+    }
+    const { results, total } = rollDice(dice, false, false);
+
+    addLog({
+      context: "Custom",
+      type: "Roll",
+      total: total,
+      rollNotation: notation,
+      rolls: results,
+    });
   };
 
   return (
