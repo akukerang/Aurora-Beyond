@@ -40,12 +40,14 @@ const ClassSpells: FC<Props> = ({ className }) => {
             <SpellLevelHeader level={level} />
             {spellsByLevel[level] ? (
               <>
-                <div className="flex flex-row">
+                <div className="flex flex-row pb-2 text-base font-semibold">
                   <div className="w-[8%]"></div>
-                  <h3 className="font-semibold text-lg w-[40%]">Name</h3>
-                  <h3 className="font-semibold text-lg w-[12.5%]">Time</h3>
-                  <h3 className="font-semibold text-lg w-[12.5%]">Range</h3>
-                  <h3 className="font-semibold text-lg w-[30%]">Notes</h3>
+                  <h3 className=" w-[30%]">Name</h3>
+                  <h3 className=" w-[10%]">Time</h3>
+                  <h3 className=" w-[10%]">Range</h3>
+                  <h3 className=" w-[10%]">Hit/DC</h3>
+                  <h3 className=" w-[20%]">Effect</h3>
+                  <h3 className=" w-[20%]">Notes</h3>
                 </div>
                 {spellsByLevel[level].map((spell: source.Spell) => (
                   <SpellItem key={spell.ID} spell={spell} />
