@@ -5,15 +5,28 @@ import SpellLevelHeader from "./SpellLevelHeader";
 import { useSpells } from "../../hooks/SpellContext";
 type Props = {
   className: character.spells;
+  searchQuery: string;
 };
 
-const ClassSpells: FC<Props> = ({ className }) => {
+const ClassSpells: FC<Props> = ({ className, searchQuery }) => {
   const allSpells = [
     ...(className.Spells || []),
     ...(className.Cantrips || []),
   ];
   const { slots } = useSpells();
-  const spellsByLevel = allSpells.reduce(
+
+  const filteredSpells = allSpells.filter((spell: source.Spell) => {
+    const searchTerm = searchQuery.toLowerCase().trim();
+    if (!searchTerm) return true; // If no search term, show all spells
+
+    const nameMatch = spell.Name.toLowerCase().includes(searchTerm);
+    const timeMatch = spell.Time.toLowerCase().includes(searchTerm);
+    const classMatch = className.ClassName.toLowerCase().includes(searchTerm);
+
+    return nameMatch || timeMatch || classMatch;
+  });
+
+  const spellsByLevel = filteredSpells.reduce(
     (acc: Record<number, source.Spell[]>, spell: source.Spell) => {
       if (!acc[spell.Level]) {
         acc[spell.Level] = [];
@@ -46,8 +59,8 @@ const ClassSpells: FC<Props> = ({ className }) => {
                   <h3 className=" w-[10%]">Time</h3>
                   <h3 className=" w-[10%]">Range</h3>
                   <h3 className=" w-[10%]">Hit/DC</h3>
-                  <h3 className=" w-[20%]">Effect</h3>
-                  <h3 className=" w-[20%]">Notes</h3>
+                  <h3 className=" w-[15%]">Effect</h3>
+                  <h3 className=" w-[25%]">Notes</h3>
                 </div>
                 {spellsByLevel[level].map((spell: source.Spell) => (
                   <SpellItem key={spell.ID} spell={spell} />
@@ -57,8 +70,7 @@ const ClassSpells: FC<Props> = ({ className }) => {
               // Show a message for empty levels except cantrips
               level > 0 && (
                 <p className="text-gray-300 italic mb-2">
-                  No spells available for this level. Some spells may be
-                  upcasted.
+                  No spells available for this level.
                 </p>
               )
             )}

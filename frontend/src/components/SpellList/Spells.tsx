@@ -3,7 +3,8 @@ import MagicStats from "./MagicStats";
 import { character } from "../../../wailsjs/go/models";
 import ClassSpells from "./ClassSpells";
 import { useSpells } from "../../hooks/SpellContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import SearchBar from "../SearchBar";
 const Spells = () => {
   // TODO: More responsive layout to display spells on smaller screens.
   const { character } = useCharacter();
@@ -18,13 +19,24 @@ const Spells = () => {
       loadSlots(magic.SpellSlots);
     }
   }, [magic, slots, loadSlots]);
+
+  const [search, setSearch] = useState<string>("");
+
   return (
     <div>
       {magic ? (
         <>
           <MagicStats classMagic={magic.ClassSpells} />
+          <SearchBar
+            placeholder="Search Spells Names, Casting Time, or Class"
+            onChange={(e) => setSearch(e.target.value)}
+          />
           {magic.ClassSpells.map((className: character.spells, index) => (
-            <ClassSpells className={className} key={index} />
+            <ClassSpells
+              className={className}
+              key={index}
+              searchQuery={search}
+            />
           ))}
         </>
       ) : (

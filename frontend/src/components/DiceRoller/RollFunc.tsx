@@ -46,6 +46,7 @@ function rollBatch(dice: Record<number, number>) {
       total += rollResults.reduce((acc, val) => acc + val, 0); // Sum the rolls
     } else {
       // 0 case are just numbers
+      if (count === 0) return; // Skip if count is 0
       rolls.push(count); // Push modifiers
       total += count;
     }

@@ -55,7 +55,7 @@ const SpellItem: FC<Props> = ({ spell }) => {
         )}
       </div>
       <div
-        className="w-[20%] pb-2 border-b border-gray-500 px-2
+        className="w-[15%] pb-2 border-b border-gray-500 px-2
             flex justify-start
 
       "
@@ -67,7 +67,7 @@ const SpellItem: FC<Props> = ({ spell }) => {
         )}
       </div>
 
-      <h1 className="text-base w-[20%] pb-2 italic border-b border-gray-500">
+      <h1 className="text-base w-[25%] pb-2 italic border-b border-gray-500">
         {note}
       </h1>
     </div>
