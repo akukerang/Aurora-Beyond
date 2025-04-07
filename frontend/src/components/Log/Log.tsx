@@ -5,7 +5,7 @@ import { useLog } from "../../hooks/logContext";
 import LogItem from "./LogItem";
 import LogItemMin from "./LogItemMin";
 
-const LogSmall = () => {
+const Log = () => {
   const { log, removeLog, setNewLog } = useLog();
   const [toggled, setToggled] = useState(true);
 
@@ -124,4 +124,4 @@ const LogSmall = () => {
   );
 };
 
-export default LogSmall;
+export default Log;

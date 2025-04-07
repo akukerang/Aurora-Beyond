@@ -4,7 +4,7 @@ import "./App.css";
 import DiceRoller from "./components/DiceRoller/DiceRoller";
 import FloatingMenu from "./components/FloatingMenu";
 import InfoPanel from "./components/InfoPanel/InfoPanel";
-import LogSmall from "./components/Log/LogSmall";
+import Log from "./components/Log/Log";
 import Navbar from "./components/NavBar";
 import { useCharacter } from "./hooks/CharacterContext";
 import { FeatProvider } from "./hooks/FeatContext";
@@ -45,7 +45,7 @@ function App() {
           </div>
         </div>
         <div className="flex fixed right-0 bottom-0 z-100 w-[50%] md:w-[33%] lg:w-[30%] xl:w-[30%] 2xl:w-[20%]">
-          <LogSmall />
+          <Log />
         </div>
       </LogProvider>
     </div>
