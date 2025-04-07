@@ -27,8 +27,7 @@ export const LogProvider: FC<LogProviderProps> = ({ children }) => {
   const addLog = (newLog: Log) => {
     // adds notification to log
     setLog((prevLogs) => {
-      const updatedLogs = [...prevLogs, newLog];
-      return updatedLogs.slice(-3); // limit to 3 logs
+      return [...prevLogs, newLog];
     });
   };
 

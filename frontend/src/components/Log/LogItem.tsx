@@ -7,6 +7,7 @@ type Props = {
   total: number;
   rolls: string;
   rollNotation: string;
+  className?: string;
   onClick: () => void;
 };
 
@@ -17,12 +18,12 @@ const LogItem: FC<Props> = ({
   total,
   rolls,
   rollNotation,
+  className,
   onClick,
 }) => {
   return (
     <div
-      className={`relative flex flex-row bg-gray-900 rounded-md my-2 mr-3 px-4 p-2 items-center
-        animate-slide-in transition-transform duration-300 ease-in-out`}
+      className={`relative flex flex-row bg-gray-900 rounded-md my-2 mr-3 px-4 p-2 items-center ${className}`}
     >
       <CloseIcon
         className="absolute top-2 right-2 cursor-pointer"

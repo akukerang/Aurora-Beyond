@@ -5,14 +5,21 @@ type Props = {
   context: string;
   type: string;
   total: number;
+  className?: string;
   onClick: () => void;
 };
 
 // TODO : Animation when log item shows up.
-const LogItemMin: FC<Props> = ({ context, type, total, onClick }) => {
+const LogItemMin: FC<Props> = ({
+  context,
+  type,
+  total,
+  onClick,
+  className,
+}) => {
   return (
     <div
-      className={`relative flex flex-row bg-gray-900 rounded-md my-2 mr-4 px-4 p-2 items-center`}
+      className={`relative flex flex-row bg-gray-900 rounded-md my-2 mr-4 px-4 p-2 items-center ${className}`}
     >
       <CloseIcon
         className="absolute top-2 right-2 cursor-pointer"
