@@ -3,6 +3,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useState } from "react";
 import { useLog } from "../../hooks/logContext";
 import LogItem from "./LogItem";
+import LogItemMin from "./LogItemMin";
 const LogSmall = () => {
   const { log, removeLog, setNewLog } = useLog();
   const [toggled, setToggled] = useState(true);
@@ -18,19 +19,30 @@ const LogSmall = () => {
   return (
     <div className="flex flex-col p-4 w-full">
       {toggled && log
-        ? log.slice(-3).map((logItem, index) => (
-            <LogItem
-              key={index}
-              index={index}
-              length={log.length} // Pass the length of the log for display purposes
-              context={logItem.context}
-              type={logItem.type}
-              total={logItem.total}
-              rolls={logItem.rolls}
-              rollNotation={logItem.rollNotation}
-              onClick={() => removeLog(index)}
-            />
-          ))
+        ? log.map((logItem, index, array) => {
+            if (index === array.length - 1) {
+              return (
+                <LogItem
+                  key={index}
+                  context={logItem.context}
+                  type={logItem.type}
+                  total={logItem.total}
+                  rolls={logItem.rolls}
+                  rollNotation={logItem.rollNotation}
+                  onClick={() => removeLog(index)}
+                />
+              );
+            }
+            return (
+              <LogItemMin
+                key={index}
+                context={logItem.context}
+                type={logItem.type}
+                total={logItem.total}
+                onClick={() => removeLog(index)}
+              />
+            );
+          })
         : null}
       <div className="flex flex-row justify-end gap-2 pr-4">
         {log.length > 0 ? (
