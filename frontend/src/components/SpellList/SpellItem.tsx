@@ -47,7 +47,7 @@ const SpellItem: FC<Props> = ({ spell }) => {
       "
       >
         {spell.Hit != 0 ? (
-          <RollDice mod={spell.Hit} context={spell.Name} type="Effect" />
+          <RollDice mod={spell.Hit} context={spell.Name} type="To Hit" />
         ) : spell.SaveDC != "" ? (
           spell.SaveDC.substring(0, 2)
         ) : (

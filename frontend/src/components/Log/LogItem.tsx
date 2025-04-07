@@ -1,5 +1,6 @@
 import CloseIcon from "@mui/icons-material/Close";
 import { FC } from "react";
+import TypeText from "./TypeText";
 
 type Props = {
   context: string;
@@ -23,7 +24,7 @@ const LogItem: FC<Props> = ({
 }) => {
   return (
     <div
-      className={`relative flex flex-row bg-gray-900 rounded-md my-2 mr-3 px-4 p-2 items-center ${className}`}
+      className={`relative flex flex-row bg-gray-900 rounded-md my-2 mr-4 px-4 p-2 items-center ${className}`}
     >
       <CloseIcon
         className="absolute top-2 right-2 cursor-pointer"
@@ -31,8 +32,8 @@ const LogItem: FC<Props> = ({
         onClick={onClick}
       />
       <div className="flex flex-col w-[75%] justify-center">
-        <h1 className="text-base truncate">
-          {context} : {type}
+        <h1 className="text-base truncate font-semibold">
+          {context} : <TypeText type={type} />
         </h1>
         <h2 className="text-xl truncate">{rolls}</h2>
         <h2 className="text-base truncate">{rollNotation}</h2>
