@@ -20,7 +20,7 @@ const LogItemMin: FC<Props> = ({
 }) => {
   return (
     <div
-      className={`relative flex flex-row bg-gray-900 rounded-md my-2 mr-4 px-6 py-3 items-center ${className}`}
+      className={`relative flex flex-row bg-gray-900 rounded-md my-2 mr-4 px-4 py-4 items-center ${className}`}
     >
       <CloseIcon
         className="absolute top-2 right-2 cursor-pointer"
