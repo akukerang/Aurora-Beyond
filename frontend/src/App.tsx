@@ -16,8 +16,8 @@ function App() {
   const { loadCharacter } = useCharacter();
 
   useEffect(() => {
-    EventsOn("fileSelected", (filePath: string) => {
-      loadCharacter(filePath);
+    EventsOn("fileSelected", async (filePath: string) => {
+      await loadCharacter(filePath);
     });
   }, []);
 

@@ -22,6 +22,7 @@ export const CharacterProvider: React.FC<{ children: React.ReactNode }> = ({
   // Function to load character data from the backend
   const loadCharacter = async (filePath: string) => {
     try {
+      setCharacter(null); // Reset character state before loading new data
       GetCharacterData(filePath)
         .then((result) => {
           setCharacter(result);

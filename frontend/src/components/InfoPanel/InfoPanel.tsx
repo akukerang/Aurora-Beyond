@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import defaultPortrait from "../../assets/half elf-male-2.png";
 import { useCharacter } from "../../hooks/CharacterContext";
 import AbilityScores from "./AbilityScores";
@@ -10,6 +11,7 @@ import Stats from "./Stats";
 const InfoPanel = () => {
   const { character } = useCharacter();
   console.log(character);
+
   const className = character?.Multiclassing
     ? character?.Class
     : character?.Class + " (" + character?.Level + ")";
