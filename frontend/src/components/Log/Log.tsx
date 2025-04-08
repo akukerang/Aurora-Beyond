@@ -9,13 +9,14 @@ const Log = () => {
   const { log, removeLog, setNewLog } = useLog();
   const [toggled, setToggled] = useState(true);
 
-  // For add/remove animations
+  // Animation control
   const [removingIndex, setRemovingIndex] = useState<number | null>(null);
   const [addedIndex, setAddedIndex] = useState<number | null>(null);
   const [overflowAnimationIndex, setOverflowAnimationIndex] = useState<
     number | null
-  >(null); // Track the index for animateFull
+  >(null);
   const prevLogLength = useRef(log.length);
+  const [hasMounted, setHasMounted] = useState(false);
 
   const clearLog = () => {
     setNewLog([]);
@@ -26,47 +27,51 @@ const Log = () => {
     setToggled((prev) => !prev);
   };
 
-  const animateAdd = "animate-slide-in transition-all duration-300 ease-in-out";
+  const animateAdd = "animate-slide-in";
   const animateRemove =
     "animate-slide-out transition-all duration-300 ease-in-out";
   const animateOverflow =
     "animate-slide-out-up transition-all duration-300 ease-in-out";
 
-  // Adding animation
   useEffect(() => {
     if (log.length > prevLogLength.current) {
+      if (log.length === 1) {
+        setHasMounted(false); // Reset
+        const timer = setTimeout(() => setHasMounted(true), 10);
+        return () => clearTimeout(timer);
+      }
+
       if (log.length > 3) {
-        // cant exceed 3, remove first item and show overflow animation
         setOverflowAnimationIndex(0);
         setTimeout(() => {
           setOverflowAnimationIndex(null);
           removeLog(0);
         }, 300);
       }
-      // Log length increased (new item added)
+
       const lastLogIndex = log.length - 1;
       setAddedIndex(lastLogIndex);
       setTimeout(() => setAddedIndex(null), 400);
     }
-    prevLogLength.current = log.length; // Update the previous log length
+
+    prevLogLength.current = log.length;
   }, [log]);
 
-  // Removal
   const handleRemoveLog = (index: number) => {
     setRemovingIndex(index);
     setTimeout(() => {
-      removeLog(index); // Remove and reset
+      removeLog(index);
       setRemovingIndex(null);
-    }, 300); // Wait for animation
+    }, 300);
   };
 
   return (
     <div className="flex flex-col p-4 w-full">
       {toggled && log
         ? log.map((logItem, index, array) => {
-            const isRemoving = index === removingIndex; // Check for case
+            const isRemoving = index === removingIndex;
             const isAdded = index === addedIndex;
-            const isOverflow = index === overflowAnimationIndex; // Check for animateFull
+            const isOverflow = index === overflowAnimationIndex;
             const animationClass = isRemoving
               ? animateRemove
               : isAdded
@@ -76,8 +81,22 @@ const Log = () => {
               : "";
 
             if (index === array.length - 1) {
+              if (array.length === 1) {
+                return (
+                  <LogItem
+                    key={index}
+                    context="TEST"
+                    type={logItem.type}
+                    total={logItem.total}
+                    rolls={logItem.rolls}
+                    rollNotation={logItem.rollNotation}
+                    onClick={() => handleRemoveLog(index)}
+                    className={`${hasMounted ? animateAdd : "opacity-0"}`}
+                  />
+                );
+              }
+
               return (
-                // if first item, show full else use minified version
                 <LogItem
                   key={index}
                   context={logItem.context}
@@ -90,6 +109,7 @@ const Log = () => {
                 />
               );
             }
+
             return (
               <LogItemMin
                 key={index}
@@ -102,8 +122,9 @@ const Log = () => {
             );
           })
         : null}
+
       <div className="flex flex-row justify-end gap-2 pr-4">
-        {log.length > 0 ? (
+        {log.length > 0 && (
           <>
             <div
               className="bg-gray-900 text-white text-lg hover:cursor-pointer hover:bg-gray-800 w-12 h-8 flex items-center justify-center p-2 rounded-md"
@@ -112,13 +133,13 @@ const Log = () => {
               {toggled ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
             </div>
             <div
-              className="bg-gray-900 text-white text-lg hover:cursor-pointer hover:bg-gray-800 w-20 h-8 flex items-center justify-center  p-2 rounded-md"
+              className="bg-gray-900 text-white text-lg hover:cursor-pointer hover:bg-gray-800 w-20 h-8 flex items-center justify-center p-2 rounded-md"
               onClick={clearLog}
             >
               Clear
             </div>
           </>
-        ) : null}
+        )}
       </div>
     </div>
   );
