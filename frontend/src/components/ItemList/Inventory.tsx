@@ -3,6 +3,7 @@ import { source } from "../../../wailsjs/go/models";
 import Item from "./Item";
 import { useState } from "react";
 import SearchBar from "../SearchBar";
+import Money from "./Money";
 const Inventory = () => {
   const { character } = useCharacter();
   const [search, setSearch] = useState<string>("");
@@ -24,6 +25,7 @@ const Inventory = () => {
         placeholder="Search Item Names, Types, or Rarities"
         onChange={(e) => setSearch(e.target.value)}
       />
+      {character?.Money ? <Money money={character.Money} /> : null}
 
       <div className="flex flex-row mb-2">
         <h1 className="text-xl font-semibold w-[10%]">Active</h1>

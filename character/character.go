@@ -42,6 +42,7 @@ type characterInfo struct {
 	Background   string       `xml:"display-properties>background"`
 	Attacks      []Attack     `xml:"build>input>attacks>attack"`
 	ProfBonus    int
+	Money        Money `xml:"build>input>currency"`
 }
 
 type portraitFile struct {
@@ -75,6 +76,15 @@ type Character struct { // Goes to Final
 	Inventory     []source.ItemDetail
 	FeatsFinal    []source.Detail
 	PassiveSkills map[string]int
+	Money         Money
+}
+
+type Money struct {
+	Copper   int `xml:"copper"`
+	Silver   int `xml:"silver"`
+	Electrum int `xml:"electrum"`
+	Gold     int `xml:"gold"`
+	Platinum int `xml:"platinum"`
 }
 
 type Skill struct {
@@ -1873,6 +1883,8 @@ func GetCharacterData(filePath string) (Character, error) {
 	character.Background = characterInfo.Background
 	character.ProfBonus = characterInfo.ProfBonus
 	character.Level = characterInfo.TotalLevel
+	character.Money = characterInfo.Money
+
 	character.setPassiveStats()
 
 	imgData, err := os.ReadFile(characterInfo.PortraitFile.FileName)

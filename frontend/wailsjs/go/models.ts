@@ -36,6 +36,26 @@ export namespace character {
 		    return a;
 		}
 	}
+	export class Money {
+	    Copper: number;
+	    Silver: number;
+	    Electrum: number;
+	    Gold: number;
+	    Platinum: number;
+	
+	    static createFrom(source: any = {}) {
+	        return new Money(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.Copper = source["Copper"];
+	        this.Silver = source["Silver"];
+	        this.Electrum = source["Electrum"];
+	        this.Gold = source["Gold"];
+	        this.Platinum = source["Platinum"];
+	    }
+	}
 	export class spells {
 	    ClassName: string;
 	    SpellSlots: number[];
@@ -163,6 +183,7 @@ export namespace character {
 	    Inventory: source.ItemDetail[];
 	    FeatsFinal: source.Detail[];
 	    PassiveSkills: Record<string, number>;
+	    Money: Money;
 	
 	    static createFrom(source: any = {}) {
 	        return new Character(source);
@@ -196,6 +217,7 @@ export namespace character {
 	        this.Inventory = this.convertValues(source["Inventory"], source.ItemDetail);
 	        this.FeatsFinal = this.convertValues(source["FeatsFinal"], source.Detail);
 	        this.PassiveSkills = source["PassiveSkills"];
+	        this.Money = this.convertValues(source["Money"], Money);
 	    }
 	
 		convertValues(a: any, classs: any, asMap: boolean = false): any {
@@ -216,6 +238,7 @@ export namespace character {
 		    return a;
 		}
 	}
+	
 	
 	
 
