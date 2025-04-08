@@ -488,7 +488,7 @@ func GetAdornerItemDetails(typeName string, id string, adorner_id string, equipp
 		}
 	}
 	itemDetail.Description = cleanInnerXML(element.Description.InnerXML)
-	if itemDetail.Name == "" { // if no name format, use adorner name
+	if itemDetail.Name == "" || !strings.Contains(itemDetail.Name, "{parent}") { // if no name format, use adorner name
 		itemDetail.Name = element.Name
 	} else {
 		itemDetail.Name = replaceStatValue(itemDetail.Name, statsParent)
