@@ -11,17 +11,14 @@ import { FeatProvider } from "./hooks/FeatContext";
 import { LogProvider } from "./hooks/logContext";
 import { NoteProvider } from "./hooks/NotesContext";
 import { SpellProvider } from "./hooks/SpellContext";
-
+import { EventsOn } from "../wailsjs/runtime";
 function App() {
   const { loadCharacter } = useCharacter();
 
   useEffect(() => {
-    const handleLoad = async () => {
-      const filePath =
-        "C:/Users/gabri/OneDrive/Documents/5e Character Builder/Aldric.dnd5e";
-      await loadCharacter(filePath);
-    };
-    handleLoad();
+    EventsOn("fileSelected", (filePath: string) => {
+      loadCharacter(filePath);
+    });
   }, []);
 
   return (
