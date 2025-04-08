@@ -1329,6 +1329,9 @@ func (character *Character) setAC(characterInfo *characterInfo) error {
 		armorClass += dexMod
 		character.AC = armorClass
 	}
+	if character.AC == 0 {
+		character.AC = 10 + character.AbilityScore["dexterity"].Mod // unarmored ac
+	}
 	return nil
 
 }

@@ -85,7 +85,7 @@ const Log = () => {
                 return (
                   <LogItem
                     key={index}
-                    context="TEST"
+                    context={logItem.context}
                     type={logItem.type}
                     total={logItem.total}
                     rolls={logItem.rolls}
