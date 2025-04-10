@@ -1,16 +1,18 @@
 package source
 
 import (
+	"embed"
 	"encoding/xml"
 	"fmt"
-	"io"
-	"os"
 	"regexp"
 	"sort"
 	"strconv"
 	"strings"
 	"sync"
 )
+
+//go:embed Types
+var typeFS embed.FS
 
 type SourceInfo struct {
 	SourceElements []SourceElement `xml:"element"`
@@ -142,18 +144,23 @@ type Dice struct {
 
 func getElement(typeName string, id string) (SourceElement, error) {
 
-	filePath := "Types/" + typeName + ".xml"
+	// filePath := "Types/" + typeName + ".xml"
+	filePath := fmt.Sprintf("Types/%s.xml", typeName)
 
-	file, err := os.Open(filePath)
+	xmlData, err := typeFS.ReadFile(filePath)
 	if err != nil {
-		return SourceElement{}, fmt.Errorf("error opening file %w", err)
+		return SourceElement{}, fmt.Errorf("error reading embedded file %w", err)
 	}
-	defer file.Close()
+	// file, err := os.Open(filePath)
+	// if err != nil {
+	// 	return SourceElement{}, fmt.Errorf("error opening file %w", err)
+	// }
+	// defer file.Close()
 
-	xmlData, err := io.ReadAll(file)
-	if err != nil {
-		return SourceElement{}, fmt.Errorf("error reading file %w", err)
-	}
+	// xmlData, err := io.ReadAll(file)
+	// if err != nil {
+	// 	return SourceElement{}, fmt.Errorf("error reading file %w", err)
+	// }
 
 	var items SourceInfo
 	err = xml.Unmarshal(xmlData, &items) // unmarshal XML data into struct
