@@ -1,26 +1,31 @@
-## About
+# Aurora Beyond
 
-Wails template which includes: Vite, React, TS, TailwindCSS out of the box.
+A D&D Beyond inspired app, using the functionality of [Aurora](https://aurorabuilder.com/).
 
-Build with `Wails CLI v2.0.0`.
+## Usage
 
-To use this [template](https://wails.io/docs/community/templates):
-```shell
-wails init -n "Your Project Name" -t https://github.com/hotafrika/wails-vite-react-ts-tailwind-template
-cd frontend/src
-npm install
-```
+1. Have a valid Aurora Character File (`*.dnd5e`)
+2. Launch the app
+3. Open your character through the menu bar or `Ctrl + O`
 
-[Here](scripts) you can find useful scripts for building on different platforms and Wails CLI installation.
+## Features
 
-## Live Development
+- **Stats Overview** - View all your character's core stats.
+  ![Stats](/screenshots/Stats.png)
+- **In-App Dice Rolling** - Roll directly inside the app.
+  - **Custom Rolls** - Create custom dice rolls.
+  - **Click to Roll** - Easily roll for attacks, skills, saves, effects with a single click.
+    ![Rolls](/screenshots/Dice%20Rolling.png)
+- **Feature Tracker** - Keep track of class features, abilities, and their usage.
+  ![Feats](/screenshots/Actions.png)
+- **Spell Tracker** - Monitor spells available, and slots left.
+  ![Spells](/screenshots/Spells.png)
+- **Inventory** - See your inventory, equipped items, and money.
+  ![Inventory](/screenshots/Inventory.png)
+- **Notes** - Keep track of important notes
 
-To run in live development mode, run `wails dev` in the project directory. In another terminal, go into the `frontend`
-directory and run `npm run dev`. The frontend dev server will run on http://localhost:34115. Connect to this in your
-browser and connect to your application.
+## Current Limitations
 
-## Building
-
-To build a redistributable, production mode package, use `wails build`.
-
-
+- Only supports content from the [original Aurora elements](https://github.com/aurorabuilder/elements).
+- Doesn't support any direct editing, make changes via Aurora.
+- Not updated to the latest version of 5e (2024).
