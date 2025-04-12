@@ -722,11 +722,18 @@ func processStats(character *characterInfo) error {
 		for key, value := range character.ClassData { // class levels
 			character.Stats["level:"+getClassName(key)] = strconv.Itoa(value.totalLevel)
 			character.Stats["level:"+getClassName(key)+":half"] = strconv.Itoa(int(math.Ceil(float64(value.totalLevel) / 2))) // TODO: look into a better way
+			character.Stats["level:"+getClassName(key)+":half:up"] = character.Stats["level:"+getClassName(key)+":half"]
+
 		}
 	}
 
 	filteredRawStats := []source.Stat{}
 	// Get all ability scores changes first, update them and modifiers, then process rest of stats
+
+	for _, element := range character.StatsRaw {
+		fmt.Println(element.ParentID, element.Name, element.Value)
+	}
+
 	for _, stat := range character.StatsRaw {
 		switch stat.Name {
 		case "strength:score:set", "dexterity:score:set", "constitution:score:set", "intelligence:score:set", "wisdom:score:set", "charisma:score:set":

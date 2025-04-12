@@ -191,6 +191,9 @@ func GetStat(typeName string, id string, level int, ch chan<- Stat, errCh chan<-
 	// Append stats to the stats map
 	for _, stat := range element.Rules.Stat {
 		if stat.Level <= level {
+			if stat.Requirement != "" {
+				// TODO: Check requirements, make data struct
+			}
 			stat.ParentID = id
 			ch <- stat
 		}

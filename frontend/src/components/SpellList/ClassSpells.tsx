@@ -55,13 +55,13 @@ const ClassSpells: FC<Props> = ({ className, searchQuery }) => {
             {spellsByLevel[level] ? (
               <>
                 <div className="flex flex-row pb-2 text-base font-semibold">
-                  <div className="w-[8%]"></div>
-                  <h3 className=" w-[30%]">Name</h3>
-                  <h3 className=" w-[10%]">Time</h3>
-                  <h3 className=" w-[10%]">Range</h3>
-                  <h3 className=" w-[10%]">Hit/DC</h3>
-                  <h3 className=" w-[15%]">Effect</h3>
-                  <h3 className=" w-[25%]">Notes</h3>
+                  <div className="w-[8%] min-w-[50px]"></div>
+                  <h3 className="w-[20%] min-w-[80px] truncate">Name</h3>
+                  <h3 className="w-[10%] min-w-[50px] truncate">Time</h3>
+                  <h3 className="w-[10%] min-w-[50px] truncate">Range</h3>
+                  <h3 className="w-[10%] min-w-[50px] truncate">Hit/DC</h3>
+                  <h3 className="w-[15%] min-w-[80px] truncate">Effect</h3>
+                  <h3 className="w-[25%] min-w-[150px] truncate">Notes</h3>
                 </div>
                 {spellsByLevel[level].map((spell: source.Spell) => (
                   <SpellItem key={spell.ID} spell={spell} />
