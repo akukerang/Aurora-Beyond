@@ -37,10 +37,11 @@ const ClassSpells: FC<Props> = ({ className, searchQuery }) => {
     {}
   );
 
+  const SpellLevels = Math.max(...Object.keys(spellsByLevel).map(Number));
   return (
     <div>
       <h1 className="text-2xl font-semibold mb-2"> {className.ClassName} </h1>
-      {Array.from({ length: slots.maxSlots.length + 1 }).map((_, index) => {
+      {Array.from({ length: SpellLevels + 1 }).map((_, index) => {
         const level = index;
 
         // Skip cantrips if empty

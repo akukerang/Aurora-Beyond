@@ -319,8 +319,6 @@ MainLoop:
 			rndHPArray, err := stringToIntArray(element.RndHP)
 			if err != nil {
 				return nil, fmt.Errorf("error turning string to int array %w", err)
-				// fmt.Println(err)
-				// continue
 			}
 			temp := classLevels[class]
 			temp.rndHP = rndHPArray // init rndHP array in classLevels
@@ -333,8 +331,6 @@ MainLoop:
 			classLevels[class] = level
 		} else {
 			return nil, fmt.Errorf("error getting class RNDHP: %s", class)
-			// fmt.Println("error getting class RNDHP: ", class)
-			// continue
 		}
 	}
 
@@ -360,15 +356,7 @@ MainLoop:
 		go func() {
 			wg.Wait()
 			close(statCh)
-			close(errCh)
 		}()
-
-		// ! ONLY THIS LOOP BREAKS THE PROGRAM, IDK WHY
-		// for err := range errCh {
-		// 	if err != nil {
-		// 		return nil, fmt.Errorf("error getting class stat: %w", err)
-		// 	}
-		// }
 
 		for result := range statCh {
 			temp.stats = append(temp.stats, result)
@@ -396,36 +384,27 @@ MainLoop:
 	// Gets Race Feats & Stats from source, and remove duplicate feats
 	err := source.GetRaceStats(raceData.ID, &raceData.stats) // Get the class features from source
 	if err != nil {
-		// return data{}, fmt.Errorf("error getting source race stats: %w", err)
 		fmt.Println(err)
-	}
-
-	var wg sync.WaitGroup
-	statCh := make(chan source.Stat, len(raceData.feats.Features))
-	errCh := make(chan error, len(raceData.feats.Features))
-	for _, feat := range raceData.feats.Features {
-		if feat.ID != "" {
-			wg.Add(1)
-			go source.GetStat(feat.Type, feat.ID, character.TotalLevel, statCh, errCh, &wg)
+	} else {
+		var wg sync.WaitGroup
+		statCh := make(chan source.Stat, len(raceData.feats.Features))
+		errCh := make(chan error, len(raceData.feats.Features))
+		for _, feat := range raceData.feats.Features {
+			if feat.ID != "" {
+				wg.Add(1)
+				go source.GetStat(feat.Type, feat.ID, character.TotalLevel, statCh, errCh, &wg)
+			}
 		}
-	}
 
-	go func() {
-		wg.Wait()
-		close(statCh)
-		close(errCh)
-	}()
+		go func() {
+			wg.Wait()
+			close(statCh)
+			close(errCh)
+		}()
 
-	// for err := range errCh {
-	// 	if err != nil {
-	// 		// return data{}, fmt.Errorf("error getting race stat: %w", err)
-	// 		fmt.Println(err)
-	// 		continue
-	// 	}
-	// }
-
-	for result := range statCh {
-		raceData.stats = append(raceData.stats, result)
+		for result := range statCh {
+			raceData.stats = append(raceData.stats, result)
+		}
 	}
 
 	return raceData
@@ -462,7 +441,6 @@ MainLoop:
 
 	for err := range errCh {
 		if err != nil {
-			// return data{}, fmt.Errorf("error getting class stat: %w", err)
 			fmt.Println(err)
 			continue
 		}
@@ -763,12 +741,12 @@ func processStats(character *characterInfo) error {
 				fmt.Println(err)
 				continue
 			}
-			oldSetvalue, err := strconv.Atoi(character.Stats[stat.Name]) // Old Set Value
+			oldSetValue, err := strconv.Atoi(character.Stats[stat.Name]) // Old Set Value
 			if err != nil {
 				fmt.Println(err)
 				continue
 			}
-			if newSetValue > oldSetvalue { // if new set value is greater than old set value, set to new
+			if newSetValue > oldSetValue { // if new set value is greater than old set value, set to new
 				character.Stats[stat.Name] = stat.Value
 			}
 			change, err := strconv.Atoi(character.Stats[changeKey]) // get total change for ability
@@ -909,7 +887,6 @@ func processStats(character *characterInfo) error {
 			// if its an int, add it to the existing stat
 			existingValue, err := strconv.Atoi(character.Stats[stat.Name])
 			if err != nil {
-				// errCh <- err
 				fmt.Println(err)
 				continue
 			}
@@ -922,7 +899,6 @@ func processStats(character *characterInfo) error {
 				// check if stat value is a key in character.stats
 				newValue, err := strconv.Atoi(character.Stats[stat.Value])
 				if err != nil {
-					// errCh <- err
 					fmt.Println(err)
 					continue
 				}
@@ -1217,7 +1193,6 @@ func (character *Character) setAC(characterInfo *characterInfo) {
 	default:
 		character.AC = armorClass
 	}
-	fmt.Println("AC: ", character.AC)
 }
 
 func (character *Character) setHP(characterInfo *characterInfo) error {
@@ -1281,14 +1256,9 @@ func (character *Character) setSpells(characterInfo *characterInfo) error {
 
 		for err := range errCh {
 			if err != nil {
-				// errs = append(errs, err)
-				fmt.Println("error getting spell details:", err)
-				continue
+				fmt.Println("error getting spell detail:", err)
 			}
 		}
-		// if len(errs) > 0 {
-		// 	return fmt.Errorf("error getting spell details: %v", errs)
-		// }
 
 		for cantrip := range cantripCh {
 			cantrips = append(cantrips, cantrip...)
@@ -1302,7 +1272,6 @@ func (character *Character) setSpells(characterInfo *characterInfo) error {
 		class.Spells = spells
 		characterInfo.Magic.ClassSpells[i] = class // update the class spells in characterInfo
 	}
-
 	character.Magic = characterInfo.Magic
 	return nil
 }
@@ -1752,9 +1721,6 @@ func GetCharacterData(filePath string) (Character, error) {
 	go func() {
 		defer wg.Done()
 		character.setAC(&characterInfo)
-		// if err != nil {
-		// 	errCh <- fmt.Errorf("error getting AC: %w", err)
-		// }
 	}()
 
 	wg.Add(1)

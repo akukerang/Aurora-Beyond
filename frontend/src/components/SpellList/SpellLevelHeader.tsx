@@ -42,12 +42,15 @@ const SpellLevelHeader: FC<Props> = ({ level }) => {
       ) : (
         <>
           <h2 className="text-xl">{`Level ${level} Spells`}</h2>
-          <CheckboxTracker
-            length={slots.maxSlots[level - 1] || 0}
-            title="SLOTS"
-            checkedSlots={checkedSlots}
-            onChange={handleCheck}
-          />
+          {
+            slots.maxSlots.length > 0 ? (<CheckboxTracker
+              length={slots.maxSlots[level - 1] || 0}
+              title="SLOTS"
+              checkedSlots={checkedSlots}
+              onChange={handleCheck}
+            />) : null
+          }
+
         </>
       )}
     </div>

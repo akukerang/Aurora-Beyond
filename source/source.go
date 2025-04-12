@@ -143,24 +143,12 @@ type Dice struct {
 }
 
 func getElement(typeName string, id string) (SourceElement, error) {
-
-	// filePath := "Types/" + typeName + ".xml"
 	filePath := fmt.Sprintf("Types/%s.xml", typeName)
 
 	xmlData, err := typeFS.ReadFile(filePath)
 	if err != nil {
 		return SourceElement{}, fmt.Errorf("error reading embedded file %w", err)
 	}
-	// file, err := os.Open(filePath)
-	// if err != nil {
-	// 	return SourceElement{}, fmt.Errorf("error opening file %w", err)
-	// }
-	// defer file.Close()
-
-	// xmlData, err := io.ReadAll(file)
-	// if err != nil {
-	// 	return SourceElement{}, fmt.Errorf("error reading file %w", err)
-	// }
 
 	var items SourceInfo
 	err = xml.Unmarshal(xmlData, &items) // unmarshal XML data into struct
