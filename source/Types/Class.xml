@@ -1,705 +1,236 @@
-<SourceInfo><element name="Blood Hunter" type="Class" id="ID_CRIT_CLASS_BLOOD_HUNTER"><description usage="" level="0">
-            <p>In a landscape tormented by all manner of beasts, devils, and abominations from beyond the veil, most live in fear of the dark, of superstition, and of the unknown. Some grow hardened by this experience, instead choosing to stand up and fight against the tide of shadow. These folk are called ‘heroes’.</p>
-            <p class="indent">Some, however, are so fanatical and bent on destroying the anethema that plagues the countryside that they embrace dark, forbidden knowledge. They sacrifice some of their own vital force in dubious, forgotten blood rituals to better understand their enemies. Their methods sometimes blur the line between themselves and the evils they hunt, calling their own humanity into question.</p>
-            <p class="indent">These folk are called ‘Blood Hunters’.</p>
-            <h4>BECOME THE ENEMY TO UNDERSTAND THE ENEMY</h4>
-            <p>These warriors have chosen to merge the martial pursuit of deadly weapon paly with elements of vicious blood magic to create impressively effective combat techniques. They surrender their own vitality to form a bond with their weapon, allowing them to harness the elements in a whirlwind of dangerous strikes. Their deep knowledge and unnatural connection with wicked creatures allows them an advantage in tracking, hunting, and destroying even the most resilient of abhorrent fiends. By mastering control over their own lifeblood and the lifeblood of others, they gain insight into their foes and the ability to manipulate them from the inside. Some brew crude, poisonous alchemical tonics from the harvested organs of felled monsters, mutating their blood and bodies to be even further in tune with their quarry, becoming something other than human themselves. Others go further, reaching out and making a pact with lesser dark entities in hopes of using their grim gifts against greaters evils. Many blood hunters push too far for their goals, falling to their own hubris and becoming the monsters they’ve chosen to hunt. This is the greatest feat of a blood hunter, and of the societies at large that shun them.</p>
-            <h4>ALMOST AS FEARED AS THEIR PREY</h4>
-            <p>The nature of their abilities and training has bred many rumors across the lands, some of which aren’t too far from the truth. Common folk consider them cursed, often turning them away at the door. Nobles see them as occasionally convenient, but a generally reviled nuisance. Mages find them useful allies if kept at arm’s length, while pious clerics and paladins keep their distance with a watchful eye. To be a blood hunter is to accept a life of solitude until proven trustworthy and dependable.</p>
-            <h4>CREATING A BLOOD HUNTER</h4>
-            <p>As you create your blood hunter, keep in mind how your character relates to society and why they have taken to a life of monster hunting. Do they wish to protect society and as such have paid the ulitmate price? Do they have a family they wish to protect at all costs? Did they make a mistake that cost them greatly, and they wish to make amends for their folly? Or are they bent on vengeance for some past wounds or loss that drove them to choose this dark warrior’s path?</p>
-            <p class="indent">While a blood hunter begins their journey alone, they also acknowledge the strength in numbers and the benefits of trusted companions. Many blood hunters keep allies to both ensure that they succeed at their hunts, and to keep a watchful eye to prevent them from losing touch with their humanity. A blood hunter without conviction in lost, and often an honest friend is enough to keep them from straying.</p>
-            <h5>QUICK BUILD</h5>
-            <p>You can make a blood hunter quickly by following these suggestions. First, make Strength or Dexterity your highest ability score, depending on whether you want to focus on melee weapons, or ranged and finesse weapons. Make Wisdom your next highest if you plan to focus on the potency of blood curses and mystical powers. Choose a higher Constitution next if you wish to use Crimson Rite on multiple weapons or want to have extra hit points to burn on amplifying blood curses. Then, select the Haunted One or Acolyte background.</p>
-            <h3>CLASS FEATURES</h3>
-            <p>As a blood hunter, you gain the following class features.</p>
+<SourceInfo><element name="Warlord" type="Class" id="ID_KT_KTWC_CLASS_WARLORD"><description usage="" level="0">
+            <p>Two vast armies stand across the field of death, fear gripping the heart of every soldier. From their ranks, the banner is carried forth - a shining beacon without fear. Before they even know it, their feet pound across the ground, their fear left behind as they follow their symbol of hope to victory.</p>
+            <p class="indent">Collapsing to the ground, a man succumbs to wounds, exhaustion, terror, and the overwhelming clash of steel all around. Death closes in, but before it can claim him, a hand appears, pulling him to his feet. &quot;On your feet, solider&quot;.</p>
+            <p class="indent">The line was about to be overwhelmed, the inevitable break would come, for the soldiers could hold no more. Until, among their ranks, they noticed their liege, unwilling to turn aside. Unwilling to step back from danger, and the men realized that retreat was no longer an option, and not a step backwards was taken. A new strength was found behind every blow and they fought as no man has ever fought before.</p>
+            <p class="indent">Everywhere the enemy probed, they met only a wall of spears and a rain of arrows. Every flanking maneuver flanked, every bluff called and every gambit a failure. The foes could do naught but curse the luck that had turned against them. But there was a man that made that luck with one brilliant tactical decision after another, and his men knew that as long as he was by their side, luck would always abandon their foes.</p>
+            <p class="indent">A Warlord is a force multiplier for their companions. Some of them may be fearsome combatants, while others may never lift a weapon, but in either case their presence on the battlefield will drive their companions to new heights, guiding them through what would surely have been their doom safely.</p>
+            <p class="indent">How this is brought about can vary, from inciting crazed zeal to tempering an overeager charge, from turning a rout into an unbreakable last stand to pulling their companions out of the line of danger in the nick of time. The sole commonality is that a Warlord alone is but a man, while a Warlord with their companions is a legend.</p>
+            <h4>PURPOSE AND DRIVE</h4>
+            <p>A common element to those that walk the path of a Warlord is a purpose. One which gives them a larger-than-life presence and allows them to be a guiding hand to all those around them. Some Warlords may not seek any particular cause, and merely seek victory - either as a tribute to a god they worship or simply to meet a personal achievement. More often, though, a Warlord is driven by a higher purpose - a loyalty to their country or their men, a drive to protect the innocent or to crush the weak.</p>
+            <p class="indent">It is an important consideration to a Warlord in understanding why they fight, as it will inform how they fight. Do they try to keep their companions and followers out of danger? Or do they simply press for the strategy that is most likely to win?</p>
+            <h4>CREATING A WARLORD</h4>
+            <p>When creating a Warlord you should always start with answering the question: what sort of Presence does this person bring to battlefield? Are they are a charismatic inspiration to their allies that drives them to fight on? Are they a wise veteran who acts as a force multiplier for their companions, offering pointers and grit? Or are they a scheming manipulator who sees one step ahead of any move their foes can make, always making sure their allies are in the right spot?</p>
+            <p class="indent">Any of these paths and many more are all possible through the Warlord, but what sort of Presence you select at level one will guide what attribute is most impactful for you in exerting your influence and driving your companions to greater heights.</p>
+            <h4>QUICK BUILD</h4>
+            <p>You can make an warlord quickly by following these suggestions. For a Chieftain or Paragon select Strength as your highest attribute followed by Charisma. For a Commander select Strength as your highest attribute followed by Wisdom.</p>
+            <p class="indent">For a Noble select Charisma as your highest attribute followed by Constitution, and for a Tactician select Intelligence followed by Constitution.</p>
+            <h2>CLASS FEATURES</h2>
+            <p>As a warlord, you gain the following class features.</p>
             <h5>HIT POINTS</h5>
-            <p>
-                <span class="emphasis">Hit Dice:</span>1d10 per blood hunter level
-                <br />
-                <span class="emphasis">Hit Points at 1st Level:</span>10 + your Constitution modifier
-                <br />
-                <span class="emphasis">Hit Points at Higher Levels:</span>1d10 (or 6) + your Constitution modifier per blood hunter level after 1st
-            </p>
+            <ul class="unstyled">
+                <li><strong>Hit Dice:</strong> 1d8 per warlord level</li>
+                <li><strong>Hit Points at 1st Level:</strong> 8 + your Constitution modifier</li>
+                <li><strong>Hit Points at Higher Levels:</strong> 1d8 (or 5) + your Constitution modifier per class level after 1st</li>
+            </ul>
             <h5>PROFICIENCIES</h5>
-            <p>
-                <span class="emphasis">Armor:</span>Light armor, medium armor, shields 
-                <br />
-                <span class="emphasis">Weapons:</span>Simple weapons, martial weapons 
-                <br />
-                <span class="emphasis">Tools:</span>Alchemist’s supplies 
-            </p>
-            <p>
-                <span class="emphasis">Saving Throws:</span>Strength, Wisdom 
-                <br />
-                <span class="emphasis">Skills:</span>Choose two skills from Athletics, Acrobatics, Arcana, History, Insight, Investigation, and Survival 
-            </p>
+            <ul class="unstyled">
+                <li><strong>Armor:</strong> Light armor, medium armor.</li>
+                <li><strong>Weapons:</strong> Simple weapons.</li>
+                <li><strong>Tools:</strong> None.</li>
+            </ul>
+            <ul class="unstyled">
+                <li><strong>Saving Throws:</strong> Wisdom, Charisma</li>
+                <li><strong>Skills:</strong> Choose two from Athletics, Deception, History, Insight, Investigation, Medicine, Performance, Persuasion, or Intimidation.</li>
+            </ul>
             <h5>EQUIPMENT</h5>
             <p>You start with the following equipment, in addition to the equipment granted by your background:</p>
             <ul>
-                <li>
-                    <i>(a)</i> a martial weapon or 
-                    <i>(b)</i> two simple weapons 
-                </li>
-                <li>
-                    <i>(a)</i> a light crossbow and 20 bolts or 
-                    <i>(b)</i> hand crossbow and 20 bolts 
-                </li>
-                <li>
-                    <i>(a)</i> studded leather armor or 
-                    <i>(b)</i> scale mail armor 
-                </li>
-                <li> an explorer’s pack </li>
+                <li>(a) a simple melee weapon, or (b) a martial weapon (if proficient).</li>
+                <li>(a) a light crossbow and 20 bolts, or (b) a shield (if proficient).</li>
+                <li>(a) leather armor, or (b) scale mail, or (c) chain mail (if proficient).</li>
+                <li>(a) a scholar’s pack or (b) an explorer’s pack</li>
             </ul>
-            <div element="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_HUNTERS_BANE" />
-            <div element="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_CRIMSON_RITE" />
-            <div element="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_FIGHTING_STYLE" />
-            <div element="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_BLOOD_MALEDICT" />
-            <div element="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_BLOOD_HUNTER_ORDER" />
-            <div element="ID_CRIT_CLASS_FEATURE_ABILITYSCOREIMPROVEMENT_BLOODHUNTER" />
-            <div element="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_EXTRA_ATTACK" />
-            <div element="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_GRIM_PSYCHOMETRY" />
-            <div element="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_DARK_VELOCITY" />
-            <div element="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_HARDENED_SOUL" />
-            <div element="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_SANGUINE_MASTERY" />
-        </description><sheet action="" usage="" display="false"></sheet><rules><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_LIGHT_ARMOR" level="0" requirements="!ID_CRIT_MULTICLASS_BLOOD_HUNTER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_MEDIUM_ARMOR" level="0" requirements="!ID_CRIT_MULTICLASS_BLOOD_HUNTER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_SHIELDS" level="0" requirements="!ID_CRIT_MULTICLASS_BLOOD_HUNTER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS" level="0" requirements="!ID_CRIT_MULTICLASS_BLOOD_HUNTER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_MARTIAL_WEAPONS" level="0" requirements="!ID_CRIT_MULTICLASS_BLOOD_HUNTER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_TOOL_PROFICIENCY_ALCHEMISTS_SUPPLIES" level="0" requirements="!ID_CRIT_MULTICLASS_BLOOD_HUNTER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_STRENGTH" level="0" requirements="!ID_CRIT_MULTICLASS_BLOOD_HUNTER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_WISDOM" level="0" requirements="!ID_CRIT_MULTICLASS_BLOOD_HUNTER"></grant><grant type="Class Feature" id="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_HUNTERS_BANE" level="1" requirements=""></grant><grant type="Class Feature" id="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_CRIMSON_RITE" level="1" requirements=""></grant><grant type="Class Feature" id="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_FIGHTING_STYLE" level="2" requirements=""></grant><grant type="Class Feature" id="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_BLOOD_MALEDICT" level="2" requirements=""></grant><grant type="Class Feature" id="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_BLOOD_HUNTER_ORDER" level="3" requirements=""></grant><grant type="Class Feature" id="ID_CRIT_CLASS_FEATURE_ABILITYSCOREIMPROVEMENT_BLOODHUNTER" level="4" requirements=""></grant><grant type="Class Feature" id="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_EXTRA_ATTACK" level="5" requirements=""></grant><grant type="Class Feature" id="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_GRIM_PSYCHOMETRY" level="9" requirements=""></grant><grant type="Class Feature" id="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_DARK_VELOCITY" level="10" requirements=""></grant><grant type="Class Feature" id="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_HARDENED_SOUL" level="14" requirements=""></grant><grant type="Class Feature" id="ID_CRIT_CLASS_FEATURE_BLOOD_HUNTER_SANGUINE_MASTERY" level="20" requirements=""></grant></rules><setters><set name="short">A hunter that sacrifices his own vitality and humanity to protect the realms.</set><set name="hd">d10</set><set name="sourceUrl">http://www.dmsguild.com/product/170777/Blood-Hunter-Class</set></setters></element><element name="Swordmage" type="Class" id="ID_DMSG_AASM_CLASS_SWORDMAGE"><description usage="" level="0">
-			<p>An elf nocks an arrow made of spectral blue energy into her bow. She takes careful aim, mutters a short incantation, and lets the arrow fly toward the group of orcs rushing towards her. The arrow slams into the lead orc, then shatters as it explodes into flames and engulfs their ranks.</p>
-			<p class="indent">A human mutters words of arcane power under his breath, causing his warhammer to crackle alight with electricity.</p>
-			<p class="indent">Turning the corner, he rushes toward a surprised hobgoblin with a cry, and brings the hammer down on its head with a burst of lightning.</p>
-			<p class="indent">A guard shoves a captured half-elf ahead of him, leading her deeper into the king's dungeon. She quickly concentrates as the guard turns to regard another inmate, and with a flash buries her newly materialized blade into the man's back.</p>
-			<p class="indent">Swordmages are practicioners of both martial combat and arcane magic. To a swordmage, fighters are uncivilized brutes whose only answer to conflict is to hit things harder, while wizards are overly delicate and more at home in a library than the battlefield. Swordmages seek to combine the best of both worlds, seamlessly merging their knowledge of the arcane into battle disciplines which no pure knight or mage could hope to achieve.</p>
-			<h4>A MYSTICAL BOND</h4>
-			<p>The term "swordmage" is in many respects a misnomer; the weapon employed can range from a blade to a hammer to a crossbow. What most defines a swordmage is the unshakable bond that is formed with that particular weapon. Other individuals are able to form similar arcane bonds, but the one between a swordmage and her chosen weapon goes even further.</p>
-			<p class="indent">A bonded weapon is like an extension of a swordmage's own body. It is nearly impossible to rob a swordmage of it, and they are able to sense its location no matter how distant, and call it to their hand from any similar range. Some believe that each weapon contains its own minute soul, one equally capable of communicating with the Weave that surrounds everything. By forging this bond, a swordmage's capability to affect the Weave is increased.</p>
-			<h4>MAGIC AND MIGHT</h4>
-			<p>Without their martial training, a swordmage would still be a formidable (though much less enigmatic) wizard. The meditations and trainings they undertake allow them to comprehend the workings of the Weave, plucking at it to create varied magical effects. Many utilize their spells to augment their own martial ability, while others instead rely on them as their primary methods of combat. Regardless of the specifics, all swordmages channel magic through their weapons, needing no other focus to cast spells.</p>
-			<p class="indent">Without their magic, a swordmage would still be a practiced fighter. Some spend years practicing combat styles and martial arts, learning to intimately understand the swing of a sword or the drawing of a bow. While many wizards sharpen only their minds, swordmages ensure that their bodies become as powerful a weapon as any spell.</p>
-			<h4>CREATING A SWORDMAGE</h4>
-			<p>When you create a swordmage character you should consider why you've chosen the complex path of mixing martial combat and magic arts. Were you a squire under the service of a knight who discovered a gift for magic? Were you once a wizard's apprentice, but found yourself drawn to practice with cold steel instead of properly studying?</p>
-			<p class="indent">Why have you gone out into the greater world? Do you wish to prove your unorthodox lifestyle as effective as any other?</p>
-			<p class="indent">Are you on a personal mission to collect some arcane secret or ancient artifact? Or perhaps you simply want to put your skills to the test.</p>		
-			<h5 class="caption">QUICK BUILD</h5>
-			<p>You can make a Swordmage quickly by following these suggestions. First, make Strength or Dexterity your highest ability score, followed by Intelligence. Second, choose the soldier background.</p>
-			<h2>CLASS FEATURES</h2>
-			<p>As an Swordmage, you gain the following class features.</p>
-			<h5 class="caption">HIT POINTS</h5>
-			<ul class="unstyled">
-				<li><strong>Hit Dice:</strong> 1d10 per Swordmage level</li>
-				<li><strong>Hit Points at 1st Level:</strong> 10 + your Constitution modifier</li>
-				<li><strong>Hit Points at Higher Levels:</strong> 1d10 (or 6) + your Constitution modifier per Swordmage level after 1st</li>
-			</ul>
-			<h5 class="caption">PROFICIENCIES</h5>
-			<ul class="unstyled mb">
-				<li><strong>Armor:</strong> Light armor, medium armor</li>
-				<li><strong>Weapons:</strong> Simple weapons, martial weapons</li>
-				<li><strong>Tools:</strong> None</li>
-			</ul>
-			<ul class="unstyled">
-				<li><strong>Saving Throws:</strong> Constitution, Intelligence</li>
-				<li><strong>Skills:</strong> Choose two from Acrobatics, Athletics, Arcana, History, Insight, Intimidation, Perception, and Persuasion</li>
-			</ul>
-			<h5 class="caption">EQUIPMENT</h5>
-			<p>You start with the following equipment, in addition to the equipment granted by your background:</p>
-			<ul>
-				<li>(a) a martial weapon or (b) a longbow and a quiver of 20 arrows</li>
-				<li>(a) a martial weapon or (b) two simple weapons</li>
-				<li>(a) scale mail or (b) leather armor</li>
-				<li>(a) a dungeoneer's pack or (b) an explorer's pack</li>
-			</ul>
-			<h5 class="caption">THE SWORDMAGE</h5>
-			<table class="class-features">
-				<thead>
-					<tr><td class="col-5">Level</td><td class="col-60 left">Features</td><td class="col-10">Spells Known</td><td>1st</td><td>2nd</td><td>3rd</td><td>4th</td><td>5th</td></tr>
-				</thead>
-				<tr><td> 1st</td><td class="left">Swordmage Bond, Magic Sense</td><td>—</td> <td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 2nd</td><td class="left">Fighting Style, Spellcasting, Arcane Infusion</td><td>2</td> <td>2</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 3rd</td><td class="left">Spell Strike, Swordmage Discipline</td><td>3</td> <td>3</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 4th</td><td class="left">Ability Score Improvement</td><td>3</td> <td>3</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 5th</td><td class="left">Extra Attack</td><td>4</td> <td>4</td><td>2</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 6th</td><td class="left">Eldritch Might</td><td>4</td> <td>4</td><td>2</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 7th</td><td class="left">Swordmage Discipline feature</td><td>5</td> <td>4</td><td>3</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 8th</td><td class="left">Ability Score Improvement</td><td>5</td> <td>4</td><td>3</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 9th</td><td class="left">—</td><td>6</td> <td>4</td><td>3</td><td>2</td><td>—</td><td>—</td></tr>
-				<tr><td>10th</td><td class="left">Guiding Strike</td><td>6</td> <td>4</td><td>3</td><td>2</td><td>—</td><td>—</td></tr>
-				<tr><td>11th</td><td class="left">Swordmage Discipline feature</td><td>7</td> <td>4</td><td>3</td><td>3</td><td>—</td><td>—</td></tr>
-				<tr><td>12th</td><td class="left">Ability Score Improvement</td><td>7</td> <td>4</td><td>3</td><td>3</td><td>—</td><td>—</td></tr>
-				<tr><td>13th</td><td class="left">—</td><td>8</td> <td>4</td><td>3</td><td>3</td><td>1</td><td>—</td></tr>
-				<tr><td>14th</td><td class="left">Magic Ward</td><td>8</td> <td>4</td><td>3</td><td>3</td><td>1</td><td>—</td></tr>
-				<tr><td>15th</td><td class="left">Swordmage Discipline feature</td><td>9</td> <td>4</td><td>3</td><td>3</td><td>2</td><td>—</td></tr>
-				<tr><td>16th</td><td class="left">Ability Score Improvement</td><td>9</td> <td>4</td><td>3</td><td>3</td><td>2</td><td>—</td></tr>
-				<tr><td>17th</td><td class="left">—</td><td>10</td><td>4</td><td>3</td><td>3</td><td>3</td><td>1</td></tr>
-				<tr><td>18th</td><td class="left">Empowered Spell Strike</td><td>10</td><td>4</td><td>3</td><td>3</td><td>3</td><td>1</td></tr>
-				<tr><td>19th</td><td class="left">Ability Score Improvement</td><td>11</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td></tr>
-				<tr><td>20th</td><td class="left">Archblade</td><td>11</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td></tr>
-			</table>
-			<div element="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_SWORDMAGE_BOND" />
-			<div element="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_MAGIC_SENSE" />
-			<div element="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_FIGHTING_STYLE" />
-			<div element="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_SPELLCASTING" />
-			<div element="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_ARCANE_INFUSION" />
-			<div element="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_SPELL_STRIKE" />
-			<div element="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_SWORDMAGE_DISCIPLINE" />
-			<div element="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_ABILITY_SCORE_IMPROVEMENT" />
-			<div element="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_EXTRA_ATTACK" />
-			<div element="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_ELDRITCH_MIGHT" />
-			<div element="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_GUIDING_STRIKE" />
-			<div element="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_MAGIC_WARD" />
-			<div element="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_EMPOWERED_SPELL_STRIKE" />
-			<div element="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_ARCHBLADE" />
-		</description><sheet action="" usage="" display="false"></sheet><rules><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_LIGHT_ARMOR" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_MEDIUM_ARMOR" level="0" requirements="!ID_DMSG_AASM_MULTICLASS_SWORDMAGE"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS" level="0" requirements="!ID_DMSG_AASM_MULTICLASS_SWORDMAGE"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_MARTIAL_WEAPONS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_CONSTITUTION" level="0" requirements="!ID_DMSG_AASM_MULTICLASS_SWORDMAGE"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_INTELLIGENCE" level="0" requirements="!ID_DMSG_AASM_MULTICLASS_SWORDMAGE"></grant><grant type="Class Feature" id="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_SWORDMAGE_BOND" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_MAGIC_SENSE" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_FIGHTING_STYLE" level="2" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_SPELLCASTING" level="2" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_ARCANE_INFUSION" level="2" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_SPELL_STRIKE" level="3" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_SWORDMAGE_DISCIPLINE" level="3" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_ABILITY_SCORE_IMPROVEMENT" level="4" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_EXTRA_ATTACK" level="5" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_ELDRITCH_MIGHT" level="6" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_GUIDING_STRIKE" level="10" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_MAGIC_WARD" level="14" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_EMPOWERED_SPELL_STRIKE" level="18" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_AASM_CLASS_FEATURE_SWORDMAGE_ARCHBLADE" level="20" requirements=""></grant></rules><setters><set name="hd">d10</set><set name="short">A practicioner of both martial combat and arcane magic.</set></setters></element><element name="Grave Warden" type="Class" id="ID_DMSG_GPGW_CLASS_GRAVE_WARDEN"><description usage="" level="0">
-			<p>With a grimoire clutched in his right hand, the elderly human pauses as chills run down spine while he stands in the aftermath of battle. He closes his eyes to dull the noises of moans from his injured companions, as a bright light engulfs his party. His allies, living comrades and undead subjects alike, are healed.</p>
-			<p class="indent">Crouching on the floor of a dimly lit dungeon, a gnome reads from his grimoire while reaching into a small pouch. Pulling out a pinch of bone dust and speaking a small incantation, he blows the dust over a fallen enemy corpse from their recent battle. To the horror of his adventuring party, a spirit raises up out from the creature's chest. It lingers a moment, then heads off in the direction of its new master's outstretched arm that is pointing further into the depths of the dungeon.</p>
-			<p class="indent">A young half-elf focuses on her incantation as a bilious cloud swirls around her. The pallid wind's kiss leaves soft rot on wood and sickly mold on the stone walls and floor of the dungeon. Before her, a squad of hobgoblins fall to their knees in a coughing fit, their metal armour rusting away as pustules and cysts appear on their flesh. Moments pass before the hobgoblins labour back to their feet as risen undead, staring blankly at the elf while they wait for their first command.</p>
-			<p class="indent">The Grave Warden is a magic user obsessed with the study of life and death. They specialize in spells and incantations that allow them to harness the very life-force that flows through all creatures. Where a life-force is not present, they are able to instill a mimicry of foul life, rising these dead creatures from their once peaceful earthen resting places.</p>
-			<h4>OBSESSION WITH THE DARK ARTS</h4>
-			<p>Most practitioners of the necromantic arts share one overwhelming commonality; a lifelong search for the secrets of undeath. This search becomes an obsession for the Grave Warden, who forsake any sort of social life to study endlessly and try to quench their endless thirst for mastery of the dark arts. Those who truly wish to embrace these arts can choose a dangerous way to connect with the undead, completing an ancient and forbidden ritual hidden in the darkest tomes that mortal eyes may happen upon. They must leave the dark rooms of their studies, conquer real foes, and attain the experience necessary to truly understand a mastery of Necromancy. With that mastery, they can construct undead servants to serve along side them.</p>
-			<h4>MASTERS OF THE NECROTIC MAGIC</h4>
-			<p>Grave Wardens are arcane casters who draw on necromantic lore that provides a macabre power all its own. Some aspire to live forever, effectively becoming immortal. Others are fascinated with death and what happens to souls that are unable to pass into the afterlife. Some grave wardens seek to gain power through raising an army of once fallen soldiers to continue the battle once more. With this obsession to learn everything there is to know about the necromantic arts, a sacrifice happens as the grave warden becomes uninterested in other types of magic, except for a select few spells they feel can help them reach their goals faster. As a result, grave wardens have a very small subset of arcane spells to draw upon. This lack of breadth is offset by the unique abilities they gain while studying their undead subjects.</p>
-			<h4>CREATING A GRAVE WARDEN</h4>
-			<p>Creating a grave warden character benefits from a backstory involving an encounter with an undead creature. How did your character first come into contact with the undead? Why did you become fascinated with them? Why have you devoted large amounts of time to studying them?</p>
-			<p class="indent">What then drew you forth from this life of study? Do you want to find that a specific undead creature? Maybe you want to gain a better understanding of necromantic magic? Have you received word of a sealed crypt not yet plundered? Perhaps you seek immortality and learning about the undead will help you uncover the answer to this secret.</p>
+
+            <h5>MULTICLASSING</h5>
+            <p>Should you want to multiclass into Warlord, the prerequisites and proficiencies are listed below:</p>
+            <ul>
+                <li>Prerequisite: 13 in two of Intelligence, Wisdom, or Charisma.</li>
+                <li>Proficiencies gained: Light Armor, Medium Armor.</li>
+            </ul>
+			<h5 class="caption">THE class</h5>
+            <table class="class-features">
+                <thead>
+                    <tr><th class="col-5">Level</th><th>Proficiency Bonus</th><th class="left">Features</th><th>Leadership Die</th><th>Leadership Dice</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1st</td><td>+2</td><td class="left">Warlord Specialization, Battlefield Presence</td><td>–</td><td>–</td></tr>
+                    <tr><td>2nd</td><td>+2</td><td class="left">Leadership Dice</td><td>d4</td><td>2</td></tr>
+                    <tr><td>3rd</td><td>+2</td><td class="left">Warlord Specialization Feature, Warlord’s Expertise</td><td>d4</td><td>3</td></tr>
+                    <tr><td>4th</td><td>+2</td><td class="left">Ability Score Improvement</td><td>d4</td><td>4</td></tr>
+                    <tr><td>5th</td><td>+3</td><td class="left">Extra Attack</td><td>d6</td><td>5</td></tr>
+                    <tr><td>6th</td><td>+3</td><td class="left">Prepare for Battle</td><td>d6</td><td>6</td></tr>
+                    <tr><td>7th</td><td>+3</td><td class="left">Warlord Specialization Feature</td><td>d6</td><td>7</td></tr>
+                    <tr><td>8th</td><td>+3</td><td class="left">Ability Score Improvement</td><td>d6</td><td>8</td></tr>
+                    <tr><td>9th</td><td>+4</td><td class="left">Press the Attack</td><td>d6</td><td>9</td></tr>
+                    <tr><td>10th</td><td>+4</td><td class="left">Ability Score Improvement</td><td>d6</td><td>10</td></tr>
+                    <tr><td>11th</td><td>+4</td><td class="left">Warlord Specialization Feature</td><td>d8</td><td>11</td></tr>
+                    <tr><td>12th</td><td>+4</td><td class="left">Ability Score Improvement</td><td>d8</td><td>12</td></tr>
+                    <tr><td>13th</td><td>+5</td><td class="left">Warlord’s Intuition</td><td>d8</td><td>13</td></tr>
+                    <tr><td>14th</td><td>+5</td><td class="left">Shift the Field</td><td>d8</td><td>14</td></tr>
+                    <tr><td>15th</td><td>+5</td><td class="left">Warlord Specialization Feature</td><td>d8</td><td>15</td></tr>
+                    <tr><td>16th</td><td>+5</td><td class="left">Ability Score Improvement</td><td>d8</td><td>16</td></tr>
+                    <tr><td>17th</td><td>+6</td><td class="left">Unbreakable Will</td><td>d10</td><td>17</td></tr>
+                    <tr><td>18th</td><td>+6</td><td class="left">Warlord Specialization Feature</td><td>d10</td><td>18</td></tr>
+                    <tr><td>19th</td><td>+6</td><td class="left">Ability Score Improvement</td><td>d10</td><td>19</td></tr>
+                    <tr><td>20th</td><td>+6</td><td class="left">Tireless Leader</td><td>d10</td><td>20</td></tr>
+                </tbody>
+            </table>
+            <div element="ID_KT_KTWC_CLASS_FEATURE_WARLORD_WARLORDS_PRESENCE" />
+            <div element="ID_KT_KTWC_CLASS_FEATURE_WARLORD_BATTLEFIELD_PRESENCE" />
+            <div element="ID_KT_KTWC_CLASS_FEATURE_WARLORD_LEADERSHIP_DICE" />
+            <div element="ID_KT_KTWC_CLASS_FEATURE_WARLORD_WARLORDS_EXPERTISE" />
+            <div element="ID_KT_KTWC_CLASS_FEATURE_WARLORD_ABILITY_SCORE_IMPROVEMENT" />
+            <div element="ID_KT_KTWC_CLASS_FEATURE_WARLORD_EXTRA_ATTACK" />
+            <div element="ID_KT_KTWC_CLASS_FEATURE_WARLORD_PREPARE_FOR_BATTLE" />
+            <div element="ID_KT_KTWC_CLASS_FEATURE_WARLORD_PRESS_THE_ATTACK" />
+            <div element="ID_KT_KTWC_CLASS_FEATURE_WARLORD_WARLORDS_INTUITION" />
+            <div element="ID_KT_KTWC_CLASS_FEATURE_WARLORD_SHIFT_THE_FIELD" />
+            <div element="ID_KT_KTWC_CLASS_FEATURE_WARLORD_UNBREAKABLE_WILL" />
+            <div element="ID_KT_KTWC_CLASS_FEATURE_WARLORD_TIRELESS_LEADER" />
+        </description><sheet action="" usage="" display="false"><description usage="" level="0">description</description></sheet><rules><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_LIGHT_ARMOR" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_MEDIUM_ARMOR" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_WISDOM" level="0" requirements="!ID_KT_KTWC_MULTICLASS_WARLORD"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_CHARISMA" level="0" requirements="!ID_KT_KTWC_MULTICLASS_WARLORD"></grant><grant type="Class Feature" id="ID_KT_KTWC_CLASS_FEATURE_WARLORD_WARLORDS_PRESENCE" level="1" requirements=""></grant><grant type="Class Feature" id="ID_KT_KTWC_CLASS_FEATURE_WARLORD_BATTLEFIELD_PRESENCE" level="1" requirements=""></grant><grant type="Class Feature" id="ID_KT_KTWC_CLASS_FEATURE_WARLORD_LEADERSHIP_DICE" level="2" requirements=""></grant><grant type="Class Feature" id="ID_KT_KTWC_CLASS_FEATURE_WARLORD_WARLORDS_EXPERTISE" level="3" requirements=""></grant><grant type="Class Feature" id="ID_KT_KTWC_CLASS_FEATURE_WARLORD_ABILITY_SCORE_IMPROVEMENT" level="4" requirements=""></grant><grant type="Class Feature" id="ID_KT_KTWC_CLASS_FEATURE_WARLORD_EXTRA_ATTACK" level="5" requirements=""></grant><grant type="Class Feature" id="ID_KT_KTWC_CLASS_FEATURE_WARLORD_PREPARE_FOR_BATTLE" level="6" requirements=""></grant><grant type="Class Feature" id="ID_KT_KTWC_CLASS_FEATURE_WARLORD_PRESS_THE_ATTACK" level="9" requirements=""></grant><grant type="Class Feature" id="ID_KT_KTWC_CLASS_FEATURE_WARLORD_WARLORDS_INTUITION" level="13" requirements=""></grant><grant type="Class Feature" id="ID_KT_KTWC_CLASS_FEATURE_WARLORD_SHIFT_THE_FIELD" level="14" requirements=""></grant><grant type="Class Feature" id="ID_KT_KTWC_CLASS_FEATURE_WARLORD_UNBREAKABLE_WILL" level="17" requirements=""></grant><grant type="Class Feature" id="ID_KT_KTWC_CLASS_FEATURE_WARLORD_TIRELESS_LEADER" level="20" requirements=""></grant></rules><setters><set name="hd">d8</set><set name="short">A warrior that excels in leading and directing others in combat.</set></setters></element><element name="Psion" type="Class" id="ID_KT_PSION_CLASS_PSION"><description usage="" level="0">
+            <p>A large orc is flung across the room, smashing through tables and chairs before hitting the wall with a thunderous crash, collapsing dazed. A human, her eyes still glowingwith unearthly power, tosses a few extra coins on the bar. "Sorry for themess. If he wakes up, tell him to try picking on someone his own size next time".</p>
+            <p class="indent">The prisoner’s expression turns from defiant to puzzled as the interrogator asks no questions, merely stares at them silently. His puzzled expression turns worried as he finds himself, unbidden, recalling where he stashed the loot. "Under the stables behind the Rusty Hook Inn" the interrogator finally speaks, as the thief’s expression becomes terrified.</p>
+            <p class="indent">"Ain’t you... cold or somethin’?" the dwarf asks the elf as they trudge through the snow, eying her simple robe and bare feet. "I just think ’warm’" the elf replies with a distracted air. The dwarf snorts, a puff of chilled air. Typical elf nonsense. Except... they haven’t frozen to death yet. "Say... could you think some ’warm’ this way?" the dwarf asks hopefully. To the dwarfs surprise, the chill of the snow fades away completely "that’s downright creepy... hey don’t stop now! Was jus’ sayin’ it was creepy."</p>
+            <p class="indent">Psions are those who have tapped into a special otherworldly force, with the ability to actualize the power of their mind to accomplish impossible feats. Reading minds, lifting vast weights, and transcending physical limitations, they tend to inspire awe and terror in equal measure.</p>
+            <p class="indent">The exact nature of what is Psionic power might be a question answered in your setting, or it might not be. Most view Psionic power as coming from within, though other answers exist - anything from the leaking power of the Far Realm, to an alternate way to express magic, to an actualization of an individuals will upon the world.</p>
+            <h4>POWERFUL MINDS</h4>
+            <p>Since a psion’s weapon is their mind, they are always a careless thought away from harming those around them. For a psion, the line between thinking and doing can be very thin, forcing them to keep their thoughts and emotions in check, lest their powers run amok. This leads to many of them developing odd behaviors or mannerisms to help them control their state of mind, frequently seeming quite eccentric to an outside observer.</p>
+            <p class="indent">Consider how your psion keeps their powers in check, and how much their power bleeds into their everyday life. How reading minds may effect their body language or habits. Do they add wood to the campfire from the comfort of their bedroll, or do they restrain themselves from using their power for trivial matters lest they slip up?</p>
+            <h4>MISUNDERSTOOD POWER</h4>
+            <p>In a world of widespread magic, many will assume a Psion to be a type of Sorcerer or Wizard, mistaking their powers for the common applications of magic. The common villager keeps only one mental category for the supernatural and creepy people that bend reality their will. But even among magic users, a Psion’s powers will frequently be found unnerving.</p>
+            <p class="indent">It is often those who do understand magic that find a Psion’s abilities the most aberrant. A force that intersects the magical weave rather than obeys it, the nature of the power that the psion wields one can only contemplate with unease.</p>
+            <h4>CREATING A PSION</h4>
+            <p>When creating a Psion, consider your character’s background. How did you become a Psion? Were you born with latent powers? Or did something happen to you granting your powers? Or did you intentionally train yourself through rigorous mental exercise to leverage them? Consider how developing a rare and mysterious power would have affected your interactions with people.</p>
+            <p class="indent">Consider what your purpose is with your newfound powers, or how you plan to use your powers. Do you intend to be taken for a Wizard casting magic, or are you freely open about being of a... different nature?</p>
+            <h5>QUICK BUILD</h5>
+            <p>You can make a Psion quickly by following these suggestions. First, make Intelligence your highest ability score, followed by Dexterity or Constitution. Second, choose the Acolyte, Far Traveler or Hermit background.</p>
+            <h2>CLASS FEATURES</h2>
+            <p>As a psion, you gain the following class features.</p>
+            <h5 class="caption">HIT POINTS</h5>
+            <ul class="unstyled">
+                <li><strong>Hit Dice:</strong> 1d6 per psion level</li>
+                <li><strong>Hit Points at 1st Level:</strong> 6 + your Constitution modifier</li>
+                <li><strong>Hit Points at Higher Levels:</strong> 1d6 (or 5) + your Constitution modifier per lowercaseclassname level after 1st</li>
+            </ul>
+            <h5 class="caption">PROFICIENCIES</h5>
+            <ul class="unstyled mb">
+                <li><strong>Armor:</strong> Light armor.</li>
+                <li><strong>Weapons:</strong> Simple weapons.</li>
+                <li><strong>Tools:</strong> None.</li>
+            </ul>
+            <ul class="unstyled">
+                <li><strong>Saving Throws:</strong> Wisdom, Intelligence</li>
+                <li><strong>Skills:</strong> Choose two from Deception, History, Insight, Intimidation, Investigation, Medicine, Perception, or Religion.</li>
+            </ul>
+            <h5 class="caption">EQUIPMENT</h5>
+            <p>You start with the following equipment, in addition to the equipment granted by your background:</p>
+            <ul>
+                <li>(a) a quarterstaff or (b) a dagger</li>
+                <li>(a) leather armor</li>
+                <li>(a) a scholar’s pack or (b) an explorer’s pack</li>
+            </ul>
+			<h5 class="caption">THE PSION</h5>
+            <table class="class-features">
+                <thead>
+                    <tr><th class="col-5">Level</th><th>Proficiency Bonus</th><th class="left">Features</th><th>Psi Points</th><th>Psi Limit</th><th>Psionic Talents</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1st</td><td>+2</td><td class="left">Psionic Archetype, Psionics</td><td>1</td><td>1</td><td>--</td></tr>
+                    <tr><td>2nd</td><td>+2</td><td class="left">Psionic Talents</td><td>2</td><td>1</td><td>2</td></tr>
+                    <tr><td>3rd</td><td>+2</td><td class="left">Secondary Discipline, Psionic Archetype Feature</td><td>3</td><td>2</td><td>2</td></tr>
+                    <tr><td>4th</td><td>+2</td><td class="left">Ability Score Improvement</td><td>4</td><td>2</td><td>2</td></tr>
+                    <tr><td>5th</td><td>+3</td><td class="left">Psionic Mastery</td><td>5</td><td>3</td><td>3</td></tr>
+                    <tr><td>6th</td><td>+3</td><td class="left">Psionic Archetype Feature</td><td>6</td><td>3</td><td>3</td></tr>
+                    <tr><td>7th</td><td>+3</td><td class="left">─</td><td>7</td><td>4</td><td>4</td></tr>
+                    <tr><td>8th</td><td>+3</td><td class="left">Ability Score Improvement</td><td>8</td><td>4</td><td>4</td></tr>
+                    <tr><td>9th</td><td>+4</td><td class="left">─</td><td>9</td><td>5</td><td>5</td></tr>
+                    <tr><td>10th</td><td>+4</td><td class="left">Psionic Archetype Feature</td><td>10</td><td>5</td><td>5</td></tr>
+                    <tr><td>11th</td><td>+4</td><td class="left">Innate Psionic Ability (6th level)</td><td>11</td><td>6</td><td>5</td></tr>
+                    <tr><td>12th</td><td>+4</td><td class="left">Ability Score Improvement</td><td>12</td><td>6</td><td>6</td></tr>
+                    <tr><td>13th</td><td>+5</td><td class="left">Innate Psionic Ability (7th level)</td><td>13</td><td>7</td><td>6</td></tr>
+                    <tr><td>14th</td><td>+5</td><td class="left">Psionic Archetype Feature</td><td>14</td><td>7</td><td>6</td></tr>
+                    <tr><td>15th</td><td>+5</td><td class="left">Innate Psionic Ability (8th level)</td><td>15</td><td>8</td><td>7</td></tr>
+                    <tr><td>16th</td><td>+5</td><td class="left">Ability Score Improvement</td><td>16</td><td>8</td><td>7</td></tr>
+                    <tr><td>17th</td><td>+6</td><td class="left">Innate Psionic Ability (9th level)</td><td>17</td><td>9</td><td>7</td></tr>
+                    <tr><td>18th</td><td>+6</td><td class="left">Third Discipline</td><td>18</td><td>9</td><td>8</td></tr>
+                    <tr><td>19th</td><td>+6</td><td class="left">Ability Score Improvement</td><td>19</td><td>10</td><td>8</td></tr>
+                    <tr><td>20th</td><td>+6</td><td class="left">Ascension</td><td>20</td><td>10</td><td>8</td></tr>
+                </tbody>
+            </table>
+            <div element="ID_KT_PSION_CLASS_FEATURE_PSION_PSIONIC_ARCHETYPE" />
+            <div element="ID_KT_PSION_CLASS_FEATURE_PSION_PSIONICS" />
+            <div element="ID_KT_PSION_CLASS_FEATURE_PSION_PSIONIC_TALENTS" />
+            <div element="ID_KT_PSION_CLASS_FEATURE_PSION_SECOND_DISCIPLINE" />
+            <div element="ID_KT_PSION_CLASS_FEATURE_PSION_ABILITY_SCORE_IMPROVEMENT" />
+            <div element="ID_KT_PSION_CLASS_FEATURE_PSION_PSIONIC_MASTERY" />
+            <div element="ID_KT_PSION_CLASS_FEATURE_PSION_INNATE_PSIONICS" />
+            <div element="ID_KT_PSION_CLASS_FEATURE_PSION_THIRD_DISCIPLINE" />
+            <div element="ID_KT_PSION_CLASS_FEATURE_PSION_ASCENSION" />
+            <h2>MULTICLASSING</h2>
+            <p>Should you want to multiclass into Psion, the prerequisites and proficiencies are listed below:</p>
+            <ul>
+                <li>Prerequisite: 13 Intelligence</li>
+                <li>Proficiencies gained: Psionics</li>
+            </ul>
+            <p class="indent">Psionic powers can be weird, strange, and rare. Your DM may place additional restrictions or requirements into multiclassing into Psionic classes.</p>
+        </description><sheet action="" usage="" display="false"></sheet><rules><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_LIGHT_ARMOR" level="0" requirements="!ID_KT_PSION_MULTICLASS_PSION"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS" level="0" requirements="!ID_KT_PSION_MULTICLASS_PSION"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_WISDOM" level="0" requirements="!ID_KT_PSION_MULTICLASS_PSION"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_INTELLIGENCE" level="0" requirements="!ID_KT_PSION_MULTICLASS_PSION"></grant><grant type="Proficency" id="ID_KT_PSION_PROFICIENCY_SKILL_PSIONICS" level="0" requirements=""></grant><grant type="Class Feature" id="ID_KT_PSION_CLASS_FEATURE_PSION_PSIONIC_ARCHETYPE" level="1" requirements=""></grant><grant type="Class Feature" id="ID_KT_PSION_CLASS_FEATURE_PSION_PSIONICS" level="1" requirements=""></grant><grant type="Class Feature" id="ID_KT_PSION_CLASS_FEATURE_PSION_PSIONIC_TALENTS" level="2" requirements=""></grant><grant type="Class Feature" id="ID_KT_PSION_CLASS_FEATURE_PSION_SECOND_DISCIPLINE" level="3" requirements=""></grant><grant type="Class Feature" id="ID_KT_PSION_CLASS_FEATURE_PSION_ABILITY_SCORE_IMPROVEMENT" level="4" requirements=""></grant><grant type="Class Feature" id="ID_KT_PSION_CLASS_FEATURE_PSION_PSIONIC_MASTERY" level="5" requirements=""></grant><grant type="Class Feature" id="ID_KT_PSION_CLASS_FEATURE_PSION_INNATE_PSIONICS" level="11" requirements=""></grant><grant type="Class Feature" id="ID_KT_PSION_CLASS_FEATURE_PSION_THIRD_DISCIPLINE" level="18" requirements=""></grant><grant type="Class Feature" id="ID_KT_PSION_CLASS_FEATURE_PSION_ASCENSION" level="20" requirements=""></grant></rules><setters><set name="hd">d6</set><set name="short">A master of the power of the mind.</set></setters></element><element name="Gunslinger" type="Class" id="ID_RDDT_AA_CLASS_GUNSLINGER"><description usage="" level="0">
+			<p>A Human finishes loading rounds into her gun and and runs straight into a pack of angry kobolds that are threatening her town. She tumbles and spins, her weapon burping out salvo after salvo of hot lead against the poorly armed draconians with naught but simple spears to use against her.</p>
+			<p class="indent">Setting his perch up at the top of a tree, a Half Elf begins to train the custom built sights of his homemade rifle on his prize. Amidst the roaming herd of goblins and hobgoblins, there stands a single, massive fire giant shouting commands to the monsters near the edge of a cliff. As he lets out a haughty guffaw, the half-elf sees his opening. His lips curl into a grin, and he pulls the trigger.</p>
+			<p class="indent">The sound of rapid clops echoes across the battlefield. A group of goblins tries to close in on a tiefling and her horse. One of them throws a bomb at her horses feet, but in a flash, the horse and its rider suddenly dart to the side, and the bomb explodes among the crowd of pursuers instead, leaving the tiefling unharmed.</p>
+			<p class="indent">A half orc examines a strange puzzle before him, holstering his gun after checking that the coast is clear. He looks befuddled at it for a moment, before shrugging and messing around with it. With a click, the puzzle opens, and the half-orc smiles a giddy smile.</p>
+			<p class="indent">Whether outlaws from a distant land trying to redeem themselves, swashbucklers with an eye for the explosive, or smiths that wish to show off their talents to the world in the heat of battle, gunslingers come from many backgrounds, but all have one thing in common. They’re all very good with guns, and use unique fighting styles and speed to strike down any foe that challenges them with less advanced weaponry.</p>
+			<h4>USING UNIQUE WEAPONS WITH STYLE</h4>
+			<p>Though this is heavily dependent on the adventure being run, guns are considered very rare in most adventures, and few know how to operate them. Their exotic nature can lead to confusion and panic among those at the business end of these tools. Gunslingers take advantage of this and combine the usage of these guns with a stylistic grace and speed very few can comprehend. A Gunslinger will hone their skills with these distributors of supersonic lead death and become nearly impossible to track as they strike targets with nearly impossible shots.</p>
+			<h4>BORN FOR ADVENTURE</h4>
+			<p>Most adventurers seek adventure out. Others have it thrust upon them. Gunslingers seem to have been born with a natural affinity and curiosity for exploration and dealing with the problems out in the wild. You'll find them at the job board before any paladin or fighter, and they'll be eager to take on the challenges of the darkest and most dangerous dungeons. The more challenging the encounter, the greater use they'll get out of their pride and joy.</p>
+			<h4>CREATING A GUNSLINGER</h4>
+			<p>When creating a gunslinger, consider two major things. Firstly, consider how rare guns are in the adventure your DM is running, and then consider how your character came across their knowledge of how to make and use them? Did they have a eureka moment in a time of renaissance? Did they train with a mentor before deciding to go on their own path? Or did they form a pact with a dark entity for this knowledge? Either way, their background should lead them to come across these deadly tools for use in their adventures.</p>
 			<h5>QUICK BUILD</h5>
-			<p>You can make a grave warden quickly by following these suggestions. First, Intelligence should be your highest ability score, followed by Constitution. Second, choose the sage background. Third, choose the <i>blood siphon</i>, <i>corruption</i>, and <i>spare the dying</i> cantrips, along with the following 1st level spells from your grimoire: <i>death’s grasp</i>, <i>inflict wounds</i>, and <i>rot</i>.</p>
+			<p>To quickly build a gunslinger, make Dexterity your highest ability score. Secondly, choose an ability score of your choice to be the second highest. This could be Constitution if you want a hardier gunslinger with more health, Charisma if you want a fast talking slinger that can play a mean tune, Intelligence if you want a gunslinger that's well learned and booksmart, or Wisdom if you want a worldy and perceptive master of firearms. Lastly, choose the Folk Hero background.</p>
 			<h3>CLASS FEATURES</h3>
-			<p>As a grave warden, you gain the following class features.</p>
-			<h5>HIT POINTS</h5>
-			<ul class="unstyled">
-				<li><strong>Hit Dice:</strong> 1d8 per grave warden level</li>
-				<li><strong>Hit Points at 1st Level:</strong> 8 + your Constitution modifier</li>
-				<li><strong>Hit Points at Higher Levels:</strong> 1d8 (or 5) + your Constitution modifier per grave warden level after 1st</li>
-			</ul>
-			<h5>PROFICIENCIES</h5>
-			<ul class="unstyled mb">
-				<li><strong>Armor:</strong> None</li>
-				<li><strong>Weapons:</strong> Daggers, light hammers, sickles, quarterstaffs</li>
-				<li><strong>Tools:</strong> None</li>
-			</ul>
-			<ul class="unstyled">
-				<li><strong>Saving Throws:</strong> Constitution, Intelligence</li>
-				<li><strong>Skills:</strong> Choose two from Arcana, Deception, History, Intimidation, Investigation, Medicine, and Religion</li>
-			</ul>
-			<h5>EQUIPMENT</h5>
-			<p>You start with the following equipment, in addition to the equipment granted by your background:</p>
-			<ul>
-				<li>(a) a quarterstaff or (b) a dagger</li>
-				<li>(a) a component pouch or (b) an arcane focus</li>
-				<li>(a) a scholar’s pack or (b) an priest’s pack</li>
-				<li>A grimoire</li>
-			</ul>
-			<h5 class="caption">THE GRAVE WARDEN</h5>
-			<table class="class-features">
-				<thead>
-					<tr><td class="col-5">Level</td><td class="left">Features</td><td class="col-10">Cantrips Known</td><td>1st</td><td>2nd</td><td>3rd</td><td>4th</td><td>5th</td><td>6th</td><td>7th</td><td>8th</td><td>9th</td></tr>
-				</thead>
-				<tr><td> 1st</td><td class="left">Bulwark of the Undead, Spellcasting, Requiem of Souls</td><td>3</td><td>2</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 2nd</td><td class="left">Dark Mending, Death's Whisper</td><td>3</td><td>3</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 3rd</td><td class="left">Requiem feature</td><td>3</td><td>4</td><td>2</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 4th</td><td class="left">Ability Score Improvement</td><td>4</td><td>4</td><td>3</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 5th</td><td class="left">—</td><td>4</td><td>4</td><td>3</td><td>2</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 6th</td><td class="left">Deathless Vigor, Requiem feature</td><td>4</td><td>4</td><td>3</td><td>3</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 7th</td><td class="left">—</td><td>4</td><td>4</td><td>3</td><td>3</td><td>1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 8th</td><td class="left">Ability Score Improvement</td><td>4</td><td>4</td><td>3</td><td>3</td><td>2</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 9th</td><td class="left">—</td><td>4</td><td>4</td><td>3</td><td>3</td><td>3</td><td>1</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td>10th</td><td class="left">Thrall's Boon, Requiem feature</td><td>5</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td>11th</td><td class="left">—</td><td>5</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td>12th</td><td class="left">Ability Score Improvement</td><td>5</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td>13th</td><td class="left">—</td><td>5</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td><td>1</td><td>—</td><td>—</td></tr>
-				<tr><td>14th</td><td class="left">Requiem feature</td><td>5</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td><td>1</td><td>—</td><td>—</td></tr>
-				<tr><td>15th</td><td class="left">—</td><td>5</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td><td>1</td><td>1</td><td>—</td></tr>
-				<tr><td>16th</td><td class="left">Ability Score Improvement</td><td>5</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td><td>1</td><td>1</td><td>—</td></tr>
-				<tr><td>17th</td><td class="left">Undead Acclimation</td><td>5</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
-				<tr><td>18th</td><td class="left">Necromastery</td><td>5</td><td>4</td><td>3</td><td>3</td><td>3</td><td>3</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
-				<tr><td>19th</td><td class="left">Ability Score Improvement</td><td>5</td><td>4</td><td>3</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td><td>1</td><td>1</td></tr>
-				<tr><td>20th</td><td class="left">Rebuke the Grave</td><td>5</td><td>4</td><td>3</td><td>3</td><td>3</td><td>3</td><td>2</td><td>2</td><td>1</td><td>1</td></tr>
-			</table>
-			<div element="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_BULWARK_OF_THE_UNDEAD" />
-			<div element="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_SPELLCASTING_GRAVE_WARDEN" />
-			<div element="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_REQUIEM_OF_SOULS" />
-			<div element="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_DARK_MENDING" />
-			<div element="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_DEATHS_WHISPER" />
-			<div element="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_ABILITYSCOREIMPROVEMENT_GRAVE_WARDEN" />
-			<div element="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_DEATHLESS_VIGOR" />
-			<div element="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_THRALLS_BOON" />
-			<div element="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_UNDEAD_ACCLIMATION" />
-			<div element="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_NECROMASTERY" />
-			<div element="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_REBUKE_THE_GRAVE" />
-		</description><sheet action="" usage="" display="false"><description usage="" level="0">The Grave Warden is a magic user obsessed with the study of life and death.</description></sheet><rules><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_DAGGER" level="0" requirements="!ID_DMSG_GPGW_MULTICLASS_GRAVE_WARDEN"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_LIGHT_HAMMER" level="0" requirements="!ID_DMSG_GPGW_MULTICLASS_GRAVE_WARDEN"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SICKLE" level="0" requirements="!ID_DMSG_GPGW_MULTICLASS_GRAVE_WARDEN"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_QUARTERSTAFF" level="0" requirements="!ID_DMSG_GPGW_MULTICLASS_GRAVE_WARDEN"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_CONSTITUTION" level="0" requirements="!ID_DMSG_GPGW_MULTICLASS_GRAVE_WARDEN"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_INTELLIGENCE" level="0" requirements="!ID_DMSG_GPGW_MULTICLASS_GRAVE_WARDEN"></grant><grant type="Class Feature" id="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_BULWARK_OF_THE_UNDEAD" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_SPELLCASTING_GRAVE_WARDEN" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_REQUIEM_OF_SOULS" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_DARK_MENDING" level="2" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_DEATHS_WHISPER" level="2" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_ABILITYSCOREIMPROVEMENT_GRAVE_WARDEN" level="4" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_DEATHLESS_VIGOR" level="6" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_THRALLS_BOON" level="10" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_UNDEAD_ACCLIMATION" level="17" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_NECROMASTERY" level="18" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_GPGW_CLASS_FEATURE_GRAVE_WARDEN_REBUKE_THE_GRAVE" level="20" requirements=""></grant></rules><setters><set name="short">The Grave Warden is a magic user obsessed with the study of life and death.</set><set name="hd">d8</set></setters></element><element name="Magus" type="Class" id="ID_DMSG_HMGS_CLASS_MAGUS"><description usage="" level="0">
-			<p class="flavor">A human confronted by two orcs draws his rapier and, as he does, violet runes illuminate the air around the weapon. One of the orcs rushes towards the man, swinging its weapon wildly. As the man parries the orc’s reckless attacks, he delivers a riposte that causes the air around the orc to burst into green flames. Seeing its ally sent sprawling to the ground, the second orc becomes decidedly less enthusiastic about the fight.</p>
-			<p class="indent flavor">A dwarf looks down from the mountain peak she calls home and sees the rampant destruction of the woods she has sworn to protect. As she approaches the hunting encampment responsible for the fire, she calls her woodland allies to her side and her skin hardens to resemble bark.</p>
-			<p class="indent flavor">Looking over ancient hieroglyphs, a saurian frantically searches for details of a ritual that will fortify the mystic seal that protects his ancestral home. The impossibly heavy doors swing open behind him and he turns to face the temple’s guardians as his sword erupts with flames.</p>
-			<p class="indent">Magi are mystical warriors who blend martial prowess with esoteric knowledge and spellcasting. Magi balance the pursuit of personal goals and relationships with their obligations to pursue the goals and ideals of the eldritch societies they belong to. Although their backgrounds may sometimes set them at odds against one another, magi are united by their commitment to a cause greater than themselves and a drive to master their magical abilities.</p>
-			<h4>MARTIAL MAGICIANS</h4>
-			<p>Every magus is a warrior. Magi train with arms and armor to protect what they hold dear, fight for what they believe in, and get themselves into or out of trouble. For magi, though violence may not be their preferred solution to a given problem, it is always a valid backup plan.</p>
-			<p class="indent">Every magus is a magician. Magi use their hardearned spellcasting abilities to explore the multiverse, empower their companions, and decimate their enemies. For a magus, magic is a tool that expands their horizons and their options.</p>
-			<h4>WARRIORS WITH A PURPOSE</h4>
-			<p>All magi learn their abilities in order to fulfill their obligations to their eldritch society. On a mystical level, every magus’ spellcasting style is shaped by their eldritch society. On a personal level, every magus must deal with the demands and ideology of their eldritch society in their own way. Regardless of whether a magus embraces their eldritch society’s traditions and politics, no magus can deny the influence it has on their magic and outlook.</p>
-			<p class="indent">Eldritch societies are not monolithic entities, but they do have beliefs and goals that the majority of the magi within them believe in and fight for. Magi in the Arcane Order observe a tradition of honoring the requests and wisdom of their mentors and, subsequently, striving to train an apprentice to become an even greater magus then they are. Members of the Primordial Seal believe that the material planes are constantly under threat of incursion from the elemental planes and they must remain on guard to ensure the world’s safety. Magi in the Sylvan Circle seek to protect the wilderness of the world from destruction and defilement, although what exactly that entails varies from magus to magus.</p>
-			<h4>CREATING A MAGUS</h4>
-			<p>As you create your magus character, consider the relationship your character has to their eldritch society. Does your character feel indebted to the society for the lessons it taught them? Does your character actively pursue the goals of their society? Has your character had a falling out with their society and, if so, why? While training to be a magus did you make any rivals? Who are they?</p>
-			<p class="indent">Fighting may have come naturally to you and your mentor struggled to impart you with the basics of spellcasting. Or maybe the spellcasting came easily but you lacked a talent for combat. You might have spent years in training with a mentor before being left to your own devices or you may have only met your mentor informally on a handful of momentous occasions. You might report back to your society contacts regularly or keep a safe distance from other magi.</p>
-			<h5 class="caption">QUICK BUILD</h5>
-			<p>You can make a magus quickly by following these suggestions. First, Strength or Dexterity should be your highest ability score, followed by Intelligence (Arcane Order, Shadow Court, Sidereal Cabal), Wisdom (Sylvan Circle), or Charisma (Knights Stygian, Primordial Seal) based on your eldritch society. Second, choose the Sage or Soldier background.</p>
-			<h2>CLASS FEATURES</h2>
-			<p>As an magus, you gain the following class features.</p>
-			<h5 class="caption">HIT POINTS</h5>
-			<ul class="unstyled">
-				<li><strong>Hit Dice:</strong> 1d8 per magus level</li>
-				<li><strong>Hit Points at 1st Level:</strong> 8 + your Constitution modifier</li>
-				<li><strong>Hit Points at Higher Levels:</strong> 1d8 (or 8) + your Constitution modifier per magus level after 1st</li>
-			</ul>
-			<h5 class="caption">PROFICIENCIES</h5>
-			<ul class="unstyled mb">
-				<li><strong>Armor:</strong> Light armor, medium armor, shields</li>
-				<li><strong>Weapons:</strong> Simple weapons, martial weapons</li>
-				<li><strong>Tools:</strong> None</li>
-			</ul>
-			<ul class="unstyled">
-				<li><strong>Saving Throws:</strong> Constitution, Intelligence</li>
-				<li><strong>Skills:</strong> Choose one from Acrobatics, Arcana, Athletics, History, Insight, Investigation, and Perception.</li>
-			</ul>
-			<h5 class="caption">EQUIPMENT</h5>
-			<p>You start with the following equipment, in addition to the equipment granted by your background:</p>
-			<ul>
-				<li>(a) a simple weapon and a shield or (b) a martial weapon or (c) a longbow and 20 arrows</li>
-				<li>(a) leather armor or (b) scale mail</li>
-				<li>(a) an arcane focus or (b) a druidic focus or (c) a component pouch</li>
-				<li>An explorer’s pack</li>
-			</ul>
-			<h5 class="caption">THE MAGUS</h5>
-			<table class="class-features">
-				<thead>
-					<tr><td class="col-5">Level</td><td class="left">Features</td><td class="col-10">Cantrips Known</td><td class="col-10">Spells Known</td><td>1st</td><td>2nd</td><td>3rd</td><td>4th</td><td>5th</td></tr>
-				</thead>
-				<tr><td> 1st</td><td class="left">Eldritch Society, Esoteric Eye</td><td>2</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>		
-				<tr><td> 2nd</td><td class="left">Mystic Mark, Spellcasting</td><td>2</td><td>3</td><td>2</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 3rd</td><td class="left">Eldritch Armament, Eldritch Society feature</td><td>2</td><td>3</td><td>3</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 4th</td><td class="left">Ability Score Increase</td><td>3</td><td>4</td><td>3</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 5th</td><td class="left">—</td><td>3</td><td>5</td><td>4</td><td>2</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 6th</td><td class="left">Mystic Meditation</td><td>3</td><td>5</td><td>4</td><td>2</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 7th</td><td class="left">Eldritch Society feature, War Magic</td><td>3</td><td>6</td><td>4</td><td>3</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 8th</td><td class="left">Ability Score improvement</td><td>3</td><td>7</td><td>4</td><td>3</td><td>—</td><td>—</td><td>—</td></tr>
-				<tr><td> 9th</td><td class="left">Aegis and Enspell improvements</td><td>3</td><td>8</td><td>4</td><td>3</td><td>2</td><td>—</td><td>—</td></tr>
-				<tr><td>10th</td><td class="left">Spell Surge</td><td>4</td><td>8</td><td>4</td><td>3</td><td>2</td><td>—</td><td>—</td></tr>
-				<tr><td>11th</td><td class="left">Improved War Magic</td><td>4</td><td>9</td><td>4</td><td>3</td><td>3</td><td>—</td><td>—</td></tr>
-				<tr><td>12th</td><td class="left">Ability Score Improvement</td><td>4</td><td>10</td><td>4</td><td>3</td><td>3</td><td>—</td><td>—</td></tr>
-				<tr><td>13th</td><td class="left">Aegis and Enspell improvements</td><td>4</td><td>11</td><td>4</td><td>3</td><td>3</td><td>1</td><td>—</td></tr>
-				<tr><td>14th</td><td class="left">Eldritch Society feature</td><td>4</td><td>11</td><td>4</td><td>3</td><td>3</td><td>1</td><td>—</td></tr>
-				<tr><td>15th</td><td class="left">Spell Ward</td><td>4</td><td>12</td><td>4</td><td>3</td><td>3</td><td>2</td><td>—</td></tr>
-				<tr><td>16th</td><td class="left">Ability Score Improvement</td><td>4</td><td>13</td><td>4</td><td>3</td><td>3</td><td>2</td><td>—</td></tr>
-				<tr><td>17th</td><td class="left">—</td><td>4</td><td>14</td><td>4</td><td>3</td><td>3</td><td>3</td><td>1</td></tr>
-				<tr><td>18th</td><td class="left">Greater Spell Surge</td><td>4</td><td>14</td><td>4</td><td>3</td><td>3</td><td>3</td><td>1</td></tr>
-				<tr><td>19th</td><td class="left">Ability Score Improvement</td><td>4</td><td>15</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td></tr>
-				<tr><td>20th</td><td class="left">Spell Surge and Greater Spell Surge improvements</td><td>4</td><td>16</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td></tr>
-			</table>
-			<div element="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_ELDRITCH_SOCIETY" />
-			<div element="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_ESOTERIC_EYE" />
-			<div element="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_MYSTIC_MARK" />
-			<div element="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_SPELLCASTING" />
-			<div element="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_ELDRITCH_ARMAMENT" />
-			<div element="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_ABILITY_SCORE_IMPROVEMENT" />
-			<div element="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_MYSTIC_MEDITATION" />
-			<div element="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_WAR_MAGIC" />
-			<div element="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_SPELL_SURGE" />
-			<div element="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_IMPROVED_WAR_MAGIC" />
-			<div element="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_SPELL_WARD" />
-			<div element="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_GREATER_SPELL_SURGE" />
-		</description><sheet action="" usage="" display="false"></sheet><rules><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_LIGHT_ARMOR" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_MEDIUM_ARMOR" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_SHIELDS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_MARTIAL_WEAPONS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_CONSTITUTION" level="0" requirements="!ID_DMSG_HMGS_MULTICLASS_MAGUS"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_INTELLIGENCE" level="0" requirements="!ID_DMSG_HMGS_MULTICLASS_MAGUS"></grant><grant type="Class Feature" id="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_ELDRITCH_SOCIETY" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_ESOTERIC_EYE" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_MYSTIC_MARK" level="2" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_SPELLCASTING" level="2" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_ELDRITCH_ARMAMENT" level="3" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_ABILITY_SCORE_IMPROVEMENT" level="4" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_MYSTIC_MEDITATION" level="6" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_WAR_MAGIC" level="7" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_SPELL_SURGE" level="10" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_IMPROVED_WAR_MAGIC" level="11" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_SPELL_WARD" level="15" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HMGS_CLASS_FEATURE_MAGUS_GREATER_SPELL_SURGE" level="18" requirements=""></grant></rules><setters><set name="short">A mystical warrior who blends martial prowess with esoteric knowledge and spellcasting.</set><set name="hd">d8</set></setters></element><element name="Spiritualist" type="Class" id="ID_DMSG_HSPRT_CLASS_SPIRITUALIST"><description usage="" level="0">
-			<p>Breathing deeply as wisps of incense rise around her, a human focuses her will on the mystical bonds that tie the objects in her hands to the person who once owned them. As she inhales, her eyes roll back and her eyelids flutter while her mind fills with a vision of a far away place. Through the haze, she sees the young half-dwarf she was searching for and the filthy tavern room he was hiding in.</p>
-			<p class="indent">A halfling watches intently as the planchette moves across the board, hovering over one letter after another. As the letters string together into a name, the identity of the murder she’s been chasing reveals itself and she raises one hand to her mouth in horror.</p>
-			<p class="indent">Stopping suddenly, a lemurian listens intently to a sound no of his companions heard. Something had followed him back from the Ethereal Plane. Something too dangerous to leave be. He turns quickly, making a sign of exorcism in the air while walking towards the dark presence.</p>
-			<p class="indent">Spiritualists are mediums, bridging the worlds of the living and the dead. Having barely escaped an encounter with death themselves, spiritualists commune with restless spirits for mystical power. They use their spells and occult talents to ensure their second chance at life isn’t wasted.</p>
-			<h4>BRUSH WITH DEATH</h4>
-			<p>Not everyone who has a near death experience becomes a spiritualist but all spiritualists have survived an encounter that brought them to the brink of death. Spiritualists remember the specifics of the event unclearly. They often recall an ominous figure stepping out from the darkness offering an extension on their lives but further details, such as the cost of the favor, elude them. This incident was the catalyst for the acquisition of their occult powers, from spellcasting to communing with the dead to seeing beyond the borders of the physical realm.</p>
-			<p class="indent">The specific circumstances of a spiritualist’s brush with death leaves a permanent impression on them. Those who survive the attack of a wild beast find they have the ability to command such predators following the experience. Spiritualists that survive a potentially fatal illness discover they can withstand diseases and toxins that would have previously been lethal.</p>
-			<h4>BEYOND THE VEIL</h4>
-			<p>Before they can see spirits, spiritualists can sense them. In the presence of ethereal beings the hair on the back of their necks will stand up or they’ll get a splitting migraine or they hear the sound of a river rushing when none is nearby. Soon after they learn to beckon spirits to the share their minds and bodies. Then at last the spiritualist’s eyes open to the world they already knew existed, the world of spirits that coexists alongside the physical realm.</p>
-			<p class="indent">Novice spiritualists quickly discover that, while the world is full of dead people, they tend to attract a certain type. The reason for this isn’t precisely known, but among themselves spiritualists believe that the kinds of spirits they resonate with are representative of the spiritualist’s own repressed or unexpressed emotions.</p>
-			<h4>CREATING A SPIRITUALIST</h4>
-			<p>Spiritualists are torn between the worlds of the living and the dead. As you create your spiritualist character, the most important question to consider is: how do you see your role as a medium between these two worlds? Are your abilities the unwanted repercussions of a traumatic experience you’ll never forget? Did the instance of your brush with death mark the start of a new and better life for you? Do you wish you could turn your senses away from the spirits of the departed? Did your awareness of the ethereal realm bring about an unexpected reunion with someone you lost?</p>
-			<p class="indent">Spiritualists are further defined by the circumstances of their near death experience and the spirits they most frequently contact. Were you the child of a minor noble, targeted for assassination as a way of intimidating the upper class? Did you grow up in a rural village only to find that one year a plague swept through and only you survived? Were you traveling from one city to the next when a pack of wolves set upon you and your caravan and nearly took your life? The moment you came within a breath of dying, but didn’t, you became a spiritualist.</p>
-			<p class="indent">As a spiritualist, the unquiet dead seek you out, pleading for you to intervene on their behalf. What kind of requests are you most sympathetic to? Has a spirit ever asked you to do something you were unwilling to do? Have you ever agreed to help a spirit and later regretted it? Do you feel greater responsibility to the dead or the living? Are the spirits of the departed tools to use for your own gain or companions in their own right?</p>
-			<p class="indent">The answer to these questions will define you as a spiritualist.</p>
-			<h5 class="caption">QUICK BUILD</h5>
-			<p>You can make a spiritualist quickly by following these suggestions. First, Charisma should be your highest ability score, followed by Dexterity or Constitution. Second, choose the acolyte, charlatan, or hermit background.</p>
-			<h2>CLASS FEATURES</h2>
-			<p>As an spiritualist, you gain the following class features.</p>
-			<h5 class="caption">HIT POINTS</h5>
-			<ul class="unstyled">
-				<li><strong>Hit Dice:</strong> 1d8 per spiritualist level</li>
-				<li><strong>Hit Points at 1st Level:</strong> 8 + your Constitution modifier</li>
-				<li><strong>Hit Points at Higher Levels:</strong> 1d8 (or 5) + your Constitution modifier per spiritualist level after 1st</li>
-			</ul>
-			<h5 class="caption">PROFICIENCIES</h5>
-			<ul class="unstyled mb">
-				<li><strong>Armor:</strong> Light armor</li>
-				<li><strong>Weapons:</strong> Simple weapons, nets</li>
-				<li><strong>Tools:</strong> None</li>
-			</ul>
-			<ul class="unstyled">
-				<li><strong>Saving Throws:</strong> Wisdom, Charisma</li>
-				<li><strong>Skills:</strong> Choose two from Arcana, Deception, History, Insight, Intimidation, Investigation, Medicine, Perception, Performance, and Religion.</li>
-			</ul>
-			<h5 class="caption">EQUIPMENT</h5>
-			<p>You start with the following equipment, in addition to the equipment granted by your background:</p>
-			<ul>
-				<li>(a) a component pouch or (b) a crystal or (c) a reliquary or (d) a spirit board or (e) a totem</li>
-				<li>(a) a burglar’s pack or (b) a priest’s pack or (c) a scholar’s pack</li>
-				<li>Leather armor and a simple weapon of your choice</li>
-			</ul>
-			<!-- class table here -->
-			<div element="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_PACT_MAGIC" />
-			<div element="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_DEATHS_THRESHOLD" />
-			<div element="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_CHANNEL_SPIRIT" />
-			<div element="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_ECTOPLASM" />
-			<div element="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_SIXTH_SENSE" />
-			<div element="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_THANATOPHOBIA" />
-			<div element="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_ABILITY_SCORE_INCREASE" />
-			<div element="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_LINGUA_MORTIS" />
-			<div element="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_STYGIAN_INHALATION" />
-			<div element="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_OCCULT_INSIGHT" />
-			<div element="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_SPECTRAL_SHROUD" />
-			<div element="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_ECTOPLASMIC_TRANSUBSTANTIATION" />
-		</description><sheet action="" usage="" display="false"></sheet><rules><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_LIGHT_ARMOR" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_NET" level="0" requirements="!ID_DMSG_HSPRT_MULTICLASS_SPIRITUALIST"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_WISDOM" level="0" requirements="!ID_DMSG_HSPRT_MULTICLASS_SPIRITUALIST"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_CHARISMA" level="0" requirements="!ID_DMSG_HSPRT_MULTICLASS_SPIRITUALIST"></grant><grant type="Class Feature" id="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_PACT_MAGIC" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_DEATHS_THRESHOLD" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_CHANNEL_SPIRIT" level="2" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_ECTOPLASM" level="2" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_SIXTH_SENSE" level="3" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_THANATOPHOBIA" level="3" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_ABILITY_SCORE_INCREASE" level="4" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_LINGUA_MORTIS" level="5" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_STYGIAN_INHALATION" level="10" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_OCCULT_INSIGHT" level="11" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_SPECTRAL_SHROUD" level="18" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_HSPRT_CLASS_FEATURE_SPIRITUALIST_ECTOPLASMIC_TRANSUBSTANTIATION" level="20" requirements=""></grant></rules><setters><set name="short">A medium, bridging the worlds of the living and the dead.</set><set name="hd">d8</set></setters></element><element name="Blood Hunter" type="Class" id="ID_DMSG_MMBH_CLASS_BLOOD_HUNTER"><description usage="" level="0">
-			<p>Marred but resolute, his grimacing face dripping with sweat, a half-orc reddens a finger across his wounds to draw a glowing, ruby glyph in the air. He grips the weightless, completed sigil, twisting it to unleash dark magical energies that fire forward, cursing the stalking behemoth from within its own veins to better even the odds.</p>
-			<p class="indent">A mysterious half-elf swathed in a worn cloak and rugged leather armor carefully investigates a grizzly scene off the roadway, her eyes flashing with recognition as she meditates on the remnants of the massacre. The survivor who warily hired her withdraws with a jump as the half-elf suddenly shoots to her feet, sure in the knowledge of the culprit, where it calls home, and how little time there is to find it.</p>
-			<p class="indent">Stepping into the lightless chambers of ancient dust and lingering whispers, the halfling’s nose picks up the pungent smell of imminent danger as she hears the scraping of bone and claw on nearby stone. She winces as she runs her blade across her palm, the steel transmuting her blood into glowing runes of powerful magic, her sword suddenly engulfed in arcane flames, eager to brand and burn the flesh of her enemies.</p>
-			<p class="indent">Often feared or misunderstood, and driven by an unending drive to destroy the wicked, blood hunters are clever, arcane warriors who have bound their essence to the dark creatures they hunt to better stalk and survive their prey. Armed with the rites of forbidden blood magic and a willingness to sacrifice their own vitality and humanity for the cause, they protect the realms from the shadows, ever vigilant to avoid becoming the same monsters they choose to hunt.</p>
-			<h4>SACRIFICE TO PRESERVE LIFE</h4>
-			<p>While most of the classic schools of magical study are well known and widely respected, the less refined and macabre incantations of Hemocraft have long been forbidden and lost to most of the civilized world. Blood Hunters have reclaimed these techniques away from the judging eyes of society, finding blood magic’s esoteric nature effective against the evils that often defy the divine powers that historically hold the line.</p>
-			<p class="indent">Through careful study and practice, blood hunters have honed the rites of hemocraft into their combat prowess, forfeiting a facet of their health to infuse their weapons with powerful blood magic and summoning the elements to envelop their strikes.</p>
-			<p class="indent">They can sear an arcane brand into the body of their quarry that hinders their foe’s abilities and punishes their aggression, or call blood curses upon their enemies, manipulating their bodies from the inside. Willing to suffer whatever it takes to achieve victory, these adept warriors have forged themselves into a potent force against the terrors that threaten the innocent.</p>
-			<h4>A MONSTER TO FIGHT MONSTERS</h4>
-			<p>Whether driven by the wish to make a difference in a dangerous world, the need to take vengeance for a great wrong they have suffered, being inspired by witnessing the strange and powerful techniques of another blood hunter in person, or just seeking a place to belong in an uncaring world, the reasons one may take up the Hunter’s Bane and choose this life are many and varied. In joining an order of blood hunters, one is also joining a tight family bound by service to each other and the common cause. For many, this is the only family they have known or have left, so the kinship felt between members of an order is a bond neigh unbreakable.</p>
-			<p class="indent">Beyond the boundaries of the order, however, the life of a blood hunter is often not an easy one. The rituals of the Hunter’s Bane regularly leave one visibly changed and prone to unsettle common folk, and the witnessing of hemocraft can invoke a superstitious fear from even the most learned scholar. While some societies have come to accept the good deeds of the orders, many blood hunters publicly hide their nature unless absolutely necessary, feeling more comfortable in the wilds and wastes of the world where the Orders commonly train. Even so, the best work a blood hunter can do usually involves the poor and defenseless on the outskirts of society, those prone to the corrupting touch of fiends and dark intension. Braving the threat of vilification, these dark protectors wade through civilization, earning coin as mercenaries or bounty hunters, ever watching for the signs of something more nefarious beneath the surface.</p>
-			<p class="indent">In choosing this path, a blood hunter has irrevocably given a part of themselves to their cause, physically, emotionally, and sometimes morally. The orders of blood hunters practice their own unique ideals and methods, often employing techniques with dark origins that test the strength and will of these guardians. Many wrestle with the fear of losing this struggle, so a life of discipline and vigilance drives their travels as they wander the countryside in search of like-minded adventurers and whispers of dark deeds afoot.</p>
-			<h4>CREATING A BLOOD HUNTER</h4>
-			<p>As you create a blood hunter, the most important aspects of your character are why you were driven to this lifestyle, and why do you seek to give up everything to wallow in the dark with the evils you hunt? Did you lose a loved one to a fiendish beast and now wish to prevent others from suffering the same fate? Do you seek a sense of purpose and security, and found this among the order that has taken you in? Have you always carried a seed of darkness within you, and seek kin to watch over you and prevent you succumbing to it? Were you once a holy warrior who strayed from his faith and was cast out, but still seek to give yourself to the cause of protecting the innocent? Or are you a criminal with a dark past seeking to make amends, taking this life as a path of penance?</p>
-			<p class="indent">What is your relationship with the powers of hemocraft and the abilities it promises to grant you as you step closer to its mastery? Do you respect and fear the ancient power that surges through your veins, using them only when necessary? Do you relish in the strength it offers you, embracing your gifts and using them freely? Are you worried the superstitions are right, and this power will eventually turn you into one of the monsters you hunt? Or has your study instilled you with the confident control of mind over matter, certain you can bend these gifts to bring a brighter dawn?</p>
-			<p class="indent">Consider too that while a blood hunter belongs to an order, many strike out on their own to do their best work. What made you leave the comfort of your order? Do you intend to return, or have you decided you have more to learn in the world beyond? What do you seek in other adventurers that can help you meet your goals?</p>
-			<p class="indent">While most blood hunters follow a path of good or neutrality in their pursuits, some have fallen to the dark, seductive side of hemocraft and use their abilities for selfish and evil purposes. These deviants are always thrown from the order, and often hunted along with the creatures they once trained to fell.</p>
-			<h5 class="caption">QUICK BUILD</h5>
-			<p>You can make a blood hunter quickly by following these suggestions. First, make Strength or Dexterity your highest ability score, depending on whether you want to focus on melee weapons, or archery (or finesse weapons). Make Intelligence your next highest if you plan to focus on the potency of blood curses and mystical power. Choose a higher Constitution next, as you want to have extra hit points to burn on your crimson rite or amplifying blood curses. Then, select the urchin or soldier background.</p>
-			<h2>CLASS FEATURES</h2>
-			<p>As an blood hunter, you gain the following class features.</p>
-			<h5 class="caption">HIT POINTS</h5>
-			<ul class="unstyled">
-				<li><strong>Hit Dice:</strong> 1d10 per blood hunter level</li>
-				<li><strong>Hit Points at 1st Level:</strong> 10 + your Constitution modifier</li>
-				<li><strong>Hit Points at Higher Levels:</strong> 1d10 (or 6) + your Constitution modifier per blood hunter level after 1st</li>
-			</ul>
-			<h5 class="caption">PROFICIENCIES</h5>
-			<ul class="unstyled mb">
-				<li><strong>Armor:</strong> Light armor, medium armor, shields</li>
-				<li><strong>Weapons:</strong> Simple weapons, martial weapons</li>
-				<li><strong>Tools:</strong> Alchemist’s supplies</li>
-			</ul>
-			<ul class="unstyled">
-				<li><strong>Saving Throws:</strong> Dexterity, Intelligence</li>
-				<li><strong>Skills:</strong> Choose three from Athletics, Acrobatics, Arcana, History, Insight, Investigation, Religion, and Survival.</li>
-			</ul>
-			<h5 class="caption">EQUIPMENT</h5>
-			<p>You start with the following equipment, in addition to the equipment granted by your background:</p>
-			<ul>
-				<li>(a) a martial weapon or (b) two simple weapons</li>
-				<li>(a) a light crossbow and 20 bolts or (b) hand crossbow and 20 bolts</li>
-				<li>(a) studded leather armor or (b) scale mail armor</li>
-				<li>an explorer’s pack</li>
-			</ul>
-			<p>Alternatively, you could begin with starting wealth of 4d4 x 10 gp and purchase starting items of your choice.</p>
-			<h5 class="caption">THE BLOOD HUNTER</h5>
-			<table class="class-features">
-				<thead>
-					<tr><td class="col-5">Level</td><td class="col-15">Hemocraft Die</td><td class="col-20">Blood Curses Known</td><td class="left">Features</td></tr>
-				</thead>
-				<tr><td> 1st</td><td>1d4</td><td>1</td><td class="left">Hunter’s Bane, Blood Maledict</td></tr>
-				<tr><td> 2nd</td><td>1d4</td><td>1</td><td class="left">Fighting Style, Crimson Rite</td></tr>
-				<tr><td> 3rd</td><td>1d4</td><td>1</td><td class="left">Blood Hunter Order</td></tr>
-				<tr><td> 4th</td><td>1d4</td><td>1</td><td class="left">Ability Score Improvement</td></tr>
-				<tr><td> 5th</td><td>1d6</td><td>1</td><td class="left">Extra Attack</td></tr>
-				<tr><td> 6th</td><td>1d6</td><td>2</td><td class="left">Brand of Castigation, Blood Maledict (2/rest)</td></tr>
-				<tr><td> 7th</td><td>1d6</td><td>2</td><td class="left">Order feature, Primal Rite</td></tr>
-				<tr><td> 8th</td><td>1d6</td><td>2</td><td class="left">Ability Score Improvement</td></tr>
-				<tr><td> 9th</td><td>1d6</td><td>2</td><td class="left">Grim Psychometry</td></tr>
-				<tr><td>10th</td><td>1d6</td><td>3</td><td class="left">Dark Augmentation</td></tr>
-				<tr><td>11th</td><td>1d8</td><td>3</td><td class="left">Order feature</td></tr>
-				<tr><td>12th</td><td>1d8</td><td>3</td><td class="left">Ability Score Improvement</td></tr>
-				<tr><td>13th</td><td>1d8</td><td>3</td><td class="left">Brand of Tethering, Blood Maledict (3/rest)</td></tr>
-				<tr><td>14th</td><td>1d8</td><td>4</td><td class="left">Hardened Soul, Esoteric Rite</td></tr>
-				<tr><td>15th</td><td>1d8</td><td>4</td><td class="left">Order feature</td></tr>
-				<tr><td>16th</td><td>1d8</td><td>4</td><td class="left">Ability Score Improvement</td></tr>
-				<tr><td>17th</td><td>1d10</td><td>4</td><td class="left">Blood Maledict (4/rest)</td></tr>
-				<tr><td>18th</td><td>1d10</td><td>5</td><td class="left">Order feature</td></tr>
-				<tr><td>19th</td><td>1d10</td><td>5</td><td class="left">Ability Score Improvement</td></tr>
-				<tr><td>20th</td><td>1d10</td><td>5</td><td class="left">Sanguine Mastery</td></tr>
-			</table>
-			<div element="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_HUNTERS_BANE" />
-			<div element="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_BLOOD_MALEDICT" />
-			<div element="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_FIGHTING_STYLE" />
-			<div element="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_CRIMSON_RITE" />
-			<div element="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_BLOOD_HUNTER_ORDER" />
-			<div element="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_ABILITY_SCORE_IMPROVEMENT" />
-			<div element="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_EXTRA_ATTACK" />
-			<div element="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_BRAND_OF_CASTIGATION" />
-			<div element="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_GRIM_PSYCHOMETRY" />
-			<div element="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_DARK_AUGMENTATION" />
-			<div element="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_BRAND_OF_TETHERING" />
-			<div element="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_HARDENED_SOUL" />
-			<div element="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_SANGUINE_MASTERY" />
-		</description><sheet action="" usage="" display="false"></sheet><rules><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_LIGHT_ARMOR" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_MEDIUM_ARMOR" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_SHIELDS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_MARTIAL_WEAPONS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_TOOL_PROFICIENCY_ALCHEMISTS_SUPPLIES" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_DEXTERITY" level="0" requirements="!ID_DMSG_MMBH_MULTICLASS_BLOOD_HUNTER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_INTELLIGENCE" level="0" requirements="!ID_DMSG_MMBH_MULTICLASS_BLOOD_HUNTER"></grant><grant type="Class Feature" id="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_HUNTERS_BANE" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_BLOOD_MALEDICT" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_FIGHTING_STYLE" level="2" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_CRIMSON_RITE" level="2" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_BLOOD_HUNTER_ORDER" level="3" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_ABILITY_SCORE_IMPROVEMENT" level="4" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_EXTRA_ATTACK" level="5" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_BRAND_OF_CASTIGATION" level="6" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_GRIM_PSYCHOMETRY" level="9" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_DARK_AUGMENTATION" level="10" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_BRAND_OF_TETHERING" level="13" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_HARDENED_SOUL" level="14" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MMBH_CLASS_FEATURE_BLOOD_HUNTER_SANGUINE_MASTERY" level="20" requirements=""></grant></rules><setters><set name="short">A clever, arcane warrior who has bound their essence to the dark creatures they hunt to better stalk and survive their prey.</set><set name="hd">d10</set></setters></element><element name="Factotum" type="Class" id="ID_DMSG_MUSG_CLASS_FACTOTUM"><description usage="" level="0">
-			<p>When heading into the depths of Undermountain, sometimes the party finds itself short a few members. During key moments in a fight the cleric goes down, when a trap is discovered the rogue is nowhere to be found, or someone just needs to hold the door. When someone needs to fill in, look to the factotum!</p>
-			<h4>FLEXIBLE LEARNER</h4>
-			<p>The factotum has spent a lifetime studying famous adventurers and picking up a few of their skills. A factotum is accomplished in just about every trade a dungeoneering party might need, with enough lore to fake what they haven’t learned yet, at least for a brief time. Flexible and full of tricks, the factotum always has a solution.</p>
-			<p class="indent">Even a jack of all trades like the factotum specializes somewhat. While all factotums can swing a sword and cast a spell, some focus their efforts studying the great warriors of yore, while others delve into secrets of forgotten spellcasters.</p>
-			<h4>CHARLATAN AND DILETTANTE</h4>
-			<p>The factotum uses their intelligence and guile to overcome obstacles. They are the consummate dabbler who relies on their ingenuity, but even their tricks run out. Their reliance on secondhand stories and self-taught experience makes it difficult for them to go the distance like other specialists might. Much like a wizard, resting factotums return to their books searching for lore that will help them meet the next day’s challenge—or at least find one more gimmick to get out alive.</p>
-			<h4>CREATING A FACTOTUM</h4>
-			<p>When creating your factotum, consider what motivates you. Are you seeking to master all knowledge and be the epitome of humanoid development, or are you a charlatan who knows just enough to fake any adventuring role until you strike it rich?</p>
-			<p class="indent">Also consider where you picked up your diverse collection of skills. Did you learn them from other adventurers? Have you studied in a great library? What type of stories and lore most appeal to you?</p>
-			<h5>QUICK BUILD</h5>
-			<p>You can make a factotum quickly by following these suggestions. First, Intelligence should be your highest ability score, followed by Dexterity. Second, choose the charlatan background. Third, choose the fire bolt cantrip.</p>
-			<h2>CLASS FEATURES</h2>
-			<p>As a factotum, you gain the following class features.</p>
-			<h5>HIT POINTS</h5>
-			<ul class="unstyled">
-				<li><strong>Hit Dice:</strong> 1d8 per factotum level</li>
-				<li><strong>Hit Points at 1st Level:</strong> 8 + your Constitution modifier</li>
-				<li><strong>Hit Points at Higher Levels:</strong> 1d8 (or 5) + your Constitution modifier per factotum level after 1st</li>
-			</ul>
-			<h5>PROFICIENCIES</h5>
-			<ul class="unstyled">
-				<li><strong>Armor:</strong> Light armor, shields</li>
-				<li><strong>Weapons:</strong> Simple weapons</li>
-				<li><strong>Tools:</strong> Thieves’ tools</li>
-			</ul>
-			<ul class="unstyled">
-				<li><strong>Saving Throws:</strong> Dexterity, Intelligence</li>
-				<li><strong>Skills:</strong> Choose any three</li>
-			</ul>
-			<h5>EQUIPMENT</h5>
-			<p>You start with the following equipment, in addition to the equipment granted by your background:</p>
-			<ul>
-				<li>(a) a shortbow and 20 arrows or (b) a mace</li>
-				<li>(a) a component pouch or (b) an arcane focus</li>
-				<li>(a) a scholar’s pack or (b) a dungeoneer’s pack</li>
-				<li>Studded leather armor, thieves’ tools, two daggers and a book of stories</li>
-			</ul>
-			<div element="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_INGENUITY" />
-			<div element="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_ARCANE_DILETTANTE" />
-			<div element="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_CUNNING_INSPIRATION" />
-			<div element="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_EXPERTISE" />
-			<div element="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_CUNNING_STRIKE" />
-			<div element="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_FACTOTUM_LORE" />
-			<div element="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_ABILITY_SCORE_IMPROVEMENT" />
-			<div element="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_OPPORTUNISTIC_PIETY" />
-			<div element="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_CUNNING_DEFENSE" />
-			<div element="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_CUNNING_SURGE" />
-			<div element="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_CUNNING_DODGE" />
-		</description><sheet action="" usage="" display="true"><description usage="" level="0">A flexible learner that has spent a lifetime studying famous adventurers and picking up a few of their skills.</description></sheet><rules><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_LIGHT_ARMOR" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_SHIELDS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_TOOL_PROFICIENCY_THIEVES_TOOLS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_DEXTERITY" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_INTELLIGENCE" level="0" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_INGENUITY" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_ARCANE_DILETTANTE" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_CUNNING_INSPIRATION" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_EXPERTISE" level="2" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_CUNNING_STRIKE" level="2" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_FACTOTUM_LORE" level="3" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_ABILITY_SCORE_IMPROVEMENT" level="4" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_OPPORTUNISTIC_PIETY" level="5" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_CUNNING_DEFENSE" level="6" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_CUNNING_SURGE" level="7" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_MUSG_CLASS_FEATURE_FACTOTUM_CUNNING_DODGE" level="11" requirements=""></grant></rules><setters><set name="short">A flexible learner that has spent a lifetime studying famous adventurers and picking up a few of their skills.</set><set name="hd">d8</set></setters></element><element name="Pugilist" type="Class" id="ID_DMSG_PUGL_CLASS_PUGILIST"><description usage="" level="0">
-			<p>Arrows rain down around her as she runs towards the hobgoblins. Desperate to close the distance, the half-orc fights through the sting of a dozen cuts to reach her foes. The pain only makes her stronger. As she descends on the snarling pack she swings wildly, knocking several hobgoblins off their feet and sending the rest scattering before her.</p>
-			<p class="indent">The human braces himself for the impact as the orc rushes him. Then the monster makes a mistake, telegraphing its next move, and that’s all the opening the human needs. He ducks beneath the orc’s wide swing then raises both hands high above his head and brings them down on the orc’s back, forcing the brute to the ground. The dwarf smiles broadly and chuckles as the petty noble raises his hand to strike him for the impudent remark. Quick as a flash, the dwarf shatters the bottle in his hand against the bar and brandishes it before the noble. The young dandy flinches, stumbles backward, and runs away as the dwarf turns back to the bar to order another round.</p>
-			<p class="indent">Wherever they come from, pugilists live a rough and tumble life that leaves them full of determination and reckless, either from overconfidence or desperation. In a fight they can channel this strength of character to dig deep and fight off foes with greater strength of numbers, arms, or armor than anyone else would think possible.</p>
-			<h4>SWAGGER FOR DAYS</h4>
-			<p>Pugilists unconsciously tap into their own inner strength in the form of moxie. This is not an esoteric or mystical energy that flows through the multiverse, but the result of determination forged over a lifetime of hardship with a never-say-die attitude. You can teach someone how to fight but you could never teach someone how to be a pugilist. The secret of mastering moxie doesn’t come from disciplined study or rigorous training, it comes from years of wanting and needing</p>
-			<h4>LIFE ON THE STREET</h4>
-			<p>Every city in the worlds of Dungeons and Dragons has its back alleys, its underground fighting rackets, its ghettos. The pugilists who live in these places don’t have time to consider the lofty ideals of philosophy or ponder the mysteries of the universe. The pugilists, growing up on the wrong side of the tracks, spend all their time chasing down their next meal or, if they’re fortunate enough to have that, their next drink, bedfellow, or flophouse.</p>
-			<p class="indent">For pugilists, becoming an adventurer might be the only way out of whatever miserable situation they’ve been stuck in since infancy. For others, getting lost out in the world is an escape from the tangled web of debt or enemies they’ve piled up. Other pugilists fight because it’s the only thing they know how to do. Whatever the reason for their adventuring, pugilists are as excited by the prospect of throwing punches as they are spending every last gold coin they earn.</p>
-			<h4>CREATING A PUGILIST</h4>
-			<p>As you build your pugilist, consider how you came to be a bare knuckle brawler. Did you learn to fight to defend yourself? Was scraping the natural result of your nose for trouble? Or did you learn to fight as a way of intimidating and controlling others? Were you fighting for the entertainment, or did you fight because you had to? Did you try to become a more traditional martial artist but just couldn’t hack it? Pugilists are a rowdy bunch that like to brag about how they learned to fight, so you better have a good story to tell.</p>
-			<p class="indent">What events in your life gave you the sheer determination and will that pugilists call on? Did you spend every day hustling on the street to make ends meet? Were you forgotten and ignored by your family? Were you an outsider in your community who had to constantly struggle against the ignorant stereotypes the people there had of you? The most important element of the pugilist is that they are driven. Once you have decided what events made you into the pugilist you are today, decide how that may shape the actions you take in the future.</p>
-			<h5>QUICK BUILD</h5>
-			<p>You can make a pugilist quickly by following these suggestions. First, make Strength your highest ability score, followed by Constitution. Second, choose the criminal or urchin background.</p>
-			<h3>CLASS FEATURES</h3>
-			<p>As a pugilist, you gain the following class features.</p>
+			<p>As a Gunslinger, you get the following class features.</p>
 			<h5>HIT POINTS</h5>
 			<p>
-				<span class="emphasis">Hit Dice:</span>1d8 per pugilist level<br />
-				<span class="emphasis">Hit Points at 1st Level:</span>8 + your Constitution modifier<br />
-				<span class="emphasis">Hit Points at Higher Levels:</span>1d8 (or 5) + your Constitution modifier per pugilist level after 1st<br />
-			</p>
-			<h5>PROFICIENCIES</h5>
-			<p>
-				<span class="emphasis">Armor:</span>Light armor<br />
-				<span class="emphasis">Weapons:</span>Simple weapons, improvised weapons, whip, hand crossbow<br />
-				<span class="emphasis">Tools:</span>Your choice of one artisan’s tools, gaming set or thieves’ tools<br />
-			</p>
-			<p>
-				<span class="emphasis">Saving Throws:</span>Strength, Constitution<br />
-				<span class="emphasis">Skills:</span>Choose two skills from Acrobatics, Athletics, Deception, Intimidation, Perception, Sleight of Hand and Stealth.<br />
-			</p>
-			<h5>EQUIPMENT</h5>
-			<p>You start with the following equipment, in addition to the equipment granted by your background:</p>
-			<ul>
-				<li> <i>(a)</i> leather armor or <i>(b)</i> any simple weapon</li>
-				<li> <i>(a)</i> a dungeoneer’s pack or <i>(b)</i> an explorer’s pack</li>
-				<li> <i>(a)</i> a set of artisan’s tools <i>(b)</i> a gaming set or <i>(c)</i> thieves’ tools</li>
-			</ul>
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_FISTICUFFS" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_IRONCHIN" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_MOXIE" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_STREETSMART" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_BLOODIEDUNOWNED" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_FIGHTCLUB" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_ABILITYSCOREIMPROVEMENT_PUGILIST" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_DIGDEEP" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_EXTRAATTACK" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_HAYMAKER" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_MOXIEFIST" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_FANCYFOOT" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_SHAKEOFF" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_DOWNNOTOUT" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_HARDKNOCK" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_RABBLEROUSER" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_UNBREAKABLE" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_HERCULEAN" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_FIGHTINGSPIRIT" />
-			<div element="ID_DMSG_PUGL_CLASS_FEATURE_PEAKCONDITION" />
-		</description><sheet action="" usage="" display="false"><description usage="" level="0">A streetfighter with swagger to spare.</description></sheet><rules><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_LIGHT_ARMOR" level="0" requirements="!ID_MULTICLASS_PUGILIST"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS" level="0" requirements="!ID_MULTICLASS_PUGILIST"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_WHIP" level="0" requirements="!ID_MULTICLASS_PUGILIST"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_CROSSBOW_HAND" level="0" requirements="!ID_MULTICLASS_PUGILIST"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_STRENGTH" level="0" requirements="!ID_MULTICLASS_PUGILIST"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_CONSTITUTION" level="0" requirements="!ID_MULTICLASS_PUGILIST"></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_FISTICUFFS" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_IRONCHIN" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_MOXIE" level="2" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_STREETSMART" level="2" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_BLOODIEDUNOWNED" level="3" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_FIGHTCLUB" level="3" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_ABILITYSCOREIMPROVEMENT_PUGILIST" level="4" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_DIGDEEP" level="4" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_EXTRAATTACK" level="5" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_HAYMAKER" level="5" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_MOXIEFIST" level="6" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_FANCYFOOT" level="7" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_SHAKEOFF" level="7" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_DOWNNOTOUT" level="9" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_HARDKNOCK" level="10" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_RABBLEROUSER" level="13" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_UNBREAKABLE" level="14" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_HERCULEAN" level="15" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_FIGHTINGSPIRIT" level="18" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_PUGL_CLASS_FEATURE_PEAKCONDITION" level="20" requirements=""></grant></rules><setters><set name="short">A streetfighter with swagger to spare.</set><set name="hd">d8</set></setters></element><element name="Cook" type="Class" id="ID_DMSG_TCC_CLASS_COOK"><description usage="" level="0">
-			<p>A half-orc throws a perfectly seasoned chicken leg at his dwarven friend, lands it directly in her mouth. As a horde of goblins charge the dwarf, she begins nibbling, her arms swell, and she swipes away three of the charging goblins with a single swipe of her shield. The half-orc wipes his greasy hands on his apron and smiles.</p>
-			<p class="indent">A halfling stares a dragon down over a mile of open field. As the dragon inhales deeply, she pulls out a roasted pepper and chomps down. She begins to sweat profusely. The dragon breathes fire, and the halfling charges straight on through.</p>
-			<p class="indent">A human mixes the contents of a boiling pot and looks around at all his friends, tired and spent, but he’ll see to it that that doesn’t last too long.</p>
-			<p class="indent">Cooks are the much-forgotten caretakers of every band of heroes, for a dragon-slaying cook can always die of hunger. Through tasty foods cooks strengthen their allies and debilitate their foes, commanding incredible control over any battle.</p>
-			<h4>FOOD AS A CRAFT</h4>
-			<p>Anyone can throw meat atop a fire, but only cooks can make that meat sing. Just as an artist can watch a child paint their house, so too does the cook look at the typical kitchen. They may laugh or smile or even snarl at the naivety presented, but they all recognize it as simple, basic. Meals are more than a collection of ingredients to a cook.</p>
-			<p class="indent">Every creature is suffused with the same magical energy that binds the multiverse together. Cooks have, knowingly or unknowingly, learned to tap into the magic of creatures through food, the source of their vitality, and cooks use their craft to shape it.</p>
-			<p class="indent">Their talents put cooks above the common people, and that’s where you’ll find them: Some traveling with adventurers who’ve wrestled with giants, giving those adventurers the power to succeed. Some see their bodies as test subjects, formulating dietary plans to improve themselves beyond the normal limits of their species. Some even find a way to take advantage of the senses, and create food that is not meant to improve but to hinder, to weaken, to destroy. Cooks understand how finely tuned a body is, especially once you get inside it, and they know how to make or break it.</p>
-			<h4>A LIFE OF SERVITUDE</h4>
-			<p>Cooks are on a constant search, a search for the perfect flavor, the best diet, the choicest ingredients. The meeker ones find employ with wealthy manors or in gritty taverns, but the ones with ambition know that their search could not end in a stuffy kitchen beholden to the bland tastes of big wigs and commoners.</p>
-			<p class="indent">Bold adventurers come with bold tongues, and they are the only hope of an end to a cook’s journey. True cooks offer their services only to those proven worthy of the food they will prepare. Adventurers rip the essence out of life, and cooks take that essence and throw it in their pot. Cooks will keep these adventurers alive and fed until their personal quests find completion.</p>
-			<h4>CREATING A COOK</h4>
-			<p>As you create your cook, keep in mind how your character got into the gourmet arts. Were they a hired hand that learned too quickly in the kitchen and developed an insatiable ego? Were they taught by a family member or a close friend and thus have a sentimental approach to their craft? Were they thrust into cooking out of necessity, living on their own in harsh conditions trying to squeeze vitality out of their barren surroundings?</p>
-			<p class="indent">A cook may begin their culinary studies in family kitchens or tiny inns, but they will soon realize that to progress means to move on from these dead ends. Most cooks will find employ with adventurers, allies that the cook can trust for safety and for feedback. Every great cook needs a couple of critics.</p>
-			<h5>QUICK BUILD</h5>
-			<p>You can make a cook quickly by following these suggestions. First, make Constitution your highest ability score, followed by Dexterity. Second, choose the Guild Artisan background. Third, choose the Hard Bread, Invigorating Juices, and Packed Protein morsels.</p>
-			<h3>CLASS FEATURES</h3>
-			<p>As a cook, you gain the following class features.</p>
-			<h5>HIT POINTS</h5>
-			<p>
-			<span class="emphasis">Hit Dice:</span>1d8 per class level
-			<br />
-			<span class="emphasis">Hit Points at 1st Level:</span>8 + your Constitution modefier
-			<br />
-			<span class="emphasis">Hit Points at Higher Levels:</span>1d8 (or 5) + your Constitution modifier per cook level after 1st
+				<span class="emphasis">Hit Dice:</span> 1d8 per gunslinger level<br />
+				<span class="emphasis">Hit Points at 1st Level:</span> 8 + your Constitution modifier<br />
+				<span class="emphasis">Hit Points at Higher Levels:</span> 1d8 (or 5) + your Constitution modifier per gunslinger level after 1st
 			<br />
 			</p>
 			<h5>PROFICIENCIES</h5>
 			<p>
-			<span class="emphasis">Armor:</span>Light armor, medium armor<br />
-			<span class="emphasis">Weapons:</span>Simple weapons, hand crossbows, longswords, rapiers, shortswords<br />
-			<span class="emphasis">Tools:</span>Cook’s Tools
+				<span class="emphasis">Armor:</span> Light armor, medium armor, shields<br />
+				<span class="emphasis">Weapons:</span> Longarms, sidearms, simple weapons, crossbows, shortswords, scimitars, rapiers, whips<br />
+				<span class="emphasis">Tools:</span>A  vehicle or musical instrument of your choice
 			</p>
 			<p>
-			<span class="emphasis">Saving Throws:</span>Constitution, Charisma<br />
-			<span class="emphasis">Skills:</span>Choose three from Animal Handling, Arcana, Athletics, Medicine, Nature, Performance, Persuasion, Sleight of Hand, and Survival
+				<span class="emphasis">Saving Throws:</span> Dexterity, Charisma<br />
+				<span class="emphasis">Skills:</span> Choose two from Arcana, Acrobatics, Animal Handling, History, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, or Survival
 			</p>
 			<h5>EQUIPMENT</h5>
 			<p>You start with the following equipment, in addition to the equipment granted by your background:</p>
 			<ul>
-				<li><i>(a)</i> a longsword or <i>(b)</i> a hand crossbow and 20 bolts</li>
-				<li><i>(a)</i> leather armor or <i>(b)</i> scale mail</li>
-				<li><i>(a)</i> two daggers or <i>(b)</i> two light hammers</li>
-				<li><i>(a)</i> an explorer’s pack or <i>(b)</i> a scholar’s pack</li>
-				<li>Cook’s Utensils and a Cook’s Bag</li>
+				<li> <i>(a)</i> scale mail or <i>(b)</i> leather, a flintlock pistol and 10 musketballs</li>
+				<li> <i>(a)</i> a wheellock gun and 20 musketballs, <i>(b)</i> a blunderbuss and 20 spreadshot rounds, or <i>(c)</i> a pepperbox and 20 musketballs</li>
+				<li> <i>(a)</i> two simple weapons, <i>(b)</i> a flintlock pistol and 10 musketballs, or <i>(c)</i> a shield</li>
+				<li> <i>(a)</i>a dungeoneer's pack, <i>(b)</i> an explorer's pack, or <i>(c)</i> a scholar's pack</li>
 			</ul>
-			<div element="ID_DMSG_TCC_CLASS_FEATURE_COOK_COOKS_BAG" />
-			<div element="ID_DMSG_TCC_CLASS_FEATURE_COOK_MORSEL" />
-			<div element="ID_DMSG_TCC_CLASS_FEATURE_COOK_SMELLING_SALTS" />
-			<div element="ID_DMSG_TCC_CLASS_FEATURE_COOK_EXPERTISE" />
-			<div element="ID_DMSG_TCC_CLASS_FEATURE_COOK_ARCHETYPE" />
-			<div element="ID_DMSG_TCC_CLASS_FEATURE_COOK_ABILITYSCOREIMPROVEMENT" />
-			<div element="ID_DMSG_TCC_CLASS_FEATURE_COOK_ROTUND_REFLECTION" />
-			<div element="ID_DMSG_TCC_CLASS_FEATURE_COOK_ORDER_UP" />
-			<div element="ID_DMSG_TCC_CLASS_FEATURE_COOK_IRON_STOMACH" />
-			<div element="ID_DMSG_TCC_CLASS_FEATURE_COOK_SOUL_OF_FOOD" />
-			<div element="ID_DMSG_TCC_CLASS_FEATURE_COOK_FULFILLING_MEAL" />
-			<div element="ID_DMSG_TCC_CLASS_FEATURE_COOK_LEFTOVERS"/>
-		</description><sheet action="" usage="" display="false"><description usage="" level="0">A perfectionist of the art of cooking.</description></sheet><rules><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_LIGHT_ARMOR" level="0" requirements="!ID_DMSG_TCC_MULTICLASS_COOK"></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_MEDIUM_ARMOR" level="0" requirements="!ID_DMSG_TCC_MULTICLASS_COOK"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS" level="0" requirements="!ID_DMSG_TCC_MULTICLASS_COOK"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_CROSSBOW_HAND" level="0" requirements="!ID_DMSG_TCC_MULTICLASS_COOK"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_LONGSWORD" level="0" requirements="!ID_DMSG_TCC_MULTICLASS_COOK"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_RAPIER" level="0" requirements="!ID_DMSG_TCC_MULTICLASS_COOK"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SHORTSWORD" level="0" requirements="!ID_DMSG_TCC_MULTICLASS_COOK"></grant><grant type="Proficiency" id="ID_PROFICIENCY_TOOL_PROFICIENCY_COOKS_UTENSILS" level="0" requirements="!ID_DMSG_TCC_MULTICLASS_COOK"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_CHARISMA" level="0" requirements="!ID_DMSG_TCC_MULTICLASS_COOK"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_CONSTITUTION" level="0" requirements="!ID_DMSG_TCC_MULTICLASS_COOK"></grant><grant type="Class Feature" id="ID_DMSG_TCC_CLASS_FEATURE_COOK_COOKS_BAG" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_TCC_CLASS_FEATURE_COOK_MORSEL" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_TCC_CLASS_FEATURE_COOK_SMELLING_SALTS" level="1" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_TCC_CLASS_FEATURE_COOK_EXPERTISE" level="2" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_TCC_CLASS_FEATURE_COOK_ARCHETYPE" level="3" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_TCC_CLASS_FEATURE_COOK_ABILITYSCOREIMPROVEMENT" level="4" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_TCC_CLASS_FEATURE_COOK_ROTUND_REFLECTION" level="5" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_TCC_CLASS_FEATURE_COOK_ORDER_UP" level="7" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_TCC_CLASS_FEATURE_COOK_IRON_STOMACH" level="9" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_TCC_CLASS_FEATURE_COOK_SOUL_OF_FOOD" level="15" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_TCC_CLASS_FEATURE_COOK_FULFILLING_MEAL" level="17" requirements=""></grant><grant type="Class Feature" id="ID_DMSG_TCC_CLASS_FEATURE_COOK_LEFTOVERS" level="20" requirements=""></grant></rules><setters><set name="short">A perfectionist of the art of cooking.</set><set name="hd">d8</set></setters></element><element name="Weaveshaper" type="Class" id="ID_GFP_WS_CLASS_WEAVESHAPER"><description usage="" level="0">
-			<p><em>An elf chants in an ancient library, listening to the whispers of the story stones around her. Ribbons of arcane energy form around her blades each time she cuts at the air, gathering her power in practice for what must be done.</em></p>
-			<p><em>A human man clad in red and black faces a massive golem of cloth and necromantic magic. He summons a strange sword to his hands while calling to the arcane eye bound upon his magical outfit. In a flash of light the outfit transforms into a suit of fantastical armor covered in blades. With incredible speed, he launches forward and lashes out at the nightmare with a barrage of attacks, cutting and cleaving.</em></p>
-			<p><em>A dwarf gestures, weaving a massive bladed mace from arcane thread as massive mechanical armor grows around her. The oncoming orcish horde heistates for just a moment, and that’s all the time she needs to break them.</em></p>
-			<p><em>A tiefling cloaked in darkness spins a web of shadowy string between his hands. As a tavern brawl begins, he stands and demands that the violent patrons take their fight elsewhere, coiling tentacles of dark shadowsilk writhing in the air around him. Frightened, the combatants quickly flee, never seeing the tiefling’s bladed cloak twitch ominously.</em></p>
-			<p>These are weaveshapers: warriors who pursue magical and martial perfection by creating powerful weapons called threadblades. By infusing their bodies with countless fragments of arcane energy from every school of magic, they strive for perfection through cunning artifice and martial study rather than introspective meditation or exploration of the more traditional arcane arts.</p>
-			<h4>WOVEN BLADES</h4>
-			<p>There is a certain power in harmony and unity between the arcane disciplines. Weaveshapers seek to harness this unity and instill within themselves the same eerie perfection. Thus, they train their bodies and minds to work in unison, learning to weave threads of arcane energy comprised of the many different strands of arcana.</p>
-			<p class="indent">The first act that defines the weaveshaper is the creation of a threadblade. By memorizing the complex gestures and mental states required to invoke arcane thread, the weaveshaper can create powerful weapons with strange and majestic forms. These weapons are known as threadblades, as they appear to be woven from strings of magic. The sharpened edges and eerie blades of these wicked tools are crafted by conjuring thin panes of raw force around compressed arcane thread, leading to colorful and powerful expressions of each weaveshaper’s personal style.</p>
-			<h4>SKIN AND SKEIN</h4>
-			<p>Once a weaveshaper masters the creation of their threadblade, the next step is the creation of an arcane infusion. By weaving arcane energy into their clothing and bodies, these magical warriors begin to ascend to a higher physical and mental state. The most common manifestation of this power is a set of remarkable garb, which layers over the weaveshaper, providing strength and durability through magical enhancement. Unlike monks, who harness the natural power of ki within themselves, weaveshapers rely on arcane mastery and knowledge to empower their bodies to the peak of perfection.</p>
-			<h4>PERSONAL TAPESTRIES</h4>
-			<p>Each weaveshaper has a unique taste and style, as all creative artists do, and so they learn to create mystical accessories to compliment their infusions and threadblades. These can manifest in a variety of ways, from sentient eyes of woven cloth or cloaks of living blades to massive mechanical armor and illusory tomes of arcana. The threadblade may be a masterwork that binds them, and infusion is an art often discussed, but conversation regarding these personal implements is rare by custom.</p>
-			<h4>UNIFIED PATTERNS</h4>
-			<p>Despite the varying threadblades, infusions, and tapestries of the weaveshapers, the methods for unleashing arcane might during combat is rigid, structured, and subject to much scholarly discussion. The arcane essence of a threadblade naturally aligns to a peculiar set of attacks, one following another to weave a resulting rush of magical energies. Some patterns empower the body of the weaveshaper, allowing one to strike with swiftness and surety, while others unleash elemental forces or conjure other weapons. Many weaveshapers say their study is merely scholastic, but the results in battle are unquestionable and undeniable.</p>
-			<h4>CREATING A WEAVESHAPER</h4>
-			<p>When creating a weaveshaper, consider how you came to adopt this rare skill. Most weaveshapers train under tutors, learn in academies dedicated to the arcane arts, or are taught by entities bound to them due to the strange loom of fate. Why did you choose to continue down this path instead of learning traditional magic, for which you obviously have the aptitude? Is it due to restrictions placed upon you by your culture or your family? Is it by personal choice, seeing the mundane arcane arts as beneath you, or beyond your grasp? Do you endeavor to study both, and have merely started your journey here? Regardless, the path you’ve chosen is one that must be tread with careful consideration.</p>
-			<h5>QUICK BUILD</h5>
-			<p>You can make a weaveshaper quickly by following these suggestions. First, make Dexterity your highest ability score, followed by Intelligence, since it is essential when using your pattern attacks and when casting the spells you gain later. Then, select the Scissorblade. Finally, choose a background that would present you with an opportunity to study the arcane arts.</p>
-			<h2>CLASS FEATURES</h2>
-			<p>As an weaveshaper, you gain the following class features.</p>
-			<h5 class="caption">HIT POINTS</h5>
-			<ul class="unstyled">
-				<li><strong>Hit Dice:</strong> 1d8 per weaveshaper level</li>
-				<li><strong>Hit Points at 1st Level:</strong> 8 + your Constitution modifier</li>
-				<li><strong>Hit Points at Higher Levels:</strong> 1d8 (or 8) + your Constitution modifier per weaveshaper level after 1st</li>
-			</ul>
-			<h5 class="caption">PROFICIENCIES</h5>
-			<ul class="unstyled mb">
-				<li><strong>Armor:</strong> None</li>
-				<li><strong>Weapons:</strong> Simple weapons, martial weapons</li>
-				<li><strong>Tools:</strong> Weaver’s tools and one stringed musical instrument</li>
-			</ul>
-			<ul class="unstyled">
-				<li><strong>Saving Throws:</strong> Dexterity and Intelligence</li>
-				<li><strong>Skills:</strong> Choose two from Acrobatics, Arcana, Athletics, Deception, Insight, and Sleight of Hand</li>
-			</ul>
-			<h5 class="caption">EQUIPMENT</h5>
-			<p>You start with the following equipment, in addition to the equipment granted by your background:</p>
-			<ul>
-				<li>(a) a scholar’s pack or (b) an explorer’s pack</li>
-				<li>a set of fine clothes</li>
-				<li>a set of weaver’s tools</li>
-			</ul>
-			<h5 class="caption">THE WEAVESHAPER</h5>
-			<table class="class-features">
-				<thead>
-					<tr><td class="col-5">Level</td><td class="left">Features</td><td class="col-20">Weave Tier</td></tr>
-				</thead>
-				<tr><td> 1st</td><td class="left">Threadblade, Infusion, Clothier’s Cut</td><td>-</td></tr>
-				<tr><td> 2nd</td><td class="left">Weave Finishers, Ribbon Cutter</td><td>1</td></tr>
-				<tr><td> 3rd</td><td class="left">Weaveshaper Tapestry, Renissance Regular</td><td>1</td></tr>
-				<tr><td> 4th</td><td class="left">Ability Score Improvement</td><td>2</td></tr>
-				<tr><td> 5th</td><td class="left">Shear Cut</td><td>2</td></tr>
-				<tr><td> 6th</td><td class="left">Tapestry Feature</td><td>2</td></tr>
-				<tr><td> 7th</td><td class="left">Shuttle Step, Renissance Regular Improvement</td><td>3</td></tr>
-				<tr><td> 8th</td><td class="left">Ability Score Improvement</td><td>3</td></tr>
-				<tr><td> 9th</td><td class="left">Cycle Weave</td><td>3</td></tr>
-				<tr><td>10th</td><td class="left">Tapestry Feature</td><td>4</td></tr>
-				<tr><td>11th</td><td class="left">Cunning Blade</td><td>4</td></tr>
-				<tr><td>12th</td><td class="left">Ability Score Improvement</td><td>4</td></tr>
-				<tr><td>13th</td><td class="left">Indivisible</td><td>5</td></tr>
-				<tr><td>14th</td><td class="left">Tapestry Feature</td><td>5</td></tr>
-				<tr><td>15th</td><td class="left">Ribbon Shears</td><td>5</td></tr>
-				<tr><td>16th</td><td class="left">Ability Score Improvement</td><td>6</td></tr>
-				<tr><td>17th</td><td class="left">Perfect Infusion</td><td>6</td></tr>
-				<tr><td>18th</td><td class="left">Woven Soul</td><td>6</td></tr>
-				<tr><td>19th</td><td class="left">Ability Score Improvement</td><td>7</td></tr>
-				<tr><td>20th</td><td class="left">Finishing Touch</td><td>7</td></tr>
-			</table>
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_THREADBLADE" />
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_INFUSION" />
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_CLOTHIERS_CUT" />
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_WEAVE_FINISHERS" />
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_RIBBON_CUTTER" />
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_WEAVESHAPER_TAPESTRY" />
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_RENAISSANCE_REGULAR" />
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_ABILITY_SCORE_IMPROVEMENT" />
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_SHEAR_CUT" />
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_SHUTTLE_STEP" />
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_CYCLE_WEAVE" />
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_CUNNING_BLADE" />
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_INDIVISIBLE" />
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_RIBBON_SHEARS" />
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_PERFECT_PATTERN" />
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_WOVEN_SOUL" />
-			<div element="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_FINISHING_TOUCH" />
-		</description><sheet action="" usage="" display="false"></sheet><rules><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_MARTIAL_WEAPONS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_TOOL_PROFICIENCY_WEAVERS_TOOLS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_DEXTERITY" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_INTELLIGENCE" level="0" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_THREADBLADE" level="1" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_INFUSION" level="1" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_CLOTHIERS_CUT" level="1" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_WEAVE_FINISHERS" level="2" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_RIBBON_CUTTER" level="2" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_WEAVESHAPER_TAPESTRY" level="3" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_RENAISSANCE_REGULAR" level="3" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_ABILITY_SCORE_IMPROVEMENT" level="4" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_SHEAR_CUT" level="5" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_SHUTTLE_STEP" level="6" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_CYCLE_WEAVE" level="9" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_CUNNING_BLADE" level="11" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_INDIVISIBLE" level="13" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_RIBBON_SHEARS" level="15" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_PERFECT_PATTERN" level="18" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_WOVEN_SOUL" level="18" requirements=""></grant><grant type="Class Feature" id="ID_GFP_WS_CLASS_FEATURE_WEAVESHAPER_FINISHING_TOUCH" level="20" requirements=""></grant></rules><setters><set name="hd">d8</set><set name="short">A warrior who pursue magical and martial perfection by creating powerful weapons called threadblades.</set></setters></element><element name="Artificer" type="Class" id="ID_WOTC_ERLW_CLASS_ARTIFICER"><description usage="" level="0">
+			<div element="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_THE_TONGUE" />
+			<div element="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_QUICKDRAW" />
+			<div element="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_GUN_STUNTS" />
+			<div element="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_KNACK" />
+			<div element="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_FIGHTING_STYLE" />
+			<div element="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_SLINGERS_TRAIL" />
+			<div element="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_LUCKY_ITEM" />
+			<div element="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_ABILITYSCOREIMPROVEMENT" />
+			<div element="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_EXTRA_ATTACK" />
+			<div element="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_BULLET_TIME" />
+			<div element="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_EVASION" />
+			<div element="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_SHOOTOUT_SENSE" />
+			<div element="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_OVERWATCH" />
+			<div element="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_FINAL_STAND" />
+			<div element="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_SUPERHUMAN_REFLEXES" />
+			<div element="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_GUNSLINGING_SUPREME" />
+		</description><sheet action="" usage="" display="false"><description usage="" level="0">A master of firearms, showing their power with skill and style.</description></sheet><rules><grant type="Grants" id="ID_RDDT_AA_GRANTS_ARCANEARTILLERY_REQUIREMENT" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_LIGHT_ARMOR" level="0" requirements="!ID_RDDT_AA_MULTICLASS_GUNSLINGER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_MEDIUM_ARMOR" level="0" requirements="!ID_RDDT_AA_MULTICLASS_GUNSLINGER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_SHIELDS" level="0" requirements="!ID_RDDT_AA_MULTICLASS_GUNSLINGER"></grant><grant type="Proficiency" id="ID_RDDT_AA_PROFICIENCY_WEAPON_PROFICIENCY_LONGARMS" level="0" requirements="!ID_RDDT_AA_MULTICLASS_GUNSLINGER"></grant><grant type="Proficiency" id="ID_RDDT_AA_PROFICIENCY_WEAPON_PROFICIENCY_SIDEARMS" level="0" requirements="!ID_RDDT_AA_MULTICLASS_GUNSLINGER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS" level="0" requirements="!ID_RDDT_AA_MULTICLASS_GUNSLINGER"></grant><grant type="Proficiency" id="ID_INTERNAL_PROFICIENCY_GROUP_CROSSBOWS" level="0" requirements="!ID_RDDT_AA_MULTICLASS_GUNSLINGER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SHORTSWORD" level="0" requirements="!ID_RDDT_AA_MULTICLASS_GUNSLINGER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SCIMITAR" level="0" requirements="!ID_RDDT_AA_MULTICLASS_GUNSLINGER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_RAPIER" level="0" requirements="!ID_RDDT_AA_MULTICLASS_GUNSLINGER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_WHIP" level="0" requirements="!ID_RDDT_AA_MULTICLASS_GUNSLINGER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_DEXTERITY" level="0" requirements="!ID_RDDT_AA_MULTICLASS_GUNSLINGER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_CHARISMA" level="0" requirements="!ID_RDDT_AA_MULTICLASS_GUNSLINGER"></grant><grant type="Class Feature" id="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_THE_TONGUE" level="1" requirements=""></grant><grant type="Class Feature" id="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_QUICKDRAW" level="1" requirements=""></grant><grant type="Class Feature" id="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_GUN_STUNTS" level="1" requirements=""></grant><grant type="Class Feature" id="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_KNACK" level="2" requirements=""></grant><grant type="Class Feature" id="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_FIGHTING_STYLE" level="2" requirements=""></grant><grant type="Class Feature" id="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_SLINGERS_TRAIL" level="3" requirements=""></grant><grant type="Class Feature" id="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_LUCKY_ITEM" level="3" requirements=""></grant><grant type="Class Feature" id="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_ABILITYSCOREIMPROVEMENT" level="4" requirements=""></grant><grant type="Class Feature" id="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_EXTRA_ATTACK" level="5" requirements=""></grant><grant type="Class Feature" id="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_BULLET_TIME" level="6" requirements=""></grant><grant type="Class Feature" id="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_EVASION" level="7" requirements=""></grant><grant type="Class Feature" id="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_SHOOTOUT_SENSE" level="11" requirements=""></grant><grant type="Class Feature" id="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_OVERWATCH" level="14" requirements=""></grant><grant type="Class Feature" id="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_FINAL_STAND" level="15" requirements=""></grant><grant type="Class Feature" id="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_SUPERHUMAN_REFLEXES" level="18" requirements=""></grant><grant type="Class Feature" id="ID_RDDT_AA_CLASS_FEATURE_GUNSLINGER_GUNSLINGING_SUPREME" level="20" requirements=""></grant></rules><setters><set name="short">A master of firearms, showing their power with skill and style.</set><set name="hd">d8</set></setters></element><element name="Artificer" type="Class" id="ID_WOTC_ERLW_CLASS_ARTIFICER"><description usage="" level="0">
 			<p>Masters of unlocking magic in everyday objects, artificers are supreme inventors. They see magic as a complex system waiting to be decoded and controlled. Artificers use tools to channel arcane power, crafting magical objects. To cast a spell, an artificer could use alchemist’s supplies to create a potent elixir, calligrapher’s supplies to inscribe a sigil of power on an ally’s armor, or tinker’s tools to craft a temporary charm. The magic of artificers is tied to their tools and their talents.</p>
 			<h4>ARCANE SCIENCE</h4>
 			<p>In the world of Eberron, arcane magic has been harnessed as a form of science and deployed throughout society. Artificers reflect this development. Their knowledge of magical devices, and their ability to infuse mundane items with magic, allows Eberron’s most miraculous projects to continue.</p>
@@ -1016,6 +547,7 @@
 			<div element="ID_WOTC_PHB_CLASS_FEATURE_CLERIC_SPELLCASTING_CLERIC" />
 			<div element="ID_WOTC_PHB_CLASS_FEATURE_CLERIC_DIVINEDOMAIN" />
 			<div element="ID_WOTC_PHB_CLASS_FEATURE_CLERIC_CHANNELDIVINITY" />
+			<div element="ID_WOTC_PHB_CLASS_FEATURE_CLERIC_CHANNELDIVINITY_TURN_UNDEAD" />
 			<div element="ID_WOTC_PHB_CLASS_FEATURE_CLERIC_ABILITYSCOREIMPROVEMENT_CLERIC" />
 			<div element="ID_WOTC_PHB_CLASS_FEATURE_CLERIC_DESTROYUNDEAD" />
 			<div element="ID_WOTC_PHB_CLASS_FEATURE_CLERIC_DIVINEINTERVENTION" />
@@ -1697,7 +1229,7 @@
 				<li>(a) a scholar’s pack or (b) an explorer’s pack</li>
 				<li>A spellbook</li>
 			</ul>
-			<h5 class="caption">THE </h5>
+			<h5 class="caption">THE WIZARD</h5>
 			<table class="class-features">
 				<thead>
 					<tr><td class="col-5">Level</td><td class="left">Features</td><td class="col-10">Cantrips Known</td><td>1st</td><td>2nd</td><td>3rd</td><td>4th</td><td>5th</td><td>6th</td><td>7th</td><td>8th</td><td>9th</td></tr>
@@ -1729,4 +1261,284 @@
 			<div element="ID_WOTC_PHB_CLASS_FEATURE_WIZARD_ABILITYSCOREIMPROVEMENT_WIZARD" />
 			<div element="ID_WOTC_PHB_CLASS_FEATURE_WIZARD_SPELL_MASTERY" />
 			<div element="ID_WOTC_PHB_CLASS_FEATURE_WIZARD_SIGNATURE_SPELLS" />
-		</description><sheet action="" usage="" display="false"><description usage="" level="0">A scholarly magic-user capable of manipulating the structures of reality.</description></sheet><rules><grant type="Grants" id="ID_INTERNAL_GRANT_MULTICLASS_SPELLCASTING_SLOTS_FULL" level="0" requirements="ID_INTERNAL_GRANT_MULTICLASS"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_DAGGER" level="0" requirements="!ID_WOTC_PHB_MULTICLASS_WIZARD"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_DART" level="0" requirements="!ID_WOTC_PHB_MULTICLASS_WIZARD"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SLING" level="0" requirements="!ID_WOTC_PHB_MULTICLASS_WIZARD"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_QUARTERSTAFF" level="0" requirements="!ID_WOTC_PHB_MULTICLASS_WIZARD"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_CROSSBOW_LIGHT" level="0" requirements="!ID_WOTC_PHB_MULTICLASS_WIZARD"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_INTELLIGENCE" level="0" requirements="!ID_WOTC_PHB_MULTICLASS_WIZARD"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_WISDOM" level="0" requirements="!ID_WOTC_PHB_MULTICLASS_WIZARD"></grant><grant type="Class Feature" id="ID_WOTC_PHB_CLASS_FEATURE_WIZARD_SPELLCASTING_WIZARD" level="1" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_PHB_CLASS_FEATURE_WIZARD_ARCANE_RECOVERY" level="1" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_PHB_CLASS_FEATURE_WIZARD_ARCANE_TRADITION" level="2" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_PHB_CLASS_FEATURE_WIZARD_ABILITYSCOREIMPROVEMENT_WIZARD" level="4" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_PHB_CLASS_FEATURE_WIZARD_SPELL_MASTERY" level="18" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_PHB_CLASS_FEATURE_WIZARD_SIGNATURE_SPELLS" level="20" requirements=""></grant></rules><setters><set name="short">A scholarly magic-user capable of manipulating the structures of reality.</set><set name="hd">d6</set></setters></element></SourceInfo>
+		</description><sheet action="" usage="" display="false"><description usage="" level="0">A scholarly magic-user capable of manipulating the structures of reality.</description></sheet><rules><grant type="Grants" id="ID_INTERNAL_GRANT_MULTICLASS_SPELLCASTING_SLOTS_FULL" level="0" requirements="ID_INTERNAL_GRANT_MULTICLASS"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_DAGGER" level="0" requirements="!ID_WOTC_PHB_MULTICLASS_WIZARD"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_DART" level="0" requirements="!ID_WOTC_PHB_MULTICLASS_WIZARD"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SLING" level="0" requirements="!ID_WOTC_PHB_MULTICLASS_WIZARD"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_QUARTERSTAFF" level="0" requirements="!ID_WOTC_PHB_MULTICLASS_WIZARD"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_CROSSBOW_LIGHT" level="0" requirements="!ID_WOTC_PHB_MULTICLASS_WIZARD"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_INTELLIGENCE" level="0" requirements="!ID_WOTC_PHB_MULTICLASS_WIZARD"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_WISDOM" level="0" requirements="!ID_WOTC_PHB_MULTICLASS_WIZARD"></grant><grant type="Class Feature" id="ID_WOTC_PHB_CLASS_FEATURE_WIZARD_SPELLCASTING_WIZARD" level="1" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_PHB_CLASS_FEATURE_WIZARD_ARCANE_RECOVERY" level="1" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_PHB_CLASS_FEATURE_WIZARD_ARCANE_TRADITION" level="2" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_PHB_CLASS_FEATURE_WIZARD_ABILITYSCOREIMPROVEMENT_WIZARD" level="4" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_PHB_CLASS_FEATURE_WIZARD_SPELL_MASTERY" level="18" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_PHB_CLASS_FEATURE_WIZARD_SIGNATURE_SPELLS" level="20" requirements=""></grant></rules><setters><set name="short">A scholarly magic-user capable of manipulating the structures of reality.</set><set name="hd">d6</set></setters></element><element name="Artificer" type="Class" id="ID_WOTC_TCOE_CLASS_ARTIFICER"><description usage="" level="0">
+			<p>Masters of invention, artificers use ingenuity and magic to unlock extraordinary capabilities in objects. They see magic as a complex system waiting to be decoded and then harnessed in their spells and inventions. You can find everything you need to play one of these inventors in the next few sections.</p>
+			<p class="indent">Artificers use a variety of tools to channel their arcane power. To cast a spell, an artificer might use alchemist’s supplies to create a potent elixir, calligrapher’s supplies to inscribe a sigil of power, or tinker’s tools to craft a temporary charm. The magic of artificers is tied to their tools and their talents, and few other characters can produce the right tool for a job as well as an artificer.</p>
+			<h4>ARTIFICERS IN MANY WORLDS</h4>
+			<p>Throughout the D&amp;D multiverse, artificers create inventions and magic items of peace and war. Many lives have been brightened or saved because of the work of kind artificers, but countless lives have also been lost because of the mass destruction unleashed by certain artificers’ creations.</p>
+			<p class="indent">In the Forgotten Realms, the island of Lantan is home to many artificers, and in the world of Dragon­lance, tinker gnomes are often members of this class. The strange technologies in the Barrier Peaks of the world of Greyhawk have inspired some folk to walk the path of the artificer, and in Mystara, various nations employ artificers to keep airships and other wondrous devices operational.</p>
+			<p class="indent">Artificers in the City of Sigil share discoveries from throughout the multiverse, and from there, the gnome artificer Vi runs a cosmos-spanning business that hires adventurers to fix problems that others deem unfixable. In Vi’s home world, Eberron, magic is harnessed as a form of science and deployed throughout society, largely as a result of the wondrous ingenuity of artificers.</p>
+			<h4>CREATING A ARTIFICER</h4>
+			<p>To create an artificer, consult the following subsections, which give you hit points, proficiencies, and starting equipment. Then look at the Artificer table to see which features you get at each level. The descriptions of those features appear in the “Artificer Features” section.</p>
+			<h5>QUICK BUILD</h5>
+			<p>You can make an artificer quickly by following these suggestions. First, put your highest ability score in Intelligence, followed by Constitution or Dexterity. Second, choose the guild artisan background.</p>
+			<h2>CLASS FEATURES</h2>
+			<p>As an Artificer, you gain the following class features.</p>
+			<h5>HIT POINTS</h5>
+			<ul class="unstyled">
+				<li><strong>Hit Dice:</strong> 1d8 per artificer level</li>
+				<li><strong>Hit Points at 1st Level:</strong> 8 + your Constitution modifier</li>
+				<li><strong>Hit Points at Higher Levels:</strong> 1d8 (or 5) + your Constitution modifier per artificer level after 1st</li>
+			</ul>
+			<h5>PROFICIENCIES</h5>
+			<ul class="unstyled">
+				<li><strong>Armor:</strong> Light armor, medium armor, shields</li>
+				<li><strong>Weapons:</strong> Simple weapons</li>
+				<li><strong>Tools:</strong> Thieves’ tools, tinker’s tools, one type of artisan’s tools of your choice</li>
+			</ul>
+			<ul class="unstyled">
+				<li><strong>Saving Throws:</strong> Constitution, Intelligence</li>
+				<li><strong>Skills:</strong> Choose two from Arcana, History, Investigation, Medicine, Nature, Perception, Sleight of Hand</li>
+			</ul>
+			<h5>EQUIPMENT</h5>
+			<p>You start with the following equipment, in addition to the equipment granted by your background:</p>
+			<ul>
+				<li>any two simple weapons of your choice</li>
+				<li>a light crossbow and 20 bolts</li>
+				<li>your choice of studded leather armor or scale mail</li>
+				<li>thieves’ tools and a dungeoneer’s pack</li>
+			</ul>
+			<p class="indent">If you forgo this starting equipment, as well as the items offered by your background, you start with 5d4 x 10 gp to buy your equipment.</p>
+			<h5 class="caption">THE ARTIFICER</h5>
+			<table class="class-features">
+				<thead>
+					<tr><td class="col-5">Level</td><td class="col-30 left">Features</td><td class="col-10">Infusions Known</td><td class="col-10">Infused Items</td><td class="col-10">Cantrips Known</td><td>1st</td><td>2nd</td><td>3rd</td><td>4th</td><td>5th</td></tr>
+				</thead>
+				<tr><td> 1st</td><td class="left">Magical Tinkering, Spellcasting</td><td> —</td><td>—</td><td>2</td><td>2</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+				<tr><td> 2nd</td><td class="left">Infuse Item</td><td> 4</td><td>2</td><td>2</td><td>2</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+				<tr><td> 3rd</td><td class="left">Artificer Specialist, The Right Tool for the Job</td><td> 4</td><td>2</td><td>2</td><td>3</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+				<tr><td> 4th</td><td class="left">Ability Score Improvement</td><td> 4</td><td>2</td><td>2</td><td>4</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+				<tr><td> 5th</td><td class="left">Artificer Specialist feature</td><td> 4</td><td>2</td><td>2</td><td>4</td><td>2</td><td>—</td><td>—</td><td>—</td></tr>
+				<tr><td> 6th</td><td class="left">Tool Expertise</td><td> 6</td><td>3</td><td>2</td><td>4</td><td>2</td><td>—</td><td>—</td><td>—</td></tr>
+				<tr><td> 7th</td><td class="left">Flash of Genius</td><td> 6</td><td>3</td><td>2</td><td>4</td><td>3</td><td>—</td><td>—</td><td>—</td></tr>
+				<tr><td> 8th</td><td class="left">Ability Score Improvement</td><td> 6</td><td>3</td><td>2</td><td>4</td><td>3</td><td>—</td><td>—</td><td>—</td></tr>
+				<tr><td> 9th</td><td class="left">Artificer Specialist feature</td><td> 6</td><td>3</td><td>2</td><td>4</td><td>3</td><td>2</td><td>—</td><td>—</td></tr>
+				<tr><td>10th</td><td class="left">Magic Item Adept</td><td> 8</td><td>4</td><td>3</td><td>4</td><td>3</td><td>2</td><td>—</td><td>—</td></tr>
+				<tr><td>11th</td><td class="left">Spell-Storing Item</td><td> 8</td><td>4</td><td>3</td><td>4</td><td>3</td><td>3</td><td>—</td><td>—</td></tr>
+				<tr><td>12th</td><td class="left">Ability Score Improvement</td><td> 8</td><td>4</td><td>3</td><td>4</td><td>3</td><td>3</td><td>—</td><td>—</td></tr>
+				<tr><td>13th</td><td class="left">—</td><td> 8</td><td>4</td><td>3</td><td>4</td><td>3</td><td>3</td><td>1</td><td>—</td></tr>
+				<tr><td>14th</td><td class="left">Magic Item Savant</td><td>10</td><td>5</td><td>4</td><td>4</td><td>3</td><td>3</td><td>1</td><td>—</td></tr>
+				<tr><td>15th</td><td class="left">Artificer Specialist feature</td><td>10</td><td>5</td><td>4</td><td>4</td><td>3</td><td>3</td><td>2</td><td>—</td></tr>
+				<tr><td>16th</td><td class="left">Ability Score Improvement</td><td>10</td><td>5</td><td>4</td><td>4</td><td>3</td><td>3</td><td>2</td><td>—</td></tr>
+				<tr><td>17th</td><td class="left">—</td><td>10</td><td>5</td><td>4</td><td>4</td><td>3</td><td>3</td><td>3</td><td>1</td></tr>
+				<tr><td>18th</td><td class="left">Magic Item Master</td><td>12</td><td>6</td><td>4</td><td>4</td><td>3</td><td>3</td><td>3</td><td>1</td></tr>
+				<tr><td>19th</td><td class="left">Ability Score Improvement</td><td>12</td><td>6</td><td>4</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td></tr>
+				<tr><td>20th</td><td class="left">Soul of Artifice</td><td>12</td><td>6</td><td>4</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td></tr>
+			</table>
+			<div class="sidebar">
+				<h5>OPTIONAL RULE: FIREARM PROFICIENCY</h5>
+				<p>The secrets of creating and operating gunpowder weapons have been discovered in various corners of the D&amp;D multiverse. If your Dungeon Master uses the rules on firearms in chapter 9 of the Dungeon Master’s Guide and your artificer has been exposed to the operation of such weapons, your artificer is proficient with them.</p>
+			</div>
+			<div element="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_MAGICAL_TINKERING" />
+			<div element="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_SPELLCASTING" />
+			<div element="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_INFUSE_ITEM" />
+			<div element="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_ARTIFICER_SPECIALIST" />
+			<div element="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_THE_RIGHT_TOOL_FOR_THE_JOB" />
+			<div element="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_ABILITY_SCORE_IMPROVEMENT" />
+			<div element="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_TOOL_EXPERTISE" />
+			<div element="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_FLASH_OF_GENIUS" />
+			<div element="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_MAGIC_ITEM_ADEPT" />
+			<div element="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_SPELL_STORING_ITEM" />
+			<div element="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_MAGIC_ITEM_SAVANT" />
+			<div element="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_MAGIC_ITEM_MASTER" />
+			<div element="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_SOUL_OF_ARTIFICE" />
+		</description><sheet action="" usage="" display="false"></sheet><rules><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_LIGHT_ARMOR" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_MEDIUM_ARMOR" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_SHIELDS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS" level="0" requirements="!ID_WOTC_TCOE_MULTICLASS_ARTIFICER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_TOOL_PROFICIENCY_THIEVES_TOOLS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_TOOL_PROFICIENCY_TINKERS_TOOLS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_WOTC_DMG_PROFICIENCY_WEAPON_FIREARMS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_CONSTITUTION" level="0" requirements="!ID_WOTC_TCOE_MULTICLASS_ARTIFICER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_INTELLIGENCE" level="0" requirements="!ID_WOTC_TCOE_MULTICLASS_ARTIFICER"></grant><grant type="Class Feature" id="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_MAGICAL_TINKERING" level="1" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_SPELLCASTING" level="1" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_INFUSE_ITEM" level="2" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_ARTIFICER_SPECIALIST" level="3" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_THE_RIGHT_TOOL_FOR_THE_JOB" level="3" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_ABILITY_SCORE_IMPROVEMENT" level="4" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_TOOL_EXPERTISE" level="6" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_FLASH_OF_GENIUS" level="7" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_MAGIC_ITEM_ADEPT" level="10" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_SPELL_STORING_ITEM" level="11" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_MAGIC_ITEM_SAVANT" level="14" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_MAGIC_ITEM_MASTER" level="18" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_TCOE_CLASS_FEATURE_ARTIFICER_SOUL_OF_ARTIFICE" level="20" requirements=""></grant></rules><setters><set name="short">Masters of invention, artificers use ingenuity and magic to unlock extraordinary capabilities in objects.</set><set name="hd">d8</set></setters></element><element name="Mystic" type="Class" id="ID_WOTC_UA20170313_CLASS_MYSTIC"><description usage="" level="0">
+			<p>A human clad in simple robes walks along a forest path. A gang of goblins emerges from the brush, arrows trained on him, their smiles wide at their good fortune of finding such easy prey for the legion’s slave pens. Their smiles turn to shrieks of terror as the traveler grows to giant size and leaps at them, his staff now a deadly cudgel.</p>
+			<p class="indent">The militia forms in ranks to prepare for the orcs’ charge. The growling brutes howl their battle cries and surge forward. To their surprise, the human rabble holds its ground and fights with surprising ferocity. Suddenly, mindless fear clings to the orcs’ minds and they, despite facing a far inferior foe, turn and run, never noticing the calm half-elf standing amid the militia and directing its efforts.</p>
+			<p class="indent">Baron von Ludwig was always proud of his grand library. Little did he know that each evening, a gnome laden with blank scrolls slipped past his guards each night and dutifully copied his most heavily guarded archives. When the duke’s men arrived to arrest him for dealing with demons, he never guessed that the gnome scribe traveling with them had spent more time in his keep than he had over the past year.</p>
+			<p class="indent">These heroes are all mystics, followers of a strange and mysterious form of power. Mystics shun the world to turn their eyes inward, mastering the full potential of their minds and exploring their psyches before turning to face the world. Mystics are incredibly rare, and most prefer to keep the nature of their abilities secret. Using their inner, psychic strength, they can read minds, fade into invisibility, transform their bodies into living iron, and seize control of the physical world and bend it to their will.</p>
+			<h4>HERMITS AND OUTCASTS</h4>
+			<p>Mystics are loners. Most discover the secrets of their power through vague references in tomes of lore or by ingratiating themselves to a master of the power.</p>
+			<p class="indent">In order to master their power, mystics must first master themselves. They spend months and years in quiet contemplation, exploring their minds and leaving nothing uncovered. During this time, they shun society and typically live as hermits at the edge of society. A mystic who studied under a master worked as a virtual slave, toiling away at mundane tasks in return for the occasional lesson or cryptic insight</p>
+			<p class="indent">When mystics finally master their power, they return to the world to broaden their horizons and practice their craft. Some mystics prefer to remain isolated, but those who become adventurers aren’t content to remain on the fringe of the world.</p>
+			<h4>ECCENTRIC MINDS</h4>
+			<p>In order to maintain the strict discipline and intense self-knowledge needed to tap into their power, mystics develop a variety of practices to keep their focus sharp.</p>
+			<p class="indent">These practices are reflected in taboos and quirks, strange little behaviors that govern a mystic’s actions. These quirks are oaths or behavioral tics that help keep mystics in the proper frame of mind while maintaining perfect control over their minds and bodies.</p>
+			<p class="indent">While these taboos are harmless, they help cast mystics as outsiders. Few feel accepted by society, and fewer still care to become integrated with it. To mystics, the life of the mind is where they feel most at home.</p>
+			<h5>Selecting Quirks</h5>
+			<p>To add some texture to your mystic, consider the quirks your character has acquired. These behaviors have no game effect, but your character might become irritated or upset if forced to break them. They’re a great roleplaying tool to add character to the game. You can roll on or pick from the table below, or create your own quirks. Aim to create two quirks, to give them more of a chance to come into play. Finally, consider why your character chose these behaviors. What do they say about your character’s personality or background? Are they based on a specific incident or a belief?</p>
+			<h5>Mystic Quirks</h5>
+			<table>
+				<thead>
+					<tr><td>d20</td><td>Quirk</td></tr>
+				</thead>
+				<tr><td>1</td><td>You never cut your hair.</td></tr>
+				<tr><td>2</td><td>You refuse to wear clothes of a specific color.</td></tr>
+				<tr><td>3</td><td>You never say your name.</td></tr>
+				<tr><td>4</td><td>You never wear footwear.</td></tr>
+				<tr><td>5</td><td>You always wear a mask.</td></tr>
+				<tr><td>6</td><td>You dye your hair bright blue or green.</td></tr>
+				<tr><td>7</td><td>You pick a new day every day.</td></tr>
+				<tr><td>8</td><td>You never immerse yourself in water.</td></tr>
+				<tr><td>9</td><td>You sleep on bare earth.</td></tr>
+				<tr><td>10</td><td>You never consume alcohol.</td></tr>
+				<tr><td>11</td><td>You wear a veil to conceal your face.</td></tr>
+				<tr><td>12</td><td>You always wear a specific piece of clothing.</td></tr>
+				<tr><td>13</td><td>You refuse to light fires.</td></tr>
+				<tr><td>14</td><td>You refuse to write things down, instead using pictograms.</td></tr>
+				<tr><td>15</td><td>You never sit on a chair, preferring to stand or sit on the floor.</td></tr>
+				<tr><td>16</td><td>You never answer to any name but your own.</td></tr>
+				<tr><td>17</td><td>You write down the name of each creature you slay, and name ones that are unnamed.</td></tr>
+				<tr><td>18</td><td>You consume only water and raw vegetables.</td></tr>
+				<tr><td>19</td><td>You spend any money you earn within 1 week of gaining it.</td></tr>
+				<tr><td>20</td><td>You often speak to an imaginary companion, and act only with its blessing.</td></tr>
+			</table>         
+			<h4>CREATING A MYSTIC</h4>
+			<p>When creating a mystic, consider your character’s background. How did you become a mystic? What first drew you to this practice? Are you self-taught, or did you have a master? If you had a master, what is that relationship like?</p>
+			<p class="indent">Consider also why you returned to the world from your hermitage. Did you leave someone or something behind when you took up your studies? Are you driven by revenge or some other motivation?</p>
+			<h5>QUICK BUILD</h5>
+			<p>You can make a mystic quickly by following these suggestions. First, make Intelligence your highest ability score, followed by Dexterity or Constitution. Second, choose the hermit background.</p>
+			<h3>CLASS FEATURES</h3>
+			<p>As a mystic, you gain the following class features.</p>
+			<h5>HIT POINTS</h5>
+			<p>
+			<span class="emphasis">Hit Dice:</span>1d8 per mystic level<br/>
+			<span class="emphasis">Hit Points at 1st Level:</span>8 + your Constitution modifier<br/>
+			<span class="emphasis">Hit Points at Higher Levels:</span>1d8 (or 5) + your Constitution modifier per mystic level after 1st<br/>
+			</p>
+			<h5>PROFICIENCIES</h5>
+			<p>
+				<b>Armor:</b> Light armor<br/>
+				<b>Weapons:</b> Simple weapons<br/>
+				<b>Tools:</b> None<br/>
+				<b>Saving Throws:</b> Intelligence, Wisdom<br/>
+				<b>Skills:</b> Choose two skills from Arcana, History, Insight, Medicine, Nature, Perception, and Religion<br/>
+			</p>
+			<h5>EQUIPMENT</h5>
+			<p>You start with the following equipment, in addition to the equipment granted by your background:</p>
+			<ul>
+				<li><i>(a)</i> a spear or <i>(b)</i> a mace</li>
+				<li><i>(a)</i> leather armor or <i>(b)</i> studded leather armor</li>
+				<li><i>(a)</i> a light crossbow and 20 bolts or <i>(b)</i> any simple weapon</li>
+				<li><i>(a)</i> a scholar's pack or <i>(b)</i> an explorer's pack</li>
+			</ul>
+			<p>Alternatively, you can ignore the equipment here and in your background, and buy 5d4 × 10 gp worth of equipment from chapter 5 in the <i>Player’s Handbook.</i></p>
+			<div element="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_PSIONICS" />
+			<div element="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_MYSTIC_ORDER" />
+			<div element="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_MYSTICAL_RECOVERY" />
+			<div element="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_TELEPATHY" />
+			<div element="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_ABILITY_SCORE_IMPROVEMENT_MYSTIC" />
+			<div element="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_STRENGTH_OF_MIND" />
+			<div element="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_POTENT_PSIONICS" />
+			<div element="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_CONSUMPTIVE_POWER" />
+			<div element="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_PSIONIC_MASTERY" />
+			<div element="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_PSIONIC_BODY" />
+		</description><sheet action="" usage="" display="false"><description usage="" level="0">A follower of a strange and mysterious form of power.</description></sheet><rules><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_LIGHT_ARMOR" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_INTELLIGENCE" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_WISDOM" level="0" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_PSIONICS" level="1" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_MYSTIC_ORDER" level="1" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_MYSTICAL_RECOVERY" level="2" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_TELEPATHY" level="2" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_ABILITY_SCORE_IMPROVEMENT_MYSTIC" level="4" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_STRENGTH_OF_MIND" level="4" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_POTENT_PSIONICS" level="8" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_CONSUMPTIVE_POWER" level="10" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_PSIONIC_MASTERY" level="11" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20170313_CLASS_FEATURE_MYSTIC_PSIONIC_BODY" level="20" requirements=""></grant></rules><setters><set name="short">A follower of a strange and mysterious form of power.</set><set name="hd">d8</set></setters></element><element name="Artificer" type="Class" id="ID_WOTC_UA20190228_CLASS_ARTIFICER"><description usage="" level="0">
+			<p>Masters of unlocking magic in everyday objects, artificers are supreme inventors. They see magic as a complex system waiting to be decoded and controlled. Artificers use tools to channel arcane power, crafting temporary and permanent magical objects. To cast a spell, an artificer could use alchemist’s supplies to create a potent elixir, calligrapher’s supplies to inscribe a sigil of power on an ally’s armor, or tinker’s tools to craft a temporary charm. The magic of artificers is tied to their tools and their talents.</p>
+			<h4>ARCANE SCIENCE</h4>
+			<p>In the world of Eberron, arcane magic has been harnessed as a form of science and deployed throughout society. Artificers reflect this development. Their knowledge of magical devices, and their ability to infuse mundane items with magical energy, allows the grand magical projects of Eberron to continue running.</p>
+			<p class="indent">During the Last War, artificers were marshaled on a massive scale. Many lives were saved because of the inventions of brave artificers, but also countless lives were lost because of the mass destruction that artificers’ creations unleashed.</p>
+			<h4>SEEKERS OF NEW LORE</h4>
+			<p>Nothing excites an artificer quite like uncovering a new metal or discovering a source of elemental energy. In artificer circles, new inventions and strange discoveries create the most excitement. Artificers who wish to make a mark must find something fresh, rather than uncover someone else’s work.</p>
+			<p class="indent">This drive for novelty pushes artificers to become adventurers. Eberron’s main travel routes and populated regions have long since been explored. Thus, artificers take to the edge of civilization in hopes of making the next great discovery in arcane research.</p>
+			<h4>CREATING AN ARTIFICER</h4>
+			<p>When creating an artificer character, think about your character’s background and drive for adventure. Does the character have a rival? What is the character’s relationship with the artisan or artificer who taught the basics of the craft? Talk to your DM about the role played by artificers in the campaign, and what sort of organizations and NPCs you might have ties to.</p>
+			<h5>QUICK BUILD</h5>
+			<p>You can make an artificer quickly by following these suggestions. First, put your highest ability score in Intelligence, followed by Constitution or Dexterity. Second, choose the guild artisan background.</p>
+			<h2>CLASS FEATURES</h2>
+			<p>As an artificer, you gain the following class features.</p>
+			<h5>HIT POINTS</h5>
+			<ul class="unstyled">
+				<li><strong>Hit Dice:</strong> 1d8 per artificer level</li>
+				<li><strong>Hit Points at 1st Level:</strong> 8 + your Constitution modifier</li>
+				<li><strong>Hit Points at Higher Levels:</strong> 1d8 (or 5) + your Constitution modifier per artificer level after 1st</li>
+			</ul>
+			<h5>PROFICIENCIES</h5>
+			<ul class="unstyled">
+				<li><strong>Armor:</strong> Light armor, medium armor, shields</li>
+				<li><strong>Weapons:</strong> Simple weapons, hand crossbows, heavy crossbows</li>
+				<li><strong>Tools:</strong> Thieves’ tools, tinker’s tools, one type of artisan’s tools of your choice</li>
+			</ul>
+			<p></p>
+			<ul class="unstyled">
+				<li><strong>Saving Throws:</strong> Constitution, Intelligence</li>
+				<li><strong>Skills:</strong> Choose two from Arcana, History, Investigation, Medicine, Nature, Perception, Sleight of Hand</li>
+			</ul>
+			<h5>EQUIPMENT</h5>
+			<p>You start with the following equipment, in addition to the equipment granted by your background:</p>
+			<ul>
+				<li>any two simple weapons</li>
+				<li>a light crossbow and 20 bolts</li>
+				<li>(<i>a</i>) studded leather armor or (<i>b</i>) scale mail</li>
+				<li>thieves’ tools and a dungeoneer’s pack</li>
+			</ul>
+			<p class="indent">If you forgo this starting equipment, as well as the items offered by your background, you start with 5d4 × 10 gp to buy your equipment.</p>
+			<div class="sidebar">
+				<h5>OPTIONAL RULE: FIREARM PROFICIENCY</h5>
+				<p>The creation and operation of gunpowder weapons have been discovered in various corners of the D&amp;D multiverse. If your Dungeon Master uses the rules on firearms in the Dungeon Master’s Guide (p. 267) and your artificer has been exposed to the operation of such weapons, your artificer is proficient with them.</p>
+			</div>
+			<div element="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_MAGICAL_TINKERING" />
+			<div element="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_SPELLCASTING" />
+			<div element="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_INFUSE_ITEM" />
+			<div element="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_ARTIFICER_SPECIALIST" />
+			<div element="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_TOOL_EXPERTISE" />
+			<div element="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_ABILITY_SCORE_IMPROVEMENT" />
+			<div element="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_ARCANE_ARMAMENT" />
+			<div element="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_THE_RIGHT_CANTRIP_FOR_THE_JOB" />
+			<div element="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_SPELL_STORING_ITEM" />
+			<div element="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_SOUL_OF_ARTIFICE" />
+		</description><sheet action="" usage="" display="false"></sheet><rules><grant type="Grants" id="ID_INTERNAL_GRANT_MULTICLASS_SPELLCASTING_SLOTS_HALF" level="0" requirements="ID_INTERNAL_GRANT_MULTICLASS"></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_LIGHT_ARMOR" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_MEDIUM_ARMOR" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_SHIELDS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS" level="0" requirements="!ID_WOTC_UA20190228_MULTICLASS_ARTIFICER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_CROSSBOW_HAND" level="0" requirements="!ID_WOTC_UA20190228_MULTICLASS_ARTIFICER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_CROSSBOW_HEAVY" level="0" requirements="!ID_WOTC_UA20190228_MULTICLASS_ARTIFICER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_TOOL_PROFICIENCY_THIEVES_TOOLS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_TOOL_PROFICIENCY_TINKERS_TOOLS" level="0" requirements=""></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_CONSTITUTION" level="0" requirements="!ID_WOTC_UA20190228_MULTICLASS_ARTIFICER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_INTELLIGENCE" level="0" requirements="!ID_WOTC_UA20190228_MULTICLASS_ARTIFICER"></grant><grant type="Class Feature" id="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_MAGICAL_TINKERING" level="1" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_SPELLCASTING" level="1" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_INFUSE_ITEM" level="2" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_ARTIFICER_SPECIALIST" level="3" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_TOOL_EXPERTISE" level="3" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_ABILITY_SCORE_IMPROVEMENT" level="4" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_ARCANE_ARMAMENT" level="5" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_THE_RIGHT_CANTRIP_FOR_THE_JOB" level="10" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_SPELL_STORING_ITEM" level="18" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA20190228_CLASS_FEATURE_ARTIFICER_SOUL_OF_ARTIFICE" level="20" requirements=""></grant></rules><setters><set name="hd">d8</set><set name="short">Masters of unlocking magic in everyday objects, artificers are supreme inventors.</set></setters></element><element name="Artificer" type="Class" id="ID_WOTC_UA_CLASS_ARTIFICER"><description usage="" level="0">
+            <p>A gnome sits hunched over a workbench, carefully using needle and thread to wave runes into a leather satchel. The bag shudders as she completes her work, and a sudden, loud pop echoes through the room as a portal to an extra-dimensional space springs to being in the bag's interior. She beams with pride at her newly crafted <em>bag of holding.</em></p>
+            <p class="indent">A troll growls in hunger as it looms over a dwarf, who slides a long, metal tube from a holster at his belt. With a thunderous roar, a gout of flame erupts from the tube, and the troll's growls turn into shrieks of panic as it turns to flee.</p>
+            <p class="indent">An elf scrambles up the castle's wall, Baron von Hendriks' men close behind her. As she clambers over the battlements, she reaches into her satchel, pulls out three vials, mixes their contents into a small leather bag, and flings it at her pursuers. The bag bursts at their feet, trapping them in a thick, black glue as she makes her escape.</p>
+            <p class="indent">Makers of magic-infused objects, artificers are defined by their inventive nature. Like wizards, they see magic as a complex system waiting to be decoded and controlled through a combination of thorough study and investigation. Artificers, though, focus on creating marvelous new magical objects. Spells are often too ephemeral and temporary for their tastes. Instead, they seek to craft durable, useful items.</p>
+            <h4>CUNNING INVENTORS</h4>
+            <p>Every artificer is defined by a specific craft. Artificers see mastering the basic methods of a craft as the first step to true progress, the invention of new methods and approaches. Some artificers are engineers, students of invention and warfare who craft deadly firearms that they can augment with magic. Other artificers are alchemists. Using their knowledge of magic and various exotic ingredients, they create potions and draughts to aid them on their adventures. Alchemy and engineering are the two most common areas of study for artificers, but others do exist.</p>
+            <p class="indent">All artificers are united by their curiosity and inventive nature. To an artificer, magic is an evolving art with a leading edge of discovery and mastery that pushes further ahead with each passing year. Artificers value novelty and discovery. This penchant pushes them to seek a life of adventure. A hidden ruin might hold a forgotten magic item or a beautifully crafted mirror perfect for magical enhancement. Artificers win respect and renown among their kind by uncovering new lore or inventing new methods of creation.</p>
+            <h4>INTENSE RIVALRIES</h4>
+            <p>The artificers' drive to invent and expand their knowledge creates an intense drive to uncover new magic discoveries. An artificer who hears news of a newly discovered magic item must act fast to get it before any rivals do. Good-aligned artificers recover items on adventures or offer gold or wondrous items to those who possess items they are keen to own. Evil ones have no problem committing crimes to claim what they want.</p>
+            <p class="indent">Almost every artificer has at least one rival, someone whom they seek to outdo at every turn. By the same token, artificers with similar philosophies and theories band together into loose guilds. They share their discoveries and work together to verify their theories and keep ahead of their rivals.</p>
+            <h4>CREATING AN ARTIFICER</h4>
+            <p>When creating an artificer character, think about your character's background and drive for adventure. Does the character have a rival? What is the character's relationship with the artisan or artificer who taught the basics of the craft? Talk to your DM about the role played by artificers in the campaign, and what sort of organizations and NPCs you might have ties to.</p>
+            <h4>QUICK BUILD</h4>
+            <p>You can make an artificer quickly by following these suggestions. First, put your highest ability score in Intelligence, followed by Constitution or Dexterity. Second, choose the guild artisan background.</p>
+            <h3>CLASS FEATURES</h3>
+            <p>As an artificer, you gain the following class features.</p>
+            <h5>HIT POINTS</h5>
+            <p>
+                <span class="emphasis">Hit Dice:</span>1d8 per artificer level
+                <br />
+                <span class="emphasis">Hit Points at 1st Level:</span>8 + your Constitution modifier
+                <br />
+                <span class="emphasis">Hit Points at Higher Levels:</span>1d8 (or 5) + your Constitution modifier per blood hunter level after 1st
+            </p>
+            <h5>PROFICIENCIES</h5>
+            <p>
+                <span class="emphasis">Armor:</span>Light armor and medium armor
+                <br />
+                <span class="emphasis">Weapons:</span>Simple weapons
+                <br />
+                <span class="emphasis">Tools:</span>Thieves’ tools, two other tools of your choice
+            </p>
+            <p>
+                <span class="emphasis">Saving Throws:</span>Constitution, Intelligence
+                <br />
+                <span class="emphasis">Skills:</span>Choose three from: Arcana, Deception, History, Investigation, Medicine, Nature, Religion, Sleight of Hand
+            </p>
+            <h5>EQUIPMENT</h5>
+            <p>You start with the following equipment, in addition to the equipment granted by your background:</p>
+            <ul>
+                <li>
+                    <i>(a)</i> a handaxe and a light hammer or
+                    <i>(b)</i> any two simple weapons
+                </li>
+                <li>
+                    <i>(a)</i> a light crossbow and 20 bolts
+                </li>
+                <li>
+                    <i>(a)</i> scale mail or
+                    <i>(b)</i> studded leather armor
+                </li>
+                <li>thieves' tools and a dungeoneer's pack</li>
+            </ul>
+            <div element="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_ARTIFICER_SPECIALIST" />
+            <div element="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_MAGIC_ITEM_ANALYSIS" />
+            <div element="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_TOOL_EXPERTISE" />
+            <div element="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_WONDROUS_INVENTION" />
+            <div element="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_SPELLCASTING" />
+            <div element="ID_WOTC_UA_CLASS_FEATURE_ABILITYSCOREIMPROVEMENT_ARTIFICER" />
+            <div element="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_INFUSE_MAGIC" />
+            <div element="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_SUPERIOR_ATTUNEMENT" />
+            <div element="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_MECHANICAL_SERVANT" />
+            <div element="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_SOUL_OF_ARTIFICE" />
+        </description><sheet action="" usage="" display="false"><description usage="" level="0">An inventor who seeks to merge magic, metal, and wood.</description></sheet><rules><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_LIGHT_ARMOR" level="0" requirements="!ID_WOTC_UA_MULTICLASS_ARTIFICER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_ARMOR_PROFICIENCY_MEDIUM_ARMOR" level="0" requirements="!ID_WOTC_UA_MULTICLASS_ARTIFICER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS" level="0" requirements="!ID_WOTC_UA_MULTICLASS_ARTIFICER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_TOOL_PROFICIENCY_THIEVES_TOOLS" level="0" requirements="!ID_WOTC_UA_MULTICLASS_ARTIFICER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_CONSTITUTION" level="0" requirements="!ID_WOTC_UA_MULTICLASS_ARTIFICER"></grant><grant type="Proficiency" id="ID_PROFICIENCY_SAVINGTHROW_INTELLIGENCE" level="0" requirements="!ID_WOTC_UA_MULTICLASS_ARTIFICER"></grant><grant type="Class Feature" id="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_ARTIFICER_SPECIALIST" level="1" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_MAGIC_ITEM_ANALYSIS" level="1" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_TOOL_EXPERTISE" level="2" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_WONDROUS_INVENTION" level="2" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_SPELLCASTING" level="3" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA_CLASS_FEATURE_ABILITYSCOREIMPROVEMENT_ARTIFICER" level="4" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_INFUSE_MAGIC" level="4" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_SUPERIOR_ATTUNEMENT" level="5" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_MECHANICAL_SERVANT" level="6" requirements=""></grant><grant type="Class Feature" id="ID_WOTC_UA_CLASS_FEATURE_ARTIFICER_SOUL_OF_ARTIFICE" level="20" requirements=""></grant></rules><setters><set name="short">An inventor who seeks to merge magic, metal, and wood.</set><set name="hd">d8</set><set name="sourceUrl">http://dnd.wizards.com/articles/unearthed-arcana/artificer</set></setters></element></SourceInfo>

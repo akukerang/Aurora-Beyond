@@ -1,6 +1,6 @@
-<SourceInfo><element name="Giff" type="Language" id="ID_DMSG_MUSG_LANGUAGE_GIFF"><description usage="" level="0">
-			<p>Typically spoken by giffs.</p>
-		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Kraul" type="Language" id="ID_GGTR_LANGUAGE_KRAUL"><description usage="" level="0">
+<SourceInfo><element name="Astran" type="Language" id="ID_BDPC_LANGUAGE_ASTRAN"><description usage="" level="0">
+            <p>Typically spoken by Astrans.</p>
+        </description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Astran</set><set name="script">Alien Script</set></setters></element><element name="Kraul" type="Language" id="ID_GGTR_LANGUAGE_KRAUL"><description usage="" level="0">
 			<p>Typically spoken by Kraul.</p>
 		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="standard">true</set><set name="speakers">Kraul</set><set name="script">Kraul</set></setters></element><element name="Loxodon" type="Language" id="ID_GGTR_LANGUAGE_LOXODON"><description usage="" level="0">
 			<p>Typically spoken by Loxodons.</p>
@@ -12,17 +12,7 @@
 			<p>Typically spoken by Sphinxes.</p>
 		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="standard">true</set><set name="speakers">Sphinxes</set><set name="script"></set></setters></element><element name="Vedalken" type="Language" id="ID_GGTR_LANGUAGE_VEDALKEN"><description usage="" level="0">
 			<p>Typically spoken by Vedalken.</p>
-		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="standard">true</set><set name="speakers">Vedalken</set><set name="script">Vedalken</set></setters></element><element name="Ankeshelian" type="Language" id="ID_KBP_MWB_LANGUAGE_ANKESHELIAN"><description usage="" level="0">
-			<p>A dead human language, more than 3,000 years old, whose runes and glyphs are still used in magical writing today.</p>
-		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Illyrian" type="Language" id="ID_KBP_MWB_LANGUAGE_ILLYRIAN"><description usage="" level="0">
-			<p>An archaic language, rarely used outside the court of Illyria and among nobles, and now outlawed in the Dragon Empire’s new province of Rumela. Those who speak it gain +2 to Diplomacy in the Seven Cities 1/day, since it is considered a sign of noble status and personal tragedy.</p>
-		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Morphoi" type="Language" id="ID_KBP_MWB_LANGUAGE_MORPHOI"><description usage="" level="0">
-			<p>The language of the Western Ocean and most aquatic races.</p>
-		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Northern Tongue" type="Language" id="ID_KBP_MWB_LANGUAGE_NORTHERN_TONGUE"><description usage="" level="0">
-			<p>Also called the Rune Tongue or Giantish. A human language deeply related to Dwarvish and sharing many loan words.</p>
-		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Vos’Ghaen" type="Language" id="ID_KBP_MWB_LANGUAGE_VOSGHAEN"><description usage="" level="0">
-			<p>An ancient human tongue, related to Ankeshelian. Speakers of Vos’ghaen are often wizards and masters of glyph magic.</p>
-		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Aarakocra" type="Language" id="ID_LANGUAGE_AARAKOCRA"><description usage="" level="0">
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="standard">true</set><set name="speakers">Vedalken</set><set name="script">Vedalken</set></setters></element><element name="Aarakocra" type="Language" id="ID_LANGUAGE_AARAKOCRA"><description usage="" level="0">
 			<p>Typically spoken by Aarakocra.</p>
 		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Aarakocra</set></setters></element><element name="Abyssal" type="Language" id="ID_LANGUAGE_ABYSSAL"><description usage="" level="0">
 			<p>Typically spoken by demons.</p>
@@ -43,8 +33,8 @@
 		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="standard">true</set><set name="speakers">Elves</set><set name="script">Elvish</set></setters></element><element name="Giant" type="Language" id="ID_LANGUAGE_GIANT"><description usage="" level="0">
 			<p>Typically spoken by ogres and giants.</p>
 		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="standard">true</set><set name="speakers">Ogres, giants</set><set name="script">Dwarvish</set></setters></element><element name="Gith" type="Language" id="ID_LANGUAGE_GITH"><description usage="" level="0">
-      <p>Typically spoken by githyanki and githzerai.</p>
-    </description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Githyanki and githzerai</set></setters></element><element name="Gnomish" type="Language" id="ID_LANGUAGE_GNOMISH"><description usage="" level="0">
+			<p>Typically spoken by githyanki and githzerai.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Githyanki and githzerai</set></setters></element><element name="Gnomish" type="Language" id="ID_LANGUAGE_GNOMISH"><description usage="" level="0">
 			<p>Typically spoken by gnomes.</p>
 		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="standard">true</set><set name="speakers">Gnomes</set><set name="script">Dwarvish</set></setters></element><element name="Goblin" type="Language" id="ID_LANGUAGE_GOBLIN"><description usage="" level="0">
 			<p>Typically spoken by goblinoids.</p>
@@ -111,16 +101,44 @@
 			<p>Typically spoken by yeti.</p>
 		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters></setters></element><element name="Grung" type="Language" id="ID_OGA_LANGUAGE_GRUNG"><description usage="" level="0">
 			<p>Typically spoken by Grung.</p>
-		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Grung</set><set name="script">Grung</set></setters></element><element name="Daelkyr" type="Language" id="ID_WOTC_ERLW_LANGUAGE_DAELKYR"><description usage="" level="0">
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Grung</set><set name="script">Grung</set></setters></element><element name="Netherese" type="Language" id="ID_WOTC_ALSOH_LANGUAGE_NETHERESE"><description usage="" level="0">
+			<p>Typically spoken by inhabitants of Netheril.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Netheril</set><set name="script"></set></setters></element><element name="Minion" type="Language" id="ID_WOTC_DPM_LANGUAGE_MINION"><description usage="" level="0">
+			<p>Typically spoken by minions.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="monster">true</set><set name="speakers">Minions</set><set name="script"></set><set name="sourceUrl">https://media.wizards.com/2018/dnd/dragon/21/DRA21_minions.pdf</set></setters></element><element name="Daelkyr" type="Language" id="ID_WOTC_ERLW_LANGUAGE_DAELKYR"><description usage="" level="0">
 			<p>Mainly spoken by aberrations and denizens of Khyber.</p>
 		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set></setters></element><element name="Quori" type="Language" id="ID_WOTC_ERLW_LANGUAGE_QUORI"><description usage="" level="0">
 			<p>Mainly spoken by inspired, kalashtar, and quori.</p>
 		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set></setters></element><element name="Riedran" type="Language" id="ID_WOTC_ERLW_LANGUAGE_RIEDRAN"><description usage="" level="0">
 			<p>Mainly spoken by the people of Sarlona.</p>
-		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="standard">true</set></setters></element><element name="Leonin" type="Language" id="ID_WOTC_MOOT_LANGUAGE_LEONIN"><description usage="" level="0">
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="standard">true</set></setters></element><element name="Ziklight" type="Language" id="ID_WOTC_MCV1_LANGUAGE_ZIKLIGHT"><description usage="" level="0">
+			<p>Typically spoken by clockwork horrors.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="monster">true</set><set name="speakers">Clockwork Horrors</set><set name="script"></set></setters></element><element name="Endspeech" type="Language" id="ID_WOTC_MCV3_LANGUAGE_ENDSPEECH"><description usage="" level="0">
+			<p>Typically spoken by endermen.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="monster">true</set><set name="speakers">Endermen</set><set name="script"></set></setters></element><element name="Leonin" type="Language" id="ID_WOTC_MOOT_LANGUAGE_LEONIN"><description usage="" level="0">
 			<p>Typically spoken by leonin.</p>
 		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="standard">true</set><set name="speakers">Leonin</set><set name="script">Common</set></setters></element><element name="Thieves’ Cant" type="Language" id="ID_WOTC_PHB_LANGUAGE_THIEVES_CANT"><description usage="" level="0">
 			<p>A secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves’ cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly.</p>
-		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="secret">true</set><set name="speakers">Rogues</set></setters></element><element name="Netherese" type="Language" id="ID_WOTC_ROD_LANGUAGE_NETHERESE"><description usage="" level="0">
-			<p>Typically spoken by inhabitants of Netheril.</p>
-		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Netheril</set><set name="script"></set></setters></element></SourceInfo>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="secret">true</set><set name="speakers">Rogues</set></setters></element><element name="Aven" type="Language" id="ID_WOTC_PSA_LANGUAGE_AVEN"><description usage="" level="0">
+			<p>The language of the Aven.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Aven</set><set name="script">Aven</set></setters></element><element name="Khenra" type="Language" id="ID_WOTC_PSA_LANGUAGE_KHENRA"><description usage="" level="0">
+			<p>The language of the Khenra.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Khenra</set><set name="script">Khenra</set></setters></element><element name="Minotaur" type="Language" id="ID_WOTC_PSA_LANGUAGE_MINOTAUR"><description usage="" level="0">
+            <p>Typically spoken by minotaurs.</p>
+        </description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Minotaurs</set></setters></element><element name="Naga" type="Language" id="ID_WOTC_PSA_LANGUAGE_NAGA"><description usage="" level="0">
+			<p>Typically spoken by Nagas.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Nagas</set><set name="script">Naga</set></setters></element><element name="Keldon" type="Language" id="ID_WOTC_PSD_LANGUAGE_KELDON"><description usage="" level="0">
+			<p>A language common to the land of Keld used mostly by the Keldon Humans.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Humans</set><set name="script">Humans</set></setters></element><element name="Siren" type="Language" id="ID_WOTC_PSI_LANGUAGE_SIREN"><description usage="" level="0">
+			<p>The language of the Siren race from Ixalan.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Siren</set><set name="script">Siren</set></setters></element><element name="Vampire" type="Language" id="ID_WOTC_PSI_LANGUAGE_VAMPIRE"><description usage="" level="0">
+			<p>The language of the Vampire race from Zendikar and Ixalan.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Vampire</set><set name="script">Vampire</set></setters></element><element name="Vedalken" type="Language" id="ID_WOTC_PSK_LANGUAGE_VEDALKEN"><description usage="" level="0">
+			<p>The Vedalken language is renowned for its technical treatises and its catalogs of knowledge about the natural world and the aether that pervades it.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Vedalken</set></setters></element><element name="Kor" type="Language" id="ID_WOTC_PSZ_LANGUAGE_KOR"><description usage="" level="0">
+			<p>The silent language of the Kor.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Kor</set><set name="script">Kor</set></setters></element><element name="Merfolk" type="Language" id="ID_WOTC_PSZ_LANGUAGE_MERFOLK"><description usage="" level="0">
+			<p>The language of the Merfolk race from Zendikar.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Merfolk</set><set name="script">Merfolk</set></setters></element><element name="Minotaur" type="Language" id="ID_WOTC_UA20180514_LANGUAGE_MINOTAUR"><description usage="" level="0">
+			<p>Typically spoken by minotaurs.</p>
+		</description><sheet action="" usage="" display="false"></sheet><rules></rules><setters><set name="exotic">true</set><set name="speakers">Minotaurs</set></setters></element></SourceInfo>
