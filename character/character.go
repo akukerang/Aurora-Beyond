@@ -1324,6 +1324,15 @@ func contains(list []string, item string) bool {
 	return false
 }
 
+func containsEqual(list []string, item string) bool {
+	for _, v := range list {
+		if v == item {
+			return true
+		}
+	}
+	return false
+}
+
 func (character *Character) setSkills(characterInfo *characterInfo) error {
 	skillTable := map[string]Skill{
 		"ID_PROFICIENCY_SKILL_ACROBATICS": {
@@ -1558,6 +1567,34 @@ func (character *Character) setSavingThrows(characterInfo *characterInfo) error 
 		savingThrows[ability] = temp // set skill to true
 	}
 	character.SavingThrows = make(map[string]Skill)
+
+	abilityList := []string{
+		"strength:save:misc",
+		"dexterity:save:misc",
+		"constitution:save:misc",
+		"intelligence:save:misc",
+		"wisdom:save:misc",
+		"charisma:save:misc",
+	}
+
+	for name, statValue := range characterInfo.Stats {
+		if containsEqual(abilityList, name) {
+			parts := strings.Split(name, ":")
+			ability := parts[0]
+			statType := parts[2]
+			ability = "ID_PROFICIENCY_SAVINGTHROW_" + strings.ToUpper(ability)
+			if statType == "misc" {
+				value, err := strconv.Atoi(statValue)
+				if err != nil {
+					fmt.Println("error converting stat value to int:", err)
+				} else {
+					temp := savingThrows[ability]
+					temp.Mod += value
+					savingThrows[ability] = temp
+				}
+			}
+		}
+	}
 
 	for _, value := range savingThrows { // set skill modifiers, check for proficiency
 		mod := character.AbilityScore[value.Ability].Mod
