@@ -537,6 +537,19 @@ func getDeepestLevel(elements element, feats *[]source.FeatDetail, level int) {
 		*feats = append(*feats, temp)
 
 	} else {
+		id := ""
+		if elements.ID == "" {
+			id = elements.Registered
+		} else {
+			id = elements.ID
+		}
+		temp := source.FeatDetail{
+			Type:  elements.Type,
+			Name:  elements.Name,
+			ID:    id,
+			Level: level,
+		}
+		*feats = append(*feats, temp)
 		for _, element := range elements.Elements {
 			getDeepestLevel(element, feats, level)
 		}
@@ -1302,6 +1315,15 @@ func (character *Character) setSpeed(characterInfo *characterInfo) error {
 	return nil
 }
 
+func contains(list []string, item string) bool {
+	for _, v := range list {
+		if strings.Contains(item, v) {
+			return true
+		}
+	}
+	return false
+}
+
 func (character *Character) setSkills(characterInfo *characterInfo) error {
 	skillTable := map[string]Skill{
 		"ID_PROFICIENCY_SKILL_ACROBATICS": {
@@ -1414,11 +1436,60 @@ func (character *Character) setSkills(characterInfo *characterInfo) error {
 		},
 	}
 
-	for _, skill := range characterInfo.SkillProf { // Gets proficiency from proficiency list
+	// Gets proficiency from proficiency list
+	for _, skill := range characterInfo.SkillProf {
 		temp := Skill{}
 		temp = skillTable[skill]
 		temp.Proficient = true
 		skillTable[skill] = temp // set skill to true
+	}
+	skillList := []string{
+		"acrobatics",
+		"animal handling",
+		"arcana",
+		"athletics",
+		"deception",
+		"history",
+		"insight",
+		"intimidation",
+		"investigation",
+		"medicine",
+		"nature",
+		"perception",
+		"performance",
+		"persuasion",
+		"religion",
+		"sleight of hand",
+		"stealth",
+		"survival",
+	}
+
+	// Checks stats for skill mods
+	for name, statValue := range characterInfo.Stats {
+		if contains(skillList, name) {
+			parts := strings.Split(name, ":")
+			skill := parts[0]
+			statType := parts[1]
+			skill = strings.ReplaceAll(skill, " ", "_")
+			skill = "ID_PROFICIENCY_SKILL_" + strings.ToUpper(skill)
+			if statType == "proficiency" {
+				temp := skillTable[skill]
+				fmt.Println(skill)
+				temp.Proficient = true
+				skillTable[skill] = temp
+			} else if statType == "misc" {
+				value, err := strconv.Atoi(statValue)
+				if err != nil {
+					fmt.Println("error converting stat value to int:", err)
+				} else {
+					temp := skillTable[skill]
+					temp.Mod += value
+					skillTable[skill] = temp
+				}
+			}
+
+		}
+
 	}
 
 	// Check for stealth disadvantage
@@ -1433,7 +1504,7 @@ func (character *Character) setSkills(characterInfo *characterInfo) error {
 			mod += characterInfo.ProfBonus // add proficiency bonus
 		}
 		tempSkill := value
-		tempSkill.Mod = mod
+		tempSkill.Mod += mod
 		character.Skills[value.Name] = tempSkill
 	}
 	return nil
@@ -1503,10 +1574,29 @@ func (character *Character) setSavingThrows(characterInfo *characterInfo) error 
 }
 
 func (character *Character) setInitiative(characterInfo *characterInfo) error {
+	var initBase int
+	var err error
+	// check stats
+	for key, stat := range characterInfo.Stats {
+		if key == "initiative" {
+			initBase, err = strconv.Atoi(stat)
+			if err != nil {
+				initBase = 0
+			}
+		} else if key == "initiative:misc" {
+			mod, err := strconv.Atoi(stat)
+			if err != nil {
+				fmt.Println("error converting initiative misc to int: %w", err)
+			} else {
+				initBase += mod
+			}
+		}
+	}
+
 	dexMod := character.AbilityScore["dexterity"].Mod
 	character.Initiative = Skill{
 		Name:      "Initiative",
-		Mod:       dexMod,
+		Mod:       initBase + dexMod,
 		Advantage: false,
 	}
 
@@ -1786,11 +1876,6 @@ func GetCharacterData(filePath string) (Character, error) {
 	character.ProfBonus = characterInfo.ProfBonus
 	character.Level = characterInfo.TotalLevel
 	character.Money = characterInfo.Money
-
-	// fmt.Println("Stats:")
-	// for key, element := range characterInfo.Stats {
-	// 	fmt.Println(key, element)
-	// }
 
 	character.setPassiveStats()
 
