@@ -712,6 +712,77 @@ func calculateProfBonus(level int) int {
 	}
 }
 
+func parseStat(stat string, stats map[string]string) bool {
+	stat = strings.TrimPrefix(stat, "!")
+	stat = strings.Trim(stat, "[]")
+	if strings.Contains(stat, ":") {
+		parts := strings.Split(stat, ":")
+		var name = ""
+		for key, part := range parts[:len(parts)-1] {
+			if key == len(parts)-2 {
+				name += part
+			} else {
+				name += part + ":"
+			}
+		}
+		value := parts[len(parts)-1]
+		valueInt, err := strconv.Atoi(value)
+		if err != nil {
+			fmt.Println(err)
+			return false
+		}
+		if name == "str" {
+			strength := stats["strength:score"]
+			strengthInt, err := strconv.Atoi(strength)
+			if err != nil {
+				fmt.Println(err)
+				return false
+			}
+			if valueInt <= strengthInt {
+				return true
+			} else {
+				return false
+			}
+		} else if stats[name] != "" {
+			statValue := stats[name]
+			statValueInt, err := strconv.Atoi(statValue)
+			if err != nil {
+				fmt.Println(err)
+				return false
+			}
+			if valueInt <= statValueInt {
+				return true
+			} else {
+				return false
+			}
+		} else {
+			return false
+		}
+
+	}
+
+	return false
+}
+
+func checkRequirements(rawStats source.Stat, id_list []string, statsFormatted map[string]string) bool {
+	for _, requirement := range rawStats.Requirements {
+		if requirement[0] == '!' && containsEqual(id_list, requirement[1:]) {
+			// Case 1: Skip if requirement is negated and exists in id_list
+			return true
+		} else if requirement[0] != '!' && !containsEqual(id_list, requirement) {
+			// Case 2: Skip if requirement is not negated and does not exist in id_list
+			return true
+		} else if requirement[0] == '[' && !parseStat(requirement, statsFormatted) { // Stat
+			// Case 3: Skip value if stat requirement is not negated and does not exists in id_list
+			return true
+		} else if requirement[0] == '!' && requirement[1] == '[' && parseStat(requirement, statsFormatted) {
+			// Case 4: Skip value if stat requirement is negated and does not exists in id_list
+			return true
+		}
+	}
+	return false
+}
+
 func processStats(character *characterInfo) error {
 
 	// Ability Score Table,
@@ -750,9 +821,12 @@ func processStats(character *characterInfo) error {
 	filteredRawStats := []source.Stat{}
 	// Get all ability scores changes first, update them and modifiers, then process rest of stats
 	for _, stat := range character.StatsRaw {
+		skip := checkRequirements(stat, character.id_list, character.Stats)
 		switch stat.Name {
 		case "strength:score:set", "dexterity:score:set", "constitution:score:set", "intelligence:score:set", "wisdom:score:set", "charisma:score:set":
-
+			if skip {
+				continue // Skip adding this stat
+			}
 			// if current is less than set, keep current else use set, but set can't be raised above set.
 			parts := strings.Split(stat.Name, ":")
 			ability := parts[0]
@@ -784,6 +858,9 @@ func processStats(character *characterInfo) error {
 			}
 
 		case "strength:max", "dexterity:max", "constitution:max", "intelligence:max", "wisdom:max", "charisma:max":
+			if skip {
+				continue // Skip adding this stat
+			}
 			parts := strings.Split(stat.Name, ":")
 			ability := parts[0]
 			changeKey := ability + ":change"        // change key
@@ -828,6 +905,9 @@ func processStats(character *characterInfo) error {
 			}
 
 		case "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma":
+			if skip {
+				continue // Skip adding this stat
+			}
 			scoreKey := stat.Name + ":score"   // current score key
 			changeKey := stat.Name + ":change" // change key
 			maxKey := stat.Name + ":max"       // max key
@@ -871,6 +951,7 @@ func processStats(character *characterInfo) error {
 		default:
 			// filteredRawStats = append(filteredRawStats, stat) // remove ability score stats from raw stats
 			filteredRawStats = append(filteredRawStats, stat) // add to filtered raw stats
+			// by default don't skip if requirements not met.
 
 		}
 	}
@@ -885,28 +966,12 @@ func processStats(character *characterInfo) error {
 	}
 
 	for _, stat := range character.StatsRaw {
-		if len(stat.Requirements) > 0 && stat.Name == "speed" { // Check if strength requirement is met
-			re := regexp.MustCompile(`\d+`) // Matches one or more digits
-			// match := re.FindString(stat.Requirement) // Extracts the first number found
-			match := re.FindString(stat.Requirements[0]) // Extracts the first number found
-
-			strength, err := strconv.Atoi(character.Stats["strength:score"])
-			if err != nil {
-				fmt.Println(err)
-				continue
-			}
-			strengthReq, err := strconv.Atoi(match)
-			if err != nil {
-				fmt.Println(err)
-				continue
-			}
-			if strength >= strengthReq { // if pass check, then skip stat
-				continue
-			}
+		skip := checkRequirements(stat, character.id_list, character.Stats)
+		if skip {
+			continue // Skip adding this stat, if requirements not met
 		}
 
 		if character.Stats[stat.Name] != "" { // check if stat already exists
-			// Requirement and Level Checker here
 			// check if stat value is an int or a string
 			// if its an int, add it to the existing stat
 			existingValue, err := strconv.Atoi(character.Stats[stat.Name])

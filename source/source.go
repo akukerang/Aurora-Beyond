@@ -248,35 +248,8 @@ func getElement(typeName string, id string) (SourceElement, error) {
 //* <stat name="persuasion:proficiency" value="proficiency" bonus="double" requirements="ID_PROFICIENCY_SKILL_PERSUASION" />
 //* Need to have proficiency in persuasion to double proficiency bonus
 
-func contains(list []string, item string) bool {
-	for _, v := range list {
-		if v == item {
-			return true
-		}
-	}
-	return false
-}
-
-func checkStats(parentID string, stats *[]Stat, elementStats []Stat, id_list []string) {
-	for _, stat := range elementStats { // only add ability score stats
-		skip := false
-		for _, requirement := range stat.Requirements {
-			if requirement[0] == '!' && contains(id_list, requirement[1:]) {
-				// Case 1: Skip if requirement is negated and exists in id_list
-				skip = true
-				break
-			} else if requirement[0] == '[' { // Stat
-				// TODO: Handle stat-based requirements
-				// fmt.Println("stat")
-			} else if requirement[0] != '!' && !contains(id_list, requirement) {
-				// Case 2: Skip if requirement is not negated and does not exist in id_list
-				skip = true
-				break
-			}
-		}
-		if skip {
-			continue // Skip adding this stat
-		}
+func addStats(parentID string, stats *[]Stat, elementStats []Stat) {
+	for _, stat := range elementStats {
 		stat.ParentID = parentID
 		(*stats) = append((*stats), stat)
 	}
@@ -293,24 +266,6 @@ func GetStat(typeName string, id string, level int, ch chan<- Stat, errCh chan<-
 	// Append stats to the stats map
 	for _, stat := range element.Rules.Stat {
 		if stat.Level <= level {
-			skip := false
-			for _, requirement := range stat.Requirements {
-				if requirement[0] == '!' && contains(id_list, requirement[1:]) {
-					// Case 1: Skip if requirement is negated and exists in id_list
-					skip = true
-					break
-				} else if requirement[0] == '[' { // Stat
-					// TODO: Handle stat-based requirements
-					// fmt.Println("stat")
-				} else if requirement[0] != '!' && !contains(id_list, requirement) {
-					// Case 2: Skip if requirement is not negated and does not exist in id_list
-					skip = true
-					break
-				}
-			}
-			if skip {
-				continue // Skip adding this stat
-			}
 			stat.ParentID = id
 			ch <- stat
 		}
@@ -402,7 +357,7 @@ func GetRaceStats(raceID string, stats *[]Stat, id_list []string) error {
 		return fmt.Errorf("error getting race element %w", err)
 	}
 
-	checkStats(raceID, stats, element.Rules.Stat, id_list)
+	addStats(raceID, stats, element.Rules.Stat)
 	return nil
 }
 
@@ -422,7 +377,7 @@ func GetItemDetails(typeName string, id string, amount int, equipped bool, stats
 	}
 	itemDetail.Equipped = equipped
 	if itemDetail.Equipped { // if item is equipped, check rules
-		checkStats(id, stats, element.Rules.Stat, id_list)
+		addStats(id, stats, element.Rules.Stat)
 	}
 
 	itemDetail.Amount = amount
@@ -485,7 +440,7 @@ func GetArmorDetails(id string, equipped bool, stats *[]Stat, id_list []string) 
 	}
 	itemDetail.Equipped = equipped
 	if itemDetail.Equipped { // if item is equipped, check rules
-		checkStats(id, stats, element.Rules.Stat, id_list)
+		addStats(id, stats, element.Rules.Stat)
 	}
 
 	itemDetail.Name = element.Name
@@ -510,7 +465,7 @@ func GetMagicItemDetails(id string, amount int, equipped bool, stats *[]Stat, id
 	}
 	itemDetail.Equipped = equipped
 	if itemDetail.Equipped { // if item is equipped, check rules
-		checkStats(id, stats, element.Rules.Stat, id_list)
+		addStats(id, stats, element.Rules.Stat)
 	}
 
 	itemDetail.Name = element.Name
@@ -582,7 +537,7 @@ func GetAdornerItemDetails(typeName string, id string, adorner_id string, equipp
 	itemDetail.Equipped = equipped
 
 	if itemDetail.Equipped { // if item is equipped, check rules
-		checkStats(id, stats, element.Rules.Stat, id_list)
+		addStats(id, stats, element.Rules.Stat)
 	}
 	itemDetail.Description = cleanInnerXML(element.Description.InnerXML)
 	if itemDetail.Name == "" || !strings.Contains(itemDetail.Name, "{parent}") { // if no name format, use adorner name
