@@ -1483,7 +1483,6 @@ func (character *Character) setSkills(characterInfo *characterInfo) error {
 			skill = "ID_PROFICIENCY_SKILL_" + strings.ToUpper(skill)
 			if statType == "proficiency" {
 				temp := skillTable[skill]
-				fmt.Println(skill)
 				temp.Proficient = true
 				skillTable[skill] = temp
 			} else if statType == "misc" {
