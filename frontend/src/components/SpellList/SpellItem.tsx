@@ -7,6 +7,46 @@ import RollDice from "../DiceRoller/RollDice";
 type Props = {
   spell: source.Spell;
 };
+
+
+const SaveDC = (saveDC: string) => {
+  const num = saveDC.substring(0, 2)
+  const type = saveDC.substring(2, saveDC.length).trim()
+  let shortened = ""
+  switch (type) {
+    case "Strength":
+      shortened = "STR"
+      break;
+    case "Dexterity":
+      shortened = "DEX"
+      break;
+    case "Constitution":
+      shortened = "CON"
+      break;
+    case "Intelligence":
+      shortened = "INT"
+      break;
+    case "Wisdom":
+      shortened = "WIS"
+      break;
+    case "Charisma":
+      shortened = "CHA"
+      break;
+    default:
+      shortened = type
+      break;
+  }
+
+  return (
+    <div className="flex flex-col items-center">
+      <p className="font-semibold">{shortened}</p>
+      <p>{num}</p>
+    </div>
+  )
+
+}
+
+
 const SpellItem: FC<Props> = ({ spell }) => {
   const [hidden, setHidden] = useState(true);
   const note =
@@ -46,7 +86,7 @@ const SpellItem: FC<Props> = ({ spell }) => {
         {spell.Hit != 0 ? (
           <RollDice mod={spell.Hit} context={spell.Name} type="To Hit" />
         ) : spell.SaveDC != "" ? (
-          spell.SaveDC.substring(0, 2)
+          SaveDC(spell.SaveDC)
         ) : (
           "-"
         )}

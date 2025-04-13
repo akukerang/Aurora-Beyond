@@ -653,7 +653,7 @@ func formatRange(input string) string {
 func getDCAbility(text string) (string, bool) {
 	patterns := []string{
 		`must make a (\w+) saving throw`,
-		`The target must succeed on a (\w+) saving throw`,
+		`must succeed on a (\w+) saving throw`,
 	}
 
 	for _, pattern := range patterns { // check if spell saving throw case met

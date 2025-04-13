@@ -53,6 +53,7 @@ type sum struct {
 
 type portraitFile struct {
 	FileName string `xml:"local"`
+	Base64   string `xml:"base64"`
 }
 
 type Character struct { // Goes to Final
@@ -1913,14 +1914,28 @@ func GetCharacterData(filePath string) (Character, error) {
 	character.Level = characterInfo.TotalLevel
 	character.Money = characterInfo.Money
 
-	character.setPassiveStats()
+	// fmt.Println("Stats:")
+	// sortKeys := make([]string, 0, len(characterInfo.Stats))
+	// for key, value := range characterInfo.Stats {
+	// 	sortKeys = append(sortKeys, fmt.Sprintf("%s: %s", key, value))
+	// }
+	// sort.Strings(sortKeys)
+	// for _, element := range sortKeys {
+	// 	fmt.Println(element)
+	// }
 
-	imgData, err := os.ReadFile(characterInfo.PortraitFile.FileName)
-	if err != nil {
-		character.Portrait = ""
+	character.setPassiveStats()
+	if characterInfo.PortraitFile.Base64 != "" {
+		character.Portrait = characterInfo.PortraitFile.Base64
 	} else {
-		image64 := base64.StdEncoding.EncodeToString(imgData)
-		character.Portrait = image64
+		imgData, err := os.ReadFile(characterInfo.PortraitFile.FileName)
+		if err != nil {
+			character.Portrait = ""
+		} else {
+			image64 := base64.StdEncoding.EncodeToString(imgData)
+			character.Portrait = image64
+		}
 	}
+
 	return character, nil
 }
