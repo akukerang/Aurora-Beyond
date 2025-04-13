@@ -33,6 +33,8 @@ type characterInfo struct {
 	stealthDisadvantage bool
 	initAdv             bool
 	Magic               Magic `xml:"build>magic"`
+	Sum                 []sum `xml:"build>sum>element"`
+	id_list             []string
 
 	// * GOES TO FINAL CHARACTER CLASS
 	PortraitFile portraitFile `xml:"display-properties>portrait"`
@@ -43,6 +45,10 @@ type characterInfo struct {
 	Attacks      []Attack     `xml:"build>input>attacks>attack"`
 	ProfBonus    int
 	Money        Money `xml:"build>input>currency"`
+}
+
+type sum struct {
+	ID string `xml:"id,attr"`
 }
 
 type portraitFile struct {
@@ -344,7 +350,7 @@ MainLoop:
 		for ind, feat := range value.feats.Features {
 			if feat.ID != "" {
 				wg.Add(1)
-				go source.GetStat(feat.Type, feat.ID, value.totalLevel, statCh, errCh, &wg)
+				go source.GetStat(feat.Type, feat.ID, value.totalLevel, statCh, errCh, &wg, character.id_list)
 				// Replace feat level with class level
 				tempFeat := feat
 				tempFeat.Level = value.totalLevel
@@ -382,7 +388,7 @@ MainLoop:
 	}
 
 	// Gets Race Feats & Stats from source, and remove duplicate feats
-	err := source.GetRaceStats(raceData.ID, &raceData.stats) // Get the class features from source
+	err := source.GetRaceStats(raceData.ID, &raceData.stats, character.id_list) // Get the class features from source
 	if err != nil {
 		fmt.Println(err)
 	} else {
@@ -392,7 +398,7 @@ MainLoop:
 		for _, feat := range raceData.feats.Features {
 			if feat.ID != "" {
 				wg.Add(1)
-				go source.GetStat(feat.Type, feat.ID, character.TotalLevel, statCh, errCh, &wg)
+				go source.GetStat(feat.Type, feat.ID, character.TotalLevel, statCh, errCh, &wg, character.id_list)
 			}
 		}
 
@@ -429,7 +435,7 @@ MainLoop:
 	for _, feat := range backgroundData.feats.Features {
 		if feat.ID != "" {
 			wg.Add(1)
-			go source.GetStat(feat.Type, feat.ID, 0, statCh, errCh, &wg)
+			go source.GetStat(feat.Type, feat.ID, 0, statCh, errCh, &wg, characterInfo.id_list)
 		}
 	}
 
@@ -729,11 +735,6 @@ func processStats(character *characterInfo) error {
 
 	filteredRawStats := []source.Stat{}
 	// Get all ability scores changes first, update them and modifiers, then process rest of stats
-
-	for _, element := range character.StatsRaw {
-		fmt.Println(element.ParentID, element.Name, element.Value)
-	}
-
 	for _, stat := range character.StatsRaw {
 		switch stat.Name {
 		case "strength:score:set", "dexterity:score:set", "constitution:score:set", "intelligence:score:set", "wisdom:score:set", "charisma:score:set":
@@ -870,9 +871,11 @@ func processStats(character *characterInfo) error {
 	}
 
 	for _, stat := range character.StatsRaw {
-		if stat.Requirement != "" && stat.Name == "speed" { // Check if strength requirement is met
-			re := regexp.MustCompile(`\d+`)          // Matches one or more digits
-			match := re.FindString(stat.Requirement) // Extracts the first number found
+		if len(stat.Requirements) > 0 && stat.Name == "speed" { // Check if strength requirement is met
+			re := regexp.MustCompile(`\d+`) // Matches one or more digits
+			// match := re.FindString(stat.Requirement) // Extracts the first number found
+			match := re.FindString(stat.Requirements[0]) // Extracts the first number found
+
 			strength, err := strconv.Atoi(character.Stats["strength:score"])
 			if err != nil {
 				fmt.Println(err)
@@ -1110,9 +1113,9 @@ func (character *Character) setItems(characterInfo *characterInfo) error {
 			if item.Adorner != nil { // Adorner Case
 				switch {
 				case strings.Contains(item.ID, "ARMOR") || strings.Contains(item.ID, "GEAR"):
-					curr, err = source.GetAdornerItemDetails("Armor", item.ID, item.Adorner.ID, item.Equipped, &characterInfo.StatsRaw)
+					curr, err = source.GetAdornerItemDetails("Armor", item.ID, item.Adorner.ID, item.Equipped, &characterInfo.StatsRaw, characterInfo.id_list)
 				case strings.Contains(item.ID, "WEAPON"):
-					curr, err = source.GetAdornerItemDetails("Weapon", item.ID, item.Adorner.ID, item.Equipped, &characterInfo.StatsRaw)
+					curr, err = source.GetAdornerItemDetails("Weapon", item.ID, item.Adorner.ID, item.Equipped, &characterInfo.StatsRaw, characterInfo.id_list)
 				default:
 					fmt.Println("Unknown Adorner Item", item.ID)
 					err = fmt.Errorf("unknown adorner item: %s", item.ID)
@@ -1120,13 +1123,13 @@ func (character *Character) setItems(characterInfo *characterInfo) error {
 			} else { // Normal Item Case
 				switch {
 				case strings.Contains(item.ID, "ARMOR") || strings.Contains(item.ID, "GEAR"):
-					curr, err = source.GetArmorDetails(item.ID, item.Equipped, &characterInfo.StatsRaw)
+					curr, err = source.GetArmorDetails(item.ID, item.Equipped, &characterInfo.StatsRaw, characterInfo.id_list)
 				case strings.Contains(item.ID, "WEAPON"):
 					curr, err = source.GetWeaponDetails(item.ID, item.Equipped)
 				case strings.Contains(item.ID, "MAGIC_ITEM"):
-					curr, err = source.GetMagicItemDetails(item.ID, item.Amount, item.Equipped, &characterInfo.StatsRaw)
+					curr, err = source.GetMagicItemDetails(item.ID, item.Amount, item.Equipped, &characterInfo.StatsRaw, characterInfo.id_list)
 				case strings.Contains(item.ID, "ITEM"):
-					curr, err = source.GetItemDetails("Item", item.ID, item.Amount, item.Equipped, &characterInfo.StatsRaw)
+					curr, err = source.GetItemDetails("Item", item.ID, item.Amount, item.Equipped, &characterInfo.StatsRaw, characterInfo.id_list)
 				default:
 					fmt.Println("Unknown Item", item.ID, item.Amount)
 					err = fmt.Errorf("unknown item: %s", item.ID)
@@ -1620,6 +1623,10 @@ func GetCharacterData(filePath string) (Character, error) {
 	err = xml.Unmarshal(xmlData, &characterInfo) // unmarshal XML data into struct
 	if err != nil {
 		return Character{}, fmt.Errorf("error unmarshalling XML: %w", err)
+	}
+	characterInfo.id_list = []string{}
+	for _, value := range characterInfo.Sum {
+		characterInfo.id_list = append(characterInfo.id_list, value.ID)
 	}
 
 	// Filter Elements for only Level Elements
