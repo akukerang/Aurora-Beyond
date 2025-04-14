@@ -33,6 +33,8 @@ type characterInfo struct {
 	stealthDisadvantage bool
 	initAdv             bool
 	Magic               Magic `xml:"build>magic"`
+	Sum                 []sum `xml:"build>sum>element"`
+	id_list             []string
 
 	// * GOES TO FINAL CHARACTER CLASS
 	PortraitFile portraitFile `xml:"display-properties>portrait"`
@@ -45,8 +47,13 @@ type characterInfo struct {
 	Money        Money `xml:"build>input>currency"`
 }
 
+type sum struct {
+	ID string `xml:"id,attr"`
+}
+
 type portraitFile struct {
 	FileName string `xml:"local"`
+	Base64   string `xml:"base64"`
 }
 
 type Character struct { // Goes to Final
@@ -319,8 +326,6 @@ MainLoop:
 			rndHPArray, err := stringToIntArray(element.RndHP)
 			if err != nil {
 				return nil, fmt.Errorf("error turning string to int array %w", err)
-				// fmt.Println(err)
-				// continue
 			}
 			temp := classLevels[class]
 			temp.rndHP = rndHPArray // init rndHP array in classLevels
@@ -333,10 +338,7 @@ MainLoop:
 			classLevels[class] = level
 		} else {
 			return nil, fmt.Errorf("error getting class RNDHP: %s", class)
-			// fmt.Println("error getting class RNDHP: ", class)
-			// continue
 		}
-
 	}
 
 	// Gets raw stats for the class features from source
@@ -349,7 +351,7 @@ MainLoop:
 		for ind, feat := range value.feats.Features {
 			if feat.ID != "" {
 				wg.Add(1)
-				go source.GetStat(feat.Type, feat.ID, value.totalLevel, statCh, errCh, &wg)
+				go source.GetStat(feat.Type, feat.ID, value.totalLevel, statCh, errCh, &wg, character.id_list)
 				// Replace feat level with class level
 				tempFeat := feat
 				tempFeat.Level = value.totalLevel
@@ -361,15 +363,7 @@ MainLoop:
 		go func() {
 			wg.Wait()
 			close(statCh)
-			close(errCh)
 		}()
-
-		// ! ONLY THIS LOOP BREAKS THE PROGRAM, IDK WHY
-		// for err := range errCh {
-		// 	if err != nil {
-		// 		return nil, fmt.Errorf("error getting class stat: %w", err)
-		// 	}
-		// }
 
 		for result := range statCh {
 			temp.stats = append(temp.stats, result)
@@ -377,12 +371,11 @@ MainLoop:
 		classLevels[key] = temp
 
 	}
-
 	return classLevels, nil
 
 }
 
-func extractRaceData(character *characterInfo) (data, error) {
+func extractRaceData(character *characterInfo) data {
 	raceData := data{}
 MainLoop:
 	for _, element := range character.LevelElements {
@@ -396,44 +389,35 @@ MainLoop:
 	}
 
 	// Gets Race Feats & Stats from source, and remove duplicate feats
-	err := source.GetRaceStats(raceData.ID, &raceData.stats) // Get the class features from source
+	err := source.GetRaceStats(raceData.ID, &raceData.stats, character.id_list) // Get the class features from source
 	if err != nil {
-		// return data{}, fmt.Errorf("error getting source race stats: %w", err)
 		fmt.Println(err)
-	}
+	} else {
+		var wg sync.WaitGroup
+		statCh := make(chan source.Stat, len(raceData.feats.Features))
+		errCh := make(chan error, len(raceData.feats.Features))
+		for _, feat := range raceData.feats.Features {
+			if feat.ID != "" {
+				wg.Add(1)
+				go source.GetStat(feat.Type, feat.ID, character.TotalLevel, statCh, errCh, &wg, character.id_list)
+			}
+		}
 
-	var wg sync.WaitGroup
-	statCh := make(chan source.Stat, len(raceData.feats.Features))
-	errCh := make(chan error, len(raceData.feats.Features))
-	for _, feat := range raceData.feats.Features {
-		if feat.ID != "" {
-			wg.Add(1)
-			go source.GetStat(feat.Type, feat.ID, character.TotalLevel, statCh, errCh, &wg)
+		go func() {
+			wg.Wait()
+			close(statCh)
+			close(errCh)
+		}()
+
+		for result := range statCh {
+			raceData.stats = append(raceData.stats, result)
 		}
 	}
 
-	go func() {
-		wg.Wait()
-		close(statCh)
-		close(errCh)
-	}()
-
-	for err := range errCh {
-		if err != nil {
-			// return data{}, fmt.Errorf("error getting race stat: %w", err)
-			fmt.Println(err)
-			continue
-		}
-	}
-
-	for result := range statCh {
-		raceData.stats = append(raceData.stats, result)
-	}
-
-	return raceData, nil
+	return raceData
 }
 
-func extractBackgroundData(characterInfo *characterInfo) (data, error) {
+func extractBackgroundData(characterInfo *characterInfo) data {
 	backgroundData := data{}
 MainLoop:
 	for _, element := range characterInfo.LevelElements {
@@ -452,7 +436,7 @@ MainLoop:
 	for _, feat := range backgroundData.feats.Features {
 		if feat.ID != "" {
 			wg.Add(1)
-			go source.GetStat(feat.Type, feat.ID, 0, statCh, errCh, &wg)
+			go source.GetStat(feat.Type, feat.ID, 0, statCh, errCh, &wg, characterInfo.id_list)
 		}
 	}
 
@@ -464,7 +448,6 @@ MainLoop:
 
 	for err := range errCh {
 		if err != nil {
-			// return data{}, fmt.Errorf("error getting class stat: %w", err)
 			fmt.Println(err)
 			continue
 		}
@@ -474,7 +457,7 @@ MainLoop:
 		backgroundData.stats = append(backgroundData.stats, result)
 	}
 
-	return backgroundData, nil
+	return backgroundData
 }
 
 func extractOtherFeatures(character *characterInfo) data {
@@ -555,6 +538,19 @@ func getDeepestLevel(elements element, feats *[]source.FeatDetail, level int) {
 		*feats = append(*feats, temp)
 
 	} else {
+		id := ""
+		if elements.ID == "" {
+			id = elements.Registered
+		} else {
+			id = elements.ID
+		}
+		temp := source.FeatDetail{
+			Type:  elements.Type,
+			Name:  elements.Name,
+			ID:    id,
+			Level: level,
+		}
+		*feats = append(*feats, temp)
 		for _, element := range elements.Elements {
 			getDeepestLevel(element, feats, level)
 		}
@@ -716,6 +712,77 @@ func calculateProfBonus(level int) int {
 	}
 }
 
+func parseStat(stat string, stats map[string]string) bool {
+	stat = strings.TrimPrefix(stat, "!")
+	stat = strings.Trim(stat, "[]")
+	if strings.Contains(stat, ":") {
+		parts := strings.Split(stat, ":")
+		var name = ""
+		for key, part := range parts[:len(parts)-1] {
+			if key == len(parts)-2 {
+				name += part
+			} else {
+				name += part + ":"
+			}
+		}
+		value := parts[len(parts)-1]
+		valueInt, err := strconv.Atoi(value)
+		if err != nil {
+			fmt.Println(err)
+			return false
+		}
+		if name == "str" {
+			strength := stats["strength:score"]
+			strengthInt, err := strconv.Atoi(strength)
+			if err != nil {
+				fmt.Println(err)
+				return false
+			}
+			if valueInt <= strengthInt {
+				return true
+			} else {
+				return false
+			}
+		} else if stats[name] != "" {
+			statValue := stats[name]
+			statValueInt, err := strconv.Atoi(statValue)
+			if err != nil {
+				fmt.Println(err)
+				return false
+			}
+			if valueInt <= statValueInt {
+				return true
+			} else {
+				return false
+			}
+		} else {
+			return false
+		}
+
+	}
+
+	return false
+}
+
+func checkRequirements(rawStats source.Stat, id_list []string, statsFormatted map[string]string) bool {
+	for _, requirement := range rawStats.Requirements {
+		if requirement[0] == '!' && containsEqual(id_list, requirement[1:]) {
+			// Case 1: Skip if requirement is negated and exists in id_list
+			return true
+		} else if requirement[0] != '!' && !containsEqual(id_list, requirement) {
+			// Case 2: Skip if requirement is not negated and does not exist in id_list
+			return true
+		} else if requirement[0] == '[' && !parseStat(requirement, statsFormatted) { // Stat
+			// Case 3: Skip value if stat requirement is not negated and does not exists in id_list
+			return true
+		} else if requirement[0] == '!' && requirement[1] == '[' && parseStat(requirement, statsFormatted) {
+			// Case 4: Skip value if stat requirement is negated and does not exists in id_list
+			return true
+		}
+	}
+	return false
+}
+
 func processStats(character *characterInfo) error {
 
 	// Ability Score Table,
@@ -746,178 +813,147 @@ func processStats(character *characterInfo) error {
 		for key, value := range character.ClassData { // class levels
 			character.Stats["level:"+getClassName(key)] = strconv.Itoa(value.totalLevel)
 			character.Stats["level:"+getClassName(key)+":half"] = strconv.Itoa(int(math.Ceil(float64(value.totalLevel) / 2))) // TODO: look into a better way
+			character.Stats["level:"+getClassName(key)+":half:up"] = character.Stats["level:"+getClassName(key)+":half"]
+
 		}
-	}
-
-	var wg sync.WaitGroup
-	errCh := make(chan error, len(character.StatsRaw))
-	statCh := make(chan source.Stat, len(character.StatsRaw))
-	updateCh := make(chan func(), len(character.StatsRaw))
-	mu := &sync.Mutex{}
-	// Get all ability scores changes first, update them and modifiers, then process rest of stats
-	for _, stat := range character.StatsRaw {
-		wg.Add(1)
-		go func(stat source.Stat) {
-			defer wg.Done()
-			switch stat.Name {
-			case "strength:score:set", "dexterity:score:set", "constitution:score:set", "intelligence:score:set", "wisdom:score:set", "charisma:score:set":
-				updateCh <- func() {
-					mu.Lock()
-					defer mu.Unlock()
-					// if current is less than set, keep current else use set, but set can't be raised above set.
-					parts := strings.Split(stat.Name, ":")
-					ability := parts[0]
-					changeKey := ability + ":change"             // change key
-					scoreKey := ability + ":score"               // score key
-					newSetValue, err := strconv.Atoi(stat.Value) // New Set Value
-					if err != nil {
-						errCh <- err
-						return
-					}
-					oldSetvalue, err := strconv.Atoi(character.Stats[stat.Name]) // Old Set Value
-					if err != nil {
-						errCh <- err
-						return
-					}
-
-					if newSetValue > oldSetvalue { // if new set value is greater than old set value, set to new
-						character.Stats[stat.Name] = stat.Value
-					}
-					change, err := strconv.Atoi(character.Stats[changeKey]) // get total change for ability
-					if err != nil {
-						errCh <- err
-						return
-					}
-					totalScore := character.AbilityTable[ability] + change // Base + Change
-					if totalScore < newSetValue {                          // if total score is less than new set value, set to new set value
-						character.Stats[scoreKey] = strconv.Itoa(newSetValue)
-					} else {
-						character.Stats[scoreKey] = strconv.Itoa(totalScore)
-					}
-				}
-			case "strength:max", "dexterity:max", "constitution:max", "intelligence:max", "wisdom:max", "charisma:max":
-				updateCh <- func() {
-					mu.Lock()
-					defer mu.Unlock()
-					parts := strings.Split(stat.Name, ":")
-					ability := parts[0]
-					changeKey := ability + ":change"        // change key
-					setKey := ability + ":score:set"        // set key
-					scoreKey := ability + ":score"          // score key
-					newMax, err := strconv.Atoi(stat.Value) // new max
-					if err != nil {
-						errCh <- err
-						return
-					}
-					currentMax, err := strconv.Atoi(character.Stats[stat.Name]) // old max
-					if err != nil {
-						errCh <- err
-						return
-					}
-					change, err := strconv.Atoi(character.Stats[changeKey]) // get current change
-					if err != nil {
-						errCh <- err
-						return
-					}
-					if newMax > currentMax {
-
-						character.Stats[stat.Name] = stat.Value                // update max
-						setValue, err := strconv.Atoi(character.Stats[setKey]) // get set value
-						if err != nil {
-							errCh <- err
-							return
-						}
-						totalScore := character.AbilityTable[ability] + change // Base + Change
-						if setValue > totalScore {                             // if set value is greater than total score, set to set value, make sure below max
-							if setValue < 20+newMax { // if set value is less than new max, set to set value
-								character.Stats[scoreKey] = strconv.Itoa(setValue)
-							} else {
-								character.Stats[scoreKey] = strconv.Itoa(20 + newMax) // else set to max
-							}
-						} else { // if total score is greater than set value, set to total score
-							if totalScore < 20+newMax { // if set value is less than new max, set to set value
-								character.Stats[scoreKey] = strconv.Itoa(totalScore)
-							} else {
-								character.Stats[scoreKey] = strconv.Itoa(20 + newMax) // else set to max
-							}
-						}
-					}
-				}
-			case "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma":
-				updateCh <- func() {
-					mu.Lock()
-					defer mu.Unlock()
-					scoreKey := stat.Name + ":score"   // current score key
-					changeKey := stat.Name + ":change" // change key
-					maxKey := stat.Name + ":max"       // max key
-					setKey := stat.Name + ":score:set" // set key
-
-					newVal, err := strconv.Atoi(stat.Value)
-					if err != nil {
-						errCh <- err
-						return
-					}
-					currentMax, err := strconv.Atoi(character.Stats[maxKey]) // get current max
-					if err != nil {
-						errCh <- err
-						return
-					}
-					currentSet, err := strconv.Atoi(character.Stats[setKey]) // get current set
-					if err != nil {
-						errCh <- err
-						return
-					}
-					change, err := strconv.Atoi(character.Stats[changeKey]) // get change
-					if err != nil {
-						errCh <- err
-						return
-					}
-
-					newChange := change + newVal
-					character.Stats[changeKey] = strconv.Itoa(newChange)
-
-					baseValue := character.AbilityTable[stat.Name] // get base value
-					newScore := baseValue + newChange              // calculate new score
-
-					if newScore > currentSet { // check if above set value
-						if newScore < 20+currentMax { // if new score is less than max, set to new score
-							character.Stats[scoreKey] = strconv.Itoa(newScore)
-						} else {
-							character.Stats[scoreKey] = strconv.Itoa(20 + currentMax) // else set to max
-						}
-					} // if less than current set keep as current set.
-				}
-			default:
-				// filteredRawStats = append(filteredRawStats, stat) // remove ability score stats from raw stats
-				statCh <- stat // send to channel for processing
-
-			}
-
-		}(stat)
-	}
-	go func() {
-		wg.Wait()
-		close(errCh)
-		close(updateCh)
-		close(statCh)
-	}()
-
-	for err := range errCh {
-		if err != nil {
-			// return fmt.Errorf("error getting stats: %w", err)
-			fmt.Println(err)
-			continue
-		}
-	}
-
-	for update := range updateCh {
-		update()
 	}
 
 	filteredRawStats := []source.Stat{}
+	// Get all ability scores changes first, update them and modifiers, then process rest of stats
+	for _, stat := range character.StatsRaw {
+		skip := checkRequirements(stat, character.id_list, character.Stats)
+		switch stat.Name {
+		case "strength:score:set", "dexterity:score:set", "constitution:score:set", "intelligence:score:set", "wisdom:score:set", "charisma:score:set":
+			if skip {
+				continue // Skip adding this stat
+			}
+			// if current is less than set, keep current else use set, but set can't be raised above set.
+			parts := strings.Split(stat.Name, ":")
+			ability := parts[0]
+			changeKey := ability + ":change"             // change key
+			scoreKey := ability + ":score"               // score key
+			newSetValue, err := strconv.Atoi(stat.Value) // New Set Value
+			if err != nil {
+				fmt.Println(err)
+				continue
+			}
+			oldSetValue, err := strconv.Atoi(character.Stats[stat.Name]) // Old Set Value
+			if err != nil {
+				fmt.Println(err)
+				continue
+			}
+			if newSetValue > oldSetValue { // if new set value is greater than old set value, set to new
+				character.Stats[stat.Name] = stat.Value
+			}
+			change, err := strconv.Atoi(character.Stats[changeKey]) // get total change for ability
+			if err != nil {
+				fmt.Println(err)
+				continue
+			}
+			totalScore := character.AbilityTable[ability] + change // Base + Change
+			if totalScore < newSetValue {                          // if total score is less than new set value, set to new set value
+				character.Stats[scoreKey] = strconv.Itoa(newSetValue)
+			} else {
+				character.Stats[scoreKey] = strconv.Itoa(totalScore)
+			}
 
-	for stat := range statCh {
-		filteredRawStats = append(filteredRawStats, stat) // add to filtered raw stats
+		case "strength:max", "dexterity:max", "constitution:max", "intelligence:max", "wisdom:max", "charisma:max":
+			if skip {
+				continue // Skip adding this stat
+			}
+			parts := strings.Split(stat.Name, ":")
+			ability := parts[0]
+			changeKey := ability + ":change"        // change key
+			setKey := ability + ":score:set"        // set key
+			scoreKey := ability + ":score"          // score key
+			newMax, err := strconv.Atoi(stat.Value) // new max
+			if err != nil {
+				fmt.Println(err)
+				continue
+			}
+			currentMax, err := strconv.Atoi(character.Stats[stat.Name]) // old max
+			if err != nil {
+				fmt.Println(err)
+				continue
+			}
+			change, err := strconv.Atoi(character.Stats[changeKey]) // get current change
+			if err != nil {
+				fmt.Println(err)
+				continue
+			}
+			if newMax > currentMax {
+				character.Stats[stat.Name] = stat.Value                // update max
+				setValue, err := strconv.Atoi(character.Stats[setKey]) // get set value
+				if err != nil {
+					fmt.Println(err)
+					continue
+				}
+				totalScore := character.AbilityTable[ability] + change // Base + Change
+				if setValue > totalScore {                             // if set value is greater than total score, set to set value, make sure below max
+					if setValue < 20+newMax { // if set value is less than new max, set to set value
+						character.Stats[scoreKey] = strconv.Itoa(setValue)
+					} else {
+						character.Stats[scoreKey] = strconv.Itoa(20 + newMax) // else set to max
+					}
+				} else { // if total score is greater than set value, set to total score
+					if totalScore < 20+newMax { // if set value is less than new max, set to set value
+						character.Stats[scoreKey] = strconv.Itoa(totalScore)
+					} else {
+						character.Stats[scoreKey] = strconv.Itoa(20 + newMax) // else set to max
+					}
+				}
+			}
+
+		case "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma":
+			if skip {
+				continue // Skip adding this stat
+			}
+			scoreKey := stat.Name + ":score"   // current score key
+			changeKey := stat.Name + ":change" // change key
+			maxKey := stat.Name + ":max"       // max key
+			setKey := stat.Name + ":score:set" // set key
+
+			newVal, err := strconv.Atoi(stat.Value)
+			if err != nil {
+				fmt.Println(err)
+				continue
+			}
+			currentMax, err := strconv.Atoi(character.Stats[maxKey]) // get current max
+			if err != nil {
+				fmt.Println(err)
+				continue
+			}
+			currentSet, err := strconv.Atoi(character.Stats[setKey]) // get current set
+			if err != nil {
+				fmt.Println(err)
+				continue
+			}
+			change, err := strconv.Atoi(character.Stats[changeKey]) // get change
+			if err != nil {
+				fmt.Println(err)
+				continue
+			}
+
+			newChange := change + newVal
+			character.Stats[changeKey] = strconv.Itoa(newChange)
+
+			baseValue := character.AbilityTable[stat.Name] // get base value
+			newScore := baseValue + newChange              // calculate new score
+
+			if newScore > currentSet { // check if above set value
+				if newScore < 20+currentMax { // if new score is less than max, set to new score
+					character.Stats[scoreKey] = strconv.Itoa(newScore)
+				} else {
+					character.Stats[scoreKey] = strconv.Itoa(20 + currentMax) // else set to max
+				}
+			} // if less than current set keep as current set.
+
+		default:
+			// filteredRawStats = append(filteredRawStats, stat) // remove ability score stats from raw stats
+			filteredRawStats = append(filteredRawStats, stat) // add to filtered raw stats
+			// by default don't skip if requirements not met.
+
+		}
 	}
 	character.StatsRaw = filteredRawStats
 
@@ -929,87 +965,45 @@ func processStats(character *characterInfo) error {
 		character.Stats[key+":modifier"] = strconv.Itoa(calculateMod(value))
 	}
 
-	errCh = make(chan error, len(character.StatsRaw))
-	updateCh = make(chan func(), len(character.StatsRaw))
-
-	for _, s := range character.StatsRaw {
-		wg.Add(1)
-		go func(stat source.Stat) {
-			defer wg.Done()
-			updateCh <- func() {
-				defer mu.Unlock()
-				mu.Lock()
-				if stat.Requirement != "" && stat.Name == "speed" { // Check if strength requirement is met
-					re := regexp.MustCompile(`\d+`)          // Matches one or more digits
-					match := re.FindString(stat.Requirement) // Extracts the first number found
-
-					strength, err := strconv.Atoi(character.Stats["strength:score"])
-					if err != nil {
-						errCh <- err
-						return
-					}
-					strengthReq, err := strconv.Atoi(match)
-					if err != nil {
-						errCh <- err
-						return
-					}
-					if strength >= strengthReq { // if pass check, then skip stat
-						return
-					}
-				}
-
-				if character.Stats[stat.Name] != "" { // check if stat already exists
-					// Requirement and Level Checker here
-					// check if stat value is an int or a string
-					// if its an int, add it to the existing stat
-					existingValue, err := strconv.Atoi(character.Stats[stat.Name])
-					if err != nil {
-						errCh <- err
-						return
-					}
-
-					if newValue, err := strconv.Atoi(stat.Value); err == nil {
-						character.Stats[stat.Name] = strconv.Itoa(existingValue + newValue)
-
-					} else if character.Stats[stat.Value] != "" {
-						// if its a string, check if its a another stat value or a string
-						// check if stat value is a key in character.stats
-						newValue, err := strconv.Atoi(character.Stats[stat.Value])
-						if err != nil {
-							errCh <- err
-							return
-						}
-						character.Stats[stat.Name] = strconv.Itoa(existingValue + newValue)
-					} else { // just a string, add
-						// character.Stats[stat.Name] = character.Stats[stat.Name] + stat.Value // for debugging
-						character.Stats[stat.Name] = stat.Value
-					}
-				} else {
-					// initialize stat value for that key
-					if character.Stats[stat.Value] != "" { // check if stat value is a key in character.stats
-						character.Stats[stat.Name] = character.Stats[stat.Value]
-					} else {
-						character.Stats[stat.Name] = stat.Value
-					}
-				}
-			}
-		}(s)
-	}
-	go func() {
-		wg.Wait()
-		close(errCh)
-		close(updateCh)
-	}()
-	for err := range errCh {
-		if err != nil {
-			// return fmt.Errorf("error getting stats: %w", err)
-			fmt.Println(err)
-			continue
+	for _, stat := range character.StatsRaw {
+		skip := checkRequirements(stat, character.id_list, character.Stats)
+		if skip {
+			continue // Skip adding this stat, if requirements not met
 		}
-	}
 
-	for update := range updateCh {
-		update()
+		if character.Stats[stat.Name] != "" { // check if stat already exists
+			// check if stat value is an int or a string
+			// if its an int, add it to the existing stat
+			existingValue, err := strconv.Atoi(character.Stats[stat.Name])
+			if err != nil {
+				fmt.Println(err)
+				continue
+			}
+
+			if newValue, err := strconv.Atoi(stat.Value); err == nil {
+				character.Stats[stat.Name] = strconv.Itoa(existingValue + newValue)
+
+			} else if character.Stats[stat.Value] != "" {
+				// if its a string, check if its a another stat value or a string
+				// check if stat value is a key in character.stats
+				newValue, err := strconv.Atoi(character.Stats[stat.Value])
+				if err != nil {
+					fmt.Println(err)
+					continue
+				}
+				character.Stats[stat.Name] = strconv.Itoa(existingValue + newValue)
+			} else { // just a string, add
+				// character.Stats[stat.Name] = character.Stats[stat.Name] + stat.Value // for debugging
+				character.Stats[stat.Name] = stat.Value
+			}
+		} else {
+			// initialize stat value for that key
+			if character.Stats[stat.Value] != "" { // check if stat value is a key in character.stats
+				character.Stats[stat.Name] = character.Stats[stat.Value]
+			} else {
+				character.Stats[stat.Name] = stat.Value
+			}
+		}
 	}
 
 	character.StatsRaw = []source.Stat{} // clear raw stats
@@ -1040,60 +1034,14 @@ func combineRawStats(stats ...[]source.Stat) []source.Stat {
 // * Class Object Setters
 func (character *Character) setFeatsAndProfs(characterInfo *characterInfo) error {
 	// Get Feats and Profs from Class, Race, Background
-	var wg sync.WaitGroup
-	errCh := make(chan error, 4)
-	classData := make(map[string]classData)
-	raceData := data{}
-	backgroundData := data{}
-	otherData := data{}
-	err := error(nil)
-
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-		classData, err = extractClassData(characterInfo)
-		if err != nil {
-			errCh <- fmt.Errorf("error extracting class data: %w", err)
-		}
-		characterInfo.ClassData = classData
-	}()
-
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-		raceData, err = extractRaceData(characterInfo)
-		if err != nil {
-			errCh <- fmt.Errorf("error extracting race data: %w", err)
-		}
-	}()
-
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-		backgroundData, err = extractBackgroundData(characterInfo)
-		if err != nil {
-			errCh <- fmt.Errorf("error extracting background data: %w", err)
-		}
-	}()
-
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-		otherData = extractOtherFeatures(characterInfo)
-	}()
-
-	go func() {
-		wg.Wait()
-		close(errCh)
-	}()
-
-	for err := range errCh {
-		if err != nil {
-			// return err
-			fmt.Println(err)
-			continue
-		}
+	classData, err := extractClassData(characterInfo)
+	if err != nil {
+		return fmt.Errorf("error extracting class data: %w", err)
 	}
+	raceData := extractRaceData(characterInfo)
+	backgroundData := extractBackgroundData(characterInfo)
+	otherData := extractOtherFeatures(characterInfo)
+	characterInfo.ClassData = classData
 
 	// Combine Feats
 	characterInfo.Feats = combineFeats(
@@ -1127,6 +1075,7 @@ func (character *Character) setFeatsAndProfs(characterInfo *characterInfo) error
 	)
 
 	// Sort Proficiencies
+	var wg sync.WaitGroup
 	savingCh := make(chan string, len(characterInfo.Feats.Profs))
 	armorCh := make(chan string, len(characterInfo.Feats.Profs))
 	weaponCh := make(chan string, len(characterInfo.Feats.Profs))
@@ -1184,7 +1133,7 @@ func (character *Character) setFeatsAndProfs(characterInfo *characterInfo) error
 	processStats(characterInfo)
 
 	featDetailCh := make(chan source.Detail, len(characterInfo.Feats.Features))
-	errCh = make(chan error, len(characterInfo.Feats.Features))
+	errCh := make(chan error, len(characterInfo.Feats.Features))
 	// Final Feat List
 	for _, feat := range characterInfo.Feats.Features {
 		wg.Add(1)
@@ -1243,9 +1192,9 @@ func (character *Character) setItems(characterInfo *characterInfo) error {
 			if item.Adorner != nil { // Adorner Case
 				switch {
 				case strings.Contains(item.ID, "ARMOR") || strings.Contains(item.ID, "GEAR"):
-					curr, err = source.GetAdornerItemDetails("Armor", item.ID, item.Adorner.ID, item.Equipped, &characterInfo.StatsRaw)
+					curr, err = source.GetAdornerItemDetails("Armor", item.ID, item.Adorner.ID, item.Equipped, &characterInfo.StatsRaw, characterInfo.id_list)
 				case strings.Contains(item.ID, "WEAPON"):
-					curr, err = source.GetAdornerItemDetails("Weapon", item.ID, item.Adorner.ID, item.Equipped, &characterInfo.StatsRaw)
+					curr, err = source.GetAdornerItemDetails("Weapon", item.ID, item.Adorner.ID, item.Equipped, &characterInfo.StatsRaw, characterInfo.id_list)
 				default:
 					fmt.Println("Unknown Adorner Item", item.ID)
 					err = fmt.Errorf("unknown adorner item: %s", item.ID)
@@ -1253,13 +1202,13 @@ func (character *Character) setItems(characterInfo *characterInfo) error {
 			} else { // Normal Item Case
 				switch {
 				case strings.Contains(item.ID, "ARMOR") || strings.Contains(item.ID, "GEAR"):
-					curr, err = source.GetArmorDetails(item.ID, item.Equipped, &characterInfo.StatsRaw)
+					curr, err = source.GetArmorDetails(item.ID, item.Equipped, &characterInfo.StatsRaw, characterInfo.id_list)
 				case strings.Contains(item.ID, "WEAPON"):
 					curr, err = source.GetWeaponDetails(item.ID, item.Equipped)
 				case strings.Contains(item.ID, "MAGIC_ITEM"):
-					curr, err = source.GetMagicItemDetails(item.ID, item.Amount, item.Equipped, &characterInfo.StatsRaw)
+					curr, err = source.GetMagicItemDetails(item.ID, item.Amount, item.Equipped, &characterInfo.StatsRaw, characterInfo.id_list)
 				case strings.Contains(item.ID, "ITEM"):
-					curr, err = source.GetItemDetails("Item", item.ID, item.Amount, item.Equipped, &characterInfo.StatsRaw)
+					curr, err = source.GetItemDetails("Item", item.ID, item.Amount, item.Equipped, &characterInfo.StatsRaw, characterInfo.id_list)
 				default:
 					fmt.Println("Unknown Item", item.ID, item.Amount)
 					err = fmt.Errorf("unknown item: %s", item.ID)
@@ -1294,7 +1243,7 @@ func (character *Character) setItems(characterInfo *characterInfo) error {
 	return nil
 }
 
-func (character *Character) setAC(characterInfo *characterInfo) error {
+func (character *Character) setAC(characterInfo *characterInfo) {
 	armorType := ""
 	armorClass := 0
 	for _, item := range character.Inventory {
@@ -1302,12 +1251,14 @@ func (character *Character) setAC(characterInfo *characterInfo) error {
 			armorType = *item.ArmorType
 		}
 	}
-
 	for key, stats := range characterInfo.Stats { // adds together all ac stats
 		if strings.Contains(key, "ac:") {
 			acStat, err := strconv.Atoi(stats)
+			if strings.Contains(key, "calculation") {
+				armorClass = acStat
+				break
+			}
 			if err != nil {
-				// return fmt.Errorf("error converting AC stat to int: %w", err)
 				fmt.Println("error converting AC stat to int:", err)
 				continue
 			}
@@ -1328,12 +1279,9 @@ func (character *Character) setAC(characterInfo *characterInfo) error {
 		dexMod := character.AbilityScore["dexterity"].Mod
 		armorClass += dexMod
 		character.AC = armorClass
+	default:
+		character.AC = armorClass
 	}
-	if character.AC == 0 {
-		character.AC = 10 + character.AbilityScore["dexterity"].Mod // unarmored ac
-	}
-	return nil
-
 }
 
 func (character *Character) setHP(characterInfo *characterInfo) error {
@@ -1397,14 +1345,9 @@ func (character *Character) setSpells(characterInfo *characterInfo) error {
 
 		for err := range errCh {
 			if err != nil {
-				// errs = append(errs, err)
-				fmt.Println("error getting spell details:", err)
-				continue
+				fmt.Println("error getting spell detail:", err)
 			}
 		}
-		// if len(errs) > 0 {
-		// 	return fmt.Errorf("error getting spell details: %v", errs)
-		// }
 
 		for cantrip := range cantripCh {
 			cantrips = append(cantrips, cantrip...)
@@ -1418,7 +1361,6 @@ func (character *Character) setSpells(characterInfo *characterInfo) error {
 		class.Spells = spells
 		characterInfo.Magic.ClassSpells[i] = class // update the class spells in characterInfo
 	}
-
 	character.Magic = characterInfo.Magic
 	return nil
 }
@@ -1437,6 +1379,24 @@ func (character *Character) setSpeed(characterInfo *characterInfo) error {
 		}
 	}
 	return nil
+}
+
+func contains(list []string, item string) bool {
+	for _, v := range list {
+		if strings.Contains(item, v) {
+			return true
+		}
+	}
+	return false
+}
+
+func containsEqual(list []string, item string) bool {
+	for _, v := range list {
+		if v == item {
+			return true
+		}
+	}
+	return false
 }
 
 func (character *Character) setSkills(characterInfo *characterInfo) error {
@@ -1551,11 +1511,59 @@ func (character *Character) setSkills(characterInfo *characterInfo) error {
 		},
 	}
 
-	for _, skill := range characterInfo.SkillProf { // Gets proficiency from proficiency list
+	// Gets proficiency from proficiency list
+	for _, skill := range characterInfo.SkillProf {
 		temp := Skill{}
 		temp = skillTable[skill]
 		temp.Proficient = true
 		skillTable[skill] = temp // set skill to true
+	}
+	skillList := []string{
+		"acrobatics",
+		"animal handling",
+		"arcana",
+		"athletics",
+		"deception",
+		"history",
+		"insight",
+		"intimidation",
+		"investigation",
+		"medicine",
+		"nature",
+		"perception",
+		"performance",
+		"persuasion",
+		"religion",
+		"sleight of hand",
+		"stealth",
+		"survival",
+	}
+
+	// Checks stats for skill mods
+	for name, statValue := range characterInfo.Stats {
+		if contains(skillList, name) {
+			parts := strings.Split(name, ":")
+			skill := parts[0]
+			statType := parts[1]
+			skill = strings.ReplaceAll(skill, " ", "_")
+			skill = "ID_PROFICIENCY_SKILL_" + strings.ToUpper(skill)
+			if statType == "proficiency" {
+				temp := skillTable[skill]
+				temp.Proficient = true
+				skillTable[skill] = temp
+			} else if statType == "misc" {
+				value, err := strconv.Atoi(statValue)
+				if err != nil {
+					fmt.Println("error converting stat value to int:", err)
+				} else {
+					temp := skillTable[skill]
+					temp.Mod += value
+					skillTable[skill] = temp
+				}
+			}
+
+		}
+
 	}
 
 	// Check for stealth disadvantage
@@ -1570,7 +1578,7 @@ func (character *Character) setSkills(characterInfo *characterInfo) error {
 			mod += characterInfo.ProfBonus // add proficiency bonus
 		}
 		tempSkill := value
-		tempSkill.Mod = mod
+		tempSkill.Mod += mod
 		character.Skills[value.Name] = tempSkill
 	}
 	return nil
@@ -1625,6 +1633,34 @@ func (character *Character) setSavingThrows(characterInfo *characterInfo) error 
 	}
 	character.SavingThrows = make(map[string]Skill)
 
+	abilityList := []string{
+		"strength:save:misc",
+		"dexterity:save:misc",
+		"constitution:save:misc",
+		"intelligence:save:misc",
+		"wisdom:save:misc",
+		"charisma:save:misc",
+	}
+
+	for name, statValue := range characterInfo.Stats {
+		if containsEqual(abilityList, name) {
+			parts := strings.Split(name, ":")
+			ability := parts[0]
+			statType := parts[2]
+			ability = "ID_PROFICIENCY_SAVINGTHROW_" + strings.ToUpper(ability)
+			if statType == "misc" {
+				value, err := strconv.Atoi(statValue)
+				if err != nil {
+					fmt.Println("error converting stat value to int:", err)
+				} else {
+					temp := savingThrows[ability]
+					temp.Mod += value
+					savingThrows[ability] = temp
+				}
+			}
+		}
+	}
+
 	for _, value := range savingThrows { // set skill modifiers, check for proficiency
 		mod := character.AbilityScore[value.Ability].Mod
 		if value.Proficient {
@@ -1640,10 +1676,29 @@ func (character *Character) setSavingThrows(characterInfo *characterInfo) error 
 }
 
 func (character *Character) setInitiative(characterInfo *characterInfo) error {
+	var initBase int
+	var err error
+	// check stats
+	for key, stat := range characterInfo.Stats {
+		if key == "initiative" {
+			initBase, err = strconv.Atoi(stat)
+			if err != nil {
+				initBase = 0
+			}
+		} else if key == "initiative:misc" {
+			mod, err := strconv.Atoi(stat)
+			if err != nil {
+				fmt.Println("error converting initiative misc to int: %w", err)
+			} else {
+				initBase += mod
+			}
+		}
+	}
+
 	dexMod := character.AbilityScore["dexterity"].Mod
 	character.Initiative = Skill{
 		Name:      "Initiative",
-		Mod:       dexMod,
+		Mod:       initBase + dexMod,
 		Advantage: false,
 	}
 
@@ -1761,6 +1816,10 @@ func GetCharacterData(filePath string) (Character, error) {
 	if err != nil {
 		return Character{}, fmt.Errorf("error unmarshalling XML: %w", err)
 	}
+	characterInfo.id_list = []string{}
+	for _, value := range characterInfo.Sum {
+		characterInfo.id_list = append(characterInfo.id_list, value.ID)
+	}
 
 	// Filter Elements for only Level Elements
 	var wg sync.WaitGroup
@@ -1867,10 +1926,7 @@ func GetCharacterData(filePath string) (Character, error) {
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
-		err = character.setAC(&characterInfo)
-		if err != nil {
-			errCh <- fmt.Errorf("error getting AC: %w", err)
-		}
+		character.setAC(&characterInfo)
 	}()
 
 	wg.Add(1)
@@ -1923,14 +1979,28 @@ func GetCharacterData(filePath string) (Character, error) {
 	character.Level = characterInfo.TotalLevel
 	character.Money = characterInfo.Money
 
-	character.setPassiveStats()
+	// fmt.Println("Stats:")
+	// sortKeys := make([]string, 0, len(characterInfo.Stats))
+	// for key, value := range characterInfo.Stats {
+	// 	sortKeys = append(sortKeys, fmt.Sprintf("%s: %s", key, value))
+	// }
+	// sort.Strings(sortKeys)
+	// for _, element := range sortKeys {
+	// 	fmt.Println(element)
+	// }
 
-	imgData, err := os.ReadFile(characterInfo.PortraitFile.FileName)
-	if err != nil {
-		character.Portrait = ""
+	character.setPassiveStats()
+	if characterInfo.PortraitFile.Base64 != "" {
+		character.Portrait = characterInfo.PortraitFile.Base64
 	} else {
-		image64 := base64.StdEncoding.EncodeToString(imgData)
-		character.Portrait = image64
+		imgData, err := os.ReadFile(characterInfo.PortraitFile.FileName)
+		if err != nil {
+			character.Portrait = ""
+		} else {
+			image64 := base64.StdEncoding.EncodeToString(imgData)
+			character.Portrait = image64
+		}
 	}
+
 	return character, nil
 }

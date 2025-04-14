@@ -78,23 +78,24 @@ type ItemDetail struct {
 type Rules struct {
 	Stat  []Stat  `xml:"stat"`
 	Grant []Grant `xml:"grant"`
-	// <Select> should be in the Characther sheet, so no need from here
 }
 
 type Stat struct {
-	ParentID    string
-	Name        string `xml:"name,attr"`
-	Value       string `xml:"value,attr"`
-	Level       int    `xml:"level,attr"`
-	Bonus       string `xml:"bonus,attr"`
-	Requirement string `xml:"requirements,attr"`
+	ParentID string
+	Name     string `xml:"name,attr"`
+	Value    string `xml:"value,attr"`
+	Level    int    `xml:"level,attr"`
+	Bonus    string `xml:"bonus,attr"`
+	// Requirement string `xml:"requirements,attr"`
+	Requirements []string
 }
 
 type Grant struct {
-	Type        string `xml:"type,attr"`
-	ID          string `xml:"id,attr"`
-	Level       int    `xml:"level,attr"`
-	Requirement string `xml:"requirements,attr"`
+	Type  string `xml:"type,attr"`
+	ID    string `xml:"id,attr"`
+	Level int    `xml:"level,attr"`
+	// Requirement      string `xml:"requirements,attr"`
+	Requirements []string
 }
 
 type Setters struct {
@@ -142,25 +143,80 @@ type Dice struct {
 	Text  string
 }
 
-func getElement(typeName string, id string) (SourceElement, error) {
+func parseRequirements(input string) []string {
+	var results []string
+	input = strings.TrimSpace(input)
+	// Case 1: !(...||...||...)
+	if strings.HasPrefix(input, "!(") && strings.Contains(input, "||") {
+		inner := strings.TrimPrefix(input, "!(")
+		inner = strings.TrimSuffix(inner, ")")
+		parts := strings.Split(inner, "||")
+		for _, part := range parts {
+			results = append(results, "!"+strings.TrimSpace(part))
+		}
+		return results
+	}
+	//Case 2, !(..), !(..),..
+	if strings.HasPrefix(input, "!") && strings.Contains(input, ",") {
+		parts := strings.Split(input, ",")
+		for _, part := range parts {
+			results = append(results, "!"+strings.TrimSpace(part))
+		}
+		return results
+	}
+	//Case 3, One element
+	if input != "" {
+		return []string{input}
+	}
 
-	// filePath := "Types/" + typeName + ".xml"
+	return results
+}
+
+func (s *Stat) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	type Alias Stat
+	aux := &struct {
+		RequirementsString string `xml:"requirements,attr"`
+		Requirements       []string
+		*Alias
+	}{
+		Alias: (*Alias)(s),
+	}
+	aux.Alias = (*Alias)(s)
+	err := d.DecodeElement(aux, &start)
+	if err != nil {
+		return err
+	}
+	aux.Requirements = parseRequirements(aux.RequirementsString)
+	s.Requirements = aux.Requirements
+	return nil
+}
+func (g *Grant) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	type Alias Grant
+	aux := &struct {
+		RequirementsString string `xml:"requirements,attr"`
+		Requirements       []string
+		*Alias
+	}{
+		Alias: (*Alias)(g),
+	}
+	aux.Alias = (*Alias)(g)
+	err := d.DecodeElement(aux, &start)
+	if err != nil {
+		return err
+	}
+	aux.Requirements = strings.Split(aux.RequirementsString, ",")
+	g.Requirements = aux.Requirements
+
+	return nil
+}
+
+func getElement(typeName string, id string) (SourceElement, error) {
 	filePath := fmt.Sprintf("Types/%s.xml", typeName)
 
 	xmlData, err := typeFS.ReadFile(filePath)
 	if err != nil {
 		return SourceElement{}, fmt.Errorf("error reading embedded file %w", err)
 	}
-	// file, err := os.Open(filePath)
-	// if err != nil {
-	// 	return SourceElement{}, fmt.Errorf("error opening file %w", err)
-	// }
-	// defer file.Close()
-
-	// xmlData, err := io.ReadAll(file)
-	// if err != nil {
-	// 	return SourceElement{}, fmt.Errorf("error reading file %w", err)
-	// }
 
 	var items SourceInfo
 	err = xml.Unmarshal(xmlData, &items) // unmarshal XML data into struct
@@ -192,7 +248,14 @@ func getElement(typeName string, id string) (SourceElement, error) {
 //* <stat name="persuasion:proficiency" value="proficiency" bonus="double" requirements="ID_PROFICIENCY_SKILL_PERSUASION" />
 //* Need to have proficiency in persuasion to double proficiency bonus
 
-func GetStat(typeName string, id string, level int, ch chan<- Stat, errCh chan<- error, wg *sync.WaitGroup) {
+func addStats(parentID string, stats *[]Stat, elementStats []Stat) {
+	for _, stat := range elementStats {
+		stat.ParentID = parentID
+		(*stats) = append((*stats), stat)
+	}
+}
+
+func GetStat(typeName string, id string, level int, ch chan<- Stat, errCh chan<- error, wg *sync.WaitGroup, id_list []string) {
 	defer wg.Done()
 	element, err := getElement(typeName, id)
 	if err != nil {
@@ -287,22 +350,18 @@ func GetDetails(typeName string, id string, level int, stats map[string]string) 
 	return details, nil
 }
 
-func GetRaceStats(raceID string, stats *[]Stat) error {
+func GetRaceStats(raceID string, stats *[]Stat, id_list []string) error {
 	element, err := getElement("Race", raceID)
 
 	if err != nil {
 		return fmt.Errorf("error getting race element %w", err)
 	}
 
-	for _, stat := range element.Rules.Stat { // only add ability score stats
-		stat.ParentID = raceID
-		(*stats) = append((*stats), stat)
-	}
-
+	addStats(raceID, stats, element.Rules.Stat)
 	return nil
 }
 
-func GetItemDetails(typeName string, id string, amount int, equipped bool, stats *[]Stat) (ItemDetail, error) {
+func GetItemDetails(typeName string, id string, amount int, equipped bool, stats *[]Stat, id_list []string) (ItemDetail, error) {
 	itemDetail := ItemDetail{}
 	element, err := getElement(typeName, id)
 	if err != nil {
@@ -318,10 +377,7 @@ func GetItemDetails(typeName string, id string, amount int, equipped bool, stats
 	}
 	itemDetail.Equipped = equipped
 	if itemDetail.Equipped { // if item is equipped, check rules
-		for _, stat := range element.Rules.Stat {
-			stat.ParentID = id
-			(*stats) = append((*stats), stat)
-		}
+		addStats(id, stats, element.Rules.Stat)
 	}
 
 	itemDetail.Amount = amount
@@ -355,7 +411,7 @@ func GetWeaponDetails(id string, equipped bool) (ItemDetail, error) {
 	return itemDetail, nil
 }
 
-func GetArmorDetails(id string, equipped bool, stats *[]Stat) (ItemDetail, error) {
+func GetArmorDetails(id string, equipped bool, stats *[]Stat, id_list []string) (ItemDetail, error) {
 	itemDetail := ItemDetail{}
 	element, err := getElement("Armor", id)
 	if err != nil {
@@ -384,12 +440,7 @@ func GetArmorDetails(id string, equipped bool, stats *[]Stat) (ItemDetail, error
 	}
 	itemDetail.Equipped = equipped
 	if itemDetail.Equipped { // if item is equipped, check rules
-		for _, stat := range element.Rules.Stat {
-			stat.ParentID = id
-			(*stats) = append((*stats), stat)
-
-		}
-
+		addStats(id, stats, element.Rules.Stat)
 	}
 
 	itemDetail.Name = element.Name
@@ -398,7 +449,7 @@ func GetArmorDetails(id string, equipped bool, stats *[]Stat) (ItemDetail, error
 	return itemDetail, nil
 }
 
-func GetMagicItemDetails(id string, amount int, equipped bool, stats *[]Stat) (ItemDetail, error) {
+func GetMagicItemDetails(id string, amount int, equipped bool, stats *[]Stat, id_list []string) (ItemDetail, error) {
 	itemDetail := ItemDetail{}
 	element, err := getElement("Magic Item", id)
 	if err != nil {
@@ -414,10 +465,7 @@ func GetMagicItemDetails(id string, amount int, equipped bool, stats *[]Stat) (I
 	}
 	itemDetail.Equipped = equipped
 	if itemDetail.Equipped { // if item is equipped, check rules
-		for _, stat := range element.Rules.Stat {
-			stat.ParentID = id
-			(*stats) = append((*stats), stat)
-		}
+		addStats(id, stats, element.Rules.Stat)
 	}
 
 	itemDetail.Name = element.Name
@@ -427,7 +475,7 @@ func GetMagicItemDetails(id string, amount int, equipped bool, stats *[]Stat) (I
 
 }
 
-func GetAdornerItemDetails(typeName string, id string, adorner_id string, equipped bool, stats *[]Stat) (ItemDetail, error) {
+func GetAdornerItemDetails(typeName string, id string, adorner_id string, equipped bool, stats *[]Stat, id_list []string) (ItemDetail, error) {
 	itemDetail := ItemDetail{}
 	element, err := getElement("Magic Item", adorner_id)
 	if err != nil {
@@ -461,7 +509,7 @@ func GetAdornerItemDetails(typeName string, id string, adorner_id string, equipp
 		itemDetail.DMGType = parentItem.DMGType
 		itemDetail.Range = parentItem.Range
 	case "Armor":
-		parentItem, err := GetArmorDetails(id, equipped, stats)
+		parentItem, err := GetArmorDetails(id, equipped, stats, id_list)
 		if err != nil {
 			return itemDetail, fmt.Errorf("error getting Adorned Parent Armor %w", err)
 		}
@@ -489,10 +537,7 @@ func GetAdornerItemDetails(typeName string, id string, adorner_id string, equipp
 	itemDetail.Equipped = equipped
 
 	if itemDetail.Equipped { // if item is equipped, check rules
-		for _, stat := range element.Rules.Stat {
-			stat.ParentID = id
-			(*stats) = append((*stats), stat)
-		}
+		addStats(id, stats, element.Rules.Stat)
 	}
 	itemDetail.Description = cleanInnerXML(element.Description.InnerXML)
 	if itemDetail.Name == "" || !strings.Contains(itemDetail.Name, "{parent}") { // if no name format, use adorner name
@@ -563,7 +608,7 @@ func formatRange(input string) string {
 func getDCAbility(text string) (string, bool) {
 	patterns := []string{
 		`must make a (\w+) saving throw`,
-		`The target must succeed on a (\w+) saving throw`,
+		`must succeed on a (\w+) saving throw`,
 	}
 
 	for _, pattern := range patterns { // check if spell saving throw case met
