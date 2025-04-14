@@ -25,7 +25,6 @@ A D&D Beyond inspired app, using the functionality of [Aurora](https://aurorabui
 - **Notes** - Keep track of important notes
 
 ## Current Limitations
-
-- Only supports content from the [original Aurora elements](https://github.com/aurorabuilder/elements).
+- Only supports content from the [AuroraLegacy elements](https://github.com/AuroraLegacy/elements).
 - Doesn't support any direct editing, make changes via Aurora.
 - Not updated to the latest version of 5e (2024).
